@@ -1,0 +1,41 @@
+.filter-bg {
+	background-color: #D8E5EC;
+}
+#orgenrol_container .bootstrap-duallistbox-container select {
+    border: none;
+    box-shadow: 1px 1px 2px 0 #00000026;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+#page-local-organization-orgenrol .box {
+	float: left;
+}
+#page-local-organization-orgenrol .box3 {
+	margin-top: 170px;
+	text-align: center;
+}
+#org_details_container{
+    border: 1px solid #E9EDEF;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #F8F8F8;
+    margin-top: 15px;
+    margin-bottom: 3rem;
+}
+#org_details_table{
+    margin-bottom: 0;
+}
+#org_details_table thead th{
+    border-top: none;
+}
+.global_filter_structure{
+    margin-bottom: 15px;
+}
+
+.local_organization_sync_error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    margin-bottom: 7px;
+    padding: 6px;
+}
+

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/teamsmeeting/db" VERSION="20200408" COMMENT="XMLDB file for MS Teams module"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="teamsmeeting" COMMENT="each record is one url resource">
+      	<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+			<FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+			<FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+			<FIELD NAME="subject" TYPE="text" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+			<FIELD NAME="isrecuring" TYPE="int" LENGTH="4" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+			<FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+			<FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="false" SEQUENCE="false" COMMENT="Format of description field"/>
+			<FIELD NAME="start_time" TYPE="int" LENGTH="12" NOTNULL="false" SEQUENCE="false" COMMENT="Meeting start time"/>
+			<FIELD NAME="end_time" TYPE="int" LENGTH="12" NOTNULL="false" SEQUENCE="false" COMMENT="Meeting End time"/>
+			<FIELD NAME="duration" TYPE="int" LENGTH="12" NOTNULL="false" SEQUENCE="false" COMMENT="Meeting Duration"/>
+			<FIELD NAME="meetingid" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+			<FIELD NAME="meetingurl" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+			<FIELD NAME="metadata" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+			<FIELD NAME="isreportgenerated" LENGTH="10" TYPE="int" NOTNULL="false" DEFAULT="0" COMMENT="checks if report is fetched"/>
+			<FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+			<FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+		</FIELDS>
+      	<KEYS>
+        	<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      	</KEYS>
+      	<INDEXES>
+        	<INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      	</INDEXES>
+    </TABLE>
+	<TABLE NAME="mod_teams_attendance" COMMENT="store attendance information for the meeting">
+      	<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+			<FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+			<FIELD NAME="module" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+			<FIELD NAME="onlinemeetingid" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Online Meeting Id of Teams Event Generated from join url"/>
+			<FIELD NAME="email" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Email id of the attendee"/>
+			<FIELD NAME="totaltime" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Total time spent by user in the meeting"/>
+			<FIELD NAME="reportid" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Report id of the meeting"/>
+			<FIELD NAME="role" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Role of user in the meeting"/>
+		</FIELDS>
+		<KEYS>
+        	<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      	</KEYS>
+      	<INDEXES>
+        	<INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      	</INDEXES> 
+	</TABLE>
+	<TABLE NAME="teams_attendance_intervals" COMMENT="store attendance intervals">
+      	<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+			<FIELD NAME="attendanceid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+			<FIELD NAME="joindatetime" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Joined Date Time"/>
+			<FIELD NAME="leavedatetime" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Leave Date Time"/>
+			<FIELD NAME="duration" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Total Duration"/>
+		</FIELDS>
+		<KEYS>
+        	<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      	</KEYS>
+		<INDEXES>
+        	<INDEX NAME="mod_teamsmeeting_attendance" UNIQUE="false" FIELDS="attendanceid"/>
+      	</INDEXES> 
+	</TABLE>
+  </TABLES>
+</XMLDB>

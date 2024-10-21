@@ -1,0 +1,901 @@
+.content_wrapper .allcontent_wrapper,#questionbank_container .review_exams_container{
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #FDFDFD;
+}
+.content_wrapper #exam_tabs .nav-link{
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+.content_wrapper #exam_tabs .nav-link:not(.active){
+    color: #98A9B4;
+}
+.content_wrapper #exam_tabs .nav-link.active{
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+.content_wrapper .exam_content  {
+    border-bottom: 1px solid #D4DBE0;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+}
+.content_wrapper .exam_content .examtitle {
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.content_wrapper .exam_content .exam_details_div{
+    padding: 1rem;
+    background-color: #E9ECF0;
+    border-radius: 10px;
+    border: 1px solid #E7EBED;
+    justify-content: space-between;
+}
+.content_wrapper .exam_content .exam_details_div div{
+    width: 135px;
+    margin: 8px 0 15px 0px;
+}
+.content_wrapper .exam_content .exam_details_div h6{
+    font-size: 0.8rem;
+    margin-top: 5px;
+    
+}
+.content_wrapper .exam_content .exam_details_div h5{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+.content_wrapper .exam_content .exam_action_container{
+    display: flex;
+}
+.content_wrapper .exam_content .exam_action_container .btn{
+    background-color: transparent;
+    padding: 0.3rem 0.45rem;
+    border-radius: 5px;
+    line-height: 1;
+    font-size: 1rem;
+    margin-right: 0.6rem;
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+.review_exams_container .review_exam_actions a:not(:first-child){
+    margin-left: 10px;
+}
+.review_exams_container .exam_main_container{
+    margin-top: -2px;
+}
+.content_wrapper .review_exams_container .exam_action_container .btn{
+    margin-top: 0;
+}
+/* My Exams */
+#mycontent_wrapper .allcontent_wrapper,#mycontent_wrapper .review_exams_container{
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #FDFDFD;
+}
+#mycontent_wrapper #exam_tabs .nav-link{
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#mycontent_wrapper #exam_tabs .nav-link:not(.active){
+    color: #98A9B4;
+}
+#mycontent_wrapper #exam_tabs .nav-link.active{
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#mycontent_wrapper .exam_content  {
+    border-bottom: 1px solid #D4DBE0;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+}
+#mycontent_wrapper .exam_content .examtitle{
+    font-weight: bold;
+}
+#mycontent_wrapper .exam_content .exam_details_div{
+    padding: 1rem;
+    background-color: #E9ECF0;
+    border-radius: 10px;
+    border: 1px solid #E7EBED;
+}
+#mycontent_wrapper .exam_content .exam_details_div div{
+    width: 135px;
+    margin: 5px 0;
+}
+#mycontent_wrapper .exam_content .exam_details_div h6{
+    font-size: 0.8rem;
+    margin-top: 5px;
+    
+}
+#mycontent_wrapper .exam_content .exam_details_div h5{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+#mycontent_wrapper .exam_content .exam_action_container{
+    display: flex;
+}
+#mycontent_wrapper .exam_content .exam_action_container .btn{
+    background-color: transparent;
+    padding: 0.3rem 0.45rem;
+    border-radius: 5px;
+    line-height: 1;
+    font-size: 1rem;
+    margin-right: 0.6rem;
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+body#page-local-exams-index #filters_form.collapsibleregion{
+    box-sizing: inherit;
+}
+#page-local-exams-index #filters_form #filters_form_inner .form-submit {
+    max-width: 80px;
+}
+#filters_form {
+    background-color: transparent;
+}
+@media (min-width: 1218px) and (max-width: 1300px){
+    body#page-local-exams-index #filters_form #mform1 .autocomplete .form-autocomplete-downarrow {
+        position: absolute;
+        left: 85%;
+        top: 10px;
+    }
+}
+@media (max-width: 543px){
+    body#page-local-exams-indexx #category_tbl tbody td {width: 100% !important;float: left;}
+    body#page-local-exams-index .catcourses_list .cat_btm{text-align: center;}
+    body#page-local-exams-index #filters_form .mform .form-inline input[type=text].form-control {
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+    body#page-local-exams-index #filters_form #mform1 .autocomplete .form-autocomplete-downarrow {
+        left: 90%;
+    }
+}
+
+/*exams qualifications*/
+
+#exams_qualifications_list_container #find_input_group .form-control:first-child {
+    border-radius: 25px;
+}
+#exams_qualifications_list_container #find_input_group div .piximg {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+}
+#exams_qualifications_list_container #find_input_group div .piximg .icon {
+    width: 20px;
+}
+#exams_qualifications_list_container #find_input_group ~ div {
+    width: 100%;
+}
+#exams_qualifications_list_container #exams_qualifications_container .exams_qualications_wrapper {
+    border: 1px solid #E7EBED;
+    border-radius: 20px;
+}
+#exams_qualifications_list_container #exams_qualifications_container .exams_qualications_wrapper .examsimagecontainer {
+    background-image: url(/f-academy-4/theme/image.php?theme=academy&component=local_uidesigns&image=eventsampleimage);
+    width: 200px;
+    background-position: center;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.exams_qualications_wrapper .pricelabelcontainer {
+    margin-top: 5px;
+}
+#exams_qualifications_list_container #find_input_group .form-control {
+    height: 45px;
+    padding-left: 35px;
+    border-color: #E5EAEC;
+    border-width: 2px;
+}
+.exams_qualications_wrapper .pricelabelcontainer .examprice {
+    font-weight: normal;
+    color: #000;
+    margin: 0;
+}
+#exams_qualifications_list_container .exams_details_div {
+    padding: 1rem;
+    background-color: #E9ECF0;
+    border-radius: 10px;
+    border: 1px solid #E7EBED;
+}
+#exams_qualifications_list_container .exams_details_div div {
+    margin: 5px 0;
+    margin-right: 25px;
+}
+#exams_qualifications_list_container .exams_details_div h6 {
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+#exams_qualifications_list_container .exams_details_div h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* exam details styles */ 
+
+#examdetails_container .examdetails_wrapper .examdetailsimagecontainer {
+    background-image: url(/f-academy-4/theme/image.php?theme=academy&component=local_uidesigns&image=eventsampleimage);
+    width: 100%;
+    background-position: center;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 169px;
+}
+#examdetails_container .examprice span {
+    font-weight: 500;
+}
+#examdetails_container .examdetails_fontsize {
+    font-size: 20px;
+}
+#examdetails_container .purchase_btn{
+    width: 85%;
+    border-radius: 6px;
+}
+#examdetails_container .competencies table th {
+    background: #e9ecf0;
+}
+#examdetails_container .competencies table th,
+#examdetails_container .competencies table td{
+    padding: 20px;
+}
+#examdetails_container .competencies table tr {
+    border: 1px solid #e7ebed;
+}
+#examdetails_container .exams_details_div {
+    padding: 1rem;
+    background-color: #fdfeff;
+    border-radius: 10px;
+    border: 1px solid #E7EBED;
+}
+#examdetails_container .select_btn {
+    padding: 0.4rem 2rem;
+    background-color: #fdfeff;
+    border-radius: 7px;
+    border: 1px solid #E7EBED;
+}
+
+#examdetails_container .add_cart_btn{
+    background-color: #fff;
+    border-radius: 0;
+    color: #397EC1;
+}
+#examdetails_container .buy_now_btn{
+    border-radius: 0;
+}
+.content_wrapper .piximg.clockicon {
+    width: 20px;
+}
+.content_wrapper .piximg.clockicon img{
+    width: 25px;
+}
+.content_wrapper .examdetails .exam_details_div {
+    padding: 1rem 0px;
+    background-color: #FFFFFF;
+    border-radius: 0px;
+    border: none;
+    border-top: 1px solid #E7EBED;
+    border-bottom: 1px solid #E7EBED;    
+}
+.piximg.completed .icon {
+    width: 30px;
+    height: 30px;
+
+}
+#questionbank_container .launchbtn .icon {
+    width: 100px;
+    margin-bottom: 10px;
+}
+/*exams block css*/
+
+
+
+#exams_block_container {
+    border:0;
+    border-radius: 15px;
+    padding: 0 1rem;
+    background-color: transparent;
+}
+#exams_block_container #exams_tabs .nav-link.active {
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#exams_block_container #exams_tabs .nav-link {
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#exams_block_container #exams_tabs .nav-link:not(.active) {
+    color: #98A9B4;
+}
+#exams_block_container .exams_content_table thead tr th {
+    border-top: none;
+    border-bottom: 2px solid #c3cad0;
+    padding: 10px 0px;
+}
+#exams_block_container .exams_content_table{
+    margin-top: 20px;
+}
+
+#exams_block_container .btn {
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+#exams_block_container  .launch_btn.btn {
+    border-radius: 25px;
+}
+#exams_block_container .exams_content_table .coursesimg {
+    background-image:url('[[pix:local_uidesigns|eventsampleimage]]');
+    width: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80px;
+    border-radius: 50%;
+}
+#exams_block_container .exams_content_table tbody tr td {
+    border-bottom: 1px solid #eee;
+}
+#exams_block_container .exams_content_table tbody tr:last-child td {
+    border-bottom: 0px;
+}
+#exams_block_container .exams_content_table tbody tr td {
+    padding: 15px 0px;
+}
+/* new theme styles  */ 
+#exams_block_container .block_header{
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+#exams_block_container .block_header .nav-tabs{
+    margin-bottom: -2px;
+}
+
+#exams_block_container .morebtn .icon{
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+/* new theme examdetailscontainer page styles */ 
+.examdetailsicon{
+    background-image: url('[[pix:local_exams|examdetailsicon]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-width: 60px;
+    min-height: 60px;
+}
+#examdetailscontainer .btn-downloadpdf{
+    border-width:1px;
+    border-style: solid;
+}
+
+#examdetailscontainer .btn-downloadpdf .piximg .icon{
+    width: 20px;
+}
+#examdetailscontainer .mainsectioncontainer{
+    padding-right: 245px;
+}
+#examdetailscontainer .mainsectioncontainer .programdesc{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 66px;
+}
+#examdetailscontainer .mainsectioncontainer .sectors_covered_container .sector_div{
+    padding: 6px 20px;
+}
+#examdetailscontainer .mainsectioncontainer .sectors_covered_container .sector_div .checkicon{
+    width: 25px;
+}
+#examdetailscontainer .pricedetails_container{
+    width: 200px;
+    right: 30px;
+}
+#examdetailscontainer .pricedetails_container .regbtn{
+    background-color:#14a99b;
+}
+#examdetailscontainer ul li{
+    display: flex;
+    align-items: center;
+}
+#examdetailscontainer ul li:not(.page-item)::before{
+    content: "";
+    background-image: url('[[pix:local_exams|hexagonlisticon]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+}
+#examdetailscontainer .avail_dates_container .piximg .icon{
+    width: 20px;
+}
+#examdetailscontainer .avail_dates_container .statuslabel{
+    display: inline-block;
+    padding: 4px 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: absolute;
+    top: -26px;
+    right: 10px;
+    font-size: 12px;
+    
+}
+#examdetailscontainer .avail_dates_container .statuslabel.complete{
+    background-color: #ff5d68;
+    color: #fff;
+}
+#examdetailscontainer .avail_dates_container .statuslabel.complete>span{
+    background-color: #be000d;
+}
+#examdetailscontainer .avail_dates_container .statuslabel.open{
+    background-color: #00b577;
+    color: #fff;
+}
+#examdetailscontainer .avail_dates_container .statuslabel.open>span{
+    background-color: #fff;
+}
+#examdetailscontainer .avail_dates_container .statuslabel>span{
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+#examdetailscontainer .toindicator::after,#examdetailscontainer .toindicator::before{
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-image: url('[[pix:local_exams|dotcircle]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#examdetailscontainer .toindicator>span{
+    border-bottom: 1px dashed #000;
+    height: 1px;
+
+}
+#examdetailscontainer .program_agenda .programs_section_header{
+    padding: 12px 15px;
+    background-color: #0a4890;
+    border:1px solid #0a4890;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#examdetailscontainer .program_agenda .programs_section_header>div{
+    margin-top: -3px;
+}
+#examdetailscontainer .program_agenda .programs_section_header::after{
+    content: "\f078";
+    font-family: FontAwesome;
+    margin-left: 10px;
+}
+#examdetailscontainer .program_agenda .programs_section_header.collapsed::after{
+    content: "\f054";
+}   
+#examdetailscontainer .program_agenda .programs_section_header.collapsed{
+    background-color: #e6ecf4;
+    color: #0a4890;
+}
+#examdetailscontainer .program_agenda .programs_section_content_container{
+    padding: 0px 15px;
+}
+#examdetailscontainer .sessions_list li{
+    padding: 15px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#examdetailscontainer .sessions_list li:last-child{
+    border-bottom: none;
+}
+#examdetailscontainer .competencies_table thead tr td:last-child{
+    width: 70px;
+}
+/* new theme program detail page styles ended */ 
+#page-local-exams-exams_qualification .programs_container div[data-region="paged-content-page"] {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+#page-local-exams-exams_qualification .mform .felement .form-control {
+    background-color: #fff!important;
+    border: 1px solid #8f959e52;
+}
+
+#page-local-exams-exams_qualification .form-autocomplete-selection {
+    color: #fff!important;
+}
+
+#page-local-exams-exams_qualification .custom-select {
+    background-color: #fff!important;
+    border: 1px solid #8f959e52;
+}
+
+#page-local-exams-exams_qualification .col-form-label {
+    display: none!important;
+}
+#page-local-exams-exams_qualification .programs_container div[data-region="paged-content-page"] {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* filter styles front */
+#page-local-exams-exams_qualification .filterscontainer form.mform{
+    display: flex;
+    flex-wrap: wrap;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_sectors{
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 10px 0;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_examdatetime,
+#page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_enddate{
+    flex: 0 0 37.5%;
+    max-width: 37.5%;
+    margin: 10px 0;
+    justify-content: end;
+    align-items: end;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform .felement{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform .felement div.d-md-inline-block{
+    padding-right: 10px;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_program_competencylevel div.d-md-inline-block{
+    padding-right: 0px;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform .felement div.d-md-inline-block,
+#page-local-exams-exams_qualification .filterscontainer form.mform .felement div.d-md-inline-block input{
+    width: 100%;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform .felement .form-autocomplete-selection{
+    min-height: auto;
+    margin: 0;
+}
+#page-local-exams-exams_qualification .filterscontainer form.mform a{
+    color:#fff !important
+}
+#page-local-exams-exams_qualification .programs_container div[data-region="paging-control-container"]{
+    display: none;
+}
+@media (max-width: 768px) { 
+    #page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_sectors{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    #page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_examdatetime,
+    #page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_enddate{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+        justify-content: end;
+        align-items: end;
+    }
+}
+@media (max-width: 1300px) and (min-width: 768px) { 
+    #page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_sectors{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    #page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_examdatetime,
+    #page-local-exams-exams_qualification .filterscontainer form.mform #fitem_id_enddate{
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin: 10px 0;
+        justify-content: end;
+        align-items: end;
+    }
+}
+
+#examdetailscontainer .cart_btn .btn {
+    border: 1px solid #dee2e6;
+}
+#page-local-exams-exams_qualification .filterscontainer {
+    color: #fff;
+}
+
+.reservationheadings {
+    border-bottom: 1px solid #3076b9 !important;
+}
+#examdetailscontainer .available_times_container .varient_selection_div>div .btn {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    font-size: .8203125rem;
+    line-height: 1.5;
+}
+#examdetailscontainer .available_times_container .varient_selection_div {
+    border-color: #3076b9!important;
+    border-radius: 5px;
+}
+.avail_dates_container .piximg .icon{
+    width: 20px;
+}
+.avail_dates_container .statuslabel{
+    display: inline-block;
+    padding: 4px 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: absolute;
+    top: -26px;
+    right: 10px;
+    font-size: 12px;
+    
+}
+.avail_dates_container .statuslabel.complete{
+    background-color: #ff5d68;
+    color: #fff;
+}
+.avail_dates_container .statuslabel.complete>span{
+    background-color: #be000d;
+}
+.avail_dates_container .statuslabel.open{
+    background-color: #00b577;
+    color: #fff;
+}
+.avail_dates_container .statuslabel.open>span{
+    background-color: #fff;
+}
+.avail_dates_container .statuslabel>span{
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.available_times_container .varient_selection_div>div {
+    flex: 1;
+}
+
+.avail_dates_container .statuslabel.completed {
+     background-color: #ff5d68; 
+     color: #fff; 
+}
+.avail_dates_container .statuslabel.inprogress {
+     background-color: #ffc107; 
+     color: #fff; 
+}
+
+#page-local-exams-index .form-autocomplete-suggestions li[aria-selected=true]:not(:hover) {
+    background-color: #fff !important;
+    color: #1d2125 !important;
+    outline: 0;
+    box-shadow:none !important; 
+}
+#page-local-exams-index .form-autocomplete-suggestions li[data-value=""] {
+    display: none !important;
+}
+
+.jobfamilylist {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jobfamilylist li::before {
+    background-image: none !important;
+    content: "\f053" !important; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    margin-right: 5px !important;
+    width: auto !important;
+    height: auto !important;
+    margin-top: 5px !important;
+}
+
+.targetname {
+    padding: 0px 10px 0px 5px;
+}
+.selecthall .global_filter_structure {
+    display: none;
+}
+
+#exams_block_container .launch_btn{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 130px;
+    background-image: url('[[pix:local_exams|launchbtnbg]]');
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 20px;
+    flex-direction: column;
+}
+#exams_block_container .launch_btn:after{
+    content: "";
+    display: flex;
+    width: 20px;
+    height: 16px;
+    background-image: url('[[pix:theme_academy|homepage/showallbtnarrow]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 2px;
+}
+#exams_block_container .launch_btn span{
+    font-size: 100%;
+    margin-top: 8px;
+}
+body.dir-rtl #exams_block_container .launch_btn:after{
+    transform: rotate(180deg);
+}
+
+/* exam reservation front page styles  */
+
+#examdetailscontainer #halls_section{
+    border: none;
+    padding: 0;
+}
+#page-local-exams-exams_qualification_details form#viewexams, #page-local-exams-examdetails form#viewexams {
+    display: flex;
+    flex-wrap: wrap;
+}
+#page-local-exams-exams_qualification_details .col-form-label,
+#page-local-exams-examdetails #halls_section .col-form-label {
+    display: none!important;
+}
+#page-local-exams-exams_qualification_details form#viewexams .felement,
+#page-local-exams-examdetails form#viewexams .felement {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+}
+#page-local-exams-exams_qualification_details form#viewexams>.fitem,
+#page-local-exams-examdetails form#viewexams>.fitem {
+    flex: 0 0 35%;
+    max-width: 35%;
+    margin: 10px 0;
+}
+#page-local-exams-exams_qualification_details form#viewexams #fitem_id_type .form-inline,
+#page-local-exams-examdetails form#viewexams #fitem_id_type .form-inline{
+    align-items: end !important;
+}
+#page-local-exams-exams_qualification_details form#viewexams .felement div.d-md-inline-block,
+#page-local-exams-examdetails form#viewexams .felement div.d-md-inline-block{
+    padding-right: 10px;
+}
+#page-local-exams-exams_qualification_details form#viewexams .felement div.d-md-inline-block,
+#page-local-exams-exams_qualification_details form#viewexams .felement div.d-md-inline-block input,
+#page-local-exams-examdetails form#viewexams .felement div.d-md-inline-block,
+#page-local-exams-examdetails form#viewexams .felement div.d-md-inline-block input {
+    width: 100%;
+}
+#page-local-exams-exams_qualification_details form#viewexams .felement select,
+#page-local-exams-examdetails form#viewexams .felement select{
+    width: 100%;
+    margin-right: 10px;
+}
+#page-local-exams-exams_qualification_details form#viewexams #fitem_id_examdatetime, 
+#page-local-exams-exams_qualification_details form#viewexams #fitem_id_enddate,
+#page-local-exams-examdetailss form#viewexams #fitem_id_examdatetime, 
+#page-local-exams-examdetails form#viewexams #fitem_id_enddate {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin: 10px 0;
+    justify-content: end;
+    align-items: end;
+}
+@media (max-width: 768px) { 
+    #page-local-exams-exams_qualification_details form#viewexams>.fitem,
+    #page-local-exams-examdetails form#viewexams>.fitem {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    #page-local-exams-exams_qualification_details form#viewexams #fitem_id_examdatetime, 
+    #page-local-exams-exams_qualification_details form#viewexams #fitem_id_enddate,
+    #page-local-exams-examdetails form#viewexams #fitem_id_examdatetime, 
+    #page-local-exams-examdetails form#viewexams #fitem_id_enddate {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+        justify-content: end;
+        align-items: end;
+    }
+}
+#page-local-exams-examdetails form#viewexams>#fitem_id_halladdress, #page-local-exams-exams_qualification_details form#viewexams>#fitem_id_halladdress{
+    flex: 0 0 70%;
+    max-width: 70%;
+    margin: 10px 0;
+}
+
+#page-local-exams-examusers .replacebtn {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+   /*width: 20px;
+    height: 20px;*/
+    background-image: url('[[pix:local_exams|replace]]');
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 20px;
+    flex-direction: column;
+}
+#page-local-exams-examusers .cancelbtn {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+   /*width: 20px;
+    height: 20px;*/
+    background-image: url('[[pix:local_exams|cancel]]');
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 20px;
+    flex-direction: column;
+}
+.replacebtn .icon {
+    /* background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; */
+    width: 20px;
+    height: 20px;
+    /* background-image: url('[[pix:local_exams|replace]]');
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 20px;
+    flex-direction: column; */
+}
+.downloadcertificates {
+    float: right;
+}
+.fixed-bottom.bg-red{
+    background-color: #FF0000!important;
+    color: #fff!important;
+    
+}
+#page-local-exams-examenrollment #filter_form.collapsed {
+    height: 23px!important;
+}
+#page-local-exams-examenrollment #filter_form {
+    height: auto!important;
+}

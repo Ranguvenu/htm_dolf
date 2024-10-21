@@ -1,0 +1,10 @@
+<div class="row profileeditor">
+<div class="col align-self-end">
+<a tabindex="0" role="button" class="btn btn-secondary float-right" data-jobfamilyid ={{jobid}} data-shared data-action="createjobrole_level">{{#str}}addrole, local_sector{{/str}}</a>
+</div>
+</div>
+{{#js}}
+    require(['local_sector/jobrole_level'], function(s) {
+        s.init();
+    });
+{{/js}}

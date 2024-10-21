@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/lmsws/db" VERSION="20230228" COMMENT="XMLDB file for Moodle local/lmsws"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_lmsws_fapayload" COMMENT="Default comment for local_lmsws, please edit me">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="apiname" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="name of the API"/>
+        <FIELD NAME="faid" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="req" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="parameter passes to access api"/>
+        <FIELD NAME="refid" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Reference ID"/>
+        <FIELD NAME="typ" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="API Name"/>
+        <FIELD NAME="inid" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="INID"/>
+        <FIELD NAME="crat" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Created Time"/>
+        <FIELD NAME="fav" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="restm" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="sts" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="status"/>
+        <FIELD NAME="res" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="response from the API"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="externalprovider_userdetails" COMMENT="Default comment for the table, please edit me">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="externaluserid" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="externalprovidername" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="createdtime" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="updatedtime" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="3" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

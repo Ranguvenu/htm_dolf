@@ -1,0 +1,41 @@
+  {{#response}}
+  {{#records}}      
+          <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">{{# str}} name, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} email, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} organization, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} requested_on, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} status , local_userapproval{{/ str}}</th>
+                  <th class="text-center">{{# str}} actions , local_userapproval{{/ str}}</th>
+                 
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                  <td>{{{fullname}}}</td>             
+                  <td>{{email}}</td> 
+                  <td>{{orgname}}</td>              
+                  <td>{{timecreated}}</td>              
+                  <td>{{requeststatus}}</td>
+                  <td class="text-center">
+                      {{# actions}}
+                      <button class="launch_btn btn btn-danger btn-sm" data-id={{requestid}} data-orgid="{{orgid}}" data-userid="{{userid}}" data-username="{{fullname}}"data-orgname="{{orgname}}" data-action="rejectorgrequest">{{# str}} reject, local_userapproval{{/ str}}</button>
+                        <button class="launch_btn btn btn-primary btn-sm" data-id={{requestid}} data-orgid="{{orgid}}" data-userid="{{userid}}" data-username="{{fullname}}" data-orgname="{{orgname}}" data-action="approveorgrequest">{{# str}} approve, local_userapproval{{/ str}}</button>
+                     {{/ actions}}
+                    </td>              
+                                                         
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+  {{#js}}
+      require(['local_userapproval/dynamicForm'], function(s) {
+        s.init();
+    });
+{{/js}}
+     {{/ records}}
+{{/ response}}
+       

@@ -1,0 +1,15 @@
+<div class="row profileeditor">
+    {{# createquestionbank}}
+    <div class="col align-self-end">
+        <a href="{{config.wwroot}}./questionbank.php?form_status=0&st=new"  tabindex="0" role="button" class="btn btn-secondary float-right mr-2">
+        <i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createquestionbank, local_questionbank{{/str}}</a>
+         <a href="{{prodqb}}" tabindex="0" role="button" class="btn btn-secondary float-right mr-2">
+         {{#str}}productionqb, local_questionbank{{/str}}</a>
+    </div>
+    {{/ createquestionbank}}
+    {{# questionbankview}}
+    <div class="col align-self-end">
+        <a href="{{config.wwroot}}./index.php"  tabindex="0" role="button" class="btn btn-secondary float-right mr-2">{{#str}}backtoview, local_questionbank{{/str}}</a>
+    </div>
+    {{/ questionbankview}}
+</div>

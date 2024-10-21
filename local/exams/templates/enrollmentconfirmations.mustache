@@ -1,0 +1,81 @@
+{{#response}}
+    {{#records}}
+    <div class= "table-responsive">
+        <table class="table">
+            <thead style="width:100%;background-color:#004c98e3" class="text-light">
+                <tr>
+                  <th scope="col" class="rounded-left">{{# str}} identitynumber, local_exams{{/ str}}</th>
+                  <th scope="col">{{# str}} fullname, local_exams{{/ str}}</th>
+                   <th scope="col">{{# str}} exam_name, local_exams{{/ str}}</th>
+                   <th scope="col">{{# str}} examcode, local_exams{{/ str}}</th>
+                    <th scope="col">{{# str}} profilecode, local_exams{{/ str}}</th>
+                    <th scope="col">{{# str}} profilelanguage, local_exams{{/ str}}</th>
+                    <th scope="col">{{# str}} attemptno, local_exams{{/ str}}</th>
+                    <th scope="col">{{# str}} attemptfee, local_exams{{/ str}}</th>
+                    <th scope="col">{{# str}} examdate, local_exams{{/ str}}</th>
+                    <th scope="col" >{{# str}} clarification, local_exams{{/ str}}</th>
+                    {{# hasinvoice}}
+                      <th class="rounded-right">{{# str}} actions, local_exams{{/ str}}</th>
+                    {{/ hasinvoice}}
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+            {{# actionview}} 
+              <tr style="width:100%;background-color:#0080002e">
+            {{/ actionview}} 
+            {{^ actionview }}
+              <tr style="width:100%;background-color:#ff00001f">
+            {{/ actionview}} 
+                  <td>{{identitynumber}}</a></td>
+                  <td>{{fullname}}</td>
+                  <td>{{examname}}</td>
+                  <td>{{examcode}}</td>
+                  <td>{{profilecode}}</td>
+                  <td>{{profilelang}}</td>
+                  <td>{{attemptnumber}}</td>
+                  <td>{{attemptfee}}</td>
+                  <td>{{examdateandtime}}</td>
+                  {{# actionview}} 
+                  <td class="validrecord">{{# str}} valid, local_exams{{/ str}}</td>
+                  {{/ actionview}} 
+                  {{^ actionview }}
+                    <td class="invalidrecord"><a href="#" data-toggle="tooltip" data-html="true" title="<ul class='text-left'>{{#errormessage}} <li> {{message}} </li>{{/errormessage}}</ul>">{{# str}} invalid, local_exams{{/ str}}</a></td>
+                  {{/ actionview}} 
+                  {{# hasinvoice}}
+                    <td>
+                      {{# actionview}} 
+                        <div class="flex-wrap align-items-center d-flex action_btns">
+                          <a href="#" data-action="removeuserconfirmation" data-rootid={{examid}} data-fieldid={{profileid}} data-id={{userid}} data-type="exam"  data-name="{{fullname}}"  data-idnumber={{identitynumber}} data-toggle="tooltip" title="{{# str}} remove_selected_users, local_exams{{/ str}}"><span class="bg-danger text-white"><i class="fa fa-remove" aria-hidden="true"></i></span></a>
+                        </div>
+                      {{/ actionview}}
+                    </td> 
+                  {{/ hasinvoice}}    
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+        </div>
+    {{/ records}}
+    {{# invoice}}
+      <table class="table">
+        <thead style="width:100%;background-color:#004c98e3" class="text-light"> 
+          <th>{{# str}} totalfees, local_exams{{/ str}} : {{fee}} {{# str}} sar, local_exams{{/ str}} </th> 
+          {{# discount}}
+            <th>{{# str}} discount, local_exams{{/ str}} : {{discount}} {{# str}} sar, local_exams{{/ str}}</th> 
+          {{/ discount}}
+          <th>{{# str}} vat, local_exams{{/ str}} : {{vat}} {{# str}} sar, local_exams{{/ str}}</th> 
+          <th class="rounded-right">{{# str}} totalamount, local_exams{{/ str}} : {{total}} {{# str}} sar, local_exams{{/ str}}</th>
+          </tr>
+        </thead>
+      </table>
+    {{/ invoice}}
+    <div class="text-right my-3">
+      <a href="{{config.wwroot}}./bulk_enrollment.php?examid={{examid}}&profileid={{profileid}}&cusers={{cusers}}" class="launch_btn btn btn-secondary btn-sm"  data-examid = {{examid}} data-profileid="{{profileid}}"  data-cusers="{{cusers}}" >{{#str}} cancel, local_exams{{/str}}</a>
+      {{# hasinvoice}}
+        <a href="#" class="launch_btn btn btn-primary btn-sm" data-action = "confirmbulkenrolluser"  data-rootid = {{examid}} data-fieldid="{{profileid}}" data-roleid = "{{roleid}}" data-cusers="{{cusers}}"  data-organization="{{organization}}" data-scheduleid="{{scheduleid}}"  data-orgofficial="{{orgofficial}}" data-actionfor = "exams" data-discount = {{discount}} data-discounttableid = {{discounttableid}} data-discounttype = {{discounttype}} >{{#str}} confirm, local_exams{{/str}}</a>
+      {{/ hasinvoice}}
+    <div>
+{{/ response}}
+
+

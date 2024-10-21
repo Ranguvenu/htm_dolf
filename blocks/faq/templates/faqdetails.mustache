@@ -1,0 +1,37 @@
+{{#response}}
+    {{#records}}
+    <div class="table-responsive">
+        <table class="table generaltable">
+            <thead class="thead">
+                <tr>
+                  <th>{{# str}} title , block_faq {{/str}}</th>
+                  <th>{{# str}} description , block_faq {{/str}}</th>
+                  <th>{{# str}} rank , block_faq {{/str}}</th>
+                  <th class="text-center">{{# str}} actions , block_faq {{/str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hasfaqs}}
+              <tr>
+                  <td>{{{title}}}</td>
+                  <td>{{{description}}}</td>
+                  <td>{{rank}}</td> 
+                  <td>
+                      <div class="d-flex action_btns justify-content-center">
+                          {{# managefaq}}  
+                              <a href="#"  data-action="viewfaq" data-id={{id}}><span class="bg-info text-white" data-toggle="tooltip"title="{{#str}} viewfaq, block_faq {{/str}}"><i class="fa fa-search-plus"></i></span></a>
+                              
+                              <a href="#"  data-action="createfaq" data-id={{id}}><span class="bg-info text-white" data-toggle="tooltip"title="{{#str}} editfaq, block_faq {{/str}}" ><i class="fa fa-pencil fa-fw"></i></span></a>
+
+                               <a href="#" data-action="deletefaq" data-id={{id}}  data-toggle="tooltip"title="{{#str}} delete, block_faq {{/str}}"   ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                             
+                          {{/ managefaq}}
+                      </div>
+                  </td>        
+              </tr>
+           {{/ hasfaqs}} 
+          </tbody>
+        </table>
+      </div>
+    {{/ records}}
+{{/ response}}

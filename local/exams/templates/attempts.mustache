@@ -1,0 +1,47 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#records}}
+        <table class="table generaltable table-striped">
+            <thead>
+                {{# totalcount}}
+                <tr class="text-center">
+                    <th scope="col">{{#str}}attempt,local_exams{{/str}}</th>
+                    <th scope="col">{{#str}}fee,local_exams{{/str}}</th>
+                    <th scope="col">{{#str}}daysbefore,local_exams{{/str}}</th>
+                    <th scope="col">{{#str}}action,local_exams{{/str}}</th>
+                </tr>
+                {{/ totalcount}}
+            </thead>
+            <tbody>
+                {{# attempts}}
+                <tr class="text-center">
+                    <td>{{attemptid}}</td>
+                    <td>{{fee}} {{#str}}sar,local_exams{{/str}}</td>
+                    <td>{{daysbeforeattempt}}</td>
+                    <td>
+                        {{# actions}}
+                            <div class="d-flex action_btns justify-content-center">
+                                <a href="#"  data-action="editattempt" title="{{# str}}editattempt, local_exams{{/ str}}" data-id={{id}} data-examid={{examid}}><span class="bg-success text-white text-center"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+                                <a href="#" data-action="deleteattempt" title="{{# str}}deleteattempt, local_exams{{/ str}}" data-id={{id}} data-examid={{examid}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                            </div>
+                        {{/ actions}}    
+                    </td>
+                </tr>
+                {{/ attempts}}
+            </tbody>
+            {{^ attempts}}
+                <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+            {{/ attempts}}
+        </table>
+    {{/records}}
+{{/response}}
+
+{{#js}}
+    require(['local_exams/exams'], function(s) {
+        s.init();
+    });
+{{/js}}

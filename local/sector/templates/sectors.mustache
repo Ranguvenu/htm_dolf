@@ -1,0 +1,21 @@
+<div id="sectors_container" class="p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="sectors_heading" class="mb-3">
+                <div class="d-inline-block theme-border-bottom-3">
+                    <!--<h5 class="theme_text_color">{{# str}}sectors, local_sector{{/str}}</h5>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            {{> local_sector/sector_details }}
+            
+        </div>
+    </div>
+</div>
+{{#js}}
+    require(['local_sector/customsector'], function(s) {
+        s.init();
+    });
+
+{{/js}}

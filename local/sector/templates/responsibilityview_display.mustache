@@ -1,0 +1,39 @@
+<div class="global_filter_structure">
+       <input id="responsibility_global_filter" class="global filter form-control col-md-6" placeholder="{{# str}} search_response, local_sector {{/str}}" type="text" name="search_query">
+</div>
+<div id="targetresponsibility" data-region="targetresponsibility-preview-container" class="currentifferings_pc_container viewcompetencys px-3 py-4">
+      <div data-region="targetresponsibility-count-container"></div>
+      <div data-region="targetresponsibility-list-container" class ="methoddata{{ roleid }}">
+      </div>
+      <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+            <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+      </span>
+</div>              
+{{#js}}
+      require(['theme_academy/cardPaginate'], function(cardPaginate) {
+      var options = 
+      {
+            targetID: 'targetresponsibility',
+            templateName:'local_sector/responsibility_modal',
+	        methodName: 'display_responsibility',
+            perPage: 5,
+            cardClass: 'col-md-6 col-12',
+            viewType: 'table'
+     };
+      var filteroptions = {roleid:{{roleid}}, jobfamilyid:{{jobfamilyid}}};
+      var dataoptions = {};
+      cardPaginate.reload(options, dataoptions,filteroptions);
+      var search_interval = 100;
+      var timer;
+      $(document).on('keyup', '#responsibility_global_filter', function(){
+      var searchval = $(this).val();
+      var filterdata = {search_query: searchval, roleid:{{roleid}}, jobfamilyid:{{jobfamilyid}}};
+      timer = setTimeout(function(){
+      cardPaginate.reload(options, dataoptions,filterdata);
+      },search_interval);
+      });
+      $(document).on('keydown', '#responsibility_global_filter', function(){
+      clearTimeout(timer);
+      });
+      });
+{{/js}}

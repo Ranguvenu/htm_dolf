@@ -1,0 +1,66 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">{{#str}} name, local_userapproval{{/str}}</th>
+            <th scope="col">{{#str}} idnumber, local_userapproval{{/str}}</th>
+            <th scope="col">{{#str}} role, local_userapproval{{/str}}</th>
+            <th scope="col">{{#str}} doc, local_userapproval{{/str}}</th>
+            <th scope="col">{{#str}} field_of_training, local_userapproval{{/str}}</th>
+            <th scope="col">{{#str}} status, local_userapproval{{/str}}</th>
+            <th class="text-center">{{#str}} actions, local_userapproval{{/str}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#response}}
+        {{#records}}
+        {{# hascourses}}
+        <tr>
+            <td> <a href="#"  data-action="viewuserregistration" data-requestid={{id}} data-id={{luserid}} data-name='{{trainername}}' data-requesttype ='{{requesttype}}'  data-toggle="tooltip" >{{trainername}}</a></td>
+            <td>{{id_number}}</td>
+            <td>{{role}}</td>
+            <td>{{{qualification}}}</td>
+            <td>{{fieldoftraining}}</td>
+
+            <td>{{status}}
+            </td>
+            <td class="text-center">
+            
+            {{# disableaction}}
+               <h1></h1>
+            {{/ disableaction}}
+            {{^ disableaction}}
+                {{# actionview}}
+                <button class="launch_btn btn btn-danger btn-sm"    data-action="rejectrequest" data-name = "{{trainername}}" data-id = {{id}} data-requesttype="{{requesttype}}" >{{#str}} reject, local_userapproval{{/str}}</button>
+                <button class="launch_btn btn btn-primary btn-sm"  data-name = "{{trainername}}"   data-action="approverequest" data-id = {{id}} data-requesttype="{{requesttype}}">{{#str}} approve, local_userapproval{{/str}}</button>
+                <button class="launch_btn btn btn-success btn-sm"  data-name = "{{trainername}}"   data-action="edit" data-id = {{id}} data-userid={{luserid}} data-requesttype="{{requesttype}}">{{#str}} edit, local_userapproval{{/str}}</button>
+                {{/ actionview}}
+             {{/ disableaction}}
+                {{# actionviewapprove}}
+                <button class="launch_btn btn btn-primary btn-sm"  data-name = "{{trainername}}"   data-action="cancelrequest" data-id = {{id}} data-requesttype="{{requesttype}}" data-trainerorexpertid="{{expertuserid}}" {{# enrolled}} title="{{#str}}unenroltrainer, local_userapproval{{/str}}" disabled {{/enrolled}}>{{#str}} cancel, local_userapproval{{/str}}</button>
+
+                <button class="launch_btn btn btn-success btn-sm"  data-name = "{{trainername}}"   data-action="edit" data-id = {{id}}  
+                data-userid={{luserid}} data-requesttype="{{requesttype}}">{{#str}} edit, local_userapproval{{/str}}</button>
+            
+                {{/ actionviewapprove}}
+                {{# actionreject}}
+
+                    <button class="launch_btn btn btn-danger btn-sm"  data-name = "{{trainername}}"   data-action="deleterequest" data-id = {{id}} data-userid={{luserid}} data-requesttype="{{requesttype}}">{{#str}} delete, local_userapproval{{/str}}</button>
+                    
+                {{/ actionreject}}
+
+              
+           
+            </td>
+
+        </tr>
+
+        {{/ hascourses}}
+        {{/ records}}   
+        {{/ response}}
+    </tbody>
+</table>
+{{#js}}
+    require(['local_userapproval/dynamicForm'], function(s) {
+        s.init();
+    });
+{{/js}}

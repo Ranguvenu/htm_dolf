@@ -1,0 +1,34 @@
+{{#response}}
+{{# records}}
+      <table class='generaltable table'>
+        <thead>
+          <tr>
+            <th scope="col">{{#str}}time, local_hall{{/str}}</th>
+            <th scope="col">{{#str}}availability, local_hall{{/str}}</th>
+            <th scope="col">{{#str}}action, local_hall{{/str}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{# hascourses}}
+          <tr>
+            <td>{{start}} to {{end}}</td>
+            {{# booked}}
+                <td><span class="text-danger">{{#str}}booked, local_hall{{/str}}</span></td>
+            {{/ booked}}
+            {{^ booked}}
+                <td><span  class="text-success">{{#str}}availability, local_hall{{/str}}</span></td>
+            {{/ booked}}          
+            <td>
+                {{# booked}}
+                    <span>{{examname}}</span>
+                {{/ booked}}
+                {{^ booked}}
+                    <button type="button" class="btn btn-primary" data-action="hallreserve" data-typeid={{typeid}} data-hallid={{hallid}} data-examdate={{examdate}} data-start='{{start_time}}' data-end='{{end_time}}' data-available='{{availableseats}}' >{{#str}}reserve, local_hall{{/str}}</button>
+                {{/ booked}}
+            </td>              
+          </tr>
+          {{/ hascourses}}
+        </tbody>
+      </table>
+{{/ records}}
+{{/ response}}    

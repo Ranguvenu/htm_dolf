@@ -1,0 +1,102 @@
+{{#response}}
+{{#records}}
+{{# hascourses}}
+<div class="hallcontainer py-3">
+    <h4 class="text-black my-3">{{# str}}details, local_hall{{/ str}}</h4>
+    <div class="hallinfodetails_container">
+        <div class="details_header row">
+            <div class="hall_main_details col-md-9 col-lg-10 col-sm-9 justify-content-between">
+                <div class="d-flex">
+                    <div class="main_detail_content mr-4">
+                        <h6 class="detail_heading">{{# str}}city, local_hall{{/ str}}</h6>
+                        <h6 class="detail_content">{{city}}</h6>
+                    </div>
+                    <div class="main_detail_content mx-4">
+                        <h6 class="detail_heading">{{# str}}building_name, local_hall{{/ str}}</h6>
+                        <p class="detail_content">{{buildingname}}</p>
+                    </div>
+                    <div class="main_detail_content mx-4">
+                        <h6 class="detail_heading">{{# str}}seating_capacity, local_hall{{/ str}}</h6>
+                        <p class="detail_content">{{seatingcapacity}}</p>
+                    </div>
+                    <div class="main_detail_content mx-4">
+                        <h6 class="detail_heading">{{# str}}type, local_hall{{/ str}}</h6>
+                        <p class="detail_content">{{type}}</p>
+                    </div>
+                </div>
+            </div>
+            {{# managehall}}
+                <div class="hall_actions col-md-3 col-lg-2 col-sm-3">
+                    <div class="main_detail_content text-right">
+                        <h6 class="detail_heading">{{# str}}action, local_hall{{/ str}}</h6>
+                        <div class="d-flex action_btns justify-content-end">
+                            <a href="#"  data-action="viewhall" data-id={{id}}><span class="bg-primary text-white"><i class="fa fa-eye" aria-hidden="true"></i></span></a>
+                            <a href="#"  data-action="edithall" data-id={{id}}><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+                            <a href="#" data-action="deletehall" data-id={{id}} data-context={{context}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                        </div>                    
+                    </div>
+                </div>
+            {{/ managehall}}
+            <div class="col-md-12">
+                <div class="divider my-2"></div>
+            </div>
+        </div> <!-- hall details_header ended  -->
+        <div class="hall_description_containter mt-4">
+            <div class="d-flex mb-2 justify-content-between">
+                <h6>{{# str}}description, local_hall{{/ str}}</h6>
+            </div>
+            <div class="hall_description">
+                <p>{{{description}}}</p>
+
+            </div>
+            <ul class="hall_eminities_list my-4">
+                {{# locationstatus}}
+                    <li>{{# str}}address, local_hall{{/ str}} : <a href="{{maplocation}}"><i class="fa fa-map-marker"></i></a> </li>
+                {{/ locationstatus}}
+                {{^ locationstatus}}
+                    <li>{{# str}}address, local_hall{{/ str}} : {{maplocation}} </li>
+                {{/ locationstatus}}
+                <li>{{# str}}room_location, local_hall{{/ str}} : <b>{{roomshape}}</b></li>
+                <li>{{# str}}availability, local_hall{{/ str}}: <b>{{availability}}</b> </li>
+                <li>{{# str}}equipment_available, local_hall{{/ str}} : <b>{{equipmentavailable}}</b> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="my-4 text-black">
+        <h4>{{# str}}reservations, local_hall{{/ str}}</h4>
+    </div>
+    <div class="my-4 table-responsive">
+        <table class="table generaltable">
+            <thead> 
+                <tr>
+                    <th><strong>{{# str}}beneficiary_code, local_hall{{/ str}}</strong></th>
+                    <th><strong>{{# str}}reservation_date_time, local_hall{{/ str}}</strong></th>
+                    <th><strong>{{# str}}purpose, local_hall{{/ str}}</strong></th>
+                    <th><strong>{{# str}}noofseats, local_hall{{/ str}}</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# hallreservations}}
+                    <tr>
+                        <td>{{code}}</td>
+                        <td>{{date}}, {{entityslotstart}} - {{date}}, {{entityslotend}}</td>
+                        <td>{{type}} : {{modulename}}</td>
+                        <td>{{bookedseats}}</td>
+                    </tr>                
+                {{/ hallreservations}}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{/ hascourses}}
+{{/ records}}
+{{/ response}}
+
+{{#js}}
+    require(['local_hall/hall'], function(s) {
+        s.init();
+    });
+    require(['local_hall/hallreserve'], function(s) {
+        s.load();
+    });
+{{/js}}

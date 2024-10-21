@@ -1,0 +1,23 @@
+{{! Question Competencies }}
+<div class="form-group row fitem mt-3">
+    <div class="col-md-3 col-form-label d-flex pb-0 pr-md-0">
+      {{#str}}  
+        competencies, local_questionbank
+      {{/str}}  
+    </div>
+    <div class=" col-md-9 w-100 mt-3 row">
+    {{#competencies}}
+        <span role="option" data-value="{{competencies}}" aria-selected="true" class="badge badge-info mb-3 mr-1 p-2 " style="font-size: 100%" data-active-selection="true">
+            {{name}}
+        </span>
+    {{/competencies}}
+    {{^competencies}}
+        <div class="alert alert-info alert-block fade in " role="alert">
+            {{#str}}
+                norecordsfound, local_questionbank        
+            {{/str}}
+         </div>
+    {{/competencies}}
+
+    </div>
+</div>

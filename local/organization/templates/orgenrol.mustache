@@ -1,0 +1,243 @@
+<div class="row filter-bg py-3">
+    <div class="col-md-12">
+        <div class="bootstrap-duallistbox-container">
+            <form  method="post" name="form_name" id="user_assign" class="form_class" >
+            <div class="box box2 col-md-5">
+            <input type="hidden" name="id" value={{org_id}}/>
+            <input type="hidden" name="options"  value={{myJSON}} />
+            <label>
+                <div class="enrollavailablelist">{{#str}}enrolled_users, local_organization, {{from_userstotal}} {{/str}} </div>
+                &nbsp&nbsp<button type="button" id="select_remove" name="select_all" value="Select All" title="Select All" class="btn btn-default"/>{{#str}}select_all, local_organization{{/str}} </button>
+                &nbsp&nbsp<button type="button" id="remove_select" name="remove_all" value="Remove All" title="Remove All" class="btn btn-default"/> {{#str}}remove_all, local_organization{{/str}} </button>
+            </label>
+
+            <select multiple="multiple" name="remove[]" id="bootstrap-duallistbox-selected-list_duallistbox_courses_users" class="dual_select">
+            {{#from_users}}
+                <option value={{id}}>{{value}}</option>
+            {{/from_users}}
+            </select>
+             <div class="enrollusers_search_structure">
+                        <label>{{# str}}search{{/ str}} : </label>
+                        <input id="enrollusers_search" type="text" name="search_query">
+             </div>
+            </div>
+            <div class="box box3 col-md-2 actions">
+                <button type="submit" class="custom_btn btn remove btn-default mb-3" disabled="disabled" title="Remove Selected Users" name="submit_value" value="Remove Selected Users" id="user_unassign_all"/>{{#str}}remove_selected_users, local_organization{{/str}}
+                </button>
+            </form>   
+
+            <form  method="post" name="form_name" id="user_un_assign" class="form_class" >
+                <button type="submit" class="custom_btn btn move btn-default" disabled="disabled" title="Add Selected Users" name="submit_value" value="Add Selected Users" id="user_assign_all" />{{#str}}add_selected_users, local_organization{{/str}}
+                </button>
+                </div>
+                <div class="box box1 col-md-5">
+                    <input type="hidden" name="id" value={{org_id}}/>
+                    <input type="hidden" name="options"  value={{myJSON}} />
+                   <label >
+                        <div class="unenrollvailablelist">{{#str}}availablelist, local_organization, {{to_userstotal}} {{/str}} </div>
+                        &nbsp&nbsp<button type="button" id="select_add" name="select_all" value="Select All" title="Select All"/ class="btn btn-default">{{#str}}select_all, local_organization{{/str}}</button>
+                        &nbsp&nbsp<button type="button" id="add_select" name="remove_all" value="Remove All" title="Remove All" class="btn btn-default"/>{{#str}}remove_all, local_organization{{/str}}</button>
+                    </label>
+                    <select multiple="multiple" name="add[]" id="bootstrap-duallistbox-nonselected-list_duallistbox_courses_users" class="dual_select">
+                    {{#to_users}}
+                        <option value={{id}}>{{value}} </option>
+                    {{/to_users}}
+                    </select>
+                    <div class="unenrollusers_search_structure">
+                        <label>{{# str}}search{{/ str}} : </label>
+                        <input id="unenrollusers_search" name = "search_query" type="text">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+require(['core/ajax','jquery'], function(Ajax, $) {
+    $("#enrollusers_search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        var type='remove';
+        var params = {};
+        params.type = type;
+        params.orgid= {{org_id}};
+        params.query = value;
+       var selected_list_request = Ajax.call([{
+                    methodname: 'local_organization_enrollment',
+                    args: params
+        }]);
+    var selected_list = '';
+    selected_list_request[0].done(function(response){
+      
+    var parsed_data = JSON.parse(response.options);
+    console.log(response);
+    $.each(parsed_data, function (index, data) {
+        selected_list = selected_list + '<option value=' + index + '>' + data + '</option>';
+    });
+    var get_id = 'bootstrap-duallistbox-selected-list_duallistbox_courses_users';
+    $('#'+get_id+'').html(selected_list);
+     $('#enrolledcount').html(response.count);
+    });
+    });
+
+    $("#unenrollusers_search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    var type='add';
+    var params = {};
+        params.type = type;
+        params.orgid = {{org_id}};
+        params.query = value;
+    var selected_list_request = Ajax.call([{
+                    methodname: 'local_organization_enrollment',
+                    args: params
+        }]);
+    var selected_list = '';
+    selected_list_request[0].done(function(response){
+    var parsed_data = JSON.parse(response.options);
+    $.each(parsed_data, function (index, data) {
+          console.log(data);
+        selected_list = selected_list + '<option value=' + index + '>' + data + '</option>';
+    });
+    var get_id = 'bootstrap-duallistbox-nonselected-list_duallistbox_courses_users';
+    $('#'+get_id+'').html(selected_list);
+     $('#availablecount').html(response.count);
+    });
+  });
+});
+{{/js}}
+<script>
+//     $("#enrollusers_search").on("keyup", function() {
+//     var value = $(this).val().toLowerCase();
+//     var type='remove';
+//     var selected_list_request = $.ajax({
+//         method: 'GET',
+//         url: M.cfg.wwwroot + '/local/organization/orgenrol.php',
+//         data: {orgid: {{org_id}}, type: type,view:'ajax', query:value},
+//         dataType: 'html'
+//     });  
+//     var selected_list = '';
+//     selected_list_request.done(function(response){
+//     response = jQuery.parseJSON(response);
+    
+//     $.each(response.content, function (index, data) {
+//         selected_list = selected_list + '<option value=' + index + '>' + data + '</option>';
+//     });
+//     var get_id = 'bootstrap-duallistbox-selected-list_duallistbox_courses_users';
+//     $('#'+get_id+'').html(selected_list);
+//     $('#enrolledcount').html(response.count);
+//     });
+//   });
+// $("#unenrollusers_search").on("keyup", function() {
+//     var value = $(this).val().toLowerCase();
+//     var type='add';
+//     var selected_list_request = $.ajax({
+//         method: 'GET',
+//         url: M.cfg.wwwroot + '/local/organization/orgenrol.php',
+//         data: {orgid: {{org_id}}, type: type,view:'ajax', query:value},
+//         dataType: 'html'
+//     });  
+//     var selected_list = '';
+//     selected_list_request.done(function(response){
+//     response = jQuery.parseJSON(response);
+
+//     $.each(response.content, function (index, data) {
+//         selected_list = selected_list + '<option value=' + index + '>' + data + '</option>';
+//     });
+
+//     var get_id = 'bootstrap-duallistbox-nonselected-list_duallistbox_courses_users';
+//     $('#'+get_id+'').html(selected_list);
+//     $('#availablecount').html(response.count);
+//     });
+//   });
+  $( document ).ready(function() {
+    $('#select_remove').click(function() {
+        $('#bootstrap-duallistbox-selected-list_duallistbox_courses_users option').prop('selected', true);
+        $('.box3 .remove').prop('disabled', false);
+        $('#user_unassign_all').val('Remove_All_Users');
+
+        $('.box3 .move').prop('disabled', true);
+        $('#bootstrap-duallistbox-nonselected-list_duallistbox_courses_users option').prop('selected', false);
+        $('#user_assign_all').val('Add Selected Users');
+
+    });
+    $('#remove_select').click(function() {
+        $('#bootstrap-duallistbox-selected-list_duallistbox_courses_users option').prop('selected', false);
+        $('.box3 .remove').prop('disabled', true);
+        $('#user_unassign_all').val('Remove Selected Users');
+    });
+    $('#select_add').click(function() {
+        $('#bootstrap-duallistbox-nonselected-list_duallistbox_courses_users option').prop('selected', true);
+        $('.box3 .move').prop('disabled', false);
+        $('#user_assign_all').val('Add_All_Users');
+
+        $('.box3 .remove').prop('disabled', true);
+        $('#bootstrap-duallistbox-selected-list_duallistbox_courses_users option').prop('selected', false);
+        $('#user_unassign_all').val('Remove Selected Users');
+        
+    });
+    $('#add_select').click(function() {
+       $('#bootstrap-duallistbox-nonselected-list_duallistbox_courses_users option').prop('selected', false);
+        $('.box3 .move').prop('disabled', true);
+        $('#user_assign_all').val('Add Selected Users');
+    });
+    $('#bootstrap-duallistbox-selected-list_duallistbox_courses_users').on('change', function() {
+        if(this.value!=''){
+            $('.box3 .remove').prop('disabled', false);
+            $('.box3 .move').prop('disabled', true);
+        }
+    });
+    $('#bootstrap-duallistbox-nonselected-list_duallistbox_courses_users').on('change', function() {
+        if(this.value!=''){
+            $('.box3 .move').prop('disabled', false);
+            $('.box3 .remove').prop('disabled', true);
+        }
+    });
+    jQuery(
+        function($)
+        {
+          $('.dual_select').bind('scroll', function()
+            {
+              if($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight)
+              {
+                var get_id=$(this).attr('id');
+                if(get_id=='bootstrap-duallistbox-selected-list_duallistbox_courses_users'){
+                    var type='remove';
+                    var total_users=$select_from_users_total;
+                }
+                if(get_id=='bootstrap-duallistbox-nonselected-list_duallistbox_courses_users'){
+                    var type='add';
+                    var total_users=$select_to_users_total;
+                   
+                }
+                var count_selected_list=$('#'+get_id+' option').length;
+               
+                var lastValue = $('#'+get_id+' option:last-child').val();
+             
+              if(count_selected_list<total_users){  
+                   //alert('end reached');
+                    var selected_list_request = $.ajax({
+                        method: 'GET',
+                        url: M.cfg.wwwroot + '/local/organization/orgenrol.php?test=1&options={{myJSON}}',
+                        data: {id: {{org_id}}, type:type,view:'ajax',lastitem:lastValue},
+                        dataType: 'html'
+                    });  
+                    var appending_selected_list = '';
+                    selected_list_request.done(function(response){
+                    //console.log(response);
+                    response = jQuery.parseJSON(response);
+                    //console.log(response);
+                  
+                    $.each(response, function (index, data) {
+                   
+                        appending_selected_list = appending_selected_list + '<option value=' + index + '>' + data + '</option>';
+                    });
+                    $('#'+get_id+'').append(appending_selected_list);
+                    });
+                }
+              }
+            })
+        }
+    );
+ 
+  });
+</script>  

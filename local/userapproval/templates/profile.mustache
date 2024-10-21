@@ -1,0 +1,399 @@
+<div class="row" id="profile_container">
+    <div class="col-md-6">
+<!-- {{# walletoption}}
+    <span class='wallet'><div  id="profileimage" style="background-image:url('{{{walletimage}}}')"></div> {{# str }} wallet, local_userapproval {{/ str }} : {{#wallet }}{{wallet }}{{/wallet}}{{^wallet }}0{{/wallet}}</span>
+{{/ walletoption}}
+{{#organizationofficial}}
+    <button class="btn btn-outline-primary" data-userid="{{userid}}" data-action="user_wallet_form">{{#str}}addwallet,local_userapproval{{/str}}</button>
+{{/organizationofficial}} -->
+<!-- {{^organizationofficial}}
+<h2>{{# str }} welcome_message, local_userapproval {{/ str }}</h2>
+{{/organizationofficial}} -->
+</div>
+<div class="col-md-6 text-right">
+         {{#result}}
+         {{# fieldexpertizeactionview}}
+         <a href="{{config.wwroot}}./listof_allrequests.php?id={{localuserid}}&userid={{registereduserid}} "class="btn  btn-outline-primary mr-3"  title="{{#pendingstatus}}{{# str}} submittedrequest, local_userapproval{{/ str}}{{/pendingstatus}}">{{# str}} field_of_expertise, local_userapproval{{/ str}}</a>
+         {{/ fieldexpertizeactionview}}
+
+         {{# customizeprofileview}}
+            <a tabindex="0" role="button" class="btn btn-outline-primary" data-id = {{localuserid}} data-userid = {{registereduserid}}  data-action = "user_custom_form">{{#str}}customise_profile, local_userapproval{{/str}}</a>
+         {{/ customizeprofileview}}
+    </div>
+    <div class="col-md-12">
+        <div id="profilecard">
+            <div id="coverimage" style="background-image:url('{{{bannerimage}}}')"> </div>
+            <div id="profile_details_container" class="d-flex flex-wrap">
+                <div id="profileimage" style="background-image:url('{{{picture}}}')">
+                    <img src="{{picture}}">
+                </div>
+                
+                <div id="profiledetailswrapper" class="flex-grow-1 mx-3">
+                    <div class="d-flex align-items-center justify-content-between py-1 my-3 border-bottom">
+                        <h4 id="profilename">{{userfullname}}</h4>
+                       
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="row flex-grow-1">
+                            <div class="col-6 col-md-4">
+                                <h6 class="headinglabel">{{# str}} email_id, local_userapproval{{/ str}}</h6>
+                                <h6 class="detail_label">{{email}}</h6> 
+                            </div>
+                            <div class="col-6 col-md-3">    
+                                <h6 class="headinglabel">{{# str}} contact_no, local_userapproval{{/ str}}</h6>
+                                <h6 class="detail_label">{{phone1}}</h6>    
+
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <h6 class="headinglabel">{{# str}} certificates, local_userapproval{{/ str}}</h6>                                          
+                                <h6 class="detail_label">{{certificates}}</h6> 
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <h6 class="headinglabel">{{# str}} city, local_userapproval{{/ str}}</h6>   
+                                <h6 class="detail_label">{{city}}</h6> 
+                            </div>
+                        </div>
+                        <div>
+                           <!--  <button class="btn btn-primary">{{# str}} more_details, local_userapproval{{/ str}}</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/result}}
+        <div id="profilecontentcontainer" class="p-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <ul class="nav nav-tabs" id="profiletabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true"> {{# behalfuser}} {{# str}} loginuserprofile, local_userapproval {{/ str}} {{/ behalfuser}}  {{^ behalfuser}} {{# str}} profile, local_userapproval{{/ str}} {{/ behalfuser}}</a>
+                            </li>
+                            {{# behalfuser}}
+                                 <li class="nav-item">
+                                <a class="nav-link " id="realuserprofile-tab" data-toggle="tab" href="#realuserprofile" role="tab" aria-controls="realuserprofile" aria-selected="true">{{# str}} myprofile, local_userapproval{{/ str}}</a>
+                            </li>
+                            {{/ behalfuser}} 
+                            
+                  
+                            {{# tabview}}
+                            <li class="nav-item">
+                                <a class="nav-link" id="programs-tab" data-toggle="tab" href="#programs" role="tab" aria-controls="programs" aria-selected="false">{{# str}} recommended_programs, local_userapproval{{/ str}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="exams-tab" data-toggle="tab" href="#exams" role="tab" aria-controls="exams" aria-selected="false">{{# str}} recommended_exams, local_userapproval{{/ str}}</a>
+                            </li>
+                            {{/ tabview}} 
+
+                            {{# myorganizationtabview}}
+
+                             <li class="nav-item">
+                                <a class="nav-link" id="myorganizationview-tab" data-toggle="tab" href="#myorganizationview" role="tab" aria-controls="myorganizationview" aria-selected="false">{{# str}} organization, local_userapproval{{/ str}}</a>
+                            </li>
+
+                            {{/ myorganizationtabview}} 
+
+                                                  
+                        </ul>
+                    </div>
+            
+                    <div class="tab-content" id="profile_tabsContent">
+                    {{#result}}
+                        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            {{# loginas}}
+                             <!--<div class ="loginasuser_class">
+                                <a data-action="loginasuser" data-userid={{registereduserid}} data-localuserid={{localuserid}} class="btn btn-primary mr-2"><i class="fa fa-sign-in" aria-hidden="true"> {{#str}}loginas, local_userapproval{{/str}} </i></a>
+                            </div>-->
+                            {{/ loginas}}
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <table class="table profile_details_table m-4">
+                                        <tr>
+                                            <th>{{# str}} full_name, local_userapproval{{/ str}}</th>
+                                            <td>{{userfullname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} gender, local_userapproval{{/ str}}</th>
+                                            <td>{{gender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} dateofbirth, local_userapproval{{/ str}}</th>
+                                            <td>{{dateofbirth}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>{{# str}} city, local_userapproval{{/ str}}</th>
+                                            <td>{{city}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} email_id, local_userapproval{{/ str}}</th>
+                                            <td>{{email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} contact_no, local_userapproval{{/ str}}</th>
+                                            <td>{{phone1}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} country, local_userapproval{{/ str}}</th>
+                                            <td>{{country}}</td>
+                                        </tr>
+                                        {{^ issiteadmin}}
+                                         {{^ isorgofficial}}
+                                                <tr>
+                                                    <th>{{# str}} pluginname, local_organization{{/ str}}</th>
+                                                    <td>{{# organization}} {{organization}} {{/ organization}}</td>
+                                                </tr>
+                                            {{/ isorgofficial}}
+                                           
+                                        {{/ issiteadmin}}
+
+                                        <tr> 
+                                            <th>{{# str}} id_type, local_userapproval{{/ str}}</th>
+                                            <td>{{id_type}}</td>
+                                        </tr>
+                                       
+                                        
+                                    </table>
+                                </div>
+                                <div class="col-md-7">
+                                    <table class="table profile_details_table m-4">
+                                        <tr>
+                                            <th>{{# str}} idnumber, local_userapproval{{/ str}}</th>
+                                            <td>{{id_number}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} sector, local_userapproval{{/ str}}</th>
+                                            <td>{{sectorname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} segment, local_userapproval{{/ str}}</th>
+                                            <td>{{segmentname}}</td>
+                                        </tr>
+                                       
+                                         <tr>
+                                            <th>{{# str}} selectjob_family, local_userapproval{{/ str}}</th>
+                                            <td>{{jobfamilyname}}</td>
+                                        </tr>
+                                         <tr>
+                                            <th>{{# str}} jobrole, local_userapproval{{/ str}}</th>
+                                            <td>{{jobrolename}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} certificates, local_userapproval{{/ str}}</th>
+                                            <td>{{certificates}}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th>{{# str}} linkedin, local_userapproval{{/ str}}</th>
+                                            <td>{{linkedinprofile}}</td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    {{/result}}
+
+                    {{#behalfofuser}}
+                        <div class="tab-pane fade show active" id="realuserprofile" role="tabpanel" aria-labelledby="realuserprofile-tab">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <table class="table profile_details_table m-4">
+                                        <tr>
+                                            <th>{{# str}} full_name, local_userapproval{{/ str}}</th>
+                                            <td>{{userfullname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} gender, local_userapproval{{/ str}}</th>
+                                            <td>{{gender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} dateofbirth, local_userapproval{{/ str}}</th>
+                                            <td>{{dateofbirth}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>{{# str}} city, local_userapproval{{/ str}}</th>
+                                            <td>{{city}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} email_id, local_userapproval{{/ str}}</th>
+                                            <td>{{email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} contact_no, local_userapproval{{/ str}}</th>
+                                            <td>{{phone1}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} country, local_userapproval{{/ str}}</th>
+                                            <td>{{country}}</td>
+                                        </tr>
+                                        {{^ issiteadmin}}
+                                         {{^ isorgofficial}}
+                                                <tr>
+                                                    <th>{{# str}} pluginname, local_organization{{/ str}}</th>
+                                                    <td>{{# organization}} {{organization}} {{/ organization}}</td>
+                                                </tr>
+                                            {{/ isorgofficial}}
+                                           
+                                        {{/ issiteadmin}}
+
+                                        <tr> 
+                                            <th>{{# str}} id_type, local_userapproval{{/ str}}</th>
+                                            <td>{{id_type}}</td>
+                                        </tr>
+                                       
+                                        
+                                    </table>
+                                </div>
+                                <div class="col-md-7">
+                                    <table class="table profile_details_table m-4">
+                                        <tr>
+                                            <th>{{# str}} idnumber, local_userapproval{{/ str}}</th>
+                                            <td>{{id_number}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} sector, local_userapproval{{/ str}}</th>
+                                            <td>{{sectorname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} segment, local_userapproval{{/ str}}</th>
+                                            <td>{{segmentname}}</td>
+                                        </tr>
+                                       
+                                         <tr>
+                                            <th>{{# str}} selectjob_family, local_userapproval{{/ str}}</th>
+                                            <td>{{jobfamilyname}}</td>
+                                        </tr>
+                                         <tr>
+                                            <th>{{# str}} jobrole, local_userapproval{{/ str}}</th>
+                                            <td>{{jobrolename}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} certificates, local_userapproval{{/ str}}</th>
+                                            <td>{{certificates}}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th>{{# str}} linkedin, local_userapproval{{/ str}}</th>
+                                            <td>{{linkedinprofile}}</td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    {{/behalfofuser}}
+                        <div class="tab-pane fade" id="programs" role="tabpanel" aria-labelledby="programs-tab">
+                            {{{recommendedprograms}}}
+                        </div>
+                        <div class="tab-pane fade" id="exams" role="tabpanel" aria-labelledby="exams-tab">
+                            {{{recommendedexams}}}
+                        </div>  
+
+                        {{#organizationdetails}}
+                        <div class="tab-pane fade" id="myorganizationview" role="tabpanel" aria-labelledby="myorganizationview-tab">
+                            <div class ="update_org_class">
+                                <a data-action="createorganization" data-id={{orgid}} class="btn btn-primary mr-2"><i class="fa fa-pencil" aria-hidden="true"> {{#str}}updateorganization, local_userapproval{{/str}} </i></a>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <table class="table profile_details_table m-4">
+                                        <tr>
+                                            <th>{{# str}} name, local_userapproval{{/ str}}</th>
+                                            <td>{{name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} code, local_userapproval{{/ str}}</th>
+                                            <td>{{shortname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} licensekey, local_userapproval{{/ str}}</th>
+                                            <td>{{licensekey}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>{{# str}} sector, local_userapproval{{/ str}}</th>
+                                            <td>{{sectors}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>{{# str}} segment, local_userapproval{{/ str}}</th>
+                                            <td>{{segments}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>{{# str}} fieldofwork, local_userapproval{{/ str}}</th>
+                                            <td>{{orgfieldofwork}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} discount, local_userapproval{{/ str}}</th>
+                                            <td>{{discount_percentage}}%</td>
+                                        </tr>
+
+                                        <tr>
+                                            
+                                            {{#approvalurl}}
+                                              
+                                             <th> <a href="{{{approvalurl}}}"><span class="btn btn-info btn-md px-1 py-1"> {{# str}} approval_letter , local_userapproval{{/ str}}</span></a> </th>
+                                              
+                                            {{/approvalurl}}
+                                        </tr>
+
+        
+
+                                    </table>
+                                </div>
+                                <div class="col-md-7">
+                                    <table class="table profile_details_table m-4">
+                                        <tr>
+                                            <th>{{# str}} hrname, local_userapproval{{/ str}}</th>
+                                            <td>{{hrfullname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} hrjobrole, local_userapproval{{/ str}}</th>
+                                            <td>{{hrjobrole}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} hremail, local_userapproval{{/ str}}</th>
+                                            <td>{{hremail}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} hrmobile, local_userapproval{{/ str}}</th>
+                                            <td>{{hrmobile}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} alfullname, local_userapproval{{/ str}}</th>
+                                            <td>{{alfullname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} aljobrole, local_userapproval{{/ str}}</th>
+                                            <td>{{aljobrole}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{# str}} alemail, local_userapproval{{/ str}}</th>
+                                            <td>{{alemail}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>{{# str}} almobile, local_userapproval{{/ str}}</th>
+                                            <td>{{almobile}}</td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    {{/organizationdetails}}                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#js}}
+
+    require(['local_organization/organization'],function(s) {
+        s.init();
+    });
+{{/js}}

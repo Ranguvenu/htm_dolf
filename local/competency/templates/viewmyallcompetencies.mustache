@@ -1,0 +1,188 @@
+{{!
+     This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+<div class="row" id="myallcompetencies_container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 text-left">
+                <h5>{{#str}}listofcompetencies,local_competency{{/str}}</h5>
+            </div>
+        </div>
+        <div class="table-responsive mt-4">
+            <!-- table content -->
+
+            <div class="row my-3">
+
+                <div class="col-md-8">
+
+                    <div class="global_filter_structure form-group m-0   col-md-4 ">
+                            <div class="input_container position-relative">
+                              <input id="global_filtercmtncall" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query" data-options="{{options}}" data-dataoptions="{{dataoptions}}" data-status="{{status}}">
+                                <span class="search_icon"></span>
+                            </div>
+                    </div>
+
+                 </div>
+
+                <div class="col-md-4">
+
+                </div>
+
+             </div>
+
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <div class="flex-grow-1"><!-- {{{filterinput}}} --></div>
+                    <div>
+                        <button class="btn filter_toggle_btn" id="filter_open_btn">
+                            <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                            {{#str}}filter,local_competency{{/str}}
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="filters_container">
+                    <div class="header_content">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{#str}}filter,local_competency{{/str}}</h6>
+                            <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                                  {{# str}} close_filter, local_competency{{/ str}}
+                            </button>
+                        </div>
+                        <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                              {{# str}} filter_discription, local_competency{{/ str}}
+                        </div>
+                    </div>
+                    <div class="filters_contents">
+                       {{{filterform}}}
+                    </div>
+
+            </div>
+
+            <div id="viewmyallcompetencies" data-region="viewmyallcompetencies-preview-container" class="viewmycompetencys">
+                  <div data-region="viewmyallcompetencies-count-container"></div>
+                  <div data-region="viewmyallcompetencies-list-container" class ="allcompetenciesmethoddata">
+                  </div>
+                  <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                        <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+
+
+require(['theme_academy/cardPaginate'], function(cardPaginate) {
+
+    cardPaginate.reload({{{options}}}, {{{dataoptions}}},{{{filterdata}}});
+
+    var search_interval = 100;
+    var timer;
+    $(document).on('keyup', '#global_filtercmtncall', function(){
+        var searchval = $(this).val();
+        var filterdata = {search_query: searchval};
+        timer = setTimeout(function(){
+            cardPaginate.reload({{{options}}}, {{{dataoptions}}},filterdata);
+        },search_interval);
+    });
+    $(document).on('keydown', '#global_filtercmtncall', function(){
+        clearTimeout(timer);
+    });
+
+});
+ if(typeof "select[name='sectors[]']" != 'undefined'){
+    var sectors = $("select[name='sectors[]']").val();
+    if(typeof $('#el_segmentlistcmp') != 'undefined'){
+        $('select#el_segmentlistcmp').data('sectorid',sectors);
+    }
+ 
+    if(typeof $('#el_jobfamilycmpcmp') != 'undefined'){
+        $('#el_jobfamilycmpcmp').data('sectorid',sectors);
+    }
+}
+$("select[name='sectors[]']").on('change', function(e){
+    
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+});
+
+if(typeof "select[name='sectors']" != 'undefined'){
+    var sectors = $("select[name='sectors']").val();
+    if(typeof $('#el_segmentlistcmp') != 'undefined'){
+        $('select#el_segmentlistcmp').data('sectorid',sectors);
+    }
+ 
+    if(typeof $('#el_jobfamilycmpcmp') != 'undefined'){
+        $('#el_jobfamilycmpcmp').data('sectorid',sectors);
+    }
+}
+$("select[name='sectors']").on('change', function(e){
+    
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       var segment = $(this).closest("form").find("select[name='segment']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       segment.val('');
+       segment.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+});
+
+//Job family
+if(typeof $('#el_segmentlistcmp') != 'undefined'){
+    if(typeof $('#el_jobfamilycmp') != 'undefined'){
+        var sectors = $('.el_sectorlistcmp').val();
+        $('select#el_jobfamilycmp').data('sectorid',sectors);
+        var segments = $('#el_segmentlistcmp').val();
+        $('select#el_jobfamilycmp').data('segmentid',segments);
+    }
+}
+$('#el_segmentlistcmp').on('change', function(e){
+       var segments = $('#el_segmentlistcmp').val();
+       $('select#el_jobfamilycmp').val('');
+       $('select#el_jobfamilycmp').data('segmentid',segments);
+});
+
+//job role
+if(typeof $('#el_jobfamilycmp') != 'undefined'){
+    if(typeof $('#el_jobrolescmp') != 'undefined'){
+        var jobfamily = $('#el_jobfamilycmp').val();
+        $('select#el_jobrolescmp').data('jobfamilyid',sectors);
+    }
+}
+$('#el_jobfamilycmp').on('change', function(e){
+       var jobfamily = $('#el_jobfamilycmp').val();
+       $('select#el_jobrolescmp').val('');
+       $('select#el_jobrolescmp').data('jobfamilyid',jobfamily);
+});   
+{{/js}}

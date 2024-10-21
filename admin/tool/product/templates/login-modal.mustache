@@ -1,0 +1,30 @@
+{{< core/modal }}
+    {{$title}}{{#str}} signin,tool_product {{/str}}{{/title}}
+    {{$body}}
+        <div class="container">
+            <form>
+                <div class="form-group row">
+                    <label for="username" class="col-sm-2 col-form-label">{{#str}} username,tool_product {{/str}}</label>
+                    <div class="col-sm-10">
+                        <input type="username" class="form-control" id="username" placeholder="{{#str}} username,tool_product {{/str}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{{#str}} password,tool_product {{/str}}</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="{{#str}} password,tool_product {{/str}}">
+                    </div>
+                    <input type="hidden" value="{{globals.config.wwwroot}}/admin/tool/product/checkout.php" class="form-control" id="redirecturi">
+                </div>
+                <div class="container">
+            <div data-loader="login" class="d-none">
+                {{>tool_product/loader}}
+            </div>
+            </form>
+        </div>
+    {{/body}}
+    {{$footer}}
+        <button type="button" class="btn btn-primary" data-action="login">{{#str}} signin,tool_product {{/str}}</button>
+        <!-- <button type="button" class="btn btn-secondary" data-action="cancel">{{#str}} cancel {{/str}}</button> -->
+    {{/footer}}
+{{/ core/modal }}

@@ -1,0 +1,147 @@
+#halls_section{
+    border: 1px solid #eee;
+    min-height: 500px;
+    border-radius: 15px;
+    padding: 1rem;
+}
+#hallsheading{
+    border-bottom: 1px solid #eee;
+}
+.halldetails_container{
+    background-color: #E9ECF0;
+    border-radius: 10px;
+}
+.halldetails_container .divider{
+    height: 1px;
+    background-color: #BABABB;
+}
+.halldetails_container .action_btns span {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px !important;
+    font-size: 12px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25px;
+}
+.main_detail_content .detail_heading{
+    font-size: .9rem;
+    margin-bottom: 0.7rem;
+}
+.hall_eminities_list{
+    padding: 0;
+    margin:0;
+}
+.hall_eminities_list li{
+    list-style:none;
+    display: inline;
+    margin-right: 2rem;
+}
+.halldetails_container .status_label{
+    font-weight: 700;
+}
+.filters_container{
+    background-color: #FAFCFF;
+    padding-top: 20px;
+}
+.filters_container .header_content h6{
+    font-size: 1.3rem;
+}
+.filters_container .header_content .filter_icon img{
+    width: 30px;
+}
+.filters_container {
+   color: #26313B;
+}
+.filters_container .collapseiconspan{
+    display: flex;
+    justify-content: end;
+    flex: 1;
+    margin-right: 10px;
+}
+.filters_container [data-toggle="collapse"] .collapseicon:before {   
+    content: "\f078";
+}
+.filters_container [data-toggle="collapse"].collapsed .collapseicon:before {
+    content: "\f054";
+}
+.filters_container .filter_header h6,.filters_container .filter_heading{
+    font-size: 16px;
+    margin: 0;
+   
+}
+.filters_container .filter_list_items_ul{
+    padding:0;
+    margin:0;
+}
+.filters_container .filter_list_items_ul li{
+    list-style: none;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.filters_container .filter_list_items_ul li input{
+    margin-right: 10px;
+}
+.filters_container .filter_sub_section{
+    padding-bottom: 10px;
+    border-bottom: 2px solid #D4DBE0;
+}
+#page-local-uidesigns-halls #region-main{
+    padding-top: 0px;
+    margin-top: 0 !important;
+}
+.halldetails_container .action_btns a:last-child span{
+    margin-right: 0 !important;
+}
+.hall_description p {
+    max-height: 3em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    width: 100%;
+    white-space: normal;
+    overflow: hidden;
+}
+.details_container.rounded {
+    background-color: #e9ecf0;
+}
+.hallreserveinfo {
+    background-color: #e9ecf0;    
+}
+.hallinfodetails_container {
+    margin-bottom: 3rem;
+}
+.reservationfilterform{
+    background-color: #EFF3F5;
+}
+.reservationfilterform input[type='checkbox']{
+    width: 25px;
+    height: 25px;
+}
+
+.reservationhallmodal .modal-header {
+    padding: 2rem;
+    background-color: #eff3f5;
+}
+
+.reservationhallmodal .modal-title {
+    flex-grow: 1;
+}
+.reservationhallmodal .col-form-label {
+    display: none !important;
+}
+.reservationhallmodal #fgroup_id_ord_details_2 .felement fieldset>div {
+    align-items: flex-end!important;
+}
+#page-local-hall-schedulehall tr.group, #page-local-hall-schedulehall tr.group:hover {
+    background-color: #ddd!important;
+}
+/*#hallinformation {
+    display: none;
+}*/
+
+

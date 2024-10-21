@@ -1,0 +1,124 @@
+{{!
+    @deprecated since 4.0 but added as custom feature by Rizwana
+    @template theme_academy/nav-drawer
+
+
+    Example context (json): {}
+}}
+<div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex {{^navdraweropen}}closed{{/navdraweropen}}" aria-hidden="{{#navdraweropen}}false{{/navdraweropen}}{{^navdraweropen}}true{{/navdraweropen}}" tabindex="-1">
+    {{!> theme_academy/flat_navigation }}
+    {{#isloggedin}}
+       <div data-region="drawer-toggle" class="left_sidebar">
+            <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn pull-xs-left m-r-1 btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span></button>
+        </div>
+        {{{output.left_navigation_quick_links}}}
+        <span class="leftmenu_navigator leftmenu_navigator_btm d-none" id = 'firstdata' title="{{#str}}show_more_less, theme_academy{{/str}}"><i class="fa leftmenu_navigator_icon"></i></span>
+        <span class="leftmenu_navigator leftmenu_navigator_top d-none" id = 'arrow_top' title="{{#str}}show_more_less, theme_academy{{/str}}"><i class="fa leftmenu_navigator_icon"></i></span>
+    {{/isloggedin}}
+</div>
+<div class="nav-drawer-overlay" class="hidden-print {{^navdraweropen}}open{{/navdraweropen}}" tabindex="-1"></div>
+
+{{#js}}
+let menuelement = document.getElementsByClassName('user_navigation_ul')[0];
+if(menuelement){
+    /* menuelement.style.marginTop = "-0px";
+    menuelement.addEventListener("mousemove", () => {
+        let mousex = event.clientX; // Gets Mouse X
+        let mousey = event.clientY; // Gets Mouse Y
+        //console.log([mousex, mousey]); // Prints data
+        let current_margin = menuelement.style.marginTop;
+        menuelement.style.marginTop = "-"+((mousey)-250)+"px";
+    }); */
+}
+$( document ).ready(function() {
+    
+    var leftmenu = $('.user_navigation_ul')[0];
+    if(leftmenu){
+    var totalheight = $('.user_navigation_ul').height();
+    var navdrawer_height = $('#nav-drawer').height();
+    var navdrawer_toggle_btn_height = $('.left_sidebar').height();
+    var list_count = leftmenu.children.length;
+    var listheight = $('.user_navigation_ul li').height();
+    var screenheight = screen.height;
+    var headerheight = 250;
+    var menuheight = screenheight-headerheight;
+    //var menu_height = screenheight-840;  
+    //var firstmove = menuheight;
+    var firstmove = navdrawer_height-80;
+    var secondmove = (firstmove*2);
+    var current_margin = 0;
+    var permove = (navdrawer_height/listheight);
+    var movable_marigin = navdrawer_height-navdrawer_toggle_btn_height-(listheight*2);
+    $('.leftmenu_navigator_btm').removeClass("d-none");
+    $('.leftmenu_navigator_btm').click(function(){
+        if((current_margin+movable_marigin)<(list_count*listheight)){
+            current_margin+=movable_marigin
+            $(leftmenu).animate({'margin-top':-(current_margin)+'px'});
+            if((current_margin+movable_marigin)>(list_count*listheight)){
+                $('.leftmenu_navigator_btm').addClass("d-none");
+                $('.leftmenu_navigator_top').removeClass("d-none");
+            }
+        }
+    });
+    $('.leftmenu_navigator_top').click(function(){
+        console.log(current_margin,movable_marigin,(list_count*listheight))
+        if((current_margin-movable_marigin)<(list_count*listheight)){
+            current_margin-=movable_marigin
+            $(leftmenu).animate({'margin-top':-(current_margin)+'px'});
+            if((current_margin==0)){
+                $('.leftmenu_navigator_top').addClass("d-none");
+                $('.leftmenu_navigator_btm').removeClass("d-none");
+            }
+        }
+    });
+    //console.log(firstmove);
+    /* if(leftmenu != null){
+            var navdrawer = leftmenu.parentElement;
+
+            var navdrawer_closed = leftmenu.parentElement.classList.contains('closed');
+            if(navdrawer.length != 0 && list_count > 8){
+                
+                var leftmenu_navigator = $('.leftmenu_navigator')[0];
+                // if(screenheight <= '900' || list_count >= 18){
+                //    $('.leftmenu_navigator_btm').removeClass("d-none");
+                //}
+                if(navdrawer_height <= (totalheight+35)){
+                    $('.leftmenu_navigator_btm').removeClass("d-none");
+                }
+                $('.leftmenu_navigator_btm').click(function(){
+                    $(leftmenu).animate({'margin-top':-firstmove+'px'});
+                    if(list_count >=16 && (screenheight < '900')){
+                        $('.leftmenu_navigator_top').removeClass("d-none");
+                        $('.leftmenu_navigator_top').click(function(){
+                            if($(leftmenu).css('margin-top') === -secondmove+'px'){
+                                $(leftmenu).animate({'margin-top':-firstmove+'px'});
+                                $('.leftmenu_navigator_btm').removeClass('d-none');
+                            }
+                            else if(($(leftmenu).css('margin-top') === -firstmove+'px')){
+                                $(leftmenu).animate({'margin-top': '0px'});
+                                $('.leftmenu_navigator_top').addClass("d-flex");
+                            }
+                        });
+                        $('.leftmenu_navigator_btm').click(function(){
+                            if($(leftmenu).css('margin-top') === '0px'){
+                                $(leftmenu).animate({'margin-top':-firstmove+'px'});
+                                $('.leftmenu_navigator_btm').removeClass('show_more');
+                            }else if($(leftmenu).css('margin-top') === -firstmove+'px'){
+                                $(leftmenu).animate({'margin-top': -secondmove+'px'});
+                                $('.leftmenu_navigator_btm').addClass('d-flex');
+                            }
+                        });
+                    }else{
+                        $('.leftmenu_navigator_btm').toggleClass('show_more');
+                        if($('.leftmenu_navigator_btm').hasClass('show_more')){
+                            $(leftmenu).animate({'margin-top': (0-firstmove)+'px'});
+                        }else{
+                            $(leftmenu).animate({'margin-top':'0px'});
+                        }
+                    }
+                });
+            }
+        }*/
+    }
+});
+{{/js}}

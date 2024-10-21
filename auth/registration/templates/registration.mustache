@@ -1,0 +1,50 @@
+<div id="registration_container">
+<div class="container-fluid">
+<div class="row">
+    <div class="col-12 text-center mb-4">
+        <h3 class="text-black m-0">{{# str}} register, auth_registration{{/ str}}</h3>
+        <p class="theme_text_color2">{{# str}} register_text, auth_registration{{/ str}}</p>
+    </div>
+    <div class="col-md-4 col-lg-3 border-right d-none">
+        <!-- nav tabs -->
+       {{> auth_registration/navtabs }} 
+    </div>
+    <div class="col-md-12 col-lg-12">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade  show active" id="individual_reg" role="tabpanel"  aria-labelledby="individual_reg-tab">
+               {{{individualregform}}}
+            </div>
+        </div>
+        <div class="loginpage_container">
+            <div class="loginpage_course loginpage_course p-5 row justify-content-center">
+                <div class="border-top"></div>
+                <div class=" login_registration d-flex col-lg-5 justify-content-center pt-4">
+                    <div class="user_registration px-4 py-2 mr-3">
+                        <a href="{{config.wwwroot}}/login/index.php">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="logo_icon mr-3"></div>
+                                <div class="registration_content d-flex align-items-center justify-content-center flex-column">
+                                    <div class="user_name font-weight-bold">{{#str}} loginreg , auth_registration {{/str}}</div>
+                                    <p class="personal_content mb-0">{{#str}} loginregdetails, auth_registration{{/str}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="new_organization px-4 py-2">
+                        <a href="{{config.wwwroot}}/auth/registration/registration.php">
+                            <div class="d-flex  align-items-center justify-content-center">
+                                <div class="org_icon mr-3"></div>
+                                <div class="registration_content d-flex align-items-center justify-content-center flex-column">
+                                    <div class="user_name font-weight-bold">{{#str}}oraganization, theme_academy{{/str}}</div>
+                                    <p class="personal_content mb-0">{{#str}}companies, theme_academy{{/str}}</p>
+                                </div> 
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

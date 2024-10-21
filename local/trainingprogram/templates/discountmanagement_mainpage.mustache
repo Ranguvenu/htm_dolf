@@ -1,0 +1,236 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_trainingprogram/discountmanagement_mainpage
+
+    TODO describe template
+
+    Example context (json):
+    {
+    }
+}}
+<div id="discount_tabs" class="pull-left w-100 marginb-10">
+    <div class="discount_tabs_list pl_15 pr_15 pb_15">
+        {{#tabs.0}}
+            <ul class="nav nav-tabs discount_tabs" role="tablist">
+                {{#tabs}}
+                    <li class="nav-item discountitem {{type}}" data-type="{{type}}" data-target="discount_{{type}}" data-selected-class="active" aria-controls="{{type}}" aria-selected="false" tabindex="-1" role="tab" >
+                         <a class=" {{active}} nav-link " data-toggle="tab" aria-controls="{{type}}" role="tab"  title="{{name}}" >
+                         {{name}}
+                        </a>
+                    </li>
+                {{/tabs}}
+            </ul>
+        {{/tabs.0}}
+    </div>
+    <div class="tab-content">
+            {{#tabs.0}}
+                {{#tabs}}
+                    <div role="tabpanel" class="tab-pane {{active}}" id="discount_{{type}}">
+                        <div class="row my-3">
+                            <div class="col-md-12">
+                                <div id="discount_section" class="row">
+                                    <div class="col-md-5">
+                                    {{# search}}
+                                        <div class="global_filter_structure form-group m-0">
+                                            <div class="input_container position-relative">
+                                            <input id="global_filter_{{type}}" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                                                <span class="search_icon"></span>
+                                            </div>
+                                        </div>
+                                    {{/ search}}
+                                    </div>
+                                    {{# action}}
+                                        <div class="col-md-7">
+                                            {{# couponaction}}
+                                               <div class="d-flex justify-content-end align-items-center">
+                                                    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createcoupon"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createcoupon, local_trainingprogram{{/str}}</a>
+                                                    <button class="btn filter_toggle_btn" id="filter_open_btn_coupon">
+                                                        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                                                        {{# str}} filter, local_trainingprogram{{/ str}}
+                                                    </button>
+                                                </div>
+                                            {{/ couponaction}}
+                                            {{# earlyregction}}
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    </button></a>
+                                                    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createearlyregistration"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createearlyregistration, local_trainingprogram{{/str}}</a>
+                                                    <button class="btn filter_toggle_btn" id="filter_open_btn_earlyregistration">
+                                                        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                                                        {{# str}} filter, local_trainingprogram{{/ str}}
+                                                    </button>
+                                                </div>
+                                            {{/ earlyregction}}
+                                            {{# groupsaction}}
+                                               <div class="d-flex justify-content-end align-items-center">
+                                                    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="creatediscountgroups"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}creategroupdiscount, local_trainingprogram{{/str}}</a>
+                                                    <button class="btn filter_toggle_btn" id="filter_open_btn_groups">
+                                                        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                                                        {{# str}} filter, local_trainingprogram{{/ str}}
+                                                    </button>
+                                                </div>
+                                            {{/ groupsaction}}
+                                        </div>
+                                    {{/ action}}
+                                </div> 
+                            </div>
+                        </div>
+                        <div id="{{type}}" data-region="{{type}}-preview-container" class="viewdiscounts">
+                            <div data-region="{{type}}-count-container"></div>
+                            <div data-region="{{type}}-list-container" class ="discountmethoddata">
+                            </div>
+                            <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                            <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                            </span>
+                        </div>
+                        {{#filter}}
+                            <div class="filters_container {{type}}" id ="{{type}}_filter_container">
+                                <div class="header_content">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}} filter, local_userapproval{{/ str}}</h6>
+                                        <button class="btn btn-close filter_toggle_btn" id="filter_close_btn_{{type}}">
+                                            {{# str}} close_filter, local_trainingprogram{{/ str}}
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                                        {{# str}} filter_discription, local_trainingprogram{{/ str}}
+                                    </div>
+                                </div>
+                                <div class="filters_contents {{type}}">
+                                    {{{filterform}}}
+                                </div>
+                            </div>
+                        {{/filter}}
+                    </div>
+               {{/tabs}}
+                <div class="viewmanagementdiscounts">
+                    <div data-region="count-container"></div>
+                    <div data-region="list-container" class ="managementdiscountmethoddata">
+                    </div>
+                    <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                    <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                    </span>
+                </div>
+            {{/tabs.0}}
+    </div>
+</div>   
+
+{{#js}}
+    $(document).ready(function() { 
+        if($(".discount_tabs").length > 0){
+            $(".discount_tabs").find("li").each(function(){
+                if($(this).find('a').hasClass('active')){
+                    $(this).trigger('click');
+                }              
+            });
+        }
+    });
+    $('.discountitem').click(function(){
+        if($(".filters_container").hasClass('open')){
+            $(".filters_container.open form").find('button[name="cancel"]').trigger('click');
+            $(".filters_container.open").removeClass('open');
+        }
+        var discounttype = $(this).data('type');
+        $('.tab-pane').removeClass("active");
+        $(this).addClass("active");
+        $('#discount_'+discounttype+'').addClass("active");
+        require(['theme_academy/cardPaginate','core/ajax'], function(cardPaginate,Ajax) {
+            if(discounttype == 'management') {
+                var params = {};
+                params.objtype ='management';
+                methodname = 'local_trainingprogram_managementdiscountdata';
+                var promise = Ajax.call([{
+                    methodname: methodname,
+                    args: params
+                }]);
+                promise[0].done(function(resp) {
+                    $('.managementdiscountmethoddata').append(resp.management);
+                });
+            } else { 
+                $('.managementdiscountmethoddata').empty();
+                var options = {targetID: discounttype+'',
+                                templateName: 'local_trainingprogram/listofdiscount'+discounttype+'',
+                                methodName: 'local_trainingprogram_'+discounttype+'discountdata',
+                                perPage: 10,
+                                cardClass: 'col-md-6 col-12',
+                                viewType: 'card'};
+                var dataoptions = {objtype: discounttype};
+                $(".discountmethoddata").empty();
+                cardPaginate.reload(options, dataoptions,'');
+                var search_interval = 100;
+                var timer;
+                $(document).on('keyup', '#global_filter_'+ discounttype+'', function(){
+                    var searchval = $(this).val();
+                    var filterdata = {search_query: searchval};
+                    timer = setTimeout(function(){
+                        cardPaginate.reload(options,dataoptions,filterdata);
+                    },search_interval);
+                });
+                $(document).on('keydown', '#global_filter_'+ discounttype+'', function(){
+                    clearTimeout(timer);
+                });
+            } 
+        }); 
+    }); 
+    
+    var coupon_filter_open_element = document.getElementById('filter_open_btn_coupon');
+    var coupon_filter_close_element = document.getElementById('filter_close_btn_coupon');
+    var couponfilterscontainer = document.getElementById('coupon_filter_container');
+
+    if(coupon_filter_open_element != null){
+        coupon_filter_open_element.onclick = function(){
+            couponfilterscontainer.classList.toggle("open");
+        };
+    }
+    if(coupon_filter_close_element != null){
+        coupon_filter_close_element.onclick = function(){
+            couponfilterscontainer.classList.toggle("open");
+        };
+    }  
+
+    var earlyregistration_filter_open_element = document.getElementById('filter_open_btn_earlyregistration');
+    var earlyregistration_filter_close_element = document.getElementById('filter_close_btn_earlyregistration');
+    var earlyregistrationfilterscontainer = document.getElementById('earlyregistration_filter_container');
+
+    if(earlyregistration_filter_open_element != null){
+        earlyregistration_filter_open_element.onclick = function(){
+            earlyregistrationfilterscontainer.classList.toggle("open");
+        };
+    }
+    if(earlyregistration_filter_close_element != null){
+        earlyregistration_filter_close_element.onclick = function(){
+            earlyregistrationfilterscontainer.classList.toggle("open");
+        };
+    }
+
+    var groups_filter_open_element = document.getElementById('filter_open_btn_groups');
+    var groups_filter_close_element = document.getElementById('filter_close_btn_groups');
+    var groupsfilterscontainer = document.getElementById('groups_filter_container');
+
+    if(groups_filter_open_element != null){
+        groups_filter_open_element.onclick = function(){
+            groupsfilterscontainer.classList.toggle("open");
+        };
+    }
+    if(groups_filter_close_element != null){
+        groups_filter_close_element.onclick = function(){
+            groupsfilterscontainer.classList.toggle("open");
+        };
+    }
+    
+{{/js}}

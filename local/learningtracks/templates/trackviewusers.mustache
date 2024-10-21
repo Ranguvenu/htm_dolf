@@ -1,0 +1,49 @@
+{{#response}}
+
+    {{#viewtypeCard}}
+    <div id="learningtracks_block_container">
+     <div class="" id="users_tab_content">
+        <table class="w-full pull-left generaltable" id ='usersdata'>
+            <thead>
+                <tr>
+                    <th>{{#str}}traineename,local_learningtracks{{/str}}</th>
+                    <th>{{#str}}email,local_learningtracks{{/str}}</th>
+                    <th>{{#str}}totalcourses, local_learningtracks{{/str}}</th>
+                    <th>{{#str}}enrolled, local_learningtracks{{/str}}</th>
+                    <th>{{#str}}completed, local_learningtracks{{/str}}</th>
+                    <th>{{#str}}status, local_learningtracks{{/str}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#records}}
+                        <tr>
+                            <td>{{username}}</td>
+                            <td>{{email}}</td>
+                            <td>{{totalcourses}}</td>
+                            <td>{{enrollcount}}</td>
+                            <td>{{completed_count}}</td>
+                            <td>        
+                                {{^completedstatus}}
+                                    {{#str}}notcompleted, local_learningtracks{{/str}}
+                                {{/completedstatus}}
+                                {{#completedstatus}}
+                                 {{#str}}completed, local_learningtracks{{/str}}
+                                {{/completedstatus}}
+                            </td>
+                            <td>
+                              	<a href="{{viewurl}}" class="viewbutton" >
+                                    <span>{{#str}}view,local_learningtracks{{/str}}</span>
+                               
+					
+						</a>
+                            </td>
+                        </tr>
+                {{/records}}
+            </tbody>
+        </table>
+        </div>
+        </div>
+    {{/viewtypeCard}}
+{{/response}}
+    

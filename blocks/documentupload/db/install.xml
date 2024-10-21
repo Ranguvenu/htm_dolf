@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PATH="blocks/documentupload/db" VERSION="2022041901.1" COMMENT="XMLDB file for blocks documentupload plugin" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+
+
+    <TABLES>
+         <TABLE NAME="documentupload" COMMENT="documentupload">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="mediatype" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="title" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+                 <FIELD NAME="document" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+                  <FIELD NAME="arabicdocument" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="docrank" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        
+    </TABLES>
+</XMLDB>

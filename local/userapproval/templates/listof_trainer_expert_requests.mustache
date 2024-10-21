@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12">
+        <div id="userapprovals_section">
+            <div class="row my-3">
+                
+                <div class="col-md-6">
+                    {{{globalinput}}}
+
+
+                </div>
+                  {{#onlyadmin}}
+                 <div class="col-md-6">
+            
+                <div class="d-flex justify-content-end align-items-center">
+                    <button class="btn filter_toggle_btn" id="filter_open_btn">
+                        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                        {{# str}} filter, local_userapproval{{/ str}}
+                    </button>
+                </div>
+            </div>
+            
+               {{/onlyadmin}} 
+            </div>
+            </br>
+            <div id="userapprovals_container">
+                 {{{userdetails}}}
+            </div>
+ 
+
+
+        </div> 
+
+
+         <div class="filters_container">
+        <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}} filter, local_userapproval{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}} close_filter, local_userapproval{{/ str}}
+                </button>
+            </div>
+
+        </div>   
+        <div class="filters_contents">
+                    {{{filterform}}}
+               </div> 
+    </div>    
+    </div>
+</div>
+

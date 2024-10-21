@@ -1,0 +1,94 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_trainingprogram/tabs
+
+    TODO describe template tabs
+
+    Example context (json):
+    {
+    }
+}}
+<div id="questionbank_container" class="tabcontainer">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-tabs dolf-tabs" id="question_bank_tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-action="contentTabs" id="contentTabs"  data-container="{{container}}" data-toggle="tab" role="tab" data-controls=0 data-template={{template}} 
+                    data-method={{action}} aria-selected="true">
+                    {{#inprogresstabname}}
+                      {{#str}} scheduled, local_questionbank {{/str}}
+                    {{/inprogresstabname}}
+                    {{^inprogresstabname}}
+                    {{tabtitle}}
+                    {{/inprogresstabname}}
+                  </a>
+                </li>
+                {{#completedtabname}}
+                <li class="nav-item">
+                    <a class="nav-link" data-action="contentTabs" id="contentTabs" data-container="{{container}}" data-toggle="tab" role="tab" data-controls=1 data-template={{template}}
+                    data-method={{action}}  aria-selected="false">{{completedtabname}}</a>
+                </li>
+                {{/completedtabname}}
+                {{#organizationofficial}}
+                    {{#mytrainings}}
+                        <li class="nav-item">
+                            <a class="nav-link" data-action="contentTabs" id="contentTabs" data-container="{{container}}" data-toggle="tab" role="tab" data-controls={{tabtype}} data-template=tool_product/viewpurchases
+                            data-method=tool_product_viewpurchases  aria-selected="false" data-tabtype={{tabtype}}>{{mytrainings}}</a>
+                        </li>
+                    {{/mytrainings}}
+                {{/organizationofficial}}
+
+                {{#trainee}}
+                    {{#recommendedentities}}
+                        <li class="nav-item">
+                            <a class="nav-link" data-action="contentTabs" id="contentTabs" data-container="{{container}}" data-toggle="tab" role="tab" data-controls="{{tabtype}}" data-template={{recommendedtemplate}}
+                            data-method={{recommendedaction}} aria-selected="false" data-tabtype={{tabtype}}>{{recommendedentities}}</a>
+                        </li>
+                    {{/recommendedentities}}
+                {{/trainee}}
+
+            </ul>
+            <div class="dolf_tabContent tab-content" id="question_bank_tabsContent">
+                <div class="tab-pane fade show active" id="scheduled" role="tabpanel" aria-labelledby="scheduled-tab">
+                    <div id="{{container}}" class="content_wrapper">
+                        <div data-region='{{container}}-list-container'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+    require(['theme_academy/DataFilter'], function(s) {
+        s.init();
+    });
+{{/js}}
+
+
+
+
+
+
+
+
+
+
+
+

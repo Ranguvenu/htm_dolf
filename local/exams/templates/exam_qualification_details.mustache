@@ -1,0 +1,263 @@
+{{#exam}}
+<div id="examdetailscontainer">
+    <div class="d-flex flex-column position-relative">
+        <div class="mainsectioncontainer my-4 text-light">
+            <div class="d-flex flex-column">
+                <div class="d-flex align-items-center">
+                   <span class="fa fa-edit"></span> 
+                    <strong class="ml-2"> {{#str}}examoverview, local_exams{{/str}} </strong>
+                </div>
+                <!-- <p class="programdesc my-3"> -->
+                    <p class="my-3">
+                   {{{description}}}
+                </p>
+                <div class="d-flex sectors_covered_container align-items-center mt-3 flex-wrap">
+                    <h5 class="mr-2">{{#str}}sectors, local_exams{{/str}}</h5>
+                    {{#sectordata}}
+                        <div class="d-flex border sector_div mr-2"><span class="piximg checkicon">{{# pix }} check_circluaricon_white, local_trainingprogram {{/ pix }}</span>  {{sectorname}}</div>
+                    {{/sectordata}}
+                </div>
+            </div>
+        </div>
+        <div class="position-absolute pricedetails_container rounded hexabgcontainer text-light h-100 py-3 px-3">
+            <div class="d-flex flex-column text-center">
+                <span class="mb-2">{{#str}}examfee, local_exams{{/str}}</span>
+                <h1 class="mt-2 mb-1">{{fees}}</h1>
+                <span>{{#str}}sa_currency,local_trainingprogram{{/str}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}}jobfamilies, local_exams{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class="jobfamilylist row">
+                    {{# targetgroup}}
+                        <li class="col-md-3"><span class="targetname">{{{familyname}}}</span></li>
+                    {{/ targetgroup}}
+                    {{^ targetgroup}}
+                        {{#str}}nodataavailable, local_exams{{/str}}
+                    {{/ targetgroup}}                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}}target_audience_details, local_exams{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <p>{{{targetaudience}}}</p>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">Job Families</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class="list-unstyled d-flex flex-wrap m-0">
+                    <li class="p-3 mx-3">AI and Data Science</li>
+                    <li class="p-3 mx-3">Banking Operations</li>
+                    <li class="p-3 mx-3">Claims</li>
+                    <li class="p-3 mx-3">Clearing, Reconciliation and Settlements</li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}}examprofiles, local_exams{{/str}}</h5>
+            {{# userexamreqstatus}}
+                <div class="alert alert-danger">{{#str}}achievereqexams, local_exams{{/str}}</div>
+            {{/ userexamreqstatus}}
+        </div>
+
+        {{# examprofile}}
+
+        <div class="col-md-6">
+            <div class="bg-white shadow rounded p-4 mt-2">
+                <div class="d-flex">
+                    <div class="examdetailsicon"></div><div class="mr-auto p-2">
+                    <h6 class="text-themecolor ml-3">{{exam}} </h6> <!--({{profilecode}})-->
+                  
+                    </div>
+                    {{# product_variations}}
+                        {{^ userexamreqstatus}}
+                        {{# expired}}
+                            {{# profileenrollment}}
+                                <div class="p-2">
+                                    <input type="radio" name="profilelanguage" class="profilelanguage ml-3" {{#profilechecked}}checked{{/profilechecked}} value="{{language}}" data-product='{{variation}}' />
+                                </div>
+                            {{/ profileenrollment}}
+                            {{^ profileenrollment}}
+                                <div class="p-2">{{#str}}noseats, local_exams{{/str}}</div>
+                            {{/ profileenrollment}}                            
+                        {{/ expired}}
+                        {{^ expired}}                    
+                            <div class="p-2">{{#str}}expired, local_exams{{/str}}</div>
+                        {{/ expired}}
+                    
+                        {{/ userexamreqstatus}}
+                    {{/ product_variations}}
+                </div>
+                <div class="row mt-3 mb-2">
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <small class="mb-1 text-light-grey d-block font-weight-bold">{{#str}}language,local_exams{{/str}}</small>
+                            <h6 class="text-themecolor">{{language}}</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <small class="mb-1 text-light-grey d-block font-weight-bold">{{#str}}degree_of_success,local_exams{{/str}}</small>
+                            <h6 class="text-themecolor">{{passinggrade}} % </h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <small class="mb-1 text-light-grey d-block font-weight-bold">{{#str}}examduration, local_exams{{/str}}</small>
+                            <h6 class="text-themecolor">{{duration}} {{#str}}minutes,local_exams{{/str}}</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <small class="mb-1 text-light-grey d-block font-weight-bold">{{#str}}examowner, local_exams{{/str}}</small>
+                            <h6 class="text-themecolor">{{ownedby}}</h6>
+                        </div>
+                    </div>
+                    {{#registrationstart}}
+                     <div class="col-sm-4">
+                        <div class="mb-3">
+                            <small class="mb-1 text-light-grey d-block font-weight-bold">{{#str}}registrationstartdate, local_exams{{/str}}</small>
+                            <h6 class="text-themecolor">{{registrationstart}}</h6>
+                        </div>
+                    </div>
+                    {{/registrationstart}}
+                    {{#registrationend}}
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <small class="mb-1 text-light-grey d-block font-weight-bold">{{#str}}registrationenddate, local_exams{{/str}}</small>
+                            <h6 class="text-themecolor">{{registrationend}}</h6>
+                        </div>
+                    </div>
+                    {{/registrationend}}
+                </div>
+                <div class="row my-1">
+                    <div class="col-md-12">
+                    {{#profile}}
+                        <a href="{{profile}}" class="btn btn-sm bg-transparent text-themecolor border-themecolor btn-downloadpdf" download>{{#str}}download,local_exams{{/str}} <span class="piximg p-1 d-inline-block ml-1">{{# pix }} pdffileicon, local_exams {{/ pix }}</span> </a>
+                    {{/ profile}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {{/ examprofile}}
+    {{^ examprofile}}
+        <div class="col-md-12"><div class="alert alert-info">{{#str}}noprofiles,local_exams{{/str}}</div></div>
+    {{/ examprofile}}
+
+    </div>
+    {{^ viewscheules}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}} hallavailability, local_exams{{/str}}</h5>
+            {{{examhallreservation}}}
+        </div>
+    </div>
+    {{/ viewscheules}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}}competencylevel, local_exams{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <table class="table competencies_table">
+                    <thead>
+                        <tr class="bg-themecolor text-light font-weight-bold">
+                            <td class="rounded-left">{{#str}}competencies, local_exams{{/str}}</td>
+                            <td class="rounded-right">{{#str}}levels, local_exams{{/str}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#examcompetencies}}
+                        <tr>
+                            <td colspan="2" class="p-0 border-0"><div class="bg-themecolor2 px-3 py-2 my-2 text-light font-weight-bold rounded"> {{competencytype}} </div></td>
+                        </tr>
+                        {{#competencyname}}
+                        <tr>
+                            <td class="align-middle"><h6>{{{name}}}</h6></td>
+                            <td>
+                                <div class="rounded p-2 bg-themecolor2 text-light font-weight-bold text-center">{{level}}</div>
+                            </td>
+                        </tr>
+                        {{/competencyname}}
+                        {{/examcompetencies}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}requirements, local_exams{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+             {{# oneprerequisiteexams}}
+                <h6 class="">{{#str}}passoneprerequisiteexams,local_exams{{/str}}</h6>
+            {{/ oneprerequisiteexams}}
+             {{# allprerequisiteexams}}
+                <h6 class="">{{#str}}passallprerequisiteexams,local_exams{{/str}}</h6>
+            {{/ allprerequisiteexams}}
+             <ul class="requirements_list {{#hasrequirementsmore}}showlimited{{/hasrequirementsmore}} list-unstyled d-flex flex-wrap m-0">
+                {{# requirements}}
+                    <li class="p-3 mx-3">{{{examname}}}</li>
+                {{/ requirements}}
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}additionalrequirements, local_exams{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <p>{{{additionalrequirements}}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}competencyweights_details, local_exams{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <p>{{{competencyweights}}}</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{{#attachedmessage_display}}
+    <div class="fixed-bottom bg-red w-100 p-3 text-center shadow pr-6 and pl-6"> <h4>{{{attachedmessage}}}</h4></div>
+{{/attachedmessage_display}}
+{{#singleproduct}}
+{{#js}}
+require(['jquery'],function($){
+    $(document).ready(function(){
+        $("#global_filter").attr("data-examvariation", {{singleproduct}});
+
+        $('.requirements_list_showtoggler').click(function(e){
+        e.preventDefault();
+        var list_element = $(this).parent().parent().find('.requirements_list');
+        if(list_element.hasClass('showlimited')){
+            list_element.removeClass('showlimited');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        }else{
+            list_element.addClass('showlimited'); 
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+    });
+});
+{{/js}}
+{{/singleproduct}}
+{{/exam}}

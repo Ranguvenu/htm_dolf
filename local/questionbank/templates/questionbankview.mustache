@@ -1,0 +1,45 @@
+{{#response}}
+    {{#records}}
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">{{#str}}name, local_questionbank{{/str}}</th>
+                  <th scope="col">{{#str}}email, local_questionbank{{/str}}</th>
+                  <th scope="col">{{#str}}mobile, local_questionbank{{/str}}</th>
+                  <th scope="col">{{#str}}sector, local_questionbank{{/str}}</th>
+                  <th scope="col">{{#str}}organisation, local_questionbank{{/str}}</th>
+                  <th scope="col">{{#str}}status, local_questionbank{{/str}}</th>
+                  <th scope="col">{{#str}}actions, local_questionbank{{/str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                  <td>{{fullname}}</td>
+                  <td>{{email}}</td>
+                  <td>{{mobile}}</td>                  
+                  <td>{{sector}}</td>                  
+                  <td>{{organisation}}</td>                  
+                  <td>{{status}}</td>                                   
+                  <td>
+                      <div class="d-flex action_btns">
+                          {{# manageuser}}
+                             {{#approvedstatus}}
+                             {{^deletedstatus}}
+                              <a href="#"  data-action="approveuser" data-id={{id}} data-name='{{fullname}}'><span class="bg-success text-white"><i class="fa fa-check"></i></span></a>
+                              <a href="#" data-action="rejectuser" data-id={{id}} data-name='{{fullname}}'><span class="bg-danger text-white"><i class="fa fa-times"></i></span></a>
+                              {{/deletedstatus}}
+                              {{/approvedstatus}}
+                              {{^deletedstatus}}
+                              <a href="#" data-action="deleteuser" data-id={{id}} data-name='{{fullname}}'><span class="bg-primary text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                              {{/deletedstatus}}
+                              <a href="#"  data-action="createuser" data-id={{id}}><span class="bg-info text-white"><i class="fa fa-pencil fa-fw"></i></span></a>
+                          {{/ manageuser}}
+                      </div>
+                  </td>      
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+    {{/ records}}
+{{/ response}}

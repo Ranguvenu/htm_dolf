@@ -1,0 +1,8 @@
+<div data-region="add-btn-{{product_attributes.product}}">
+    <button class="btn btn-primary btn-block mb-3" data-product="{{product_attributes.product}}" data-variation="{{product_attributes.variation}}" data-category="{{product_attributes.category}}" data-quantity="{{product_attributes.quantity}}" data-loggedin="{{product_attributes.isloggedin}}" data-hasvariations="{{product_attributes.hasvariations}}" data-checkout="{{product_attributes.checkout}}" data-action="add-to-cart-{{product_attributes.product}}" data-errortext="{{ product_attributes.errortext }}" data-grouped="{{ product_attributes.grouped }}">{{product_attributes.label}}</button>
+</div>
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        product.grouped_products('[data-action="add-to-cart-{{product_attributes.product}}"]');
+    });
+{{/js}}

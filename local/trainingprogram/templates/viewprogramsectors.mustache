@@ -1,0 +1,32 @@
+<table class="table generaltable collapsecontenttable">
+  <thead> 
+  </thead>
+  <tbody>
+     {{# sectorslist}}
+    <tr class="">
+       <tr>
+         <td><span data-toggle="collapse" href="#selected_program-{{sectorid}}" style="cursor: pointer;">{{title}}</span></td>
+    </tr>
+    <tr class="collapsed_row">   
+    <td>   
+      <div class="selectedprogramsectors mb-3 collapse" id="selected_program-{{sectorid}}">
+          <ul class="list-group">
+              {{# jobfamilies}}
+              <li class="list-group-item">
+                  <h6 class="theme_text_color1 m-0">{{jobfamilyfullname}}</h6>
+              </li>
+             {{/ jobfamilies}}
+
+              {{^ jobfamilies}}
+                <div class="text-center alert alert-info mt-1" data-region="empty-message">
+                     {{#str}} no_data_available, theme_academy {{/str}}
+                </div>
+              {{/ jobfamilies}}
+          </ul>
+      </div>
+    </td>
+    </tr>
+    {{/ sectorslist}}
+  </tbody>
+
+</table>

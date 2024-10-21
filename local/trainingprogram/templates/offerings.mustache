@@ -1,0 +1,8 @@
+<div class="bg-white shadow rounded p-3 mt-2 available_times_container">
+                {{# currentofferings}}
+                    {{> local_trainingprogram/offering}}
+                {{/ currentofferings}}
+                {{^currentofferings}}
+                    <div class="alert alert-info"> {{#str}}noprogramsofferings, local_learningtracks {{/str}}</div>
+               {{/currentofferings}}
+            </div>

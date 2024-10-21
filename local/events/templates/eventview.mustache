@@ -1,0 +1,394 @@
+{{#event}}
+<div id="eventdetailscontainer">
+    <div class="d-flex flex-column position-relative">
+        <div class="mainsectioncontainer my-4 text-light" >
+            
+        </div>
+        <div class="position-absolute pricedetails_container rounded hexabgcontainer text-light h-100 py-3 px-3">
+            <div class="d-flex flex-column text-center">
+                <span class="mb-2">{{#str}} eventfee, local_events {{/str}}</span>
+                {{#event_sellingprice}}
+                <h1 class="mt-2 mb-1">{{event_sellingprice}}</h1>
+                <span>{{#str}}sa_currency,local_trainingprogram{{/str}}</span>
+                {{/event_sellingprice}}
+                {{^event_sellingprice}}
+                 <h1 class="mt-2 mb-1">{{#str}}free,local_trainingprogram{{/str}}</h1>
+                 {{/event_sellingprice}}
+                <div class="mt-4">
+                {{#event_reg_opening}}
+                    {{#event_reg_status}}
+                        {{#bookingseats}}
+                        <div class="cart_btn">
+                            <!--{{>tool_product/cart/add}}-->
+                            {{>tool_product/cart/register}}
+                        </div>
+                        {{/bookingseats}}
+                        {{^bookingseats}}
+                             <button class="btn btn-danger btn-block border py-2 text-light">{{#str}} seatsnotavailable, local_events {{/str}}</button>
+                        {{/bookingseats}}
+                    {{/event_reg_status}}
+                    {{^event_reg_status}}
+                        <button class="btn btn-danger btn-block border py-2 text-light">{{#str}} regclosed, local_events {{/str}}</button>
+                    {{/event_reg_status}}
+                {{/event_reg_opening}}
+                </div>
+                {{#isorgofficialortrainee}}
+                   <div class="mt-2">
+                        <div class="cart_btn">
+                          <div data-region="add-btn-580">
+                    {{#checkfavornot}}
+                            <button class="btn btn-primary btn-block mb-3 removefav removeshow{{eventid}}"  data-component="local_events" data-action="removefavourites" data-itemtype="events" data-itemid="{{ eventid }}" data-userid="{{userid}}" data-courseid="1" title="Remove Favourites" >Remove Favourites</button>
+                            <button class="btn btn-primary btn-block mb-3 addfav addhide{{eventid}}"  data-component="local_events" data-action="addtofavourites" data-itemtype="events" data-itemid="{{ eventid }}" data-userid="{{userid}}"  data-courseid="1" title="Add To Favourites" style="display:none;" >Add Favourites</button>
+                            
+                   {{/checkfavornot}}
+                   {{^checkfavornot}}
+                       <button class="btn btn-primary btn-block mb-3  addfav addshow{{eventid}}"  data-component="local_events" data-action="addtofavourites" data-itemtype="events" data-itemid="{{ eventid }}" data-userid="{{userid}}"  data-courseid="1" title="Add To Favourites"  >Add Favourites</button>
+
+                       <button class="btn btn-primary btn-block mb-3 removefav removehide{{eventid}}"  data-component="local_events" data-action="removefavourites" data-itemtype="events" data-itemid="{{ eventid }}" data-userid="{{userid}}" data-courseid="1" title="Remove Favourites" style="display:none;">Remove Favourites</button>
+                   {{/checkfavornot}}
+                          </div>
+                        </div>
+                    </div>
+                {{/isorgofficialortrainee}}
+            </div>
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-8 d-flex">
+            <div class="videopreviewcontainer h-100 w-100 rounded d-flex align-items-center justify-content-center" style="background-image: url('{{ logo }}');">
+                <!--{{# pix }} playbutton_white, local_events {{/ pix }}-->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-white shadow rounded p-3 mt-2 eventdetails_content">
+                <div class="d-flex align-items-center justify-content-between header">
+                    <h5 class="text-themecolor m-0">{{#str}}eventdetails,local_events{{/str}}</h5>
+                    <div class="piximg">
+                        {{#pix}}eventsblock_icon,local_events{{/pix}}
+                    </div>
+                </div>
+                <hr>
+                <div class="activity_icons">
+                    <div class="border-bottom mb-3">
+                        <div class="d-flex align-items-center mb-2"><span class="calendericon activity_icon"></span> {{#str}}eventstart,local_events{{/str}}</div>
+                        <h6 class="mb-3">{{startdate}}</h6>
+                    </div>
+                    <div class="border-bottom mb-3">
+                        <div class="d-flex align-items-center mb-2"><span class="calendericon activity_icon"></span> {{#str}}eventend,local_events{{/str}}</div>
+                        <h6 class="mb-3">{{enddate}}</h6>
+                    </div>
+                    <!-- <div class="border-bottom mb-3">
+                        <div class="d-flex align-items-center mb-2"><span class="mapmarkericon activity_icon"></span> Event Location</div>
+                        <h6 class="mb-3">Main Hall - Financial Academy <a href="">Click Map</a></h6>
+                    </div> -->
+                    <div class="border-bottom mb-3">
+                        <div class="d-flex align-items-center mb-2"><span class="registraionicon activity_icon"></span> {{#str}}regstart,local_events{{/str}}</div>
+                        <h6 class="mb-3">{{reg_startdate}}</h6>
+                    </div>
+                    <div class="">
+                        <div class="d-flex align-items-center mb-2"><span class="registraionicon activity_icon"></span> {{#str}}regend,local_events{{/str}} </div>
+                        <h6 class="mb-3">{{reg_enddate}}</h6>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <a href="{{scheduleurl}}" target="_blank" class="downloadpdfbtn">
+                            {{#str}}eventschedule,local_events{{/str}}
+                            <span>{{# pix }} btnpdficon, local_events {{/ pix }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}aboutevent, local_events{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                 {{# iseventdescription}}
+                    <!-- <p> {{{eventdescription}}} </p> -->
+                    <p class="mb-3 program_details">{{{ eventdescription }}}</p>
+                {{/ iseventdescription}}
+                {{^ iseventdescription }}
+                    <p class="alert alert-info text-center">{{#str}}nodesc, local_events{{/str}}</p>
+                {{/ iseventdescription }}
+            </div>
+        </div>
+    </div>
+    {{# agendadata}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}eventagenda,local_events{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <div class="event_agenda">
+                    <!-- Topic start -->
+                    <div class="event_section_header d-flex align-items-center justify-content-between collapsed" data-toggle="collapse" href="#section-{{agendano}}">
+                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
+                            <h6 class="m-0">{{#str}}agenda,local_events{{/str}}{{agendano}} : <strong>{{agendatopic}}</strong></h6>
+                        </div>
+                    </div>
+                    <div class="event_section_content_container collapse" id="section-{{agendano}}">
+                        <div class="p-2">
+                            <p> {{{agenda_description}}}</p>
+                            <hr>
+                            <div class="d-flex topic_footer font-weight-bold mb-3">
+                                <div class=" activity_icons d-flex align-items-center mr-4">
+                                    <span class="calendericon activity_icon"></span> <span>{{agendaday}}</span>
+                                </div>
+                                <div class="d-flex align-items-center mr-4">
+                                    <span class="piximg">{{# pix }} eventtopictimeicon, local_events {{/ pix }}</span> <span>{{agendatime}}</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <span class="piximg">{{# pix }} eventtopicspeakericon, local_events {{/ pix }}</span> <span>{{agendaspeaker}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topic end -->
+  
+                </div>
+            </div>
+        </div>
+    </div>
+      {{/agendadata}}
+    <div class="row my-4 event_highlights_container">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}eventhighlights,local_events{{/str}}</h5>
+            <div class="bg-white text-light shadow rounded p-3 mt-2 eventhighlightbg">
+                <div class="row">
+                    <!--<div class="col-md-4">
+                        <div class="highlight_container d-flex h-100 w-100">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-3">{{#str}}attendance,local_events{{/str}}</h3>
+                                <div class="d-flex align-items-center">
+                                    <span class="piximg mr-2">{{# pix }} ehicon_attendance, local_events {{/ pix }}</span>
+                                    <h5><span>{{attendee_list}}</span></h5>
+                                </div>
+                             </div>
+                        </div>
+                    </div>-->
+                    <div class="col-md-6">
+                        <div class="highlight_container d-flex h-100 w-100">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-3">{{#str}}language,local_events{{/str}}</h3>
+                                <div class="d-flex align-items-center">
+                                    <span class="piximg mr-2">{{# pix }} ehicon_language, local_events {{/ pix }}</span>
+                                    <h5><span>{{language}}</span></h5>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-6">
+                        <div class="highlight_container d-flex h-100 w-100">
+                            <div class="border-0" class="flex-grow-1">
+                                <h3 class="mb-3">{{#str}}gender,local_events{{/str}}</h3>
+                                <div class="d-flex align-items-center">
+                                    <span class="piximg mr-2">{{# pix }} ehicon_audience, local_events {{/ pix }}</span>
+                                    <h5><span>{{gender}} <br><small>({{#str}}separatedlocations,local_events{{/str}})</small></span></h5>
+                                </div>
+                             </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#partnerdata}}
+    <div class="row my-4 event_partners_container">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}eventpartners,local_events{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="px-2">
+                        <a class="scrollleft partner"></a>
+                    </div>
+                    <div class="partners_carousel flex-grow-1" id="partners_carousel">
+                            <div class="partner">
+                                <a alt="{{partnername}}" title="{{partnername}}" data-action="viewpartner" data-id = "{{partnerid}}" data-name = "{{partnername}}" data-eventid = "{{eventid}}">
+                                <img src="{{partnerlogo}}" alt="{{partnername}}">
+                                </a>
+                            </div>
+                    </div>
+                    <div class="px-2">
+                        <a class="scrollright partner"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/partnerdata}}
+     {{#platinum_sponsordata}}
+    <div class="row my-4 event_partners_container">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}eventsponsorscatplatinum,local_events{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="px-2">
+                        <a class="scrollleft sponsor"></a>
+                    </div>
+                    <div class="partners_carousel flex-grow-1" id="sponsors_carousel">
+                            <div class="sponsor partner">
+                            <a alt="{{sponsorname}}" title="{{sponsorname}}" data-action="viewsponsor" data-id = "{{sponsorid}}" data-name = "{{partnername}}" data-eventid = "{{eventid}}">
+                               <img src="{{sponsorlogo}}" alt="{{sponsorname}}" title="{{sponsorname}}" >
+                            </a>  
+                            </div>
+                    </div>
+                    <div class="px-2">
+                        <a class="scrollright sponsor"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/platinum_sponsordata}}
+
+    <!--Gold Sponsor-->
+     {{#gold_sponsordata}}
+    <div class="row my-4 event_partners_container">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}eventsponsorscatgold,local_events{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="px-2">
+                        <a class="scrollleft gold_sponsor"></a>
+                    </div>
+                    <div class="partners_carousel flex-grow-1" id="gold_sponsors_carousel">
+                            <div class="sponsor gold partner">
+                               <a alt="{{sponsorname}}" title="{{sponsorname}}" data-action="viewsponsor" data-id = "{{sponsorid}}" data-name = "{{partnername}}" data-eventid = "{{eventid}}">
+                                    <img src="{{sponsorlogo}}" alt="{{sponsorname}}" title="{{sponsorname}}" >
+                                </a>  
+                            </div>
+                    </div>
+                    <div class="px-2">
+                        <a class="scrollright gold_sponsor"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/gold_sponsordata}}
+    <!--Gold Sponsor End-->
+
+    <!--Silver Sponsor-->
+    {{#silver_sponsordata}}
+    <div class="row my-4 event_partners_container">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}}eventsponsorscatsilver,local_events{{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="px-2">
+                        <a class="scrollleft silver_sponsor"></a>
+                    </div>
+                    <div class="partners_carousel flex-grow-1" id="silver_sponsors_carousel">
+                            <div class="sponsor silver partner">
+                               <a alt="{{sponsorname}}" title="{{sponsorname}}" data-action="viewsponsor" data-id = "{{sponsorid}}" data-name = "{{partnername}}" data-eventid = "{{eventid}}">
+                                    <img src="{{sponsorlogo}}" alt="{{sponsorname}}" title="{{sponsorname}}" >
+                                </a>  
+                            </div>
+                    </div>
+                    <div class="px-2">
+                        <a class="scrollright silver_sponsor"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     {{/silver_sponsordata}}
+    <!--Silver Sponsor End-->
+
+</div>
+{{/event}}
+
+{{#js}}
+let carousel = document.querySelector('.partners_carousel');
+let item = document.getElementsByClassName('partner');
+var total_items = item.length;
+let current = 0;
+var itemwidth = 210;
+require(['jquery'], function($) {
+    $(document).ready(function(){
+        $('.scrollleft.partner').click(function (e) {
+            e.preventDefault();
+            carousel.scrollLeft -= itemwidth;
+        });
+
+        $('.scrollright.partner').click(function (e) {
+            e.preventDefault();
+            carousel.scrollLeft += itemwidth;
+        });
+    });
+});
+
+let sponsor_carousel = document.querySelector('#sponsors_carousel');
+let sponsor_item = document.getElementsByClassName('sponsor');
+var sponsor_total_items = sponsor_item.length;
+let sponsor_current = 0;
+var sponsor_itemwidth = 210;
+require(['jquery'], function($) {
+    $(document).ready(function(){
+        $('.scrollleft.sponsor').click(function (e) {
+            e.preventDefault();
+            sponsor_carousel.scrollLeft -= sponsor_itemwidth;
+        });
+
+        $('.scrollright.sponsor').click(function (e) {
+            e.preventDefault();
+            sponsor_carousel.scrollLeft += sponsor_itemwidth;
+        });
+    });
+});
+
+let gold_sponsor_carousel = document.querySelector('#gold_sponsors_carousel');
+let gold_sponsor_item = document.getElementsByClassName('sponsor.gold');
+var gold_sponsor_total_items = gold_sponsor_item.length;
+let gold_sponsor_current = 0;
+var gold_sponsor_itemwidth = 210;
+require(['jquery'], function($) {
+    $(document).ready(function(){
+        $('.scrollleft.gold_sponsor').click(function (e) {
+            e.preventDefault();
+            gold_sponsor_carousel.scrollLeft -= gold_sponsor_itemwidth;
+        });
+
+        $('.scrollright.gold_sponsor').click(function (e) {
+            e.preventDefault();
+            gold_sponsor_carousel.scrollLeft += gold_sponsor_itemwidth;
+        });
+    });
+});
+
+let silver_sponsor_carousel = document.querySelector('#silver_sponsors_carousel');
+let silver_sponsor_item = document.getElementsByClassName('sponsor.silver');
+var silver_sponsor_total_items = silver_sponsor_item.length;
+let silver_sponsor_current = 0;
+var silver_sponsor_itemwidth = 210;
+require(['jquery'], function($) {
+    $(document).ready(function(){
+        $('.scrollleft.silver_sponsor').click(function (e) {
+            e.preventDefault();
+            silver_sponsor_carousel.scrollLeft -= silver_sponsor_itemwidth;
+        });
+
+        $('.scrollright.silver_sponsor').click(function (e) {
+            e.preventDefault();
+            silver_sponsor_carousel.scrollLeft += silver_sponsor_itemwidth;
+        });
+    });
+});
+
+
+$('#view_more_records').on('click', function(){
+    $('#view_records_btn').hide();
+    $('#hall_records').removeClass('hide');
+    $('#more_records').addClass('hide'); 
+});
+
+require(['local_events/eventsform'], function(s) {
+    s.init();
+});
+ require(['local_exams/fav'], function(s) {
+        s.init();
+    });
+{{/js}}

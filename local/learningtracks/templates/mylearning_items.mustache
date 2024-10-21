@@ -1,0 +1,82 @@
+{{#response}}
+   {{#viewtypeCard}}
+    {{#records}}
+        <div class="row my-4 border-bottom pb-3">
+                <div class="col-md-2 d-flex algn-items-center justify-content-center">
+                    {{#trainingprograms}}
+                        <div class="programimg w-100 h-100" style="background-image: url('{{imageurl}}');"></div>
+                    {{/trainingprograms}}
+                    {{#exams}}
+                        <div class="examdetailsicon"></div>
+                    {{/exams}}
+                </div>
+                <div class="col-md-9">
+                    <div class="d-flex w-100 align-items-center justify-content-between my-3">
+                        <h5 class="text-themecolor mb-3">{{name}}</h5>
+                        <h6><span>{{#str}}type,local_learningtracks{{/str}}: <b>{{type}}</b></span></h6>
+                    </div>
+                    <div class="px-2 rounded py-2 my-2 d-flex programmaindetails align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            {{#ownedby}}<span class="piximg">{{#pix}}authoricon,local_learningtracks{{/pix}}</span> {{#str}}by,local_learningtracks{{/str}}{{ownedby}} {{/ownedby}}
+                        </div>
+
+                        {{# datedisplay}}
+                   
+                        <div class="d-flex align-items-center">
+                            <span class="piximg">{{#pix}}programstarticon,local_learningtracks{{/pix}}</span> {{#str}}startdate,local_learningtracks{{/str}} : {{startdate}}
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <span class="piximg">{{#pix}}programstarticon,local_learningtracks{{/pix}}</span> {{#str}}enddate,local_learningtracks{{/str}} : {{enddate}}
+                        </div>
+
+                        {{/ datedisplay}}
+
+                         <div class="d-flex align-items-center">
+
+                            {{#complete_status}}
+                                <span>{{#str}}status,local_learningtracks{{/str}} : <b>{{#str}}completed, local_learningtracks{{/str}}</b></span>
+                            {{/complete_status}}
+                            {{^complete_status}}
+                                <span>{{#str}}status,local_learningtracks{{/str}} : <b>{{#str}}notcompleted, local_learningtracks{{/str}}</b></span>
+                            {{/complete_status}}
+
+
+                        </div>
+
+                    </div>
+                    {{# isdescription}}
+                    {{^ descriptionstring}}
+                        <p class="description">{{{ description }}}</p>
+                    {{/ descriptionstring }}
+                    {{# descriptionstring}}
+                        <p class="description">{{{ descriptionstring }}} ...</p>
+                    {{/ descriptionstring }}
+                {{/ isdescription}}
+                {{^ isdescription }}
+                    <p class="alert alert-info text-center">{{#str}}nodesc, local_learningtracks{{/str}}</p>
+                {{/ isdescription }}
+
+                </div>
+                <div class="col-md-1 d-flex align-items-center justify-content-center">
+
+                    {{#enrolbutton}}
+
+                     <a href="{{item_url}}" class="btn btn-primary btn-sm enroll_btn">{{#str}}enrol,local_learningtracks{{/str}}</a>
+
+                    {{/enrolbutton}}
+
+                    {{^enrolbutton}}
+
+                        <a href="{{item_url}}" class="details_btn">
+                        <span>{{#str}}details,local_learningtracks{{/str}}</span></a>
+
+                    {{/enrolbutton}}
+
+
+                    
+                </div>
+            </div>
+    {{/records}}
+  {{/viewtypeCard}}
+{{/response}}

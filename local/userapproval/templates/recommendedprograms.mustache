@@ -1,0 +1,39 @@
+{{#response}}
+{{# records}}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">{{# str}} program, local_userapproval{{/ str}}</th>
+              <th scope="col">{{# str}} code, local_userapproval{{/ str}}</th>
+              <th scope="col">{{# str}} startdate, local_userapproval{{/ str}}</th>
+              <th scope="col">{{# str}} enddate, local_userapproval{{/ str}}</th>
+              <th scope="col">{{# str}} price, local_userapproval{{/ str}}</th>
+              <th scope="col">{{# str}} action, local_userapproval{{/ str}}</th>
+            </tr>
+          </thead>
+          <tbody>
+		    {{# hascourses}}
+                <tr>
+                  <th scope="row">
+                   {{#checkfavornot}}
+                                  <i class="fa fa-star removefav removeshow{{entityid}}" data-component="{{checkcomponent}}" data-action="removefavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ entityid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Remove Favourites"></i>
+                                  <i class="fa fa-star addfav addhide{{entityid}}" data-component="{{checkcomponent}}" data-action="addtofavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ entityid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Add To Favourites" style="display:none;"></i>
+                                     {{/checkfavornot}}
+                                        {{^checkfavornot}}
+                                  <i class="fa fa-star addfav addshow{{entityid}}" data-component="{{checkcomponent}}" data-action="addtofavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ entityid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Add To Favourites"></i>
+                                  <i class="fa fa-star removefav removehide{{entityid}}" data-component="{{checkcomponent}}" data-action="removefavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ entityid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Remove Favourites" style="display:none;"></i>
+                    {{/checkfavornot}}
+                  {{entityname}}
+
+              </th>
+                  <td>{{entitycode}}</td>
+                  <td>{{startdate}}</td>
+                  <td>{{enddate}}</td>
+                  <td>{{price}}</td>
+                  <td><a href="{{url}}/local/trainingprogram/programcourseoverview.php?programid={{entityid}}" class="btn btn-primary">{{# str}} enrol, local_userapproval{{/ str}}</a></td>
+                </tr>
+			{{/ hascourses}}
+          </tbody>
+    </table>
+{{/ records}}
+{{/ response}}

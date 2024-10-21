@@ -1,0 +1,43 @@
+<div class="global_filter_structure">
+      <label>{{# str}}search{{/ str}} : </label>
+      <input id="global_filter" class="global filter" type="text" name="search_query">
+</div>
+
+
+<div id="targetcompetencypc" data-region="targetcompetencypc-preview-container" class="my-4">
+      <div data-region="targetcompetencypc-count-container"></div>
+      <div data-region="targetcompetencypc-list-container" class ="methoddata{{ competencyid }}">
+      </div>
+      <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+            <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+      </span>
+</div>              
+<script>
+      require(['theme_academy/cardPaginate'], function(cardPaginate) {
+      var options = {targetID: 'targetcompetencypc',
+                  templateName: 'local_hall/{{temp}}',
+                  methodName: '{{methodName}}',
+                  perPage: 5,
+                  cardClass: 'col-md-6 col-12',
+                  viewType: 'table'};
+      var filteroptions = {typeid:{{typeid}}, hallid:{{hallid}}, examdate:'{{examdate}}', type: '{{type}}', duration: {{duration}}, city: '{{city}}', buildingname: '{{buildingname}}', entitiesseats: {{entitiesseats}}, entityid: {{entityid}}, referencecode: '{{referencecode}}', starttime: '{{starttime}}', reservationid: {{reservationid}}, submit_type: '{{submit_type}}' };
+      var dataoptions = {};
+      //console.log(options.methodName);
+      cardPaginate.reload(options, dataoptions,filteroptions);
+
+      var search_interval = 100;
+      var timer;
+      $(document).on('keyup', '#global_filter', function(){
+      var searchval = $(this).val();
+      var filterdata = {search_query: searchval, typeid:{{typeid}}, hallid:{{hallid}}, examdate:{{examdate}}, type: '{{type}}', duration: {{duration}}, city: '{{city}}', buildingname: '{{buildingname}}', entitiesseats: {{entitiesseats}}, entityid: {{entityid}}, referencecode: '{{referencecode}}', starttime: '{{starttime}}', reservationid: {{reservationid}}, submit_type: '{{submit_type}}' };
+      timer = setTimeout(function(){
+      cardPaginate.reload(options, dataoptions,filterdata);
+
+      },search_interval);
+      });
+      $(document).on('keydown', '#global_filter', function(){
+      clearTimeout(timer);
+      });
+
+      });
+</script>

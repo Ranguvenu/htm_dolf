@@ -1,0 +1,101 @@
+/* CPD Styles */
+.action_btns span{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 9px;
+    font-size: 12px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25px;
+}
+#cdp_view_container .detail_label_container{
+    background-color: #FDFDFD;
+    border: 1px solid #E8ECEE;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+#cdp_view_container .detail_label_container h6{
+    font-size: 14px;
+    color: #939FAC;
+    font-weight: normal;
+}
+#cdp_view_container .detail_label_container h5{
+    margin: 0;
+    
+}
+.filters_contents table td{
+    padding: 10px 5px;
+}
+.filters_contents table tr td:first-child{
+    width: 30%;
+}
+#cpd_report_container .report_label_details span{
+    margin-right: 15px;
+    font-weight: 600;
+}
+#cpd_report_container .report_label_details .color_label{
+    width: 27px;
+    height: 18px;
+    border-radius: 5px;
+    
+    margin: 5px 5px 5px 0;
+}
+#cpd_report_container .report_label_details .color_label.colorgreen{
+    background-color: #91D337;
+}
+#cpd_report_container .report_label_details .color_label.coloryellow{
+    background-color: #F8CD3D;
+}
+#cpd_report_container .report_label_details .color_label.colorgrey{
+    background-color: #E5E5E5;
+}
+.filters_container{
+    background-color: #FAFCFF;
+    padding-top: 20px;
+}
+
+.filters_container .header_content h6{
+    font-size: 1.3rem;
+}
+
+.filters_container .header_content .filter_icon img{
+    width: 30px;
+}
+
+.filters_container {
+   color: #26313B;
+}
+#page-local-cpd-index .type_tag_btn {
+    background-color: transparent !important;
+    color: #939FAC !important;
+    border-color: #939FAC !important;
+    border-radius: 0 !important;
+}
+a#program_visit {
+    color: #fff !important;
+}
+
+.tagscontainer.invisible1 {
+    display: none;
+}
+.btn.download-btn {
+    border-radius: 5px;
+    padding: 4px 15px!important;
+}
+
+#page-local-cpd-view .form-autocomplete-suggestions li[data-value=""] {
+    display: none !important;
+}
+
+#page-local-cpd-index .modal-backdrop {
+    z-index: 1040 !important;
+}
+
+#page-local-cpd-view .modal-backdrop {
+    z-index: 1040 !important;
+}

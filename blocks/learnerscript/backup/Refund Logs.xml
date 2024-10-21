@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<report version="2021051704.16"><visible><![CDATA[1]]></visible>
+<name><![CDATA[Refund Logs]]></name>
+<summary><![CDATA[]]></summary>
+<type><![CDATA[productpayment]]></type>
+<components><![CDATA[YTo2OntpOjA7YjowO3M6NzoiY29sdW1ucyI7YToxOntzOjg6ImVsZW1lbnRzIjthOjQ6e2k6MDthOjY6e3M6MjoiaWQiO3M6MTU6ImRBTjVab3FyTkNPNkdNTyI7czoxMDoicGx1Z2lubmFtZSI7czoyMDoicHJvZHVjdHBheW1lbnRjb2x1bW4iO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjI0OiJQcm9kdWN0K1BheW1lbnRzK2NvbHVtbnMiO3M6Nzoic3VtbWFyeSI7czowOiIiO3M6NDoidHlwZSI7czoxNToic2VsZWN0ZWRjb2x1bW5zIjtzOjg6ImZvcm1kYXRhIjtPOjg6InN0ZENsYXNzIjo0OntzOjU6InZhbHVlIjtiOjE7czo5OiJjb2x1bW5hbWUiO3M6MTM6IlRyYWluaW5nK05hbWUiO3M6NjoiY29sdW1uIjtzOjEyOiJ0cmFpbmluZ25hbWUiO3M6NzoiaGVhZGluZyI7czoyMDoicHJvZHVjdHBheW1lbnRjb2x1bW4iO319aToxO2E6Njp7czoyOiJpZCI7czoxNToiemtlbzVEQUJyZUVYaDUzIjtzOjEwOiJwbHVnaW5uYW1lIjtzOjIwOiJwcm9kdWN0cGF5bWVudGNvbHVtbiI7czoxNDoicGx1Z2luZnVsbG5hbWUiO3M6MjQ6IlByb2R1Y3QrUGF5bWVudHMrY29sdW1ucyI7czo3OiJzdW1tYXJ5IjtzOjA6IiI7czo0OiJ0eXBlIjtzOjE1OiJzZWxlY3RlZGNvbHVtbnMiO3M6ODoiZm9ybWRhdGEiO086ODoic3RkQ2xhc3MiOjQ6e3M6NToidmFsdWUiO2I6MTtzOjk6ImNvbHVtbmFtZSI7czoxMToiVG90YWwrUHJpY2UiO3M6NjoiY29sdW1uIjtzOjEwOiJ0b3RhbHByaWNlIjtzOjc6ImhlYWRpbmciO3M6MjA6InByb2R1Y3RwYXltZW50Y29sdW1uIjt9fWk6MjthOjY6e3M6MjoiaWQiO3M6MTU6Ikphc0NRbm1EMUVmcVJQZSI7czoxMDoicGx1Z2lubmFtZSI7czoyMDoicHJvZHVjdHBheW1lbnRjb2x1bW4iO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjI0OiJQcm9kdWN0K1BheW1lbnRzK2NvbHVtbnMiO3M6Nzoic3VtbWFyeSI7czowOiIiO3M6NDoidHlwZSI7czoxNToic2VsZWN0ZWRjb2x1bW5zIjtzOjg6ImZvcm1kYXRhIjtPOjg6InN0ZENsYXNzIjo0OntzOjU6InZhbHVlIjtiOjE7czo5OiJjb2x1bW5hbWUiO3M6MTI6IlJlZnVuZCtQcmljZSI7czo2OiJjb2x1bW4iO3M6MTE6InJlZnVuZHByaWNlIjtzOjc6ImhlYWRpbmciO3M6MjA6InByb2R1Y3RwYXltZW50Y29sdW1uIjt9fWk6MzthOjY6e3M6MjoiaWQiO3M6MTU6IlJtcGlpSUpGT29QbWJPayI7czoxMDoicGx1Z2lubmFtZSI7czoyMDoicHJvZHVjdHBheW1lbnRjb2x1bW4iO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjI0OiJQcm9kdWN0K1BheW1lbnRzK2NvbHVtbnMiO3M6Nzoic3VtbWFyeSI7czowOiIiO3M6NDoidHlwZSI7czoxNToic2VsZWN0ZWRjb2x1bW5zIjtzOjg6ImZvcm1kYXRhIjtPOjg6InN0ZENsYXNzIjo0OntzOjU6InZhbHVlIjtiOjE7czo5OiJjb2x1bW5hbWUiO3M6MTI6IlBheW1lbnQrRGF0ZSI7czo2OiJjb2x1bW4iO3M6MTE6InBheW1lbnRkYXRlIjtzOjc6ImhlYWRpbmciO3M6MjA6InByb2R1Y3RwYXltZW50Y29sdW1uIjt9fX19czo3OiJmaWx0ZXJzIjthOjE6e3M6ODoiZWxlbWVudHMiO047fXM6MTI6ImNhbGN1bGF0aW9ucyI7YToxOntzOjg6ImVsZW1lbnRzIjtOO31zOjg6Im9yZGVyaW5nIjthOjE6e3M6ODoiZWxlbWVudHMiO047fXM6MTE6InBlcm1pc3Npb25zIjthOjE6e3M6NjoiY29uZmlnIjtPOjg6InN0ZENsYXNzIjozOntzOjEzOiJjb25kaXRpb25leHByIjtzOjA6IiI7czoxNDoiY29uZGl0aW9uZXhwcjEiO3M6MDoiIjtzOjE0OiJjb25kaXRpb25leHByMiI7czowOiIiO319fQ==]]></components>
+<export><![CDATA[pdf,xls]]></export>
+<global><![CDATA[1]]></global>
+<lastexecutiontime><![CDATA[0]]></lastexecutiontime>
+<disabletable><![CDATA[0]]></disabletable>
+<instance version="2021051704.16"><blockname><![CDATA[reportdashboard]]></blockname>
+<parentcontextid><![CDATA[1]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard]]></pagetypepattern>
+<subpagepattern><![CDATA[Logs]]></subpagepattern>
+<defaultregion><![CDATA[side-db-two]]></defaultregion>
+<defaultweight><![CDATA[10]]></defaultweight>
+<timecreated><![CDATA[1680505076]]></timecreated>
+<timemodified><![CDATA[1680505076]]></timemodified>
+<title><![CDATA[Refund Logs]]></title>
+<reportcontenttype><![CDATA[table]]></reportcontenttype>
+<reporttype><![CDATA[]]></reporttype>
+<logo><![CDATA[]]></logo>
+<tilescolourpicker><![CDATA[]]></tilescolourpicker>
+<disableheader><![CDATA[]]></disableheader>
+<reportduration><![CDATA[]]></reportduration>
+<tilescolour><![CDATA[]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position></report>

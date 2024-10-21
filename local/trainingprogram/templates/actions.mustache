@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-end align-items-center flex-wrap prg_btns">
+    {{# canaction}}
+        
+        {{#uploadevent}}
+         <a href="{{{uploadevent}}}"><button class="btn btn-primary mr-2"><i class="fa fa-upload" aria-hidden="true" ></i>
+        {{#str}}uploadevent , local_events {{/str}}
+        </button></a>
+        {{/uploadevent}}
+
+        <button class="btn btn-primary mr-2"  data-action="{{buttonaction}}" {{#link}}onclick="location.href='{{link}}'"{{/link}}><i class="fa fa-plus" aria-hidden="true" ></i>
+         {{label}}
+        </button>
+
+        {{# uploadprogramview}}
+            <a href="{{{uploadprogramurl}}}"><button class="btn btn-primary mr-2"><i class="fa fa-upload" aria-hidden="true" ></i>
+             {{#str}}upload_program , local_trainingprogram {{/str}}
+            </button></a>
+        {{/ uploadprogramview}}
+
+       {{# uploadofferingview}}
+
+          <a href="{{{uploadofferingurl}}}"><button class="btn btn-primary mr-2"><i class="fa fa-upload" aria-hidden="true" ></i>
+             {{#str}}upload_offering , local_trainingprogram {{/str}}
+            </button></a>
+
+        {{/ uploadofferingview}}
+
+        {{# uploadexamview}}
+            <a href="{{{uploadexammurl}}}"><button class="btn btn-primary mr-2"><i class="fa fa-upload" aria-hidden="true" ></i>
+             {{#str}}upload_exams , local_exams {{/str}}
+            </button></a>
+        {{/ uploadexamview}}
+
+        {{# trainingtopicsview}}
+            <a href="{{{topicsurl}}}">
+                <button class="btn btn-primary mr-2"><i class="fa fa-tasks" aria-hidden="true" ></i>
+                     {{#str}}topics , local_trainingprogram {{/str}}
+                </button>
+            </a>
+        {{/ trainingtopicsview}}
+
+    {{/ canaction}}
+    {{#organizationofficial}}
+    <a href="{{enrollmentreporturl}}" target="_blank" role="button" class="btn btn-primary mr-1 my-1" ><i class="fa fa-file-text" aria-hidden="true" ></i> {{buttonString}}</a>
+    {{/organizationofficial}}
+    <button class="btn filter_toggle_btn" id="filter_open_btn">
+        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+        {{#str}}filter,local_trainingprogram{{/str}}
+     </button>
+     {{#uploadprogramview}}
+     <button class="btn filter_toggle_btn" id="sortfilter_open_btn">
+        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+       {{#str}}sort , local_trainingprogram{{/str}}
+     </button>
+     {{/uploadprogramview}}
+</div>
+{{#js}}
+    require(['local_trainingprogram/tpform'], function(s) {
+        s.init();
+    });
+{{/js}}

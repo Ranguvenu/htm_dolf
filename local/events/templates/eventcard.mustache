@@ -1,0 +1,64 @@
+{{#response}}
+{{#records}}
+{{#hasevents}}
+<div class="col-md-4 pb-3">
+    <div class="card program_card event_card shadow p-2 h-100">
+        <div class="card-img-top programimage position-relative"
+            style="background-image: url('{{logo}}');">
+            <!--{{#status}}
+                <div class="statuslabel eventopen text-white py-1 small px-2 rounded">
+                    {{#str}} open, local_events {{/str}}
+                </div>
+            {{/status}}
+            {{^status}}
+                <div class="statuslabel eventclose text-white py-1 small px-2 rounded">
+                    {{#str}} close, local_events {{/str}}
+                </div>
+            {{/status}}-->
+            <div class="statuslabel event{{openstatus_key}} text-white py-1 small px-2 rounded">
+                    {{openstatus}}
+            </div>
+        </div>
+        <div class="p-2 d-flex flex-column justify-content-between h-100">
+            <div>
+                <div class="font-weight-bold text-themecolor mb-2"><span class="piximg themecalendericon">{{# pix }} calendericontheme, local_events {{/ pix }}</span> {{fromdate}} - {{todate}}</div>
+                <h6 class="text-black">{{title}}</h6>
+                {{# isdescription}}
+                    <p class="mb-3 program_details">{{{ description }}}</p>
+                {{/ isdescription}}
+                {{^ isdescription }}
+                     <p class="mb-3 program_details alert alert-info text-center">{{#str}}nodesc, local_events{{/str}}</p>
+                {{/ isdescription }}
+                <div class="activity_icons">
+                    <!--<div class="d-flex align-items-center mb-3">
+                        <span class="mapmarkericon activity_icon"></span> <span>Main Hall - Financial Academy</span>
+                    </div>-->
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="timeicon activity_icon"></span> <span> {{starttime}} - {{endtime}}</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="speakerpersonicon activity_icon"></span> <span>
+                        {{speakers}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr>
+                <div class="program_footer d-flex align-items-center justify-content-between">
+                    <h6 class="d-flex m-0 homepagetheme_text_color">
+                        <i class="fa fa-tags mt-1 mr-1" aria-hidden="true"></i> {{#str}}fees,local_events{{/str}}: {{sellingprice}} {{#str}}sa_currency ,local_trainingprogram{{/str}}
+                    </h6>
+
+                    <button class="btn btn-primary btn-sm"><a role="button" href="{{viewdetails}}">{{#str}} eventdetails, local_events {{/str}}</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{{/hasevents}}
+{{> theme_academy/loadmore}}
+{{/records}}
+{{/response}}
+
+    

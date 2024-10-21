@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Helvetica';
+        src: url('HelveticaNeueLTArabic-Light.ttf') format('truetype');
+             
+             font-style: normal;
+  }
+  @font-face {
+    font-family: 'Helvetica-bold';
+        src: url('HelveticaNeueLTArabic-Light.ttf') format('truetype');
+             font-weight: 500;
+             font-style: normal;
+  }
+  @font-face {
+    font-family: 'Helvetica-roman';
+        src: url('helveticaneueltarabicroman.ttf') format('truetype');
+             
+             font-style: normal;
+  }
+  
+  
+  *{font-family: "Helvetica"; line-height: 1.7; font-size: 0.92rem;}
+  h1,h2,h3,h4,h5,h6{font-family: "Helvetica-bold";}
+  .theme-font-bold{
+    font-family: "Helvetica-roman";
+    font-weight: 800;
+  }
+  .theme-font-normal{
+    font-family: "Helvetica";
+  }
+  table thead tr th{
+    font-family: "Helvetica-bold";
+  }
+  #page-header .page-header-headings{
+    font-family: "Helvetica-bold";
+  }

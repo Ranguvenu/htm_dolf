@@ -1,0 +1,117 @@
+<div class="row" id="events_list_container">
+    <div class="col-md-8">
+        <div class="input-group my-4" id="find_input_group">
+            <div>
+                {{{globalinput}}}
+                <!--<input type="text" class="form-control input-lg" placeholder="Search Event">
+                <span class="piximg">{{#pix}}eventsearchicon,local_events{{/pix}}</span>-->
+            </div>
+            <div>
+            {{#options}}
+                <input id="location_filter" type="text" class="form-control input-lg" name="location_query" placeholder="Enter Location" data-options="{{options}}" value="{{q}}" data-dataoptions="{{dataoptions}}" data-status="{{status}}">
+                <span class="piximg">{{#pix}}eventlocationicon,local_events{{/pix}}</span>
+            {{/options}}
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Find Event</button>
+            </div>
+        </div>
+        <div class="d-flex align-items-right justify-content-between">
+            <h5></h5>
+            <div>
+                <!--<button class="btn btn-primary sort_btn mr-2">
+                    <span class="piximg">{{#pix}}pageicons/sorticon,theme_academy{{/pix}}</span>
+                    Sort
+                </button>-->
+            </div>
+        </div>
+        <div id="events_container" class="my-3">
+    
+                 {{{eventsdetails}}}
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="filters_container displaystatic">
+            <div class="header_content">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span>  {{#str}}filter,local_events{{/str}}</h6>
+                </div>
+                
+                <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                    {{#str}}shownfilters,local_events{{/str}}
+                </div>
+            </div>
+            <div class="filters_contents">
+                {{{filterform}}}
+            </div>
+
+        </div>
+    </div> 
+</div>
+
+{{#js}}
+    require(['theme_academy/cardPaginate'], function(cardPaginate) {
+        var search_interval = 100;
+        var timer;
+        var searchvalue = $('#location_filter').val();
+        $(document).on('keyup', '#location_filter', function(){
+            clearTimeout(timer);
+            var options = $(this).data('options');
+            var dataoptions = $(this).data('dataoptions');
+            var searchval = $(this).val();
+            var fieldname = $('#location_filter').attr('name');
+            var thisstatus = $(this).attr('data-status');
+            timer = setTimeout(function(){
+                {{! var filterdata = $(this).data('filterdata'); }}
+                var formdata =  $('{{submitid}}').serializeArray();
+                values = [];
+                filterdatavalue = [];
+                $.each(formdata, function (i, field) {
+                    valuedata = [];
+                    if(field.name != '_qf__filters_form' && field.name != 'sesskey'){
+                        if(!(field.name == 'options' || field.name == 'dataoptions')){
+                            {{! values[field.name] = field.value; }}
+                        {{! }else{ }}
+                            var str = field.name;
+                            if(str.indexOf('[]') != -1){
+                                field.name = str.substring(0, str.length - 2);
+                            }
+                            if(field.value != '_qf__force_multiselect_submission'){
+                                if(field.name in filterdatavalue){
+                                    filterdatavalue[field.name] = filterdatavalue[field.name]+','+field.value;
+                                }else{  
+                                    filterdatavalue[field.name] = field.value;
+                                }
+                            }
+                        }
+
+                    }
+                });
+                {{! var filtervalue = {search_query: $(this).val()}; }}
+                if(searchval){
+                    filterdatavalue[fieldname] = searchval;
+                }
+               
+                filterdatavalue['status'] = thisstatus;
+              
+                filterdataparsondata = $.extend({}, filterdatavalue);
+                {{! console.log(JSON.stringify(filterdata)); }}
+                {{! if(JSON.stringify(filterdata) != '[]')
+                    var filterdataoptions = $.extend(filterdata, filtervalue);
+                else
+                    var filterdataoptions = filtervalue; }}
+                cardPaginate.reload(options, dataoptions, filterdataparsondata);
+            }, search_interval);
+                
+        });
+        $(document).on('keydown', '#location_filter', function(){
+            clearTimeout(timer);
+        });
+        console.log(searchvalue);
+        if(searchvalue != ''){
+            console.log(searchvalue);
+            $('#location_filter').keyup();
+        }
+    });
+{{/js}}

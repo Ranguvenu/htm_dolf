@@ -1,0 +1,17 @@
+
+
+<div class="d-flex justify-content-end align-items-center my-3">
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createhallchedule" data-hallid={{hallid}}><i class="fa fa-plus" aria-hidden="true"></i> {{#str}}createhallchedule, local_hall{{/str}}</a>
+    <button class="btn filter_toggle_btn" id="filter_open_btn">
+        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+        {{#str}}filter,local_hall{{/str}}
+     </button> 
+</div>
+
+    
+
+{{#js}}
+    require(['local_hall/hall'], function(s) {
+        s.init();
+    });
+{{/js}}

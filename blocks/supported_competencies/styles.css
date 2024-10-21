@@ -1,0 +1,62 @@
+.block_supported_competencies #mysupportedcompetencies_container #viewmysupportedcompetencies div[data-region="paging-control-container"] {
+    display: none !important;
+}
+#competency_block_container #competency_content_wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+}
+#competency_block_container #competency_content_wrapper .table thead tr th{
+    background-color:#F8F8F8;
+}
+#competency_block_container .table .content_header_row td{
+    background-color: #EBEBEB;
+}
+#competency_block_container .table tbody tr td:first-child{
+    border-left: 1px solid #EBEBEB;
+}
+#competency_block_container .table tbody tr td:last-child{
+   border-right: 1px solid #EBEBEB;
+}
+#competency_block_container .table tbody tr:last-child td{
+    border-bottom: 1px solid #EBEBEB;
+}
+/* new theme*/
+#competency_block_container .mysupportedcompetenciestable{
+    width: 100%;
+}
+#competency_block_container .mysupportedcompetenciestable thead tr{
+    background-color: #1359a2;
+    color: #fff;
+}
+#competency_block_container .mysupportedcompetenciestable thead tr th{
+    padding: 20px 15px;
+}
+#competency_block_container .mysupportedcompetenciestable thead tr th:first-child{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+#competency_block_container .mysupportedcompetenciestable thead tr th:last-child{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+#competency_block_container .mysupportedcompetenciestable tbody tr.competencietitlerow td:first-child{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+#competency_block_container .mysupportedcompetenciestable tbody tr.competencietitlerow td:last-child{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+#competency_block_container .mysupportedcompetenciestable.dataTable tbody tr,#competency_block_container .mysupportedcompetenciestable.dataTable.hover tbody tr:hover, #competency_block_container .mysupportedcompetenciestable.dataTable.display tbody tr:hover{
+    background-color: transparent;
+}
+.mysupportedcompetenciestable.dataTable.display tbody tr.competencietitlerow td{
+    padding: 0;
+}
+.mysupportedcompetenciestable.dataTable.display tbody tr.competencietitlerow td div{
+    background-color: #3076b9;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+}

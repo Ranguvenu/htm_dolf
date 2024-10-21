@@ -1,0 +1,3 @@
+.stretched-link::after {
+    position: relative!important;
+}

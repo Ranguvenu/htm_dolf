@@ -1,0 +1,86 @@
+<div class="row" id="container">
+    <div class="col-md-12">
+    <!--Org Info table-->
+        <div id="trainer_table_container">
+            <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center"><b>{{#str}}role,local_organization{{/str}}</b></th>
+                        <th scope="col" class="text-center"><b>{{#str}}users_assigned,local_organization{{/str}}</b></th>
+                        <th scope="col" class="text-center"><b>{{#str}}action,local_organization{{/str}}<b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">{{#str}}org_offcial,local_organization{{/str}}</td>
+                        <td class="text-center">{{orgofficialusers}}</td>
+                        <td class="text-center">
+                        {{#assign_org_officials}}
+                            <a href="#" data-action="orgofficialassign" data-orgid = {{orgid}} data-role = {{organizationofficialid}}>{{#str}}assign_user_to_org_offcial,local_organization{{/str}}</a>
+                        {{/assign_org_officials}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">{{#str}}org_trainee,local_organization{{/str}}</td>
+                        <td class="text-center">{{traineeusers}}</td>
+                        <td class="text-center">
+                        {{#assigtrainee}}
+                            <a href="{{{traineeenrollurl}}}"> {{#str}}assign_user_to_org,local_organization{{/str}} </a>
+                        {{/assigtrainee}}
+                        </td>
+                    </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        <!--Org Indo table end -->
+        <!--Org Items Table-->
+        {{#viewitems}}
+        <div class="row my-6">
+        <div class="col-md-6">
+        <div class="table-responsive mt-3" id="trainer_table_container">
+            <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}itemname,local_organization{{/str}}</th>
+                        <th>{{#str}}itemscount,local_organization{{/str}}</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{#str}}pluginname,local_trainingprogram{{/str}}</td>
+                        <td><a href="{{config.wwroot}}./orgitemdetails.php?id={{orgid}}&cat=1">{{trainingprogramcount}}<a></td>
+                    </tr>
+                    <tr>
+                        <td>{{#str}}pluginname,local_exams{{/str}}</td>
+                        <td><a href="{{config.wwroot}}./orgitemdetails.php?id={{orgid}}&cat=2">{{examscount}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>{{#str}}pluginname,local_events{{/str}}</td>
+                        <td><a href="{{config.wwroot}}./orgitemdetails.php?id={{orgid}}&cat=3">{{eventscount}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        </div>
+        {{/viewitems}}
+        <!--Org Items table end-->
+           <div class="row my-6">
+                <div class="col-md-8">
+                    {{{globalinput}}}
+                </div>
+            </div>
+        <div id="container" class="my-3">
+            {{{enrolledusers_view}}}
+        </div>
+    </div>
+</div>
+{{#js}}
+    require(['local_organization/organization'], function(s) {
+        s.init();
+    });
+{{/js}}
+
+

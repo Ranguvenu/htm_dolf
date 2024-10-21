@@ -1,0 +1,30 @@
+{{#response}}
+    {{#records}}
+    <div class="table-responsive">
+        <table class="table generaltable">
+            <thead class="thead">
+                <tr>
+                  <th>{{# str}} name , local_organization {{/str}}</th>
+                  <th>{{# str}} description , local_organization {{/str}}</th>
+                  <th class="text-center">{{# str}} actions , local_organization {{/str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hastypes}}
+              <tr>
+                  <td>{{{Name}}}</td>
+                  <td>{{{description}}}</td>
+                  <td>
+                      <div class="d-flex action_btns justify-content-center">
+                          <a href="#"  data-action="viewpartners" data-id={{id}}><span class="bg-info text-white" data-toggle="tooltip"title="{{#str}} viewtypes, local_organization {{/str}}"><i class="fa fa-search-plus"></i></span></a>                              
+                          <a href="#"  data-action="createpartnertypes" data-id={{id}}><span class="bg-info text-white" data-toggle="tooltip"title="{{#str}} edittypes, local_organization {{/str}}" ><i class="fa fa-pencil fa-fw"></i></span></a>
+                           <a href="#" data-action="deletepartners" data-id={{id}} data-partnername='{{{Name}}}'   data-toggle="tooltip"title="{{#str}} deletetype, local_organization {{/str}}"   ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                      </div>
+                  </td>        
+              </tr>
+           {{/ hastypes}} 
+          </tbody>
+        </table>
+      </div>
+    {{/ records}}
+{{/ response}}

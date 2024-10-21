@@ -1,0 +1,36 @@
+{{#response}}
+    {{#records}}
+    <div class= "table-responsive">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                 
+                  <th scope="col">{{# str}} programmethod, local_trainingprogram{{/ str}}</th>
+                   <th class="text-center">{{# str}} actions, local_userapproval{{/ str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                 
+                    <td>{{name}}</td>
+                     <td>
+                      <div class="d-flex action_btns justify-content-center">
+                         <a href="#"  data-action="createprogrammethod" data-id={{id}} data-toggle ="tooltip" title={{#str}}edit,local_trainingprogram{{/str}}><span class="bg-info text-white"><i class="fa fa-pencil"></i></span></a>
+                        <a href="#" data-action="deleteprogrammethod" data-name={{name}} data-id={{id}}  data-toggle ="tooltip" title={{#str}}delete,local_trainingprogram{{/str}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                      </div>
+                  </td> 
+                     
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+        </div>
+    {{/ records}}
+{{/ response}}
+
+{{#js}}
+    require(['local_trainingprogram/programmethods'], function(s) {
+        s.init();
+    });
+{{/js}}

@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-12">
+        <div id="halls_section">
+            <div class="row my-3">
+                <div class="col-md-12">
+                    {{#filterform}}
+                        <div class="bg-white shadow rounded p-3 mt-2 mb-2 available_times_container">
+                        {{{filterform}}}
+                        </div>
+                    {{/filterform}}
+                    <div class="col-md-8">                
+                        {{{globalinput}}}
+                     </div>
+                     {{# actionaccess}}
+                    <div class="col-md-2 float-right">                
+                        {{> local_exams/createexam}}
+                     </div>
+                     {{/ actionaccess}}
+                </div>
+            </div>
+            <div id="halls_container">
+                 {{{halldetails}}}
+            </div>
+        </div> 
+    </div>
+     <div class="filters_container">
+        <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}}filter, local_hall{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}}close, local_hall{{/ str}}
+                </button>
+            </div>
+             
+            <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                {{# str}}allthefilter, local_hall{{/ str}}
+            </div>
+        </div>  
+        <div class="filters_contents">
+             {{{examfilterform}}}
+        </div>          
+    </div>
+</div>

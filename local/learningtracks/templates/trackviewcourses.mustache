@@ -1,0 +1,88 @@
+{{#response}}
+    {{#viewtypeCard}}
+    {{#records}}
+    <div class="viewlearningcourses_wrapper my-4">
+        <div class="row mb-3">
+            <div class="col-md-2">
+                {{#trainingprograms}}
+                <div class="viewlearningcoursesimagecontainer" style="background-image: url('{{imageurl}}');"></div>
+                {{/trainingprograms}}
+                {{#exams}}
+                <div class="examdetailsicon"></div>
+                {{/exams}}
+            </div>
+            
+            <div class="col-md-10">
+                <div class="d-flex align-items-center justify-content-between">
+                        <div class="">
+                            <div class="mb-3">
+                                {{#viewdetails}}
+                                     <h4 class="my-3">{{name}}</h4>
+                                {{/viewdetails}}
+                                {{^viewdetails}}
+                                    <a href="{{item_url}}"><h4 class="my-3">{{name}}</h4></a>
+                                {{/viewdetails}}   
+                            </div>
+                        </div>
+                        <div class="">
+                           <h6 class="my-3"><span>{{#str}}type,local_learningtracks{{/str}}: <b>{{type}}</b></span><h6>
+                        </div>
+                </div>
+               {{# isdescription}}
+                    {{^ descriptionstring}}
+                        <p class="mb-3">{{{ description }}}</p>
+                    {{/ descriptionstring }}
+                    {{# descriptionstring}}
+                        <p class="mb-3">{{{ descriptionstring }}} ...</p>
+                    {{/ descriptionstring }}
+                {{/ isdescription}}
+                {{^ isdescription }}
+                    <p class="alert alert-info text-center">{{#str}}nodesc, local_learningtracks{{/str}}</p>
+                {{/ isdescription }}
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="">
+                    {{#ownedby}}
+                        <span class="mr-3">{{#str}}by,local_learningtracks{{/str}} : <b>{{ownedby}}</b></span>
+                    {{/ownedby}}
+                    {{# datedisplay}}
+                        <span class="mr-3">{{#str}}startdate,local_learningtracks{{/str}} : <b>{{startdate}}</b></span>
+                        <span class="mr-3">{{#str}}enddate,local_learningtracks{{/str}} : <b>{{enddate}}</b></span>
+                    {{/ datedisplay}}
+                        {{#complete_status}}
+                            <span>{{#str}}status,local_learningtracks{{/str}} : <b>{{#str}}completed, local_learningtracks{{/str}}</b></span>
+                        {{/complete_status}}
+                        {{^complete_status}}
+                            <span>{{#str}}status,local_learningtracks{{/str}} : <b>{{#str}}notcompleted, local_learningtracks{{/str}}</b></span>
+                        {{/complete_status}}
+                    </div>
+                    {{#viewdetails}}
+                    {{# viewitemurl}}
+                    <div class="">
+                        <a class="btn btn-primary btn-sm enroll_btn" href="{{viewitemurl}}"> {{#str}}viewdetails,local_learningtracks{{/str}} </a>
+                        <a class="btn btn-primary btn-sm enroll_btn" data-action="delete-items" data-name="{{name}}" data-id="{{id}}" data-trackid="{{trackid}}" data-itemid="{{itemid}}"  data-itemtype="{{itemtype}}" data-usercount ="{{usercount}}"> {{#str}}delete{{/str}} </a>
+                    </div>
+                     {{/ viewitemurl}}
+                    {{/viewdetails}}
+                    {{^viewdetails}}
+                        <a class="btn btn-primary btn-sm enroll_btn" href="{{item_url}}"> {{#str}}viewdetails,local_learningtracks{{/str}} </a>
+                    {{/viewdetails}}
+
+                </div>
+                {{#is_progressbar}}
+                    <div class="viewlearningcourses_progressbar">
+                        <div class="d-flex justify-content-between">
+                            <h6  class="mb-3">{{#str}}progress, local_learningtracks{{/str}}</h6>
+                            <div>{{#str}}completed,local_learningtracks{{/str}} : <b>{{progress_status}}%</b></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{progress_status}}%" aria-valuenow="{{progress_status}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                {{/is_progressbar}}
+            </div>
+        </div>
+    </div>
+    {{/records}}
+    {{/viewtypeCard}}
+{{/response}}
+    

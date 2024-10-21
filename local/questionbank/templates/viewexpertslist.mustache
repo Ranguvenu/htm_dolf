@@ -1,0 +1,37 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+    {{#records}}
+        <table class="table generaltable table-striped">
+            <thead>
+                <tr>
+                    <th>{{#str}}expertname, local_questionbank{{/str}}</th>
+                    <th>{{#str}}addeddate, local_questionbank{{/str}}</th>
+                    <!-- <th>{{#str}}noofquestions, local_questionbank{{/str}}</th> -->
+                    <th>{{#str}}action, local_questionbank{{/str}}</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#hasrecords}}
+                <tr>
+                    <td>{{username}}</td>
+                    <td>{{dateadded}}</td>
+                    <!-- <td><input type="text" class="questionscount{{id}}" size="3" value={{assignedqcount}}><b> / {{totalquestions}}</b>   <button type="button" class="btn btn-primary reservebtn" data-id = "{{id}}" data-userid='{{userid}}' data-availablequestions='{{availablequestions}}' data-wid='{{wid}}' data-action="reservequestions">{{#str}}reserve, local_hall{{/str}}</button></td> -->
+                    {{#expertinfo}}
+                    <td> {{#str}}nopermissions, local_questionbank{{/str}}</td>
+                    {{/expertinfo}}
+                    {{^expertinfo}}
+                      <td> <a href="#" data-action="unassignexpert" data-id = "{{id}}" data-userid='{{userid}}' data-user='{{username}}' {{expertinfo}}><span class="btn btn-primary btn-md" >{{#str}}unassign, local_questionbank{{/str}}</span></a></td>
+                    {{/expertinfo}}
+                </tr>
+                {{/hasrecords}}
+            </tbody>
+        </table>
+        {{/records}}
+   {{/viewtypeCard}}
+{{/response}}

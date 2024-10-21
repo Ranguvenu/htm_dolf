@@ -1,0 +1,88 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+    {{^ jobrolecompetencies}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/ jobrolecompetencies}}
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <table class="mycompetenciestable display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>{{#str}}competency_name,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_code,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_type,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_level,local_competency{{/str}}</th>
+
+                    <th></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#records}}
+                <tr>
+                    <td>{{{name}}}</td>
+                    
+                    <td>{{code}}</td>
+
+                    <td>{{type}}</td>
+
+                    <td>{{level}}</td>
+
+                    <td>
+                        <button class="btn btn-primary btn-sm competencyobj" data-action="viewcompetencylearningcontent" data-id="{{competencyid}}" data-competencyid="{{competencyid}}" data-name="{{code}}" data-contenttype="{{#supportedcompetencies}}supported{{/supportedcompetencies}}{{^supportedcompetencies}}all{{/supportedcompetencies}}">{{#str}}learningcontent,local_competency{{/str}}{{objectivetype}}</button>
+                    </td>
+                </tr>
+                {{/records}}
+            </tbody>
+        </table>
+   {{/viewtypeCard}}
+{{/response}}               
+
+<script>
+
+require(['local_competency/jquery.dataTables'], function(DataTable) {
+
+    var groupColumn = 2;
+    var table = $('.mycompetenciestable').DataTable({
+        "bDestroy": true,
+        "columnDefs": [
+            { "visible": false, "targets": groupColumn }
+        ],
+        "order": [[ groupColumn, 'asc' ]],
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "drawCallback": function ( settings ) {
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last=null;
+ 
+            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+                if ( last !== group ) {
+                    $(rows).eq( i ).before(
+                        '<tr class="group"><td colspan="5"><b>'+group+'<b></td></tr>'
+                    );
+ 
+                    last = group;
+                }
+            } );
+        }
+    } );
+    // Order by the grouping
+    $('.mycompetenciestable'+' tbody').on( 'click', 'tr.group', function () {
+        var currentOrder = table.order()[0];
+        if ( currentOrder[0] === groupColumn && currentOrder[1] === 'asc' ) {
+            table.order( [ groupColumn, 'desc' ] ).draw();
+        }
+        else {
+            table.order( [ groupColumn, 'asc' ] ).draw();
+        }
+    } );
+
+});
+</script>

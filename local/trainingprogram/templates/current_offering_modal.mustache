@@ -1,0 +1,253 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_trainingprogram/current_offering_modal
+
+    TODO describe template current_offering_modal
+
+    Example context (json):
+    {
+    }
+}}
+{{#response}}
+{{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+{{/records}}    
+<div id="currentofferingcontainer">
+    <div class="row offerwrapper">
+        <div class="col-md-12">
+            {{# records}}
+            <div class="d-flex justify-content-between offerheader">
+                <h5 class="m-0 theme_text_color">{{#str}}current_offer,local_trainingprogram{{/str}} {{coid}} -  {{offeringmethod}}
+<small style="display: block;font-size: 12px;margin-top: 5px;">{{code}} - {{# published}} {{#str}}unpublished,local_trainingprogram{{/str}} {{/ published}} {{^ published}} {{#str}}published,local_trainingprogram{{/str}} {{/ published}}{{# cancelledstatus}} -  {{cancelledstatustext}} {{/ cancelledstatus}} </small>
+                   {{# canupdatefinanciallstatus}}
+                      <small> {{#str}} fincnaicllay_closed_status, local_trainingprogram {{/str}} -  {{# isfinanciallyclosed}} {{# str}} fc_close, local_trainingprogram {{/str}} {{/ isfinanciallyclosed}} {{^ isfinanciallyclosed}} {{# str}} fc_open, local_trainingprogram {{/ str}} {{/ isfinanciallyclosed}} </small>
+                   {{/ canupdatefinanciallstatus}}
+                  {{#trainertype}}
+                   <br>
+                   <small>Trainer Provider - <img src="{{{trainerproviderlogo}}}" width="50" height="50"> {{trainerprovider}}  </small>
+                   {{/trainertype}}
+           
+                </h5>
+                <div class="d-flex action_btns align-items-center">
+
+                     {{# isfinancialmanager}}
+                        {{# hastagreement}}
+                            <a href="{{{agreementurl}}}" target="_blank"> <button class="launch_btn btn btn-primary btn-sm mr-3">{{#str}} traingagrrement, local_trainingprogram {{/str}}</button></a>
+                       {{/ hastagreement}}
+                    {{/ isfinancialmanager}}
+
+                    <button class="launch_btn btn btn-primary btn-sm mr-3" data-id={{offeringid}} data-code="{{code}}" data-entitytype = 'offering' data-actiontype ='sectionsmapping'  data-action="sectionsmapping">{{#str}} addsections, local_trainingprogram {{/str}}</button>
+                    {{# isfinancialmanager}}
+                        {{# canupdatefinanciallstatus}}
+                           <button class="launch_btn btn {{# isfinanciallyclosed}} btn-primary {{/ isfinanciallyclosed}} {{^ isfinanciallyclosed}} btn-danger {{/ isfinanciallyclosed}} btn-sm mr-3"  data-id={{offeringid}} data-code="{{code}}" data-action ="update_financially_closed_status"   data-actiontype ="{{# isfinanciallyclosed}}open_fc_offering{{/ isfinanciallyclosed}}{{^isfinanciallyclosed}}close_fc_offering{{/ isfinanciallyclosed}}"data-toggle = "tooltip" title="{{# isfinanciallyclosed}}{{#str}} open_ficnanciall_closed_offering, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}{{^isfinanciallyclosed}}{{#str}} close_ficnanciall_closed_offering, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}">{{# isfinanciallyclosed}}{{#str}} open_fc_status, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}{{^isfinanciallyclosed}}{{#str}} close_fc_status, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}</button>
+                       {{/ canupdatefinanciallstatus}}
+                    {{/ isfinancialmanager}}
+                   {{^ isfinancialmanager}}
+                   {{#todoactivities}}
+                   <button class="launch_btn btn btn-primary btn-sm mr-3" data-id={{offeringid}} data-code="{{code}}" data-entitytype = 'offering' data-actiontype ='showactivities'  data-action="showactivities" data-evaluationmethods = {{evaluationmethods}}>{{#str}} todo, local_trainingprogram {{/str}}</button>
+                   {{/todoactivities}}
+                        {{^ iscancelled}}
+                           {{^ cancelledrequestpending}}
+                                {{# onlyadmin}}
+                                {{# canupdatefinanciallstatus}}
+                                    <button class="launch_btn btn {{# isfinanciallyclosed}} btn-primary {{/ isfinanciallyclosed}} {{^ isfinanciallyclosed}} btn-danger {{/ isfinanciallyclosed}} btn-sm mr-3"  data-id={{offeringid}} data-code="{{code}}" data-action ="update_financially_closed_status"   data-actiontype ="{{# isfinanciallyclosed}}open_fc_offering{{/ isfinanciallyclosed}}{{^isfinanciallyclosed}}close_fc_offering{{/ isfinanciallyclosed}}"data-toggle = "tooltip" title="{{# isfinanciallyclosed}}{{#str}} open_ficnanciall_closed_offering, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}{{^isfinanciallyclosed}}{{#str}} close_ficnanciall_closed_offering, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}">{{# isfinanciallyclosed}}{{#str}} open_fc_status, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}{{^isfinanciallyclosed}}{{#str}} close_fc_status, local_trainingprogram {{/str}}{{/ isfinanciallyclosed}}</button>
+                                {{/ canupdatefinanciallstatus}}
+                                {{/ onlyadmin}}
+                                {{#issiteadmin}}
+                                    {{# published}}
+                                        <button class="launch_btn btn btn-primary btn-sm mr-3" data-id={{offeringid}} data-code="{{code}}" data-entitytype = 'offering' data-actiontype ='publish'  data-action="publishorunpublishentity" >{{#str}} publish, local_trainingprogram {{/str}}</button>
+                                    {{/ published}} 
+                                    {{^published}}
+                                    {{^ offeringhasenrollments}}
+                                        <button class="launch_btn btn btn-primary btn-sm mr-3" data-id={{offeringid}} data-code="{{code}}"  data-entitytype = 'offering'  data-actiontype ='unpublish' data-action="publishorunpublishentity">{{#str}} unpublish, local_trainingprogram {{/str}}</button>
+                                    {{/ offeringhasenrollments}}
+                                    {{/ published}}
+                                {{/ issiteadmin}}
+                           {{/ cancelledrequestpending}}
+                        {{/ iscancelled}}
+                        {{^ iscancelled}}
+                            {{^ cancelledrequestpending}}
+                                <a href="{{{assignurl}}}" data-toggle = "tooltip" title="{{#str}} assign_traineetrainer , local_trainingprogram{{/str}}"  ><span class="bg-primary text-white"><i class="fa fa-user-plus" aria-hidden="true"></i></span></a>
+                                {{# offeringenroll_edit_action}}
+                                <a href="#"  data-action="schedule" data-id={{offeringid}} data-programname="{{tainingprogramname}}" data-traineeid={{programid}}  data-code="{{code}}" data-toggle = "tooltip" title="{{#str}} edit , local_trainingprogram{{/str}}" >
+                                <span class="bg-info text-white"><i class="fa fa-pencil fa-fw"></i></span></a>
+                                {{/ offeringenroll_edit_action}}
+                            {{/ cancelledrequestpending}}
+                        {{/ iscancelled}}
+                        {{# deleteaction}}
+                         <a href="#" data-toggle="tooltip" title="{{#str}}uneroll_trainees,local_trainingprogram{{/str}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                        {{/ deleteaction}}
+                        {{^ deleteaction}}
+                         {{# offeringdeleteaction}}
+                        <a href="#" data-action="deleteshedule" data-id={{offeringid}} data-traineeid='{{programid}}' data-userroleshortname="{{currentuser}}" data-code="{{code}}" data-toggle = "tooltip" title="{{#str}} delete , local_trainingprogram{{/str}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                         {{/ offeringdeleteaction}}
+                        {{/ deleteaction}}
+                        {{# offeringcancelaction}}
+                           {{^ iscancelled}}
+                                {{^ cancelledrequestpending}}
+                                    <a href="#" data-action="cancelentity" data-rootid='{{programid}}' data-fieldid={{offeringid}} data-fieldcode={{code}} data-productid={{productid}}  data-entitytype ='offering' data-currentuser ={{currentuser}} data-costtype ={{costtype}} data-requestby="{{currentuser}}" data-requesttype = 'cancelentity' data-hasenrollments = {{hasenrollments}} data-toggle = "tooltip" title="{{#str}} canceloffering , local_trainingprogram{{/str}}"><span class="btn btn-warning text-white"><i class="fa fa-ban" aria-hidden="true"></i></span></a>
+                                {{/ cancelledrequestpending}}
+                            {{/ iscancelled}}
+                       {{/ offeringcancelaction}}
+                    {{/ isfinancialmanager}}
+                </div> 
+            </div>
+            <div class="offertablecontainer table-responsive my-3">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                           
+                            {{# datedisplay}}
+                            <th>{{#str}}start_date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}end_date , local_trainingprogram{{/str}}</th>
+                            {{/ datedisplay}}
+                             <th>{{#str}}olanguage , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}seats , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}enrolled , local_trainingprogram{{/str}}</th>
+                            {{# halldisplayaction}}
+                            <th>{{#str}}hall , local_trainingprogram{{/str}}</th>
+                            {{/ halldisplayaction}}
+                            <th>{{#str}}program_type , local_trainingprogram{{/str}}</th>
+                            {{# privateorg}}
+                            <th>{{#str}}organization , local_trainingprogram{{/str}}</th>
+                            {{/ privateorg}}  
+                            {{# halldisplayaction}}
+                            <th>{{#str}}location , local_trainingprogram{{/str}}</th>
+                            {{/ halldisplayaction}}
+                            <th>{{#str}}price , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}offeringtrainer , local_trainingprogram{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                            {{# datedisplay}}
+                            <td>{{startdate}}</td>
+                            <td>{{enddate}}</td>
+                            {{/ datedisplay}}
+                             <td>{{offcourselanguage}}</td>
+                            <td>{{availableseats}}</td>
+                            <td>{{enrolled}}</td>
+                            {{# halldisplayaction}}
+                            <td>{{hallname}}</td>
+                            {{/ halldisplayaction}}
+                            <td>{{type}}</td>
+                            {{# privateorg}}
+                            <td>{{orgname}}</td>
+                            {{/ privateorg}}
+                            {{# halldisplayaction}}
+                            <td><a href="{{maplocation}}" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i></a></td>
+                            {{/ halldisplayaction}}
+                            <td>{{sellingprice}}</td>                            
+                            <td>
+                                <p>
+                                  {{limitedtrainers}}
+                                        {{# hastrainernamelistmore}}
+                                        <span class="dots">...</span><span class="trainer_view_more d-none">
+                                            {{trainername}}
+                                        </span> <a  id="myBtn" class = "show-more-trainer-btn text-themecolor" data-type = "show">{{#str}} show_more, local_trainingprogram {{/str}}</a>
+                                    {{/ hastrainernamelistmore}}      
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {{# viewtypeCard}}
+            {{# sessiondatadisplay}}
+            <div class="offerdayscontainer row">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}session , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}action , local_trainingprogram{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{# sessiondata}}
+                        {{# virtual}}
+                        <tr>
+                                <td>Session {{cid}}</td>
+                                <td>{{sessiondate}}</td>
+                                <td class = "testlearnerscript" ><div onclick = "CallLearnerscript({{filters}})">{{^ isfinancialmanager}}<a href="javascript:void(0);"><span class="bg-primary text-white" ></span>{{#str}}viewattendance , local_trainingprogram{{/str}} </a> {{/ isfinancialmanager}} {{# isfinancialmanager}} {{#str}}attendance , local_trainingprogram{{/str}} {{/ isfinancialmanager}}</div>
+                                <div>{{^ isfinancialmanager}}<a href="{{attendanceurl}}"><span class="bg-primary text-white" ></span>{{#str}}takeattendance , local_trainingprogram{{/str}} </a> {{/ isfinancialmanager}} {{# isfinancialmanager}} {{#str}}attendance , local_trainingprogram{{/str}} {{/ isfinancialmanager}}</div></td>
+                        </tr>
+                        {{/ virtual}}
+                        {{^ virtual}}
+                        <tr>
+                                <td>Session {{cid}}</td>
+                                <td>{{sessiondate}}</td>
+                                <td class = "testlearnerscript" ><div onclick = "CallLearnerscript({{filters}})">{{^ isfinancialmanager}}<a href="javascript:void(0);"><span class="bg-primary text-white" ></span></a> {{/ isfinancialmanager}} {{# isfinancialmanager}} {{#str}}attendance , local_trainingprogram{{/str}} {{/ isfinancialmanager}}</div>
+                                <div>{{^ isfinancialmanager}}<a href="{{attendanceurl}}"><span class="bg-primary text-white" ></span>{{#str}}takeattendance , local_trainingprogram{{/str}} </a> {{/ isfinancialmanager}} {{# isfinancialmanager}} {{#str}}attendance , local_trainingprogram{{/str}} {{/ isfinancialmanager}}</div></td>
+
+                        </tr>
+                        {{/ virtual}}
+
+
+
+
+                        {{/ sessiondata}}
+                    </tbody>
+                </table>
+            </div>
+            {{/ sessiondatadisplay}}
+            {{/ viewtypeCard}}
+            {{/ records}}
+        </div>
+    </div>
+</div>
+
+<script src='https://learnerscript.com/wp-content/plugins/learnerscript/js/highcharts.js'></script>
+{{#js}}
+    require(['local_trainingprogram/tpview'], function(s) {
+        s.init();
+    });
+    $('.show-more-trainer-btn').click(function(){
+        var type  = $(this).attr('data-type');
+        if(type == 'show') {
+
+            $(this).attr('data-type','hide');
+            $(this).parent('p').find('.dots').addClass('d-none');
+            $(this).parent('p').find('.trainer_view_more').removeClass('d-none');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        } else {
+
+            $(this).attr('data-type','show');
+            $(this).parent('p').find('.dots').removeClass('d-none');
+            $(this).parent('p').find('.trainer_view_more').addClass('d-none');
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+
+    function CallLearnerscript(filters) {
+        // Yours
+        
+
+
+        // Load the block_learnerscript/report module
+        require(['block_learnerscript/report'], function(s) {
+        var filterdata = { reportid: filters[0].reportid, reporttype: 'table', instanceid: filters[0].reportid, reportdashboard: false };
+        s.TpReportDatatable(filters);
+        });
+    }
+    
+{{/js}}
+{{/ response}}

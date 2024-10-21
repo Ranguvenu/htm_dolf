@@ -1,0 +1,186 @@
+{{!
+     This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+ <div class="row">
+    <div class="col-md-12">
+        <div id="competency_section">
+            <div class="row my-3">
+                
+                <div class="col-md-4">
+                    {{{globalinput}}}
+                </div>
+                <div class="col-md-8">
+
+                    <div class="d-flex justify-content-end align-items-center">
+                
+                        {{#addcompetency}}
+
+                            <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="editcompetency"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}addcompetency, local_competency{{/str}}</a>
+                        
+                        {{/addcompetency}}
+
+                        {{# uploadcompetency}}
+
+                            <a href="{{cfg.wwwroot}}/local/competency/uploadcompetency.php" tabindex="0" role="button" class="btn btn-primary mr-2">
+                               <i class="fa fa-upload" aria-hidden="true" ></i>
+                                    {{#str}}upload_competency , local_competency {{/str}}
+                            </a>
+                        {{/uploadcompetency}}
+                        <button class="btn filter_toggle_btn" id="filter_open_btn">
+                            <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                           {{# str}} filter, local_competency{{/ str}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="viewcompetencies" data-region="viewcompetencies-preview-container" class="viewcompetencys">
+                  <div data-region="viewcompetencies-count-container"></div>
+                  <div data-region="viewcompetencies-list-container" class ="competenciesmethoddata">
+                  </div>
+                  <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                        <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                    </span>
+            </div>
+        </div> 
+    </div>
+     <div class="filters_container">
+        <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}} filter, local_competency{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}} close_filter, local_competency{{/ str}}
+                </button>
+            </div>
+             
+            <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                {{# str}} filter_discription, local_competency{{/ str}}
+            </div>
+        </div>
+        <div class="filters_contents">
+             {{{filterform}}}
+        </div>
+    </div>
+</div>
+{{#js}}
+
+require(['local_competency/competencyform'], function(s) {
+        s.init();
+});
+
+require(['theme_academy/cardPaginate'], function(cardPaginate) {
+
+    cardPaginate.reload({{{options}}}, {{{dataoptions}}},{{{filterdata}}});
+
+    var search_interval = 100;
+    var timer;
+    $(document).on('keyup', '#global_filtercmtnc', function(){
+        var searchval = $(this).val();
+        var filterdata = {search_query: searchval};
+        timer = setTimeout(function(){
+            cardPaginate.reload({{{options}}}, {{{dataoptions}}},filterdata);
+        },search_interval);
+    });
+    $(document).on('keydown', '#global_filtercmtnc', function(){
+        clearTimeout(timer);
+    });
+
+});
+
+require(['local_competency/competencyactions'], function(s) {
+        s.init();
+});
+
+if(typeof "select[name='sectors[]']" != 'undefined'){
+    var sectors = $("select[name='sectors[]']").val();
+    if(typeof $('#el_segmentlistcmp') != 'undefined'){
+        $('select#el_segmentlistcmp').data('sectorid',sectors);
+    }
+ 
+    if(typeof $('#el_jobfamilycmpcmp') != 'undefined'){
+        $('#el_jobfamilycmpcmp').data('sectorid',sectors);
+    }
+}
+$("select[name='sectors[]']").on('change', function(e){
+    
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+});
+
+if(typeof "select[name='sectors']" != 'undefined'){
+    var sectors = $("select[name='sectors']").val();
+    if(typeof $('#el_segmentlistcmp') != 'undefined'){
+        $('select#el_segmentlistcmp').data('sectorid',sectors);
+    }
+ 
+    if(typeof $('#el_jobfamilycmpcmp') != 'undefined'){
+        $('#el_jobfamilycmpcmp').data('sectorid',sectors);
+    }
+}
+$("select[name='sectors']").on('change', function(e){
+    
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       var segment = $(this).closest("form").find("select[name='segment']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       segment.val('');
+       segment.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+});
+
+//Job family
+if(typeof $('#el_segmentlistcmp') != 'undefined'){
+    if(typeof $('#el_jobfamilycmp') != 'undefined'){
+        var sectors = $('.el_sectorlistcmp').val();
+        $('select#el_jobfamilycmp').data('sectorid',sectors);
+        var segments = $('#el_segmentlistcmp').val();
+        $('select#el_jobfamilycmp').data('segmentid',segments);
+    }
+}
+$('#el_segmentlistcmp').on('change', function(e){
+       var segments = $('#el_segmentlistcmp').val();
+       $('select#el_jobfamilycmp').val('');
+       $('select#el_jobfamilycmp').data('segmentid',segments);
+});
+
+//job role
+if(typeof $('#el_jobfamilycmp') != 'undefined'){
+    if(typeof $('#el_jobrolescmp') != 'undefined'){
+        var jobfamily = $('#el_jobfamilycmp').val();
+        $('select#el_jobrolescmp').data('jobfamilyid',sectors);
+    }
+}
+$('#el_jobfamilycmp').on('change', function(e){
+       var jobfamily = $('#el_jobfamilycmp').val();
+       $('select#el_jobrolescmp').val('');
+       $('select#el_jobrolescmp').data('jobfamilyid',jobfamily);
+});
+{{/js}}

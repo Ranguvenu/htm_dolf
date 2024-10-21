@@ -1,0 +1,25 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        {{#records}}
+            {{#str}}competency_criteria,local_competency{{/str}}
+            <hr>
+            <div class="d-flex justify-content-between">
+                <h6>{{criterianame}}</h6>
+                <!--<div>{{#str}}noofquestions,local_competency{{/str}} : <span class="theme_text_color1"><strong>1</strong></span></div>-->
+                <div>{{#str}}competency_type,local_competency{{/str}} : <span class="theme_text_color1"><strong>{{competencytype}}</strong></span></div>
+                <div>Expert: <span class="theme_text_color1" >{{{questionexperts}}}</span> <span class="badge badge-primary rounded-0">
+                    <a data-action="viewexperts" data-id="{{questionbankid}}" data-name="question bank">{{#str}}showall,local_competency{{/str}} </a>
+                </span></div>
+            </div>
+            <div class="p-2 my-2">
+                <div class="d-flex my-2"> <span class="mr-2 text-nowrap"> Question 1: </span> {{{questiontext}}}</div>
+            </div>
+        {{/records}}
+
+   {{/viewtypeCard}}
+{{/response}}               

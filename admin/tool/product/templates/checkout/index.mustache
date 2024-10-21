@@ -1,0 +1,31 @@
+<div id="checkout_container">
+	<div id="checkout-loader"/>
+		{{>tool_product/loader}}
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="checkout_content">
+				<h3>{{#str}}checkout, tool_product{{/str}}</h3>
+				<hr>
+				<h5>{{#str}}paymentmethods, tool_product{{/str}}</h5>
+				<p>{{#str}} enter_carddetails, tool_product {{/str}}</p>
+			</div>
+			<div data-region="payment-methods"></div>
+		</div>
+		<div class="col-md-4">
+			<div data-region="order-summary">
+			</div>
+		</div>
+	</div>
+</div>
+{{#coupondiscounfailed}}
+		<div id="couponmsg-discounfailed" class="col-md-12 mt-2">{{#str}}coupon_nametaken, tool_product {{/str}}</div>
+{{/coupondiscounfailed}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+    	product.checkout({{{formdata}}});
+    });
+{{/js}}
+
+
+	

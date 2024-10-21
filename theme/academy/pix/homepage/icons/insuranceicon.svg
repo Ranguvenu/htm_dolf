@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 36 35">
+      <image width="36" height="35" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAjCAYAAAD8BaggAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEkUlEQVRYhbWXfWhWVRzHP9NhkYtBNOlUPKkVQmXRk5J/ZEUvGsOOJlH0woyMOs2iPYXmH0YjmImL7mq9nF6oJQzKYsiZmRYuMzPFuhKUTAQZV/KATTZ1bjV5nvXHvc/D3d3z3Od59vKDcw+c8/t97+ecc8/5nVshpK4B6oEKpsasNeqjUp0rgRuBDcC3UwAjgHlAWUAA561RK0YpSX0bcGmZAMetUV5IYwXQVo5AZb5GIfWVwG9lwgDsBu4bR1w8EDAjqOdYo3pKERJSNwArJgIDMG2iApNthWZoJKh3CKmHS9SqAY5NFdAJ4FlgZpl6f0wMpwCQNSoDfDJR8fHYKCAh9YNAawHf9nWNtZuBl4CmVDKRnnIg4Fr87ycVaU+vXnPnL8D3wCVAq5B6OfBUjPayyQACOGON2hZucFyvOgRzTyqZ6BNSdwPbxobn7MJkAWUh1gHdwE8RmH8ArFEHgANx4kLqyQPCP6O+wd/KmeHh9L0tG3ctAjqDlzUADTHxNwPDwHeB/ywgYY2KzQAFgVLJxCbH9dKABFa2bNz1CHB/FgjYCfTEaA9Zo3YIqf8WUr8HrAYuFlLvB94Gtluj/isZKIBqBpoBgmtKzqxR3fhLmjMh9XRgNjAfeFNIvRS4CdgHPAH8hb9h2oC0kHonfv5zgaPWqIEo0L/ALULqEfJbR9wAgF+BhUA/cBD4AuiwRh0P+SghdQp/5pcCrwJzgYyQemEU6HPiP9STRYBmAausUVvinKxRQ8BXQUFIXRVoV0eT6wX80eUrfdaoU0WAAM6W4BMFHAAyMPYbeprCKaPecb19QAvwcCqZ6Cv3xVFzXO8qYDh7lOQDqgL+BBZH2jPrGmuvAbrwz6SzQupG4PWsgzWqrDu543pXA3uAH4DnCwEBpK1R/Y7rTc/mK8f15odg6lLJRFpI3RYIlm0hGA94JdwXt+3bHdfrAdqjMEF/P/HnUCkwy1LJxGCpQB8D2/Gze8dnH+x9sffUwFpgU9DfQGjJ8H+jMsBFjuvNBd4PBpD7PorATMs98lkqmegCaoF3gbreUwNrgEUhlxZgTqgAnAYuD+rLgC7H9WqKwQipZ+D/4ZzLN0NVQuq7ATY37gA/Fy3Gv5rkzBrVj79sYTsBzEslE2cc11uCv8xdjuvVAV/ngwns+qDuic7QSfxT88c8ZRXQm2cAYdsfwJNKJs4AS4BB/NRQCAbgLuCYNer0qBmyRm0FthZ5aZx1As1C6husUUdCM/UC4BSAAXgsiI1PrgBC6iuAB4r5WaParFFHhdQ/Ay8Dz0Bupppi9G8H7gCeKwkIP3s3luDXFtQbgD1C6g+tUb/HBQS3g3eAdmvUkZKAgpvh7IhQBVAdbbNGjVij9gqptwBbhdQLrFFxKaYJuA5YmW0Y759rNdAXKWHAevwku1NIXT02HITU64G1wKPWqNwtYrxA54BbI+VcttMaNYi/wyqBQ0LqBSGQmULqT4E3gIesUbvDwhXBmdPJ2IQ6GeYBbwF1+Je1w8B6YAh40hp1MBpQCZzHz/KHpwDoEPA48CXwGrA8AGy1Rp3PF/A/kkGq4h3cXi0AAAAASUVORK5CYII="/>
+    </pattern>
+  </defs>
+  <g id="Group_5" data-name="Group 5" transform="translate(-69 164)">
+    <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(69 -164)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="60" height="60" stroke="none"/>
+      <rect x="0.5" y="0.5" width="59" height="59" fill="none"/>
+    </g>
+    <rect id="insurance_copy" data-name="insurance copy" width="60" height="58" transform="translate(69 -163)" fill="url(#pattern)"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<table class="table generaltable">
+   {{# competencies}}
+  <thead> 
+    <tr>
+      <th> <span data-toggle="collapse" >{{#str}}competency, local_questionbank{{/str}}</th>
+      <th>{{#str}}date_added, local_questionbank{{/str}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="selectedcompetency mb-3 collapse" id="selected_competency-{{courseid}}">         
+        <tr>
+          <td>
+            <h6>{{name}}</h6>
+          </td>
+          <td>
+            <h6>{{timevalue}}</h6>
+          </td>
+        </tr>               
+    </div>
+  </tbody>
+  {{/ competencies}}
+</table>

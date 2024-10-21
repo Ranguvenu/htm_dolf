@@ -1,0 +1,25 @@
+{{#response}}
+{{# records}}
+{{# hascourses}}
+<div class="exam_content">
+    <div class="title_container d-flex mb-3">
+        <h5 class="examtitle m-0 mr-3">{{slno}}.</h5>
+        <div class="flex-grow-1 exam_main_container">
+            <div class="d-flex align-items-center">
+                <h5 class="examtitle m-0">{{exam}}</h5>
+                {{# publishexams}}
+                <div class="exam_action_container ml-5 d-flex justify-content-center">
+                    <a class="btn btn-outline-primary theme_text_color btn-sm ml-2"  data-action="publishexam" data-id={{id}}>{{#str}}publish,local_exams{{/str}}</a>
+                </div>
+                {{/ publishexams}}
+            </div>
+            <div class="review_exam_actions mt-2">
+                <a href="{{config.wwroot}}./examdetails.php?id={{id}}">{{#str}}exam_details, local_exams{{/str}}</a>,
+                <a href="#" data-action="competencies" data-id={{id}}>{{#str}}mapcompetencies, local_exams{{/str}}</a>,
+            </div>
+        </div>
+    </div>
+</div>
+{{/ hascourses}}
+{{/ records}}
+{{/ response}}

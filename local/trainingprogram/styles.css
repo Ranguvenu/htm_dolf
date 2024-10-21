@@ -1,0 +1,1263 @@
+#trainingprograms .program_container{
+    border: 1px solid #D4DBE0;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #FDFDFD;
+}
+#trainingprograms .nav-tabs .nav-link{
+    padding: 0.5rem 0rem;
+    margin-right: 20px;
+}
+#trainingprograms .nav-tabs .nav-link.active,
+#trainingprograms .nav-tabs .nav-item.show .nav-link,
+#trainingprograms .nav-tabs .nav-link:hover,
+#trainingprograms .nav-tabs .nav-link:focus {
+
+    background-color: transparent;
+    border: none;
+    border-bottom:3px solid;
+    font-weight: 700;
+}
+
+.training_prgrams_table thead tr th{
+    border-top: none;
+    border-bottom: 1px solid #475C6E;
+}
+
+.training_prgrams_table tbody tr.course_details_row td{
+    font-weight: normal;
+}
+
+.training_prgrams_table tbody tr.course_content_row td{
+    border-top: none;
+}
+
+.training_prgrams_table tbody tr.course_content_row .actions .btn{
+    background-color: transparent;
+    padding: 0.3rem 0.45rem;
+    border-radius: 5px;
+    line-height: 1;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    margin-right: 0.6rem;
+    padding-bottom: 7px;
+}
+.training_prgrams_table tbody tr.course_content_row .actions .btn a{
+    line-height: 0;
+}
+#currentofferingcontainer .offerwrapper .offerheader{
+    background-color: #E2F0FF;
+    padding: 0.6rem;
+}
+#currentofferingcontainer .offerwrapper .offerdayscontainer h6{
+    font-weight: normal;
+}
+#currentofferingcontainer .offerwrapper .offerdayscontainer h5{
+    font-size: 1rem;
+}
+#trainingprogramheading{
+    border-bottom: 1px solid #eee;
+}
+#programenrollment_container .bootstrap-duallistbox-container select {
+    border: none;
+    box-shadow: 1px 1px 2px 0 #00000026;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+#page-local-trainingprogram-programenrollment .box {
+    float: left;
+}
+#page-local-trainingprogram-programenrollment .box3 {
+    margin-top: 170px;
+    text-align: center;
+}
+.global_filter_structure{
+    margin-bottom: 15px;
+}
+#page-local-trainingprogram-programenrollment .box.actions .custom_btn {
+    width: 150px;
+    margin-top: 10px!important;
+    margin: auto;
+}
+
+@media (min-width: 992px) {
+   #page-local-trainingprogram-index .currentofferingsmodel .modal-lg {
+        max-width: 80%;
+    }
+}
+
+#trainingprograms_section{
+   /* border: 1px solid #eee;*/
+    min-height: 500px;
+    border-radius: 15px;
+    /*padding: 1rem;*/
+}
+#trainingprogramsheading{
+    border-bottom: 1px solid #eee;
+}
+#training_programs_list_container .trainingprogramsearchinput{
+
+    height: 45px;
+
+    padding-left: 35px;
+
+    border-color: #E5EAEC;
+
+    border-width: 2px;
+
+    border-radius: 25px;
+
+    position: relative;
+
+}
+#training_programs_list_container #search_input_container .search_icon{
+
+    width: 20px;
+
+    height: 20px;
+
+    background-image: url('[[pix:theme_academy|pageicons/inputsearchicon]]');
+
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    display: inline-block;
+
+    position: absolute;
+
+    top: 13px;
+
+    left: 13px;
+
+    z-index: 1;
+
+}
+/* #page-local-trainingprogram-trainingprogram #page-header, #page-local-trainingprogram-programcourseoverview #page-header {
+
+    display: none;
+} */
+
+#training_programs_list_container #search_input_container{
+
+    position: relative;
+
+}
+
+#training_programs_list_container #find_input_group .form-control:first-child {
+    border-radius: 25px;
+}
+#training_programs_list_container #find_input_group .form-control {
+    height: 45px;
+    padding-left: 35px;
+    border-color: #E5EAEC;
+    border-width: 2px;
+}
+#training_programs_list_container #find_input_group ~ div{
+    width: 100%;
+}
+#training_programs_list_container #find_input_group div .piximg {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+}
+#training_programs_list_container #find_input_group div .piximg .icon {
+    width: 20px;
+}
+#training_programs_list_container .sort_btn {
+    background-color: transparent;
+    border-color: #E5EAEC;
+    color: #000;
+    border-radius: 50px;
+}
+#training_programs_list_container .sort_btn .piximg img {
+    width: 20px;
+}
+#training_programs_list_container #training_programs_container .programs_wrapper {
+    border: 1px solid #E7EBED;
+    border-radius: 20px;
+}
+#training_programs_list_container #training_programs_container .programs_wrapper .programsimagecontainer {
+    background-image: url('[[pix:local_trainingprogram|programview/program_defaultimage]]');
+    width: 100%;
+    background-position: center;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 180px;
+}
+.programs_wrapper .program_key_notes {
+    list-style: none;
+    padding: 0;
+    clear: both;
+}
+.programs_wrapper .program_key_notes li {
+    width: 45%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.programs_wrapper .pricelabelcontainer {
+    margin-top: 5px;
+}
+.programs_wrapper .pricelabelcontainer .statuslabel {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+.programs_wrapper .pricelabelcontainer .programprice {
+    font-weight: normal;
+    color: #000;
+    margin: 0;
+}
+.programs_wrapper .programdateinfo .programdatetext {
+    margin-top: 3px;
+}
+.programs_wrapper .program_key_notes li .piximg img {
+    width: 20px;
+    margin-top: -5px;
+}
+.programs_wrapper .pricelabelcontainer .statuslabel.banking {
+    background-color: #fff7f7;
+    color: #bf5c5c;
+    border: 1px solid #bf5c5c;
+}
+.programs_wrapper .pricelabelcontainer .statuslabel.finance {
+    background-color: #F5F5FF;
+    color: #6262DD;
+    border: 1px solid #6262DD;
+}
+.programs_wrapper .pricelabelcontainer .statuslabel {
+    padding: 3px 15px;
+    border-radius: 5px;
+}
+.programs_wrapper .programdateinfo .piximg img {
+    width: 25px;
+}
+.programs_wrapper .program_actions a img {
+    width: 28px;
+}
+/*training programs course view*/
+
+#training_programs_course_container .course_actions a img {
+    width: 28px;
+}
+#training_programs_course_container .course_key_notes {
+    list-style: none;
+    padding: 0;
+    clear: both;
+}
+#training_programs_course_container .programimagecontainer {
+    background-image: url('[[pix:local_trainingprogram|programview/program_defaultimage]]');
+    width: 100%;
+    background-position: center;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    margin: 15px 0;
+}
+#training_programs_course_container .course_key_notes li {
+    width: 45%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+#training_programs_course_container .pricelabelcontainer .statuslabel.open {
+    background-color: #fff7f7;
+    color: #bf5c5c;
+    border: 1px solid #bf5c5c;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+#training_programs_course_container .pricelabelcontainer .statuslabel {
+    padding: 3px 15px;
+    border-radius: 5px;
+}
+#training_programs_course_container .listofsectors .pricelabelcontainer .statuslabel.open {
+    background-color: #fff7f7;
+    color: #bf5c5c;
+    border: 1px solid #f4dddd;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 10px 10px 10px 14px;
+    font-weight: 600;
+}
+
+#training_programs_course_container .program_details_div {
+    padding: 1rem;
+    background-color: #fdfeff;
+    border-radius: 10px;
+    border: 1px solid #E7EBED;
+}
+#training_programs_course_container .select_btn {
+    padding: 0.4rem 2rem;
+    background-color: #fdfeff;
+    border-radius: 7px;
+    border: 1px solid #E7EBED;
+}
+#training_programs_course_container .programs_section_header {
+    background-color: #fafcff;
+    padding-right: 10px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    border: 1px solid #E7EBED;
+}
+#training_programs_course_container .programs_section_header h6 {
+    padding: 14px 10px 6px 10px;
+    flex: 1;
+    cursor: pointer;
+}
+#training_programs_course_container .programs_section_content_container {
+    padding-left: 15px;
+}
+#training_programs_course_container .programs_section_content_container{
+    padding: 15px 10px;
+}
+#training_programs_course_container .downarrow i{
+    font-size: 30px;
+}
+#training_programs_course_container .avail_datetime_icon img,#training_programs_course_container .program_online_icon img{
+    width: 35px;
+    margin-right: 15px;
+}
+#training_programs_course_container .curriculumplayimg {
+    width: 20px;
+    height: 20px;
+    background-image: url('[[pix:local_trainingprogram|programview/sectionplayicon]]');
+    background-position: center;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 12px;
+}
+#training_programs_course_container .training_methods_list ul,#training_programs_course_container .programgoals ul {
+    list-style: none;
+    padding:0px;
+}
+#training_programs_course_container .training_methods_list ul li,#training_programs_course_container .programgoals ul li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+#training_programs_course_container .training_methods_list ul li::before,#training_programs_course_container .programgoals ul li::before{
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #475C6E;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+#training_programs_course_container .program_pricing_details_container{
+    background-color:#FAFCFF;
+    width: 100%;
+    border-top: 1px solid #DBE2E6;
+    border-left: 1px solid #DBE2E6;
+    position: relative;
+}
+#training_programs_course_container .program_pricing_details_container #offerlabelribbon {
+    width: 60px;
+    height: 85px;
+    background-image:url('[[pix:local_trainingprogram|programview/ribbonlabel]]');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding-bottom: 20px;
+    
+}
+#training_programs_course_container .program_pricing_details_container section{
+    padding: 1rem;
+}
+#training_programs_course_container .program_pricing_details_container section:not(:first-child){
+    border-top: 1px solid #DBE2E6;
+}
+#training_programs_course_container .program_pricing_details_container #price_container{
+    margin-right: 70px ;
+    margin-top: 2.3rem;
+}
+#training_programs_course_container .program_pricing_details_container #price_container .actual_price{
+    font-weight: normal;
+    text-decoration: line-through;
+}
+#training_programs_course_container  #offer_label{
+    color: #7210BA;
+    font-size: 14px;
+    margin: 20px 0;
+}
+#training_programs_course_container .programs_features_ul{
+    padding: 0;
+    list-style: none;
+    margin-bottom: 3.5rem;
+}
+#training_programs_course_container .programs_features_ul li{
+    display: flex;
+    margin-top: 12px;
+}
+#training_programs_course_container .programs_features_ul li .piximg img{
+    width: 100%;
+}
+#training_programs_course_container .programs_features_ul li .piximg {
+    width: 17px;
+    margin-right: 12px;
+}
+#training_programs_course_container .add_cart_btn{
+    background-color: #fff;
+    border-radius: 0;
+    color: #064D97;
+    border-color: #064D97;
+}
+#training_programs_course_container .buy_now_btn{
+    border-radius: 0;
+    background-color: #064D97;
+    border-color: #064D97;
+}
+
+/* my training*/
+
+#mytrainings_container #training_tabs .nav-link.active {
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#mytrainings_container #training_tabs .nav-link {
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#mytrainings_container #training_tabs .nav-link:not(.active) {
+    color: #98A9B4;
+}
+#mytrainings_container .table thead th{
+    font-weight: bold;
+}
+#mytrainings_container .table .addinfotable tr td{
+    background-color: #E9ECF0;
+}
+#mytrainings_container .table .addinfotable tr:first-child td{
+    font-weight: bold;
+}
+
+/*dashboard css*/
+
+
+/*exams block css*/
+
+
+
+#exams_block_container {
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #FDFDFD;
+}
+#exams_block_container #exams_tabs .nav-link.active {
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#exams_block_container #exams_tabs .nav-link {
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#exams_block_container #exams_tabs .nav-link:not(.active) {
+    color: #98A9B4;
+}
+#exams_block_container .exams_content_table thead tr th {
+    border-top: none;
+    border-bottom: 2px solid #c3cad0;
+    padding: 10px 0px;
+}
+#exams_block_container .exams_content_table{
+    margin-top: 20px;
+}
+
+#exams_block_container .btn {
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+#exams_block_container  .launch_btn.btn {
+    border-radius: 25px;
+}
+#exams_block_container .exams_content_table .coursesimg {
+    background-image:url('[[pix:local_uidesigns|eventsampleimage]]');
+    width: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80px;
+    border-radius: 50%;
+}
+#exams_block_container .exams_content_table tbody tr td {
+    border-bottom: 1px solid #eee;
+}
+#exams_block_container .exams_content_table tbody tr:last-child td {
+    border-bottom: 0px;
+}
+#exams_block_container .exams_content_table tbody tr td {
+    padding: 15px 0px;
+}
+
+/*learning path block css*/
+#learningpath_block_container {
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #FDFDFD;
+}
+#learningpath_block_container #learningpath_tabs .nav-link.active {
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#learningpath_block_container #learningpath_tabs .nav-link {
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#learningpath_block_container #learningpath_tabs .nav-link:not(.active) {
+    color: #98A9B4;
+}
+#learningpath_block_container .learningpaths_content_table thead tr th {
+    border-top: none;
+    border-bottom: 2px solid #c3cad0;
+    padding: 10px 0px;
+}
+#learningpath_block_container .learningpaths_content_table{
+    margin-top: 20px;
+}
+
+#learningpath_block_container .btn {
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+#learningpath_block_container .learningpaths_content_table tbody tr td {
+    border-bottom: 1px solid #eee;
+}
+#learningpath_block_container .learningpaths_content_table tbody tr:last-child td {
+    border-bottom: 0px;
+}
+#learningpath_block_container .learningpaths_content_table tbody tr td {
+    padding: 15px 0px;
+}
+
+/*Competency block css*/
+#competency_block_container #competency_content_wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+}
+#competency_block_container #competency_content_wrapper .table thead tr th{
+    background-color:#F8F8F8;
+}
+#competency_block_container .table .content_header_row td{
+    background-color: #EBEBEB;
+}
+#competency_block_container .table tbody tr td:first-child{
+    border-left: 1px solid #EBEBEB
+}
+#competency_block_container .table tbody tr td:last-child{
+   border-right: 1px solid #EBEBEB;
+}
+#competency_block_container .table tbody tr:last-child td{
+    border-bottom: 1px solid #EBEBEB;
+}
+
+/* training program schedule now styles */
+#tpschedulecontainer #infocontent .table thead tr{
+    background-color: #F8F8F8;
+}
+#tpschedulecontainer #infocontent .table thead tr th,#tpschedulecontainer #infocontent .table tbody tr td{
+    border: none;
+}
+#tpschedulecontainer #price_container #price{
+    font-weight: normal;
+}
+
+/* END training program schedule now styles */
+
+/* my training details */
+
+#mytrainingdetailscontainer .text-decoration-underline{
+
+    text-decoration: underline;
+
+}
+
+/*training block css*/
+
+#trainings_block_container {
+    border:0;
+    border-radius: 15px;
+    padding: 0 1rem;
+    background-color: transparent;
+}
+#trainings_block_container #training_tabs .nav-link.active {
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#trainings_block_container #training_tabs .nav-link {
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#trainings_block_container #training_tabs .nav-link:not(.active) {
+    color: #98A9B4;
+}
+#trainings_block_container .trainings_content_table thead tr th {
+    border-top: none;
+    border-bottom: 2px solid #c3cad0;
+    padding: 10px 0px;
+}
+#trainings_block_container .trainings_content_table{
+    margin-top: 20px;
+}
+
+#trainings_block_container .btn {
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+#trainings_block_container  .launch_btn.btn {
+    border-radius: 25px;
+}
+#trainings_block_container .trainings_content_table .coursesimg {
+    background-image:url('[[pix:local_uidesigns|eventsampleimage]]');
+    width: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80px;
+    border-radius: 50%;
+}
+#trainings_block_container .trainings_content_table tbody tr td {
+    border-bottom: 1px solid #eee;
+}
+#trainings_block_container .trainings_content_table tbody tr:last-child td {
+    border-bottom: 0px;
+}
+#trainings_block_container .trainings_content_table tbody tr td {
+    padding: 15px 0px;
+}
+/* new theme styles  */ 
+#trainings_block_container .block_header{
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+#trainings_block_container .block_header .nav-tabs{
+    margin-bottom: -2px;
+}
+#trainings_block_container .training_program_container .progress{  
+    height: 8px;
+    margin-top: 2px;
+}
+#trainings_block_container .training_program_container .timeinfo_container{
+   background-color: #e4f2ff;
+}
+#trainings_block_container .training_program_container .timeinfo_container .piximg{
+    width: 25px;
+    margin-right: 10px;
+}
+#trainings_block_container .training_program_container .timeinfo_container .piximg .icon {
+    margin: 0;
+}
+#trainings_block_container .piximg.threedotsicon{
+    width: 32px;
+
+}
+#trainings_block_container .piximg.threedotsicon .icon{
+    margin: 0;
+}
+#trainings_block_container .launchbtn .icon{
+    width: 100px;
+    margin-bottom: 10px;
+}
+#trainings_block_container .launchbtn{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 130px;
+    background-image: url('[[pix:local_trainingprogram|launchbtnbg]]');
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 20px;
+    flex-direction: column;
+}
+#trainings_block_container .launchbtn:after{
+    content: "";
+    display: flex;
+    width: 20px;
+    height: 16px;
+    background-image: url('[[pix:theme_academy|homepage/showallbtnarrow]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 2px;
+}
+#trainings_block_container .launchbtn span{
+    font-size: 100%;
+    margin-top: 8px;
+}
+body.dir-rtl #trainings_block_container .launchbtn:after{
+    transform: rotate(180deg);
+}
+#trainings_block_container .program_img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+div#tpschedulecontainer {
+    background-color: #e9e9e9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+#tpschedulecontainer #infocontent .table thead tr {
+    background-color: #e9e9e9 !important;
+}
+#page-local-trainingprogram-programenrolleduserslist #page-wrapper {
+    height: auto !important ;
+   
+}
+
+#page-local-trainingprogram-trainingprogram .custom-select {
+    background-color: #fff !important;
+    border: 1px solid #8f959e52;
+}
+
+#page-local-trainingprogram-trainingprogram .mform .felement .form-control {
+    background-color: #fff !important;
+    border: 1px solid #8f959e52;
+}
+#page-local-trainingprogram-trainingprogram .form-autocomplete-selection {
+    color: #fff !important;
+}
+ 
+
+#page-local-trainingprogram-trainingprogram body a {
+    color: #004c98;
+}   
+
+
+#page-local-trainingprogram-trainingprogram .col-form-label {
+    display: none !important;
+}
+#page-local-trainingprogram-trainingprogram #fitem_id_availablefrom .col-form-label,
+#page-local-trainingprogram-trainingprogram #fitem_id_availableto .col-form-label {
+    display: flex !important;
+    padding: 0 !important;
+    padding-bottom: 8px !important;
+}
+
+#page-local-trainingprogram-trainingprogram .filterscontainer #fitem_id_availablefrom .col-form-label, #page-local-trainingprogram-trainingprogram .filterscontainer #fitem_id_availableto .col-form-label {
+    display: block;
+}
+
+/* new theme program detail page styles */ 
+#programdetailscontainer .mainsectioncontainer{
+    padding-right: 245px;
+    margin: 1.5rem 0;
+}
+#programdetailscontainer .mainsectioncontainer .calendericon{
+    width: 24px;
+}
+#programdetailscontainer .mainsectioncontainer .programdesc.short{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 66px;
+}
+#programdetailscontainer .mainsectioncontainer .sectors_covered_container .sector_div{
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+#programdetailscontainer .mainsectioncontainer .sectors_covered_container .sector_div .checkicon{
+    width: 25px;
+}
+#programdetailscontainer .pricedetails_container{
+    width: 200px;
+    right: 30px;
+    position: absolute;
+    padding: 1rem;
+}
+#programdetailscontainer .pricedetails_container .regbtn{
+    background-color:#14a99b;
+}
+@media (max-width: 570px) {
+    #programdetailscontainer .mainsectioncontainer{
+        padding-right: 15px !important;
+        margin: 0;
+        margin-top: 1.5rem;
+    }
+    #programdetailscontainer .pricedetails_container{
+        position: relative;
+        right: 0;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+#programdetailscontainer .videopreviewcontainer{
+    background-image: url('[[pix:local_trainingprogram|videopreview]]');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 200px;
+}
+#programdetailscontainer .videopreviewcontainer .icon{
+    width: 80px;
+    height: 80px;
+}
+#programdetailscontainer ul li{
+    display: flex;
+    align-items: center;
+}
+#programdetailscontainer ul li::before{
+    content: "";
+    background-image: url('[[pix:local_trainingprogram|hexagonlisticon]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+#programdetailscontainer .avail_dates_container .piximg .icon{
+    width: 18px;
+    margin-right: 0.25rem;
+}
+#programdetailscontainer .avail_dates_container .statuslabel{
+    display: inline-block;
+    padding: 4px 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: absolute;
+    top: -26px;
+    right: 10px;
+    font-size: 12px;
+    
+}
+#programdetailscontainer .avail_dates_container .statuslabel.orgname{
+
+    background-color:#144c98; 
+    color:#ffffff; 
+    right: 83px;
+
+}
+#programdetailscontainer .avail_dates_container .statuslabel.complete{
+    background-color: #ff5d68;
+    color: #fff;
+}
+#programdetailscontainer .avail_dates_container .statuslabel.complete>span{
+    background-color: #be000d;
+}
+#programdetailscontainer .avail_dates_container .statuslabel.open{
+    background-color: #00b577;
+    color: #fff;
+}
+#programdetailscontainer .avail_dates_container .statuslabel.open>span{
+    background-color: #fff;
+}
+#programdetailscontainer .avail_dates_container .statuslabel>span{
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+#programdetailscontainer .toindicator::after,#programdetailscontainer .toindicator::before{
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-image: url('[[pix:local_trainingprogram|dotcircle]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#programdetailscontainer .toindicator>span{
+    border-bottom: 1px dashed #000;
+    height: 1px;
+
+}
+#programdetailscontainer .program_agenda .programs_section_header{
+    padding: 12px 15px;
+    background-color: #0a4890;
+    border:1px solid #0a4890;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#programdetailscontainer .program_agenda .programs_section_header>div{
+    margin-top: -3px;
+}
+#programdetailscontainer .program_agenda .programs_section_header::after{
+    content: "\f078";
+    font-family: FontAwesome;
+    margin-left: 10px;
+}
+#programdetailscontainer .program_agenda .programs_section_header.collapsed::after{
+    content: "\f054";
+}   
+#programdetailscontainer .program_agenda .programs_section_header.collapsed{
+    background-color: #e6ecf4;
+    color: #0a4890;
+    border:1px solid #3c80c2;
+}
+#programdetailscontainer .program_agenda .programs_section_content_container{
+    padding: 0px 15px;
+}
+#programdetailscontainer .sessions_list li{
+    padding: 15px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+#programdetailscontainer .sessions_list li::before{
+    background-image: url('[[pix:local_trainingprogram|playiconthemecolor]]');
+}
+#programdetailscontainer .sessions_list li:last-child{
+    border-bottom: none;
+}
+#programdetailscontainer .competencies_table thead tr td:last-child{
+   
+    text-align: right;
+}
+
+#programdetailscontainer .competencies_table tr td .level-div {
+
+    width: 40px;
+    height: 40px;
+}
+/* new theme program detail page styles ended */ 
+
+#page-local-trainingprogram-trainingprogram .programs_container div[data-region="paged-content-page"] {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+/* filter styles front */
+#page-local-trainingprogram-trainingprogram .filterscontainer{
+    color: #fff;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform{
+    display: flex;
+    flex-wrap: wrap;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_sectors,
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_targetgroup,
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_program_competencylevel{
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+    margin: 10px 0;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_availablefrom,
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_availableto{
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin: 10px 0;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform .felement{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform .felement div.d-md-inline-block{
+    padding-right: 10px;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_program_competencylevel div.d-md-inline-block{
+    padding-right: 0px;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform .felement div.d-md-inline-block,
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform .felement div.d-md-inline-block input{
+    width: 100%;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform .felement .form-autocomplete-selection{
+    min-height: auto;
+    margin: 0;
+}
+#page-local-trainingprogram-trainingprogram .filterscontainer form.mform a{
+    color:#fff !important
+}
+#page-local-trainingprogram-trainingprogram .programs_container div[data-region="paging-control-container"]{
+    display: none;
+}
+@media (max-width: 768px) { 
+    #page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_sectors,
+    #page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_targetgroup,
+    #page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_program_competencylevel{
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin: 10px 0;
+    }
+    #page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_availablefrom,
+    #page-local-trainingprogram-trainingprogram .filterscontainer form.mform #fitem_id_availableto{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+#programdetailscontainer .cart_btn .btn{
+    border: 1px solid #dee2e6;
+}
+#programdetailscontainer .available_times_container{
+    font-size: 85%;
+}
+#programdetailscontainer .available_times_container .varient_selection_div{
+    border-color: #3076b9 !important;
+    border-radius: 5px;
+}
+#programdetailscontainer .available_times_container .varient_selection_div>div{
+    flex: 1;
+}
+#programdetailscontainer .available_times_container .varient_selection_div>div .btn{
+    display: block;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    font-size: .8203125rem;
+    line-height: 1.5;
+}
+
+#page-local-trainingprogram-programcourseoverview .mainsectioncontainer {
+    background-image: url('[[pix:theme_academy|sitefilterbg]]');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 200px;
+    border-radius: 10px;
+    position: relative;
+    padding: 15px;
+    padding-right: 245px;
+}
+
+#page-local-trainingprogram-programcourseoverview #region-main {
+    background: none;
+    background-color: transparent;
+    box-shadow: none;
+}  
+
+#programdetailscontainer .goals_detail_container li::before{
+    content: "";
+    background-image: url('[[pix:local_trainingprogram|hexagonlisticon]]');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+#programdetailscontainer .goals_detail_container ol{
+    padding-left: 15px;
+}
+#programdetailscontainer .goals_detail_container li {
+
+    display: flex;
+    margin: 5px 0px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #2f2f2f24;
+    font-weight: 700;
+    color: #3f3f3f;
+}
+#programdetailscontainer .goals_detail_container li:last-child{
+    border-bottom:none;
+}
+#page-local-trainingprogram-index .statuslabel.banking {
+  
+    background-color: #fff7f7;
+    color: #bf5c5c;
+    border: 1px solid #bf5c5c;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 82%;
+    white-space: nowrap;
+
+}
+
+#page-local-trainingprogram-index  #job_family_view_more{
+
+
+    display: none;
+
+
+}
+
+#programdetailscontainer .program_agenda_container ul.nav{
+
+    border: none !important;
+
+}
+
+#programdetailscontainer .program_agenda_container ul.nav li::before {
+    display: none;
+}
+
+#programdetailscontainer .program_agenda_container ul.nav li .nav-link{
+
+    color: #0a4890 !important;
+
+    font-weight: bold;
+
+    background-color: transparent !important;
+
+    border: 1px solid #0a4890 !important;
+
+    border-radius: 5px;
+
+    margin-bottom: 15px !important;
+
+    margin-right: 0 !important;
+    
+    padding: 10px 15px !important;
+
+}
+
+#programdetailscontainer .program_agenda_container ul.nav li .nav-link.active{
+
+    background-color: #0a4890 !important;
+
+    color: #fff !important;
+
+    font-weight: bold;
+
+}
+
+#programdetailscontainer .available_times_container .varient_selection_div.disabled_action {
+    border-color: #ff5d68!important;
+    border-radius: 5px;
+}
+
+#page-local-trainingprogram-uploadprogram .local_trainingprogram_sync_error {
+
+    color: #cd2626;
+}
+
+#page-local-trainingprogram-uploadofferings .local_trainingprogram_sync_error {
+
+    color: #cd2626;
+}
+#programdetailscontainer .goals_detail_container li p {
+
+ margin: 0;
+
+}
+#page-local-trainingprogram-index .form-autocomplete-suggestions li[aria-selected=true]:not(:hover) {
+    background-color: #fff !important;
+    color: #1d2125 !important;
+    outline: 0;
+    box-shadow:none !important; 
+}
+#page-local-trainingprogram-index .form-autocomplete-suggestions li[data-value=""] {
+    display: none !important;
+}
+
+#page-local-trainingprogram-programdetailedview .mainsectioncontainer {
+    background-image: url('[[pix:theme_academy|sitefilterbg]]');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 200px;
+    border-radius: 10px;
+    position: relative;
+    padding: 15px;
+    padding-right: 245px;
+}
+
+#page-local-trainingprogram-programdetailedview #region-main {
+    background: none;
+    background-color: transparent;
+    box-shadow: none;
+}  
+
+#programdetailscontainer .jobfamilies_list.showlimited li{
+    display: none;
+}
+#programdetailscontainer .jobfamilies_list.showlimited li:nth-child(-n+4){
+    display: inline-flex;
+}
+#programdetailscontainer .trainingtopic_list.showlimited li{
+    display: none;
+}
+#programdetailscontainer .trainingtopic_list.showlimited li:nth-child(-n+4){
+    display: inline-flex;
+}
+#programdetailscontainer .preprogram_list.showlimited li{
+    display: none;
+}
+#programdetailscontainer .preprogram_list.showlimited li:nth-child(-n+4){
+    display: inline-flex;
+}
+#programdetailscontainer .postprogram_list.showlimited li{
+    display: none;
+}
+#programdetailscontainer .postprogram_list.showlimited li:nth-child(-n+4){
+    display: inline-flex;
+}
+
+
+.prevrecdata {
+    width: 100%;
+    background-color: #8f959e;
+    padding: 0.6rem;
+}
+
+.prevreccontent {
+    color : #fff;
+}
+#page-local-trainingprogram-index .training_prgrams_table tbody tr.course_content_row .actions .btn a{
+    line-height: 1;
+}
+#page-local-trainingprogram-programenrollment #filter_form.collapsed {
+    height: 23px!important;
+}
+#page-local-trainingprogram-programenrollment #filter_form {
+    height: auto!important;
+}
+.coupon-widgets{
+    display: flex;
+    flex-wrap: wrap;
+    gap:15px;
+}
+
+.coupon-widgets .widget-container{
+
+    width :100%;
+    max-width: 100%;
+    flex-grow: 1;
+    flex-basis: 0;
+
+}
+@media (min-width:768) {
+
+    .coupon-widgets .widget-container{
+
+        flex:0 0 20%;
+        max-width: 20%;
+    
+    }
+}

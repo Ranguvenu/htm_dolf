@@ -1,0 +1,41 @@
+ <div class="row">
+    <div class="col-md-12">
+        <div id="halls_section">
+            <div class="row my-3">
+                <div class="col-md-8">
+                    {{{globalinput}}}
+                </div>
+                <div class="col-md-2 text-right">
+                    <a class="btn btn-primary" href="{{cfgurl}}/local/exams/certificateszip.php?entityid={{examid}}&type=exam&referenceid={{profileid}}" title="{{#str}}downloadallcertificates, local_exams{{/str}}"> <i class="fa fa-download" aria-hidden="true"></i></a>                
+               </div>
+               {{# orgoff}}
+               <div class="col-md-2">
+                   <button class="btn filter_toggle_btn text-right" id="filter_open_btn">
+                       <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                       {{#str}}filter,local_trainingprogram{{/str}}
+                   </button>
+               </div>
+           {{/ orgoff}}
+            </div>
+            <div id="halls_container">
+                 {{{examdetails}}}
+            </div>
+        </div> 
+    </div>
+    <div class="filters_container">
+        <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}}filter, local_hall{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}}close, local_hall{{/ str}}
+                </button>
+            </div>             
+            <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                {{# str}}allthefilter, local_hall{{/ str}}
+            </div>
+        </div>  
+        <div class="filters_contents">
+             {{{filterform}}}
+        </div>
+    </div>
+</div>

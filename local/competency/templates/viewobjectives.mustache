@@ -1,0 +1,114 @@
+<div class="row" id="competencies_container">
+      <div class="col-md-6">
+
+            <h5>{{#str}}assignexams,local_competency{{/str}}</h5>
+
+            <div class="table-responsive mt-4">
+                  <div class="global_filter_structure">
+                        <label>{{# str}}search{{/ str}} : </label>
+                        <input id="global_filtercmtncexam{{competencypc}}" class="global filter" type="text" name="search_query">
+                  </div>
+                  <div class="row my-3">
+
+                    <div class="col-md-8">
+
+                        <div class="global_filter_structure form-group m-0   col-md-4 ">
+                                <div class="input_container position-relative">
+                                  <input id="global_filter_{{questionid}}" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                                    <span class="search_icon"></span>
+                                </div>
+                        </div>
+
+                     </div>
+
+                    <div class="col-md-4">
+
+                    </div>
+
+                  </div>
+                  <div id="targetcompetencyexam{{competencypc}}" data-region="targetcompetencyexam{{competencypc}}-preview-container" class="competencies_obj_container viewcompetencys px-3 py-4">
+                        <div data-region="targetcompetencyexam{{competencypc}}-count-container"></div>
+                        <div data-region="targetcompetencyexam{{competencypc}}-list-container" class ="methoddata{{competencypc}}">
+                        </div>
+                        <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                              <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                        </span>
+                  </div> 
+            </div> 
+      </div>
+      <div class="col-md-6">
+
+            <h5>{{#str}}assigntrainingprograms,local_competency{{/str}}</h5>
+
+            <div class="table-responsive mt-4">
+                  <div class="global_filter_structure">
+                        <label>{{# str}}search{{/ str}} : </label>
+                        <input id="global_filtercmtnctrainingprogram{{competencypc}}" class="global filter" type="text" name="search_query">
+                  </div>
+                  <div id="targetcompetencyprogram{{competencypc}}" data-region="targetcompetencyprogram{{competencypc}}-preview-container" class="competencies_obj_container viewcompetencys px-3 py-4">
+                        <div data-region="targetcompetencyprogram{{competencypc}}-count-container"></div>
+                        <div data-region="targetcompetencyprogram{{competencypc}}-list-container" class ="methoddata{{competencypc}}">
+                        </div>
+                        <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                              <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                        </span>
+                  </div> 
+            </div> 
+      </div>
+</div>   
+<h5>{{#str}}linkexamsprogramsquestions,local_competency{{/str}}</h5>          
+<script>
+require(['theme_academy/cardPaginate'], function(cardPaginate) {
+    var examoptions = {targetID: 'targetcompetencyexam{{competencypc}}',
+    templateName: 'local_competency/listcompetencyexams',
+    methodName: 'local_competency_get_objectivesinfo',
+    perPage: 5,
+    cardClass: 'col-md-6 col-12',
+    viewType: 'table'};
+
+    var programoptions = {targetID: 'targetcompetencyprogram{{competencypc}}',
+    templateName: 'local_competency/listcompetencytrainingprograms',
+    methodName: 'local_competency_get_objectivesinfo',
+    perPage: 5,
+    cardClass: 'col-md-6 col-12',
+    viewType: 'table'};
+
+    var filteroptions = {competencyid:{{competency}},competencypcid:{{competencypc}}};
+    var examdataoptions = {objtype:'exams'};
+
+    var programdataoptions = {objtype:'trainingprograms'};
+
+    cardPaginate.reload(examoptions, examdataoptions,filteroptions);
+
+    cardPaginate.reload(programoptions, programdataoptions,filteroptions);
+
+    var search_interval = 100;
+    var timer;
+    $(document).on('keyup', '#global_filtercmtncexam{{competencypc}}', function(){
+      var searchval = $(this).val();
+      var filterdata = {search_query: searchval, competencyid:{{competency}}};
+      timer = setTimeout(function(){
+
+      cardPaginate.reload(examoptions, examdataoptions,filterdata);
+
+      },search_interval);
+    });
+    $(document).on('keydown', '#global_filtercmtncexam{{competencypc}}', function(){
+        clearTimeout(timer);
+    });
+
+     $(document).on('keyup', '#global_filtercmtnctrainingprogram{{competencypc}}', function(){
+      var searchval = $(this).val();
+      var filterdata = {search_query: searchval, competencyid:{{competency}}};
+      timer = setTimeout(function(){
+
+      cardPaginate.reload(programoptions, programdataoptions,filterdata);
+
+      },search_interval);
+    });
+    $(document).on('keydown', '#global_filtercmtnctrainingprogram{{competencypc}}', function(){
+        clearTimeout(timer);
+    });
+});
+  
+</script>

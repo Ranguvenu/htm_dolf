@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-end align-items-center">
+    {{# createsetting}}
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createevalutionmethod"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createevalutionmethod, local_trainingprogram{{/str}}</a>
+    {{/ createsetting}}
+
+</div>
+{{#js}}
+    require(['local_trainingprogram/evalutionmethods'], function(s) {
+        s.init();
+    });
+{{/js}}

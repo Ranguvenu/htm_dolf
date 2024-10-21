@@ -1,0 +1,164 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class="row" id="cdp_view_container">
+    <div class="col-md-12">
+    <h4>{{title}} {{#str}}details,local_cpd{{/str}}</h4>
+    </div>
+    <div class="col-md-6">
+        <div class="row" >
+            <div class="col-sm-12">
+                <div class="detail_label_container">
+                    <h6 class="">{{#str}}name,local_cpd{{/str}}</h6>
+                    <h5>{{title}}</h5>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="detail_label_container">
+                    <h6 class="">{{#str}}validation,local_cpd{{/str}}</h6>
+                    <h5>{{validation}} {{#str}}validation,local_cpd{{/str}}</h5>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="detail_label_container">
+                    <h6 class="">{{#str}}renewal,local_cpd{{/str}}</h6>
+                    <h5>{{hourscreated}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <!-- Report Container -->
+        <div class="row" id="cpd_report_container">
+            <div class="col-12 d-flex align-items-center justify-content-between my-3 border-bottom">
+                <h6>{{#str}}currentstatus,local_cpd{{/str}}</h6>
+                {{#createcpd}}
+                    <div class="col-4 text-right">
+                        <a tabindex="0" role="button" class="btn btn-primary my-3" data-action="createevidence"><i class="fa fa-plus" aria-hidden="true"></i>  {{#str}}addevidence, local_cpd{{/str}}</a>
+                    </div>
+                 {{/createcpd}}
+                <!--<span class="theme_text_color2">{{#str}}knowmore,local_cpd{{/str}}</span>-->
+            </div>
+            <div class="col-9"> 
+                <h5>{{current_status}}</h5>
+<!--                 <div class="d-flex flex-column mt-4">
+                    <div class="d-flex report_label_details mt-2">
+                        <span class="color_label colorgreen"></span>
+                        <span>{{totalapprovehrs}}hrs</span>
+                        <span class="theme_text_color2">{{#str}}approved,local_cpd{{/str}}</span>
+                    </div>
+                    <div class="d-flex report_label_details mt-2">
+                        <span class="color_label coloryellow"></span>
+                        <span>{{totalpendinghrs}}hrs</span>
+                        <span class="theme_text_color2">{{#str}}pending,local_cpd{{/str}}</span>
+                    </div>
+                    <div class="d-flex report_label_details mt-2">
+                        <span class="color_label colorgrey"></span>
+                        <span>{{totalremaininghrs}}hrs</span>
+                        <span class="theme_text_color2">{{#str}}remaining,local_cpd{{/str}}</span>
+                    </div>
+                </div> -->
+                <div class="d-flex flex-column mt-4"><canvas id="doughnut-chartcanvas-1"></canvas></div>
+
+
+            </div>
+            <div class="col-6">
+                <!-- Graph Image container-->
+                
+            </div>
+            <div class="col-12 d-flex align-items-center my-4">
+
+                <span class="mr-4"> <span class="theme_text_color2"> {{#str}}renewaldeadline,local_cpd{{/str}} </span><strong>{{renewaldeadline}}</strong></span>
+                <span class="ml-4"> <span class="theme_text_color2">{{#str}}orginalyearned,local_cpd{{/str}}</span> <strong>{{orignalyearned}}</strong></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 bg-theme my-3">
+        <div class="info_banner py-4 text-white">
+            <h5>{{#str}}description,local_cpd{{/str}}</h5>
+            <p>{{{description}}}</p>
+        </div>
+    </div>
+   
+</div>
+
+{{#js}}
+require(['local_cpd/cpdform'], function(s) {
+    s.init();
+});
+require(['core/chartjs', 'core/str'], function(chart, str){
+var ctx = $("#doughnut-chartcanvas-1");
+var label;
+var strings = str.get_strings([
+      {
+          key: 'approved',
+          component: 'local_cpd',
+          param: {{approvehrs}}
+      },
+      {
+          key: 'pending',
+          component: 'local_cpd',
+          param:{{pendinghrs}}
+      },
+      {
+          key: 'remaining',
+          component: 'local_cpd',
+          param: {{remaininghrs}}
+      },
+  ]).then(function(str){
+      var data = {
+        labels: str,
+        datasets: [
+          {
+            data: [{{totalapprovehrs}}, {{totalpendinghrs}}, {{totalremaininghrs}}],
+            backgroundColor: [
+              "#91D337",
+              "#F8CD3D",
+              "#E5E5E5",
+              "#F4A460",
+              "#2E8B57"
+            ]
+          }
+        ]
+      };
+      var options = {
+        responsive: true,
+        title: {
+          display: true,
+          position: "top",
+          fontSize: 18,
+          fontColor: "#111"
+        },
+        legend: {
+          display: true,
+          position: "left",
+          labels: {
+            fontColor: "#333",
+            font: "Roboto",
+            fontSize: 16
+          }
+        }
+      };
+
+      var chart = new Chart(ctx, {
+        type: "doughnut",
+        data: data,
+        options: options
+      });
+  })
+});
+
+{{/js}}

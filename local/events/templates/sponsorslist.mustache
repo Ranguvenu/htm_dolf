@@ -1,0 +1,59 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{# response}}
+
+            <table class="table generaltable" id="partnerlisttable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}sponsorname,local_events{{/str}}</th>
+                        <th>{{#str}}category,local_events{{/str}}</th>
+                        <th>{{#str}}amtpay, local_events{{/str}}</th>
+                        <th>{{#str}}logo, local_events{{/str}}</th>
+                        <th>{{#str}}action, local_events{{/str}}</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                {{#records}}
+                    <tr>
+                        <td>{{sponsorname}}</a></td>
+                        <td>{{category}}</td>
+                        <td>{{amount}}</td>
+                        <td> <div class="partnerlogo"> {{#logo}}
+                            <img src="{{logo}}"></div>
+                            {{/logo}}
+                            {{^logo}}--{{/logo}}</td>
+                        <td>
+                            <div class="d-flex action_btns">
+                            {{#action}}
+                                 <a alt="{{#str}}view{{/str}}" title="{{#str}}view{{/str}}" data-action="viewsponsor" data-id = "{{id}}" data-name = "{{sponsorname}}" data-eventid = "{{eventid}}" ><span class="bg-primary text-white"><i class="fa fa-search-plus" aria-hidden="true"></i></span></a>
+                                 <a alt="{{#str}}edit{{/str}}" title="{{#str}}edit{{/str}}"  data-action="createsponsor" data-id = "{{id}}" data-name = "{{sponsorname}}"><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+                                 <a alt="{{#str}}delete{{/str}}" title="{{#str}}delete{{/str}}"  data-action="deletesponsor" data-id = "{{id}}" data-name="{{sponsorname}}" data-eventid = "{{eventid}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                            {{/action}}
+                            </div>
+                        </td>
+                    </tr>
+                    {{/records}}
+                </tbody>
+            </table>
+
+{{/ response}}
+{{#js}}
+    require(['local_events/eventsform'], function(s) {
+        s.init();
+    });
+{{/js}}

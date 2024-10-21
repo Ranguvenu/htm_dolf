@@ -1,0 +1,45 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#response}}
+  {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+ {{#viewtypeCard}}
+            <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}name, local_learningtracks{{/str}}</th>
+                        <th>{{#str}}noperformance, local_learningtracks{{/str}}</th>
+                        <th>{{#str}}code, local_learningtracks{{/str}}</th>
+                        <th>{{#str}}type, local_learningtracks{{/str}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#records}}
+                    <tr>
+                        <td>{{fullname}}</td>
+                        <td>{{noperformance}}</td>
+                        <td>{{code}}</td>
+                        <td>{{type}}</td>
+                    </tr>
+                    {{/records}}
+                </tbody>
+            </table>
+    {{/viewtypeCard}}
+{{/response}}

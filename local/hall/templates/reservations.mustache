@@ -1,0 +1,28 @@
+{{#response}}
+{{#records}}
+    <table class='generaltable table'>
+      {{> local_hall/reservation_header }}
+      <tbody>
+      {{# exams}}
+        <tr>
+          <td>{{#tprogram}} {{# str}}offering_code,local_hall{{/ str}}- {{code}}<div><sub>{{exam}}</sub></div>{{/tprogram}}
+              {{^tprogram}} {{exam}} {{/tprogram}}</th>
+          <td>{{startdate}} <b>-</b> {{enddate}}</td>
+          <td>{{time}}</td>
+          <td>{{seats}}</td>
+          <td>
+              <button role="button" class="btn btn-primary" onclick="(function(e){require('local_hall/hallreserve').init({selector:'createreservemodal', contextid:{{contextid}}, categoryid:0, hallid: '{{hallid}}', typeid: '{{id}}', type: '{{type}}', hallseats: {{hallseats}}, entitytotalseats: {{seats}}, entityname: '{{exam}}', starttime: '{{starttime}}', hallreservationid:0 })})(event)">
+              {{#str}}reserve, local_hall{{/str}}</button>
+          </td>
+        </tr>
+      {{/ exams}}
+      </tbody>
+    </table>
+{{/ records}}
+{{/ response}}
+
+{{#js}}
+    require(['local_hall/hallreserve'], function(s) {
+        s.load();
+    });
+{{/js}}

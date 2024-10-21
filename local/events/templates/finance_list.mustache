@@ -1,0 +1,122 @@
+<div id="exams_container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row my-3">
+                    <div class="col-6"></div>
+                    <div class="col-6 text-right">
+                        {{#action}}
+                            <button class="btn btn-primary" data-action = "editfinance"  data-eventid = "{{eventid}}" ><i class="fa fa-plus" aria-hidden="true"></i> {{#str}}addnew, local_events{{/str}}</button>
+                        {{/action}}
+                    </div>
+            </div>
+            <!--<div class="allexams_container">-->
+                <ul class="nav nav-tabs" id="exam_tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active eventmodules" data-module = "income" data-status = "1" href="javascript:void(0);" id="income-tab" data-toggle="tab" role="tab" aria-controls="income" aria-selected="true">{{# str}}income, local_events{{/ str}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link eventmodules" data-module = "expenses" data-status = "2" href="javascript:void(0);" id="expenses-tab" data-toggle="tab"  role="tab" aria-controls="expenses" aria-selected="false" data-action="expensestab">{{# str}}expenses, local_events{{/ str}}</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="exam_tabsContent">
+                        <div class="tab-pane fade show active" id="income" role="tabpanel" aria-labelledby="eventincome-tab">
+                            <!-- Income content -->
+                            <div class="allexams_container my-5">
+                                <div class="exam_content" id="eventincome" data-region="eventincome-preview-container">
+                                    <div data-region="eventincome-count-container"></div>
+                                    <div data-region="eventincome-list-container" id ="coursesid"></div> 
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-6"> <h5> {{#str}}totalestimated, local_events{{/str}}</h5></div>
+                            </div>
+                            <div class="allexams_container my-4">
+                              {{{total_estimated}}}
+                            </div>
+
+                            <div class="row my-1">
+                                <div class="col-6"> <h5> {{#str}}actualrevenue, local_events{{/str}}</h5></div>
+                                <div class="col-6 text-right"></div>
+                            </div>
+                            <div class="allexams_container">
+                              {{{actual_revenue}}}
+                            </div>
+                            
+                        </div>
+                        <div class="tab-pane fade show" id="expenses" role="tabpanel" aria-labelledby="eventexpenses-tab">
+                            <!-- Expenses content -->
+                            <div class="allexams_container my-4">
+                                <div class="exam_content" id="eventexpenses" data-region="eventexpenses-preview-container">
+                                    <div data-region="eventexpenses-count-container"></div>
+                                    <div data-region="eventexpenses-list-container" id ="coursesid"></div> 
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-6"> <h5>{{#str}}totalexpenses, local_events{{/str}}</h5></div>
+                            </div>
+                            <div class="allexams_container">
+                              {{{total_expenses}}}
+                            </div>
+                        </div>
+                    </div>
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+{{#js}}
+    require(['local_events/eventsform'], function(s) {
+        s.init();
+        var targetid = 'eventincome';       
+        var options = {targetID: targetid,
+                    templateName: 'local_events/event_income',
+                    methodName: 'local_events_eventincome',
+                    perPage: 5,
+                    cardClass: 'col-md-6 col-12',
+                    viewType: 'card'};
+        var dataoptions = {eventid:{{eventid}}, contextid: 1 };
+        var filterdata = {};
+        require(['theme_academy/cardPaginate'], function(cardPaginate) {
+          cardPaginate.reload(options, dataoptions,filterdata);
+        });
+    });
+$('.eventmodules').click(function(){
+    var trackmodule = $(this).data('module');
+    if ($(this).hasClass('active')){
+        return true;
+    }
+    $('.eventmodules').removeClass('active');
+    $(this).addClass('active');
+    $(".tab-pane").removeClass('active');
+    $("#"+trackmodule).addClass('active');
+
+    var status = $(this).data('status');
+    var targetid = 'event'+trackmodule;
+        
+    var options = {targetID: targetid,
+                templateName: 'local_events/event_'+trackmodule,
+                methodName: 'local_events_'+targetid,
+                perPage: 5,
+                cardClass: 'col-md-6 col-12',
+                viewType: 'card'};
+    var dataoptions = {tabname: trackmodule, eventid:{{eventid}}, contextid: 1 };
+        console.log(status);
+    var filterdata = {};
+    for(i = 1; i<=3; i++){
+        if(status != i){
+            switch(i){
+                case 1:
+                    $("#courses_tabdataid").empty();
+                    break;
+                case 2:
+                    $("#expenseid").empty();
+                    break;
+                }  
+            }
+        }
+    require(['theme_academy/cardPaginate'], function(cardPaginate) {
+        cardPaginate.reload(options, dataoptions,filterdata);
+    });
+});
+       
+{{/js}}

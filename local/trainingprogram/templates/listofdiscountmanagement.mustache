@@ -1,0 +1,103 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_trainingprogram/listofdiscountmanagement
+
+    TODO describe template listofdiscountmanagement
+
+    Example context (json):
+    {
+    }
+}}
+<br>
+<h4  style = "color:#004c98e3">{{#str}} coupons,local_trainingprogram {{/str}}</h4>
+<div class="coupon-widgets mb-3"> 
+
+    <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} created_coupons,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{created_coupons}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} expired_coupons,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{expired_coupons}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} available_coupons,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{available_coupons}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} used_coupons,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{used_coupons}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} max_discount,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{c_max_discount}}</h5>
+    </div>
+
+</div>
+
+<h4  style = "color:#004c98e3">{{#str}} early_registration,local_trainingprogram {{/str}}</h4>
+
+<div class="coupon-widgets mb-3"> 
+
+    <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} created_coupons,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{created_coupons}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} expired_discounts,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{ea_expired_discounts}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} available_discounts,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{ea_available_discounts}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} beneficiaries,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{ea_beneficiaries}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} max_discount,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{ea_max_discount}}</h5>
+    </div>
+</div>
+
+<h4 style = "color:#004c98e3">{{#str}} groups_discount,local_trainingprogram {{/str}}</h4> 
+
+<div class="coupon-widgets mb-3"> 
+
+    <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} created_coupons,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{gr_created_discounts}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} expired_discounts,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{gr_expired_discounts}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} available_discounts,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{gr_available_discounts}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} beneficiaries,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{gr_beneficiaries}}</h5>
+    </div>
+     <div class ="border p-3 d-flex flex-column widget-container"> 
+        <span class ="text-muted mb-2">{{#str}} max_discount,local_trainingprogram {{/str}}</span>
+        <h5 class= "mb-0">{{gr_max_discount}}</h5>
+    </div>
+</div>

@@ -1,0 +1,191 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_trainingprogram/offering
+
+    TODO describe template offering
+
+    Example context (json):
+    {
+    }
+}}
+     <div class="row mb-3 mt-2">
+        <div class="col-md-12"><h6 class="text-themecolor2">{{# offeringview }}{{coid}} {{#str}} date, local_trainingprogram {{/str}} {{/ offeringview}}</h6></div>
+        <div class="{{# offeringview }}col-md-10 {{/ offeringview}} {{^ offeringview }}col-md-12{{/ offeringview}}">
+            <div class="rounded bg-themecolor3 avail_dates_container p-3 position-relative">
+                <div class="d-flex flex-wrap align-items-center mb-3 justify-content-between">
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}total_seats , local_trainingprogram{{/str}} :</strong> {{totalseats}}
+                    </div>
+
+                    {{# purchasedseatsview}}
+                
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{purchasedseatstext}} :</strong> {{orderseats}}
+                    </div>
+                    {{/ purchasedseatsview}}
+                    {{# seatsview}}
+                    {{# orgofficialseatsview}}
+                    
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}approval_seats , local_trainingprogram{{/str}} :</strong> {{approvalseats}}
+                    </div>
+
+                    {{/ orgofficialseatsview}}
+                    
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}available_seats , local_trainingprogram{{/str}} :</strong> {{availableseats}}
+                    </div>
+                    {{^ myenrolled }}
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}enrolled , local_trainingprogram{{/str}}:</strong> {{enrolledseats}}
+                    </div>
+                    {{/  myenrolled }}
+
+                    {{# myenrolled}}
+
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}totalenrolled , local_trainingprogram{{/str}}:</strong> {{enrolledseats}}
+                    </div>
+
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}myenrolled , local_trainingprogram{{/str}}:</strong> {{enrolledseatsbyme}}
+                    </div>
+
+                     {{/ myenrolled}}
+
+                     {{/ seatsview}}
+                   
+                    <div>
+                       <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{# istrinee}} {{#str}}method , local_trainingprogram{{/str}} {{/ istrinee}}  {{^ istrinee}} {{#str}}type , local_trainingprogram{{/str}} {{/ istrinee}}  :</strong> {{trainingmethod}}
+                    </div>
+                    {{# cityview}}
+                        <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                            <strong>{{# istrinee}} {{#str}}city , local_trainingprogram{{/str}} {{/ istrinee}}  {{^ istrinee}} {{#str}}city , local_trainingprogram{{/str}} {{/ istrinee}}  :</strong> {{cityname}}
+                        </div>
+                        <!-- <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                            <strong>{{# istrinee}} {{#str}}hall , local_trainingprogram{{/str}} {{/ istrinee}}  {{^ istrinee}} {{#str}}hall , local_trainingprogram{{/str}} {{/ istrinee}}  :</strong> {{hall}}
+                        </div> -->
+                    {{/ cityview}}
+                       <div>
+                       <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{# istrinee}} {{#str}}olanguage , local_trainingprogram{{/str}} {{/ istrinee}}  {{^ istrinee}} {{#str}}olanguage , local_trainingprogram{{/str}} {{/ istrinee}}  :</strong> {{offcourselanguage}}
+                    </div>
+
+                    {{# istrinee}}
+                        <div>
+                         <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                            <strong>{{#str}}type , local_trainingprogram{{/str}}  :</strong> {{offeringtypename}}
+                        </div>
+                        {{# haslearningtrack}}
+                            <div>
+                                <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                                <strong>{{#str}}learningtrack , local_trainingprogram{{/str}}  :</strong> {{learningtrackname}}
+                            </div>
+                        {{/ haslearningtrack}}
+
+                    {{/ istrinee}}
+                    {{# locationview}}
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}location , local_trainingprogram{{/str}}:</strong> {{maplocation}}
+                    </div>
+                    {{/ locationview}}
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}offerig_price , local_trainingprogram{{/str}}:</strong> {{sellingprice}} {{#str}}sa_currency , local_trainingprogram{{/str}}
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+
+                    {{# datedisplay}}
+                    <div class="startdatecontainer">
+                        <span class="piximg">{{# pix }} calendericon, local_trainingprogram {{/ pix }}</span>
+                        <strong>{{#str}}startdate , local_trainingprogram{{/str}}:</strong> {{offeringstartdate}} | {{starttime}}
+                    </div>
+                    <div class="flex-grow-1 d-flex align-items-center mx-2 toindicator">
+                        <span class="w-100"></span>
+                    </div>
+                   
+                    <div class="enddatecontainer">
+                        <span class="piximg">{{# pix }} calendierwithcheck, local_trainingprogram {{/ pix }}</span>
+                        <strong>{{#str}}enddate , local_trainingprogram{{/str}}:</strong> {{offeringenddate}} | {{endtime}}
+                    </div>
+                    {{/ datedisplay}}
+
+                    {{^ datedisplay}}
+
+                     <div class="flex-grow-1 d-flex align-items-center mx-2 toindicator">
+                        <span class="w-100"></span>
+                    </div>
+
+                    {{/ datedisplay}}
+                </div> 
+                {{#trainerorg}}
+                <div class="statuslabel orgname" >
+                   {{#str}}trainingby, local_trainingprogram{{/str}}-{{trainingprovider}}
+                </div>
+                {{/trainerorg}}
+               
+                <div class="statuslabel {{offeringstatuslable}}">
+                    <span></span> {{offeringstatus}}
+                </div>
+                
+            </div>
+        </div>
+        {{^is_external_link}}
+        {{# offeringview }}
+        <div class="col-md-2 font-weight-bold d-flex align-items-center flex-column justify-content-center">
+                <div class="rounded-md border mb-2 d-flex align-items-center w-100 varient_selection_div">
+                   {{>tool_product/cart/variation}}
+                </div>
+                <div class="rounded-md border mb-2 d-flex align-items-center w-100 varient_selection_div">
+                   {{>tool_product/cart/programregister}}
+                </div>
+        </div>
+        {{/ offeringview }}
+        {{/is_external_link}}
+          {{#is_external_link}}
+          <div class="col-md-2 font-weight-bold d-flex align-items-center flex-column justify-content-center">
+                <a href={{externallink}} class="btn btn-primary btn-block mb-3">
+                   
+                    {{#str}} externallink, local_trainingprogram {{/str}}
+               
+               </a>
+           </div>
+         {{/is_external_link}}
+    </div>
+    {{^ offeringview }}
+    {{# privateofferingmessage}}
+        <div class="row">
+            <div class="col-md-12 pl-4 font-weight-bold mb-3">{{#str}}privateofferingmessage, local_trainingprogram,{{offeringorganizationname}}{{/str}}
+            </div> 
+        </div>
+    {{/ privateofferingmessage}}
+    {{/ offeringview }}
+

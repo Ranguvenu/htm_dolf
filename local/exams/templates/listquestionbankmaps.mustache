@@ -1,0 +1,161 @@
+
+    <div class='alert alert-info'>{{#str}}exammaxrequiredquestions, local_exams,{{examnoofquestions}}{{/str}}</div>
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{#str}}noquestionbankdata,local_exams{{/str}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#records.0}}
+
+        <div id='questionbankloader' style='display: none;'>
+           <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+        </div>
+        <div class='questionbankresponse'></div>
+        <div class='questionbanksource'>
+            <div class="row my-3">
+
+                <div class="col-md-8">
+
+                    <div class="global_filter_structure form-group m-0   col-md-4 ">
+                            <div class="input_container position-relative">
+                              <input id="global_filterqstn" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                                <span class="search_icon"></span>
+                            </div>
+                    </div>
+
+                 </div>
+
+                <div class="col-md-4">
+
+                </div>
+
+            </div>
+            <table class="table generaltable questionbankmap">
+                <thead>
+                    <tr>
+                        <th>{{#str}}selectquestionbank,local_exams{{/str}}</th>
+
+                        <th>{{#str}}sno,local_exams{{/str}}</th>
+
+                        <th>{{#str}}workshopname,local_exams{{/str}}</th>
+
+                        <th>{{#str}}totalnoofquestion,local_exams{{/str}}</th>
+
+                        <th>{{#str}}mappednoofquestion,local_exams{{/str}}</th>
+
+                        <th>{{#str}}availablenoofquestion,local_exams{{/str}}</th>
+
+                        <th>{{#str}}selectnoofquestion,local_exams{{/str}}</th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#records}}
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="selectquestionbanks[{{quesionbankid}}]">
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                             {{name}}
+
+                        </td> 
+                        <td>
+                             {{totalnoofquestions}}
+
+                        </td>
+                        <td>
+                             {{mappednoofquestions}}
+
+                        </td>
+                        <td>
+                             {{noofquestions}}
+
+                        </td> 
+                        <td>
+                             <input type="number" name="selectnoofquestions[{{quesionbankid}}]" max="{{noofquestions}}" onchange="if(parseInt(this.value)>{{noofquestions}}){ this.value ={{noofquestions}}; return false; }if(parseInt(this.value)<0){ this.value =0; return false; }" class="selectnoofquestions">
+                        </td>   
+                    </tr>
+                    {{/records}}
+                </tbody>
+            </table>
+            <div class="col-6 text-right">
+              <button type="submit" id="questionbankmapbtn">{{#str}}submitquestionbankbtn,local_exams{{/str}}</button>
+            </div>
+        </div>
+   {{/records.0}}
+              
+{{#js}}
+require(['local_exams/jquery.dataTables'], function(DataTable) {
+
+    var table = $('.questionbankmap').DataTable({
+        columnDefs: [
+            {
+                searchable: false,
+                orderable: false,
+                targets: [0, 1, 4],
+            },
+        ],
+        order: [[1, 'asc']],
+        "dom": "lrtip" //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
+    } );
+
+     $('#global_filterqstn').keyup(function() {
+        table.search($(this).val()).draw(); // this  is for customized searchbox with datatable search feature.
+    })
+
+     $('#questionbankmapbtn').click(function (event) {
+
+        var selectnoofquestions = document.getElementsByClassName('selectnoofquestions');
+
+        var total={{mappedquestionbankscount}};
+
+        for(var i=0;i<selectnoofquestions.length;i++){
+            if(parseInt(selectnoofquestions[i].value))
+                total += parseInt(selectnoofquestions[i].value);
+        }
+
+        if(total > {{examnoofquestions}}){
+
+            $('.questionbankresponse').empty();
+            $('.questionbankresponse').append('{{#str}}exceednoofquestions,local_exams,{{examnoofquestions}}{{/str}}');
+
+            return false;
+
+        }
+
+        // Serialize form data
+        var data = table.$('input').serializeArray();
+        data.push({name: 'examid', value: {{examid}}});
+
+        // Submit form data via Ajax
+        
+        $.ajax({
+            url: 'questionbankmap_data.php',
+            type: 'post',
+            data: data,
+            beforeSend: function(){
+
+                $("#questionbankloader").show();
+                $(".questionbanksource").hide();
+
+            },
+            complete:function(data){
+
+                $("#questionbankloader").hide();
+                $('.questionbankresponse').empty();
+                $('.questionbankresponse').append(data.responseText);
+                $(".questionbanksource").show();
+
+                if(data.responseText == 'successbanknoquestion'){
+                    window.location.reload();
+                }
+           }
+        });
+    });
+
+});
+
+{{/js}}

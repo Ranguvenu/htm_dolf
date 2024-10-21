@@ -1,0 +1,124 @@
+{{#total_purchases}}
+<div class="order_summary">
+	<div data-region="loader-checkout-summary"></div>
+	<h4>{{#str}} order_summary, tool_product {{/str}}</h4>
+	<hr>
+	<p>{{#str}} total_purchases, tool_product {{/str}} - {{ total_purchases }}</p>
+	{{#items}}
+	<div class="row d-flex justify-content-between mt-2">
+		<div class="col-md-9">{{ name }} x {{quantity }}</div>
+		<div class="col-md-3">
+			{{ #is_enrolled }}
+				<h6 class="text-right">{{#str}} enrolled, tool_product {{/str}}</h6>
+			{{ /is_enrolled }}
+			{{ ^is_enrolled }}
+				<h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ total }}</h6>
+			{{ /is_enrolled }}
+		</div>
+	</div>
+	{{/items}}
+	{{#total_discount}}
+	<hr>
+		<p>{{#str}} discount, tool_product {{/str}}</p>
+		{{#items}}
+		<div class="row d-flex justify-content-between mt-2">
+			{{#couponactionview}}
+	            {{#couponid}}
+	                <div id="couponvalid-{{product_id}}" class="col-md-12"> 
+	                  <div class="alert alert-success mt-3">{{#str}} coupon_code, tool_product {{/str}} <b>{{couponcode}}</b> {{#str}} discount, tool_product {{/str}} <b>{{#str}} sa_currency, local_trainingprogram {{/str}} {{couponcode_discount_amount }}</b> {{#str}} applied_on_this_purchase, tool_product {{/str}}</div>
+	                </div>
+	                <div class="col-md-12"><button class="btn btn btn-primary pull-right"  data-trigger="removecoupon-to-{{product_id}}" data-category="{{category}}" data-product="{{product_id}}" data-couponcode="{{couponcode}}" data-action="removecoupon">{{#str}} remove_coupon_code, tool_product {{/str}}</button></div>
+	            {{/couponid}}  
+	            {{^couponid}}   
+	                <div class="col-md-12">
+	                    <div class="input-group col-md-8 pull-right">
+	                        <input type="text" name="coupon_code" class="form-control" placeholder="{{#str}} coupon_code, tool_product {{/str}}" id="couponcode-{{product_id}}">
+	                        <span><button class="btn btn btn-primary"  data-trigger="applycoupon-to-{{product_id}}" data-category="{{category}}" data-product="{{product_id}}" data-action="applycoupon">{{#str}} apply, tool_product {{/str}}</button></span>
+	                    </div>
+	                </div>  
+	                <div id="couponmsg-{{product_id}}" class="col-md-12 mt-2"> </div>
+	            {{/couponid}} 
+	            {{#js}}
+					require(['tool_product/product'], function(product) {
+						product.cart_actions('[data-trigger=applycoupon-to-{{product_id}}]');
+						product.cart_actions('[data-trigger=removecoupon-to-{{product_id}}]');
+					});
+				{{/js}}
+            {{/couponactionview}}
+            {{^couponactionview}}
+				{{#couponcode_discount_amount}}
+					<div class="col-md-9">
+						{{ name }} {{#str}} coupon_code_discount, tool_product {{/str}} x {{quantity }}
+					</div>
+					<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ couponcode_discount_amount }}</h6></div>
+				{{/couponcode_discount_amount}}
+			{{/couponactionview}}
+			{{#early_registration_discount_amount}}
+				<div class="col-md-9">
+					{{ name }} {{#str}} early_registration_discount, tool_product {{/str}} x {{quantity }}
+				</div>
+				<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ early_registration_discount_amount }}</h6></div>
+			{{/early_registration_discount_amount }}
+			{{#groups_organization_discount_amount}}
+				<div class="col-md-9">
+					{{ name }}  {{#str}} organizationdiscount, tool_product {{/str}} x {{quantity }}
+				</div>
+				<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ groups_organization_discount_amount }}</h6></div>
+			{{/groups_organization_discount_amount }}
+		</div>
+		{{/items}}
+		<div class="row d-flex justify-content-between mt-2">
+			<div class="col-md-9">{{#str}} totaldiscount, tool_product {{/str}}</div>
+			<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ total_discount }}</h6></div>
+		</div>
+	{{/total_discount}}
+	{{^total_discount}}
+	   <hr>
+		<p>{{#str}}discount,tool_product{{/str}}</p>
+		{{#items}}
+		<div class="row d-flex justify-content-between mt-2">
+			{{#couponactionview}}
+	            {{#couponvalid}}
+	                <div id="couponvalid-{{product_id}}" class="col-md-9"> 
+	                  <div class="alert alert-success mt-3">{{#str}} coupon_code, tool_product {{/str}} <b>{{couponcode}}</b> {{#str}} discount, tool_product {{/str}} <b>{{#str}} sa_currency, local_trainingprogram {{/str}} {{couponcode_discount_amount }}</b> {{#str}} applied_on_this_purchase, tool_product {{/str}}</div>
+	                </div>
+	                <div class="col-md-3"><button class="btn btn btn-primary"  data-trigger="removecoupon-to-{{product_id}}" data-category="{{category}}" data-product="{{product_id}}" data-couponcode="{{couponcode}}" data-action="removecoupon">{{#str}} remove_coupon_code, tool_product {{/str}}</button></div>
+	            {{/couponvalid}}  
+	            {{^couponvalid}}   
+	                <div class="col-md-12">
+	                    <div class="input-group col-md-8 pull-right">
+	                        <input type="text" name="coupon_code" class="form-control" placeholder="{{#str}}  coupon_code, tool_product {{/str}}" id="couponcode-{{product_id}}">
+	                        <span><button class="btn btn btn-primary"  data-trigger="applycoupon-to-{{product_id}}" data-category="{{category}}" data-product="{{product_id}}" data-action="applycoupon">{{#str}} apply, tool_product {{/str}}</button></span>
+	                    </div>
+	                </div>  
+	                <div id="couponmsg-{{product_id}}" class="col-md-12 mt-2"> </div>
+	            {{/couponvalid}} 
+				{{#js}}
+					require(['tool_product/product'], function(product) {
+						product.cart_actions('[data-trigger=applycoupon-to-{{product_id}}]');
+						product.cart_actions('[data-trigger=removecoupon-to-{{product_id}}]');
+					});
+				{{/js}}
+            {{/couponactionview}}
+		</div>
+
+		{{/items}}
+		<div class="row d-flex justify-content-between mt-2">
+			<div class="col-md-9">{{#str}} totaldiscount, tool_product {{/str}}</div>
+			<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ total_discount }}</h6></div>
+		</div>
+	{{/total_discount}}
+	<hr>
+	{{# taxdisplay}}
+	<div class="row d-flex justify-content-between">
+		<div class="col-md-9">{{#str}} value_added_taxes, tool_product {{/str}}({{ tax_slab }}%)</div>
+		<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ taxes }}</h6></div>
+	</div>
+	{{/ taxdisplay}}
+	<div class="d-flex justify-content-between align-content-center">
+		<h5>{{#str}} total, tool_product {{/str}}</h5>
+		<h3 class="text-black">{{#str}} sa_currency, local_trainingprogram {{/str}} {{total}}</h3>
+	</div>
+	
+</div>
+{{/total_purchases}}

@@ -1,0 +1,11 @@
+<div class="row profileeditor">
+    <div class="col align-self-end">
+        <a tabindex="0" role="button" class="btn btn-secondary float-right" data-action="editpost">{{#str}}createpost, local_test{{/str}}</a>
+    </div>
+</div>
+
+{{#js}}
+    require(['local_test/editform'], function(s) {
+        s.init();
+    });
+{{/js}}

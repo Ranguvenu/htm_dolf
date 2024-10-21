@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-12">
+        <div id="trainingprograms_section">
+            <div class="row my-3">
+                <div class="globalfilter col-md-8">{{{globalinput}}}</div>
+                {{#addaction}}
+                    <div class="col-md-4 text-right">
+                    <button class="btn btn-primary" data-action="edittracker"><i class="fa fa-plus" aria-hidden="true"></i> {{#str}}addlearningtrack, local_learningtracks{{/str}}</button>
+                    </div>
+                {{/addaction}}
+            </div>
+            <div id = "learningtracks_wrapper">
+                {{{learningtracks_list}}}
+            </div>
+        </div>
+    </div>
+</div>
+{{#js}}
+    require(['local_learningtracks/learningtracksform'], function(s) {
+        s.init();
+    });
+{{/js}}

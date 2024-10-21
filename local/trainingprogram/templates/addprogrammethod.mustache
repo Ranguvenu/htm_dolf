@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-end align-items-center">
+    {{# createsetting}}
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createprogrammethod"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createprogrammethod, local_trainingprogram{{/str}}</a>
+    {{/ createsetting}}
+
+</div>
+{{#js}}
+    require(['local_trainingprogram/programmethods'], function(s) {
+        s.init();
+    });
+{{/js}}

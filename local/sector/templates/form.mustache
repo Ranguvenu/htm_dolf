@@ -1,0 +1,22 @@
+<div class="col-md-12">
+<div class="row profileeditor mb-2">
+    <div class="col-md-4">
+       {{{ filter_content }}} 
+    </div>
+    <div class="col-md-8">
+
+        <a href="{{config.wwroot}}./uploadsector.php"><button class="btn btn-primary mr-2 float-right"><i class="fa fa-upload" aria-hidden="true" ></i>
+             {{#str}}uploadsector , local_sector {{/str}}
+            </button></a>
+   
+        <a class="btn btn-primary mr-2 float-right"role="button" data-action="createjobfamily" data-jobname="{{title}}" data-shared=1 ><i class="fa fa-plus" aria-hidden="true" ></i> {{# str}}add_jobfamily, local_sector{{/ str}}</a>
+        <a tabindex="0" role="button" class="btn btn-primary mr-2 float-right" data-action="createsector"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}addsector, local_sector{{/str}}</a>
+    </div>
+</div>
+</div>
+
+{{#js}}
+    require(['local_sector/customsector'], function(s) {
+        s.init();
+    });
+{{/js}}

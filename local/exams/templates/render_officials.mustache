@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="col-md-12 official_container row ">
+		<span class="col-md-6"> {{#str}}official_to_share_invoice, local_exams{{/str}}</span> 
+		<div class="col-md-6">
+			<select class="form-control" org-id="{{orgid}}" id="id_org_official">
+				{{#options}}
+					{{{options}}}
+				{{/options}}
+			</select>
+		</div>
+	</div>
+	<!-- Render Invoice -->
+	<div class="render-invoice">
+		{{{invoice}}}
+	</div>
+</div>

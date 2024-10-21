@@ -1,0 +1,52 @@
+{{#response}}
+    {{#records}}
+    {{#hascourses}}
+      <div class="exams_qualications_wrapper p-3 mb-3">
+                <div class="row">
+                    <div class="col-md-12 d-flex align-items-center">
+                    
+                        <div class="examsimagecontainer mr-3" style="background-image:url('{{learningmaterial}}')"></div>
+                        
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h5>{{exam}}</h5>
+                            </div>
+                            
+                            <p>{{programdescription}}</p>
+                            <div class="exams_details_div my-3 d-flex align-items-center flex-wrap">
+                                <div>
+                                    <h6>{{#str}}city, local_exams{{/str}}</h6>
+                                    <h5>{{city}}</h5>
+                                </div>
+                                <div>
+                                    <h6>{{#str}}building_name, local_exams{{/str}}</h6>
+                                    <h5>{{buildingname}}</h5>
+                                </div>
+                                <div>
+                                    <h6>{{#str}}seats_available, local_exams{{/str}}</h6>
+                                    <h5>{{seatingcapacity}}</h5>
+                                </div>
+                                <div>
+                                    <h6>{{#str}}hall, local_exams{{/str}}</h6>
+                                    <h5>{{hall}}</h5>
+                                </div>
+                                <div>
+                                    <h6>{{#str}}passing_marks, local_exams{{/str}}</h6>
+                                    <h5>---</h5>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="pricelabelcontainer">
+                                    <h5 class="examprice">{{#str}}price, local_exams{{/str}} : <strong class="mr-2"> SR {{actualprice}}</strong></h5>
+                                </div>
+                                <a  role="button" class="btn btn-sm btn-primary" href="{{config.wwroot}}./exams_qualification_details.php?id={{id}}">{{#str}}view_details, local_exams{{/str}}</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {{/hascourses}} 
+{{/records}}
+{{/response}}

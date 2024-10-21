@@ -1,0 +1,81 @@
+{{#response}}
+    <div id="trainingprograms">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-pane show active" id="tab_content_tab1" role="tabpanel"   aria-labelledby="tab1-tab">
+                        <div class="table-responsive mt-3">
+                        {{^records}}
+                        {{#nodata}}
+                            <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+                        {{/nodata}}
+                        {{/records}}
+                        {{#records.0}}
+                            <table class="table training_prgrams_table">
+                                <thead> 
+                                    <tr>
+                                        {{#isevents}}
+                                            <th>{{#str}} title ,local_events{{/str}}</th>
+                                        {{/isevents}}
+                                        {{^isevents}}
+                                            <th>{{#str}} course ,tool_product{{/str}}</th>
+                                        {{/isevents}}
+                                        <th>{{#str}} startdate ,tool_product{{/str}}</th>
+                                        <th>{{#str}} enddate ,tool_product{{/str}}</th>
+                                        <th>{{#str}} purchasedseats ,tool_product{{/str}}</th>
+                                        <th>{{#str}} approvalseats ,tool_product{{/str}}</th>
+                                        <th>{{#str}} usedseats ,tool_product{{/str}}</th>
+                                        <th>{{#str}} action ,tool_product{{/str}}</th>
+                                        
+                                    </tr>
+                                </thead>
+                               
+                                <tbody>
+                                {{# records}}
+                                    <tr class="course_details_row">
+                                        
+                                        <td>
+                                {{#hidefavexamsview}}
+                                {{#checkfavornot}}
+                                  <i class="fa fa-star removefav removeshow{{trainingid}}" data-component="{{checkcomponent}}" data-action="removefavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ trainingid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Remove Favourites"></i>
+                                  <i class="fa fa-star addfav addhide{{trainingid}}" data-component="{{checkcomponent}}" data-action="addtofavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ trainingid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Add To Favourites" style="display:none;"></i>
+                                     {{/checkfavornot}}
+                                        {{^checkfavornot}}
+                                  <i class="fa fa-star addfav addshow{{trainingid}}" data-component="{{checkcomponent}}" data-action="addtofavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ trainingid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Add To Favourites"></i>
+                                  <i class="fa fa-star removefav removehide{{trainingid}}" data-component="{{checkcomponent}}" data-action="removefavourites" data-itemtype="{{checkcomponenttype}}" data-itemid="{{ trainingid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Remove Favourites" style="display:none;"></i>
+                                     {{/checkfavornot}}
+                                     {{/hidefavexamsview}}
+                                        {{{trainingname}}}
+
+                                    </td>
+                                        <td>{{startdate}}</td>
+                                        <td>{{enddate}}</td>
+                                        <td>{{purchasedseats}}</td>
+                                        <td>{{approvalseats}}</td>
+                                        <td>{{{usedseats}}}</td>
+                                        <td class="text-center">
+                                            <div class="d-flex action_btns justify-content-center"> 
+                                                {{# timelimit}}
+                                                    {{{enrollbtn}}}
+                                                   
+                                                {{/ timelimit}}
+                                                {{^ timelimit}}
+                                                    <button class="btn btn-sm btn-danger">{{{action}}}</button>
+                                                {{/ timelimit}} 
+
+                                                <a href="{{enrolledusersurl}}" class="btn btn-primary">{{#str}}enrolledusers, tool_product{{/str}}</a>
+                                                
+                                           </div>
+                                        </td>
+                                       
+                                        
+                                    </tr>
+                                    {{/ records}}
+                                </tbody>
+                            </table>
+                        {{/ records.0}}
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{/response}}               

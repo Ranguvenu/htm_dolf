@@ -1,0 +1,35 @@
+<div id="cart_container">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="d-flex justify-content-between align-items-center">
+				<div><h4>{{#str}}cart, local_trainingprogram{{/str}}</h4>{{#str}}1_item_in_cart, local_trainingprogram{{/str}}</div>
+				<div class="emptycart_btn"><a href="">{{#str}}empty_cart, local_trainingprogram{{/str}} <i class="fa fa-trash-o ml-2" aria-hidden="true"></i></a></div>
+			</div>
+			<hr>
+			<div id="training_programs_list_container">
+				<div id="training_programs_container" class="my-3">
+					{{>local_trainingprogram/in_cart_programs}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="checkout_payment">
+				<h6>{{#str}}total, local_trainingprogram{{/str}}Total</h6>
+				<h1 class="text-black">SR 2350</h1>
+				<h5 class="theme_text_color2 font-weight-normal"><s>SR 3,100</s></h5>
+				<p>{{#str}}price_warning, local_trainingprogram{{/str}}</p>
+				<div class="btn checkout_btn mt-3">{{#str}}checkout, local_trainingprogram{{/str}}</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div>
+		<h3 class="text-black">{{#str}}see_also, local_trainingprogram{{/str}}</h3>
+		<p class="theme_text_color2">{{#str}}search_result, local_trainingprogram{{/str}}</p>
+		{{>local_trainingprogram/not_in_cart_programs}}
+	</div>
+
+</div>
+
+
+	

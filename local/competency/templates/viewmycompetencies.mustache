@@ -1,0 +1,226 @@
+{{!
+     This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+<div class="row" id="mycompetencies_container">
+    <div class="col-md-12">
+
+            <div class="row my-3">
+                
+                <div class="col-md-8">
+                        <div class="global_filter_structure form-group m-0   col-md-4 ">
+                            <div class="input_container position-relative">
+                              <input id="global_filtercmtncmy" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                                <span class="search_icon"></span>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="col-md-4">
+
+                     <a href="{{cfg.wwwroot}}/local/competency/myallcompetency.php">
+                            <button class="btn btn-primary mr-2 pull-right">
+                            {{#str}}exploreallcompetencies,local_competency{{/str}}
+                            </button>
+                        </a>
+
+                </div>
+            </div>
+
+            <div class="row">
+                {{# currentjob}}
+                    <div class="col-12">
+                        <h5>{{currentjob}}</h5>
+                    </div>
+                {{/ currentjob}}    
+                <div class="col-12">
+                    <div class="table-responsive mt-4">
+
+                        <div id="viewmycurrentjobrolecompetencies" data-region="viewmycurrentjobrolecompetencies-preview-container" class="viewmycompetencys">
+                          <div data-region="viewmycurrentjobrolecompetencies-count-container"></div>
+                          <div data-region="viewmycurrentjobrolecompetencies-list-container" class ="currentmethoddata">
+                          </div>
+                          <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                                <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                            </span>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h5>{{#str}}mysupportedcompetencies,local_competency{{/str}}</h5>
+                </div>
+                <div class="col-12">
+                    <div id="viewmysupportedcompetencies" data-region="viewmysupportedcompetencies-preview-container" class="viewmycompetencys">
+                        <div data-region="viewmysupportedcompetencies-count-container"></div>
+                        <div data-region="viewmysupportedcompetencies-list-container" class ="supportedmethoddata">
+                        </div>
+                        <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                              <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                          </span>
+                  </div>
+                </div>
+            </div>
+
+            
+            {{#nextjob}}
+
+                <div class="row">
+                    <div class="col-12">
+                        <h5>{{nextjob}}</h5>
+                    </div>
+                    <div class="col-12">
+                        <div class="table-responsive mt-4">
+
+                            <div id="viewmynextjobrolecompetencies" data-region="viewmynextjobrolecompetencies-preview-container" class="viewmynextcompetencys">
+                                <div data-region="viewmynextjobrolecompetencies-count-container"></div>
+                                <div data-region="viewmynextjobrolecompetencies-list-container" class ="nextmethoddata">
+                                </div>
+                                <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                                        <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                                    </span>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                
+            
+            {{/nextjob}}
+            
+        
+    </div>
+
+</div>
+
+{{#js}}
+
+require(['local_competency/competencyform'], function(s) {
+        s.init();
+});
+require(['theme_academy/cardPaginate'], function(cardPaginate) {
+
+    var nextdataoptions={nextlevel:true};
+
+    var supporteddataoptions={supportedcompetencies:true};
+
+    cardPaginate.reload({{{supportedoptions}}}, supporteddataoptions,{{{filterdata}}});
+
+    cardPaginate.reload({{{options}}}, {{{dataoptions}}},{{{filterdata}}});
+
+    cardPaginate.reload({{{nextoptions}}}, nextdataoptions,{{{filterdata}}});
+
+
+    var search_interval = 100;
+    var timer;
+    $(document).on('keyup', '#global_filtercmtncmy', function(){
+        var searchval = $(this).val();
+        var filterdata = {search_query: searchval};
+        timer = setTimeout(function(){
+
+            cardPaginate.reload({{{supportedoptions}}}, supporteddataoptions,filterdata);
+
+            cardPaginate.reload({{{options}}}, {{{dataoptions}}},filterdata);
+
+            cardPaginate.reload({{{nextoptions}}},nextdataoptions,filterdata);
+        },search_interval);
+    });
+    $(document).on('keydown', '#global_filtercmtncmy', function(){
+        clearTimeout(timer);
+    });
+
+});
+ if(typeof "select[name='sectors[]']" != 'undefined'){
+    var sectors = $("select[name='sectors[]']").val();
+    if(typeof $('#el_segmentlistcmp') != 'undefined'){
+        $('select#el_segmentlistcmp').data('sectorid',sectors);
+    }
+ 
+    if(typeof $('#el_jobfamilycmpcmp') != 'undefined'){
+        $('#el_jobfamilycmpcmp').data('sectorid',sectors);
+    }
+}
+$("select[name='sectors[]']").on('change', function(e){
+    
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+});
+
+if(typeof "select[name='sectors']" != 'undefined'){
+    var sectors = $("select[name='sectors']").val();
+    if(typeof $('#el_segmentlistcmp') != 'undefined'){
+        $('select#el_segmentlistcmp').data('sectorid',sectors);
+    }
+ 
+    if(typeof $('#el_jobfamilycmpcmp') != 'undefined'){
+        $('#el_jobfamilycmpcmp').data('sectorid',sectors);
+    }
+}
+$("select[name='sectors']").on('change', function(e){
+    
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       var segment = $(this).closest("form").find("select[name='segment']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       segment.val('');
+       segment.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+});
+
+//Job family
+if(typeof $('#el_segmentlistcmp') != 'undefined'){
+    if(typeof $('#el_jobfamilycmp') != 'undefined'){
+        var sectors = $('.el_sectorlistcmp').val();
+        $('select#el_jobfamilycmp').data('sectorid',sectors);
+        var segments = $('#el_segmentlistcmp').val();
+        $('select#el_jobfamilycmp').data('segmentid',segments);
+    }
+}
+$('#el_segmentlistcmp').on('change', function(e){
+       var segments = $('#el_segmentlistcmp').val();
+       $('select#el_jobfamilycmp').val('');
+       $('select#el_jobfamilycmp').data('segmentid',segments);
+});
+
+//job role
+if(typeof $('#el_jobfamilycmp') != 'undefined'){
+    if(typeof $('#el_jobrolescmp') != 'undefined'){
+        var jobfamily = $('#el_jobfamilycmp').val();
+        $('select#el_jobrolescmp').data('jobfamilyid',sectors);
+    }
+}
+$('#el_jobfamilycmp').on('change', function(e){
+       var jobfamily = $('#el_jobfamilycmp').val();
+       $('select#el_jobrolescmp').val('');
+       $('select#el_jobrolescmp').data('jobfamilyid',jobfamily);
+}); 
+{{/js}}

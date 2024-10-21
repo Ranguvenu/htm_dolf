@@ -1,0 +1,43 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <table class="table generaltable ">
+            <thead>
+                <tr>
+                    <th>{{#str}}questionname,local_competency{{/str}}</th>
+                    <th>{{#str}}questiontype,local_competency{{/str}}</th>
+                    {{#records.0}}
+                        {{#delete}}
+                            <th>{{#str}}action,local_competency{{/str}}</th>
+                        {{/delete}}
+                    {{/records.0}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#records}}
+                <tr>
+                    <td>
+                        <a href="{{objectiveurl}}"  class="theme_text_color">
+                            {{{name}}}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{objectiveurl}}"  class="theme_text_color">
+                            {{code}}
+                        </a>
+                    </td>
+                    {{#delete}}
+                        <td>
+                            <span class="bg-danger text-white" data-action="deletecompetencyobjective" data-competencypcid="{{competencypcid}}" data-competencypcobjectivetype="question" data-competencypcobjectiveid="{{id}}" data-competencypcobjectivename="{{name}} ( {{code}} )"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                        </td>    
+                    {{/delete}}
+                </tr>
+                {{/records}}
+            </tbody>
+        </table>
+   {{/viewtypeCard}}
+{{/response}}               

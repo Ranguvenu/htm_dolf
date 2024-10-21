@@ -1,0 +1,69 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_trainingprogram/offeringprogramrequests
+
+    TODO describe template offeringprogramrequests
+
+    Example context (json):
+    {
+    }
+}}
+{{#response}}
+    {{#records}}
+    <div class= "table-responsive">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">{{# str}} entitycode, local_trainingprogram{{/ str}}</th>
+                    <th scope="col">{{# str}} refund_entitytype, local_trainingprogram{{/ str}}</th>
+                    <th scope="col">{{# str}} request_type, local_trainingprogram{{/ str}}</th>
+                    <th scope="col">{{# str}} requestby, local_trainingprogram{{/ str}}</th>
+                    <th scope="col">{{# str}} requestat, local_trainingprogram{{/ str}}</th>
+                    <th>{{# str}} actions, local_userapproval{{/ str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                  <td>{{entitycode}}</a></td>
+                  <td>{{entity}}</td>
+                  <td>{{requesttype}}</td>
+                  <td>{{requestbyname}}</td>
+                  <td>{{requestat}}</td>
+                  <td>
+
+                    <div class="align-items-center d-flex action_btns">
+                        {{# viewrequestedprogram}}
+                           <a href="{{globals.config.wwwroot}}/local/trainingprogram/programcourseoverview.php?programid={{entityid}}" data-toggle="tooltip" title="{{#str}} view_detailed_program, local_trainingprogram {{/str}}"><span class="bg-info text-white"><i class="fa fa-search-plus"></i></span></a>
+                        {{/ viewrequestedprogram}}
+                        {{# viewrequestedoffering}}
+                          <a href="#"  data-action="viewcurrentoffering" data-rootid={{id}} data-offeringid={{entityid}} data-requesttype ={{requesttype}} data-toggle="tooltip" title="{{#str}} view_offering, local_trainingprogram {{/str}}"><span class="bg-info text-white"><i class="fa fa-search-plus"></i></span></a>
+
+                        {{/ viewrequestedoffering}}
+                        <a href="#" data-action="add_update_delete_entity" data-rootid='{{id}}' data-entityid={{entityid}} data-code={{entitycode}} data-entitytype ="{{entity}}"  data-requesttype ={{requesttype}} data-requestby="{{requestby}}" data-requestbyname="{{requestbyname}}" data-actiontype = 'approve'  data-toggle = "tooltip" title="{{#str}} approve , local_trainingprogram{{/str}}"><span class="bg-success text-white"><i class="fa fa-check" aria-hidden="true"></i></span></a>
+                        <a href="#" data-action="add_update_delete_entity" data-action="add_update_delete_entity" data-rootid='{{id}}' data-entityid={{entityid}} data-code={{entitycode}} data-entitytype ="{{entity}}"  data-requesttype ={{requesttype}} data-requestby="{{requestby}}"  data-requestbyname="{{requestbyname}}" data-actiontype = 'reject'  data-toggle = "tooltip" title="{{#str}} reject , local_trainingprogram{{/str}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                        
+                    </div>
+                  </td>      
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+        </div>
+    {{/ records}}
+{{/ response}}

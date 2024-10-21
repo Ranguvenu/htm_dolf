@@ -1,0 +1,29 @@
+<div>
+    <div class="filterscontainer">
+       <div class="global_filter">
+            <div class="global_filter_structure form-group m-0  col-md-14">
+                {{#searchlabel}} <label class="{{labelclasses}}">{{searchlabel}}</label> {{/searchlabel}}
+                <div class="input_container position-relative" >
+                <input id="global_filter" class="global filter form-control {{inputclasses}}" placeholder="{{#placeholder}} {{placeholder}} {{/placeholder }} {{^placeholder }} {{#str}}search_exams,local_exams {{/str}}{{/placeholder }}" type="text" name="search_query" data-options="{{options}}" value="{{q}}" data-dataoptions="{{dataoptions}}" data-status="{{status}}">
+                <span class="search_icon"></span>
+                </div>
+            </div>
+       </div>
+        <div>
+            {{{filterform}}}
+        </div>
+        <a href="javascript::void(0)" class="searchbtnicon" name="filter_apply" id="id_filter_apply" 
+             onclick="(function(e){ require('theme_academy/cardPaginate').filteringData(e,'viewexams') })(event)"> {{#str}}search,local_events{{/str}}</a>
+        <!--<a href="">
+            <div class="searchbtnicon"></div>
+        </a>-->
+    </div>
+    <div class="row programs_container"> 
+    <div class="col-md-12">
+        <!-- program cards container -->
+        {{{examdetails}}}
+        {{>local_exams/exam_card}}
+        </div>
+    </div>
+
+</div>

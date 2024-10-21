@@ -1,0 +1,18 @@
+{{#checkout}}
+    <a class="btn btn-success btn-block border py-2 text-light regbtn" href="{{globals.config.wwwroot}}/admin/tool/product/cart.php">{{#str}}register, tool_product{{/str}}</a>  
+{{/checkout}}
+{{^checkout}}
+    <div data-region="register-btn-{{product_attributes.product}}">
+        <button class="btn btn-success btn-block border py-2 text-light regbtn" data-register="register-to-cart-{{product_attributes.product}}" data-product="{{product_attributes.product}}" data-variation="{{product_attributes.variation}}" data-category="{{product_attributes.category}}" data-quantity="{{product_attributes.quantity}}" data-loggedin="{{product_attributes.isloggedin}}" data-hasvariations="{{product_attributes.hasvariations}}" data-checkout="{{product_attributes.checkout}}" data-action="add-to-cart-{{product_attributes.product}}" data-errortext="{{ product_attributes.errortext }}" data-grouped="{{ product_attributes.grouped }}">{{#str}}register, tool_product{{/str}}</button>
+    </div>
+{{/checkout}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+
+        $(document).on('click', '[data-register="register-to-cart-{{product_attributes.product}}"]', function() {
+
+             product.addregister('[data-action="add-to-cart-{{product_attributes.product}}"]','[data-region="register-btn-{{product_attributes.product}}"]');
+
+        });
+    });
+{{/js}}

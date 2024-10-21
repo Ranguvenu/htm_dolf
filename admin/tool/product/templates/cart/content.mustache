@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="col-md-9">
+		{{#formatted_response}}
+			{{ #isgrouped }}
+				<div>{{ title }}</div>
+					{{ >tool_product/cart/remove-group }}
+				{{ #subitems }}
+					{{>tool_product/cart/item}}
+				{{ /subitems }}
+			{{ /isgrouped }}
+			{{ ^isgrouped }}
+				{{>tool_product/cart/item}}
+			{{ /isgrouped }}
+		{{/formatted_response}}
+		{{^formatted_response}}
+			{{>tool_product/cart/empty}}
+		{{/formatted_response}}
+	</div>
+	<div class="col-md-3" data-region="cart-summary">
+		{{#items.length}}
+			<div class="checkout_payment">
+				<h6>{{#str}}total, tool_product{{/str}}</h6>
+				<h1 class="text-black">{{#str}}sa_currency,local_trainingprogram  {{/str}} {{ cart_summary.discount_price }}</h1>
+				{{# couponvalid}}
+				<h5 class="theme_text_color2 font-weight-normal"><s>{{#str}}sa_currency,local_trainingprogram{{/str}} {{ cart_summary.total_price }}</s></h5>
+				{{/ couponvalid}}
+				{{# cart_summary.total_discount_amount_display}}
+				<p class="theme_text_color2 font-weight-normal">{{#str}}discount_message, tool_product, {{cart_summary.total_discount_amount}}{{/str}} </p>
+				{{/ cart_summary.total_discount_amount_display}}
+				<p>{{#str}}overall_discount_message, tool_product{{/str}}</p>
+				{{# userprofileaccess}}
+					<div class="alert alert-danger">{{userprofileaccess}}</div>
+				{{/userprofileaccess}}
+				{{^userprofileaccess}}				
+				{{#isloggedin}}
+				<a href="{{globals.config.wwwroot}}/admin/tool/product/checkout.php" class="btn checkout_btn mt-3">{{#str}}checkout, tool_product{{/str}}</a>
+				{{/isloggedin}}
+				{{^isloggedin}}
+					<button data-action="login-for-cart" class="btn btn-primary btn-block mb-3">{{#str}}checkout, tool_product{{/str}}</button>
+				{{/isloggedin}}
+				{{/userprofileaccess}}				
+			</div>
+		{{/items.length}}
+	</div>
+</div>
+{{#js}}
+require(['jquery', 'core/templates', 'core/modal_factory', 'tool_product/login-modal'], function($, Templates, ModalFactory, ModalLogin) {
+	var trigger = $(document).find('[data-action="login-for-cart"]');
+	ModalFactory.create({type: ModalLogin.TYPE}, trigger); 
+});
+{{/js}}

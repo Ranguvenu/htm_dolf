@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-end align-items-center">
+    {{# actionview}}
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="edithall"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createhall, local_hall{{/str}}</a>
+    {{# actionpermission}}
+    <a href="{{config.wwroot}}./schedule.php" tabindex="0" role="button" class="btn btn-primary mr-2">{{#str}}schedule, local_hall{{/str}}</a>
+    <a href="{{config.wwroot}}./reservation.php" tabindex="0" role="button" class="btn btn-primary mr-2" data-action="reservation">{{#str}}reservation, local_hall{{/str}}</a>
+    {{/ actionpermission}}
+    {{/ actionview}}
+    {{# filterview}}
+    <button class="btn filter_toggle_btn" id="filter_open_btn">
+        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+        {{#str}}filter,local_hall{{/str}}
+     </button> 
+    {{/ filterview}}   
+</div>
+
+{{#js}}
+    require(['local_hall/hall'], function(s) {
+        s.init();
+    });
+{{/js}}

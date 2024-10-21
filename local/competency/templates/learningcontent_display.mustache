@@ -1,0 +1,106 @@
+<div id="learning_tabs" class="pull-left w-100 courselddata marginb-10">
+      <div class="learning_tabs_list pl_15 pr_15 pb_15">
+         {{#tabs.0}}
+             <ul class="nav nav-tabs learningcontent_tabs" role="tablist">
+                 {{#tabs}}
+                     <li class="nav-item learningcontentitem {{type}}" data-type="{{type}}" data-target="learningcontent_{{type}}_{{competencyid}}" data-selected-class="active" aria-controls="{{type}}_{{competencyid}}" aria-selected="false" tabindex="-1" role="tab" >
+                         <a class=" {{active}} nav-link " data-toggle="tab" href="javascript:void(0)" aria-controls="{{type}}" role="tab"  title="{{name}}" >
+                         {{name}}
+                     </a>
+                     </li>
+                 {{/tabs}}
+             </ul>
+         {{/tabs.0}}
+    </div>
+    <div class="tab-content">
+            {{#tabs.0}}
+                {{#tabs}}
+                    <div role="tabpanel"
+                            class="tab-pane {{active}}"
+                            id="learningcontent_{{type}}_{{competencyid}}">
+                                <div class="row my-3">
+
+                                    <div class="col-md-8">
+
+                                        <div class="global_filter_structure form-group m-0   col-md-4 ">
+                                                <div class="input_container position-relative">
+                                                  <input id="global_filter_{{type}}_{{competencyid}}" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                                                    <span class="search_icon"></span>
+                                                </div>
+                                        </div>
+
+                                     </div>
+
+                                    <div class="col-md-4">
+
+                                    </div>
+
+                                </div>
+                    </div>
+                     <div id="{{type}}_{{competencyid}}" data-region="{{type}}_{{competencyid}}-preview-container" class="viewlearningcontents">
+                          <div data-region="{{type}}_{{competencyid}}-count-container"></div>
+                          <div data-region="{{type}}_{{competencyid}}-list-container" class ="learningcontentmethoddata">
+                          </div>
+                          <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                                <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                            </span>
+                     </div>
+               {{/tabs}}
+            {{/tabs.0}}
+     
+    </div>
+</div>   
+<script>
+
+$(document).ready(function() { 
+    if($(".learningcontent_tabs").length>0){
+        $(".learningcontent_tabs").find("li").each(function(){
+            if($(this).find('a').hasClass('active')){
+                 $(this).trigger('click');
+            }
+               
+        });
+    }
+});
+$('.learningcontentitem').click(function(){
+
+
+   var learningcontenttype = $(this).data('type');
+   
+   $('.tab-pane').removeClass("active");
+   $(this).addClass("active");
+
+   $('#learningcontent_'+learningcontenttype+'_{{competencyid}}').addClass("active");
+   
+    var options = {targetID: learningcontenttype+'_{{competencyid}}',
+                templateName: 'local_competency/listcompetency'+learningcontenttype+'',
+                methodName: 'local_competency_get_objectivesinfo',
+                perPage: 10,
+                cardClass: 'col-xl-4 col-md-6 col-12',
+                viewType: 'table'};
+   
+    var dataoptions = {competencyid:{{competencyid}},objtype: learningcontenttype,allobjectives: '{{contenttype}}'};
+    $(".learningcontentmethoddata").empty();
+    
+    require(['theme_academy/cardPaginate'], function(cardPaginate) {
+        cardPaginate.reload(options, dataoptions,'');
+
+        var search_interval = 100;
+        var timer;
+        $(document).on('keyup', '#global_filter_'+ learningcontenttype+'_{{competencyid}}', function(){
+            var searchval = $(this).val();
+            var filterdata = {search_query: searchval};
+            timer = setTimeout(function(){
+
+                cardPaginate.reload(options,dataoptions,filterdata);
+
+            },search_interval);
+        });
+        $(document).on('keydown', '#global_filter_'+ learningcontenttype+'_{{competencyid}}', function(){
+            clearTimeout(timer);
+        });
+    });
+  
+});
+
+</script>

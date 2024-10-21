@@ -1,0 +1,71 @@
+.competencies_pc_container{
+    background-color: #E9ECF0;
+}
+#page-local-competency-index .generaltable td a, 
+#page-local-competency-index .generaltable th a{
+    padding: 0px !important;
+}
+#page-local-competency-mycompetency tr.group,
+#page-local-competency-mycompetency tr.group:hover {
+    background-color: #ddd !important;
+}
+#detailedcompetency_container .maininfocontainer{
+    display: flex;
+    background-color: #FDFDFD;
+    border-radius: 15px;
+    border: 1px solid #E4E8EB;
+    align-items: center;
+    padding: 8px;
+    height: 100%;
+}
+#detailedcompetency_container .maininfocontainer .piximg{
+    padding: 7px;
+}
+#detailedcompetency_container .maininfocontainer .piximg img{
+    width: 100%;
+}
+#detailedcompetency_container .maininfocontainer .content{
+    flex:1
+}
+#detailedcompetency_container .maininfocontainer.desc{
+    align-items: flex-start;
+}
+#detailedcompetency_container .maininfocontainer.desc .piximg{
+    width: 50px;
+    padding-top: 0;
+    margin-right: 5px;
+}
+#detailedcompetency_container .downarrow i{
+    font-size: 30px;
+}
+#detailedcompetency_container .level_container{
+    background-color: #F4F9FF;
+    border-radius: 15px;
+    border:1px solid #D9DFE4;
+    padding: 8px;
+
+}
+#detailedcompetency_container .level_container .level_header{
+    cursor: pointer;
+}
+#detailedcompetency_container .level_container .level_content{
+    border-top:1px solid #D9E0E5
+}
+#learning_tabs .learning_tabs_list {
+    margin-bottom: .5rem;
+    width: 100%;
+    display: inline-block;
+}
+/* competency_modal styles */
+#competency_modal_container .table tr td{
+    border-bottom: 0 !important;
+}
+#competency_modal_container .table tr.collapsable_row td{
+    padding: 0 !important;
+    border-bottom: 1px solid #DAE0E4 !important;
+}
+/* End competency_modal styles */
+
+.questioncmtncTransition .modal-dialog{
+    max-width: 1000px !important;
+}

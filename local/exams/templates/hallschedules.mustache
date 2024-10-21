@@ -1,0 +1,83 @@
+{{#response}}
+    {{#records}}
+        {{#hallschedules}}
+            <div class="bg-white shadow rounded p-3 mt-2 available_times_container">
+                <div class="row mb-3">
+                    <div class="{{# enroloptions}} col-md-12 {{/ enroloptions}} {{^ enroloptions}} col-md-10 {{/ enroloptions}}">
+                        <div class="rounded bg-themecolor3 avail_dates_container p-3 position-relative">
+                            <div class="d-flex flex-wrap align-items-center mb-0 justify-content-between">
+                                <div>
+                                    <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                                    <strong>{{#str}}date, local_exams{{/str}} :</strong> {{startdate}}
+                                </div>
+                                <div>
+                                    <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                                    <strong>{{#str}}starttime, local_exams{{/str}} :</strong> {{starttime}}
+                                </div>
+                                <div>
+                                    <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                                    <strong>{{#str}}endtime, local_exams{{/str}}:</strong> {{endtime}}
+                                </div>
+                                <div>
+                                    <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                                    <strong>{{#str}}day, local_exams{{/str}}:</strong> {{days}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 font-weight-bold d-flex align-items-center flex-column justify-content-center">
+                        {{^ financemanager}}
+                        {{# seatscompleted}}
+                            <div class="p-2">{{#str}}noseats, local_exams{{/str}}</div>
+                        {{/ seatscompleted}}
+                        {{^ seatscompleted}}
+                            {{# orgoff}}
+                              
+                                    <a href="#" data-examid={{examid}}  data-profileid={{profileid}} data-scheduleid={{id}}  {{# type}} data-type = "{{typename}}" {{/type}} data-action="enrolusertoexam"  data-tuserid={{tuserid}}  data-damount="{{damount}}" data-productid="{{productid}}" data-organization="{{organization}}" data-orgofficial="{{orgofficial}}" class="btn  btn-primary">{{#str}}enroll, local_exams{{/str}}</a>
+                              
+                            {{/ orgoff}}
+                            {{# isadmin}}
+                                {{# type}}
+                                    <a href="#" data-examid={{examid}}  data-profileid={{profileid}} data-scheduleid={{id}}  {{# type}}data-type = "{{typename}}" {{/type}} data-action="enrolusertoexam"  data-tuserid={{tuserid}} data-damount="{{damount}}" data-productid="{{productid}}" data-organization="{{organization}}" data-orgofficial="{{orgofficial}}"  class="btn  btn-primary">{{#str}}enroll, local_exams{{/str}}</a>
+                                {{/ type}}
+                                {{^ type}}
+                                    <div class="seatspurchase mt-4">
+                                        <a href="{{cfg.wwwroot}}./examenrollment.php?examid={{examid}}&profileid={{profileid}}&scheduleid={{id}}" class="btn  btn-primary">{{#str}}enroll, local_exams{{/str}}</a>
+                                    </div>                                
+                                {{/ type}}
+                            {{/ isadmin}}
+                            {{^ isadmin}}
+                            {{^ orgoff}}
+                                {{# reschedulebtn}}
+                                    <a href="#" data-examid={{examid}}  data-profileid={{profileid}} data-scheduleid={{id}}  data-type="reschedule" data-action="trescheduleexam" data-damount="{{damount}}" data-productid="{{productid}}" data-userid="{{tuserid}}" data-contextid="{{contextid}}" class="btn btn-primary">{{#str}}reschedule, local_exams{{/str}}</a>
+                                {{/ reschedulebtn}}
+                                {{^ reschedulebtn}}
+                                    {{# enrolbtn}}
+                                        <a href="#" data-examid={{examid}}  data-profileid={{profileid}} data-scheduleid={{id}}  {{# type}} data-type = "reschedule" {{/type}} data-action="enrolusertoexam" data-productid="{{productid}}" data-tuserid={{tuserid}} data-organization="{{organization}}" data-orgofficial="{{orgofficial}}" class="btn  btn-primary">{{#str}}enroll, local_exams{{/str}}</a>                            
+                                    {{/ enrolbtn}}
+                                    {{^ enrolbtn}}
+                                            <div class="mt-4">
+                                                <div class="cart_btn">
+                                                {{>tool_product/cart/add}}
+                                                </div>   
+                                            </div>
+                                    {{/ enrolbtn}}
+                                {{/ reschedulebtn}}
+                            {{/ orgoff}}
+                            {{/ isadmin}}
+                        {{/ seatscompleted}}
+                        {{/ financemanager}}
+                    </div>
+                </div>
+            </div>
+
+       {{/hallschedules}}
+    {{/records}}
+{{/response}}
+
+{{#js}}
+    require(['local_exams/cancelreschedule'], function(s) {
+        s.init();
+    });
+
+{{/js}}

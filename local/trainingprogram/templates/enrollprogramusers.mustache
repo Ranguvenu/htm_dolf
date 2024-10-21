@@ -1,0 +1,88 @@
+{{#response}}
+    {{#records}}
+     <div class= "table-responsive">
+        <table class="table">
+            <thead style="width:100%;background-color:#004c98e3" class="text-light">
+                <tr>
+                  <th scope="col" class="rounded-left">{{# str}} identitynumber, local_exams{{/ str}}</th>
+                  <th scope="col">{{# str}} fullname, local_exams{{/ str}}</th>
+                  <th scope="col">{{# str}} pname, local_trainingprogram{{/ str}}</th>
+                   <th scope="col">{{# str}} pcode, local_trainingprogram{{/ str}}</th>
+                   <th scope="col">{{# str}} ocode, local_trainingprogram{{/ str}}</th>
+                    <th scope="col">{{# str}} product_fee, local_trainingprogram{{/ str}}</th>
+                     <th scope="col">{{# str}} startdate, local_trainingprogram{{/ str}}</th>
+                     <th scope="col">{{# str}} enddate, local_trainingprogram{{/ str}}</th>
+                   <th scope="col" >{{# str}} clarification, local_exams{{/ str}}</th>
+                    {{# hasinvoice}}
+                      <th class="rounded-right">{{# str}} actions, local_exams{{/ str}}</th>
+                    {{/ hasinvoice}}
+             
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+                {{# actionview}} 
+                <tr style="width:100%;background-color:#0080002e">
+                {{/ actionview}} 
+                {{^ actionview }}
+                <tr style="width:100%;background-color:#ff00001f">
+                {{/ actionview}} 
+                <td>{{{identityno}}}</td>
+                <td>{{fullname}}</td>
+                <td>{{programname}}</td>
+                <td>{{programcode}}</td>
+                <td>{{offeringcode}}</td> 
+                <td>{{fee}}</td> 
+                <td>{{startdate}}</td> 
+                <td>{{enddate}}</td> 
+                {{# actionview}} 
+                <td class="validrecord">{{# str}} valid, local_exams{{/ str}}</td>
+                {{/ actionview}} 
+                {{^ actionview }}
+                <td class="invalidrecord"><a href="#" data-toggle="tooltip" data-html="true" title="<ul class='text-left'>{{#errormessage}} <li> {{message}} </li>{{/errormessage}}</ul>">{{# str}} invalid, local_exams{{/ str}}</a></td>
+                {{/ actionview}}  
+                {{# hasinvoice}}
+                    <td>                                               
+                        {{# actionview}} 
+                            <div class="flex-wrap align-items-center d-flex action_btns">
+                                <a href="#" data-action="removeuserconfirmation" data-rootid={{programid}} data-fieldid={{offeringid}} data-id={{userid}} data-type="program" data-name="{{fullname}}" data-idnumber={{identityno}}  data-toggle="tooltip" title="{{# str}} remove_selected_users, local_exams{{/ str}}"><span class="bg-danger text-white"><i class="fa fa-remove" aria-hidden="true"></i></span></a>
+                            </div>
+                        {{/ actionview}} 
+                    </td>
+                {{/ hasinvoice}}
+              </tr>
+                 {{/ hascourses}} 
+          </tbody>
+        </table>
+        </div>
+        {{# isprivate}} 
+            <div class = "privateofferingmessage_class my-2" style ="font: initial;">{{# str}} privateofferingmessage, local_trainingprogram,{{orgfullname}} {{/ str}}</div>
+        {{/ isprivate}}
+        {{# hasinvoicealready}} 
+            <div class = "privateofferingexistsinvoicemessage_class my-2" style ="font: message-box;">{{# str}} privateofferingexistsinvoicemessage, local_trainingprogram,{{existinginvoice_number}} {{/ str}}</div>
+        {{/ hasinvoicealready}} 
+        {{^ hasinvoicealready}}
+            {{# invoice}}
+                <table class="table">
+                    <thead style="width:100%;background-color:#004c98e3" class="text-light"> 
+                    <th>{{# str}} totalfees, local_exams{{/ str}} : {{fee}} {{# str}} sar, local_exams{{/ str}} </th> 
+                    {{# discount}}
+                     <th>{{# str}} discount, local_exams{{/ str}} : {{discount}} {{# str}} sar, local_exams{{/ str}}</th> 
+                    {{/ discount}}
+                    <th>{{# str}} vat, local_exams{{/ str}} : {{vat}} {{# str}} sar, local_exams{{/ str}}</th> 
+                    <th class="rounded-right">{{# str}} totalamount, local_exams{{/ str}} : {{total}} {{# str}} sar, local_exams{{/ str}}</th>
+                    </tr>
+                    </thead>
+                </table>
+            {{/ invoice}}
+        {{/ hasinvoicealready}}
+        
+        <div class="text-right my-3">
+            <a href="{{config.wwroot}}./bulkenrollments.php?programid={{programid}}&roleid={{roleid}}&offeringid={{offeringid}}&cusers={{cusers}}" class="launch_btn btn btn-secondary btn-sm" >{{#str}} cancel, local_exams{{/str}}</a>
+            {{# hasinvoice}}
+              <a href="#" class="launch_btn btn btn-primary btn-sm" data-action = "confirmbulkenrolluser"  data-rootid = {{programid}} data-fieldid="{{offeringid}}" data-roleid = "{{roleid}}"  data-cusers="{{cusers}}"  data-organization="{{organization}}" data-scheduleid="1" data-orgofficial="{{orgofficial}}" data-actionfor = "programs" data-discount = {{discount}} data-discounttableid = {{discounttableid}} data-discounttype = {{discounttype}} >{{#str}} confirm, local_exams{{/str}}</a>
+            {{/ hasinvoice}}
+        <div>
+{{/ records}}
+{{/ response}}
+ 

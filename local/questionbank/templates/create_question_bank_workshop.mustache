@@ -1,0 +1,163 @@
+<div class="row">
+    <div class="col-12">
+        <h3>{{workshopname}}</h3>
+    </div>
+    <div class="col-12">
+        <div class="question_bank_details_container mb-3">
+            <div class="row">
+                <div class="col-4 col-md-2">
+                    <h6>{{#str}}questiontarget, local_questionbank{{/str}}</h6>
+                    <h5><strong>{{noofquestions}}</strong></h5>
+                  
+                </div>
+                <div class="col-4 col-md-2">
+                    <h6>{{#str}}workshop_date, local_questionbank{{/str}}</h6>
+                    <h5>{{workshopdate}}</h5>
+                </div>
+                <div class="col-4 col-md-2">
+                    <h6>{{#str}}start_time, local_questionbank{{/str}}</h6>
+                    <h5>{{workshopslot}}</h5>
+                </div>
+                <div class="col-4 col-md-2">
+                    <h6>{{#str}}location, local_questionbank{{/str}}</h6>
+
+                    {{# locationstatus}}
+                        <a href="{{location}}"><i class="fa fa-map-marker"></i></a> 
+                    {{/ locationstatus}}
+                    {{^ locationstatus}}
+                        <h5>{{location}}</h5>
+                    {{/ locationstatus}}
+
+                </div>
+                <div class="col-4 col-md-2">
+                    <h6>{{#str}}hall, local_questionbank{{/str}}</h6>
+                    <h5>{{hall}}</h5>
+                </div>
+                <div class="col-4 col-md-2">
+                    <h6>{{#str}}qb_admin, local_questionbank{{/str}}</h6>
+                    <h5>{{workshopadmin}}</h5>
+                </div>
+                  <div class="col-4 col-md-2">
+                    <h6>{{#str}}generatedcode, local_questionbank{{/str}}</h6>
+                     <h5><strong>{{generatecode}}</strong></h5>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+   
+    <div class="col-12">
+        <h4 class="my-3">{{#str}}selected_competencies, local_questionbank{{/str}}</h4>
+        <table class="table generaltable">
+           {{#tcompetencies}}    
+            <thead> 
+                <tr>
+                    <th>{{#str}}name, local_questionbank{{/str}}</th>
+                    <th>{{#str}}code, local_questionbank{{/str}}</th>
+                    <th>{{#str}}actions, local_questionbank{{/str}}</th>
+                </tr>
+            </thead>
+           {{#competencylist}}
+            <tbody>
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{code}}</td>
+                    <td>
+                        <!-- <div class="d-flex action_btns"> -->
+                            <!-- <a href="#"><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a> -->
+                            {{# actions}}
+                                 {{# competenciesactions}}
+                                  <a href="#" data-action="deletecompetency" data-id={{id}} data-wid={{workshopid}} data-name='{{name}}'><span class="btn btn-primary btn-md">{{#str}}unassign, local_questionbank{{/str}}</span></a>
+                                {{/ competenciesactions}}    
+                                {{^ competenciesactions}} 
+                               <!--  <a href="#" disabled title="No Permissions"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>   -->
+                                    <b>{{#str}}nopermissions, local_questionbank{{/str}}</b>
+                                {{/ competenciesactions}}
+                            {{/ actions}}
+                            {{^ actions}}
+                                <b>{{#str}}nopermissions, local_questionbank{{/str}}</b>
+                            {{/ actions}}
+                        <!-- </div>  -->
+                    </td>
+                </tr>
+                 </tbody>
+               {{/competencylist}}
+              {{/tcompetencies}}
+                {{^ tcompetencies}}
+                        <div class="w-100 pull-left alert alert-info" >{{#str}}norecordsfound, local_questionbank{{/str}}</div>
+                {{/ tcompetencies}}
+                   
+        </table>
+    </div>
+    <div class="col-12">
+        <h4 class="my-3">{{#str}}selected_coursetopics, local_questionbank{{/str}}</h4>
+        <table class="table generaltable collapsecontenttable">
+         {{#tcourses}}
+            <thead> 
+                <tr>
+                    <th>{{#str}}name, local_questionbank{{/str}}</th>
+                    <th>{{#str}}topics, local_questionbank{{/str}}</th>
+                    <th>{{#str}}expert, local_questionbank{{/str}}</th>
+                    <th>{{#str}}actions, local_questionbank{{/str}}</th>
+                </tr>
+            </thead>
+            {{#courses}}
+            <tbody>
+                <tr class="">
+                    <td><span data-toggle="collapse" href="#selected_course-{{id}}"> {{fullname}}</span></td>
+                    <td>{{topicscount}}</td>
+                    {{# experts}}
+                    <td>{{experts}}</td>
+                    {{/ experts}}
+                    <td>
+                        <!-- <div class="d-flex action_btns"> -->
+                            <!-- <a href="#"><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a> -->
+                            {{# actions}}
+                             {{# courseactions}}
+                            <a href="#" data-action="deletecourse" data-id={{id}} data-wid={{workshopid}} data-name='{{fullname}}'><span class="btn btn-primary btn-md">{{#str}}unassign, local_questionbank{{/str}}</span></span></a>
+                            {{/ courseactions}}    
+                            {{^ courseactions}} 
+                           <!--  <a href="#" disabled title="No Permissions"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>   -->
+                                   <b>{{#str}}nopermissions, local_questionbank{{/str}}</b>
+                            {{/ courseactions}}
+                            {{/ actions}}
+                            {{^ actions}}
+                                 <b>{{#str}}nopermissions, local_questionbank{{/str}}</b>
+                            {{/ actions}}
+                        <!-- </div>  -->
+                    </td>
+                </tr>
+                <tr class="collapsed_row">
+                    <td colspan="4">
+                        <div class="selectedcoursetopics mb-3 collapse" id="selected_course-{{id}}">
+                            <ul class="list-group">
+                                {{# topics}}
+                                <li class="list-group-item">
+                                    <h6 class="theme_text_color1 m-0">{{name}}</h6>
+                                </li>
+                               {{/ topics}}
+                               {{^ topics}}
+                                <li class="list-group-item">
+                                    <h6 class="theme_text_color1 m-0">{{#str}}norecordsfound, local_questionbank{{/str}}</h6>
+                                </li>
+                               {{/ topics}}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                
+            </tbody>
+             {{/courses}}
+            {{/tcourses}}
+              {{^tcourses}}
+                        <div class="w-100 pull-left alert alert-info" >{{#str}}norecordsfound, local_questionbank{{/str}}</div>
+                {{/ tcourses}}
+        </table>
+    </div>
+</div>
+
+{{#js}}
+    require(['local_questionbank/questionBank'], function(s) {
+        s.init();
+    });
+{{/js}}

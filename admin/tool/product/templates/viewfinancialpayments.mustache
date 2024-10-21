@@ -1,0 +1,109 @@
+{{!
+     This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+<div class="row" id="finacialpaymentscontainer">
+
+    <!--<div class="col-md-12">
+        <div class="col-md-2 pull-right">
+
+            <a class="btn btn-primary btn-block mb-3" href="{{globals.config.wwwroot}}/admin/tool/product/paymentsexport.php">{{#str}}exportcsv, tool_product{{/str}}</a> 
+
+        </div>
+    </div>-->
+    <div class="col-md-12">
+        {{{filterform}}}
+    </div>
+    <div class="col-md-12">
+        <div class="table-responsive mt-4">
+            <!-- table content -->
+
+            <div class="row my-3">
+
+                <div class="col-md-4">
+
+                    <div class="global_filter_structure form-group m-0">
+                            <div class="input_container position-relative">
+                              <input id="global_filtercmtnc" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query" data-options="{{options}}" data-dataoptions="{{dataoptions}}" data-status="{{status}}">
+                                <span class="search_icon"></span>
+                            </div>
+                    </div>
+
+                 </div>
+
+                <div class="col-md-8 d-flex flex-wrap justify-content-end">
+                    <div class="mb-1 mr-5">
+                        <span>
+                            <a href="{{cfg.wwwroot}}/local/organization/invoicesummary.php">
+                                <button class="btn btn-primary ">
+                                   {{#str}}invoice_summary, local_organization {{/str}}
+                                </button>
+                            </a>  
+                        </span>
+                        </div>
+
+                        <div class="dot-warningrow mb-1">
+                            <span class="dot-warning"></span>
+                            <span class="dot-warningtext ml-2">{{# str}}completed,tool_product{{/ str}}</span>
+                        </div>
+                        <div class="dot-inforow mb-1">
+                            <span class="dot-info"></span>
+                            <span class="dot-infotext ml-2">{{# str}}notstartedyet,tool_product{{/ str}}</span>
+                        </div>
+                        <div class="dot-dangerrow mb-1">
+                            <span class="dot-danger"></span>
+                            <span class="dot-dangertext ml-2">{{# str}}inprogress,tool_product{{/ str}}</span>
+                        </div>
+
+                </div>
+
+            </div>
+
+            <div id="viewfinancialpayments" data-region="viewfinancialpayments-preview-container" class="viewpayments">
+                  <div data-region="viewfinancialpayments-count-container"></div>
+                  <div data-region="viewfinancialpayments-list-container" class ="financialpaymentsmethoddata">
+                  </div>
+                  <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                        <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+{{#js}}
+require(['tool_product/product'], function(product) {
+         
+        product.paymentsinit();
+});
+require(['theme_academy/cardPaginate'], function(cardPaginate) {
+
+    cardPaginate.reload({{{options}}}, {{{dataoptions}}},{{{filterdata}}});
+
+    var search_interval = 100;
+    var timer;
+    $(document).on('keyup', '#global_filtercmtnc', function(){
+        var searchval = $(this).val();
+        var filterdata = {search_query: searchval};
+        timer = setTimeout(function(){
+            cardPaginate.reload({{{options}}}, {{{dataoptions}}},filterdata);
+        },search_interval);
+    });
+    $(document).on('keydown', '#global_filtercmtnc', function(){
+        clearTimeout(timer);
+    });
+
+});
+  
+{{/js}}

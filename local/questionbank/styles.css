@@ -1,0 +1,125 @@
+#questionbank_container{
+    border: 0px solid #eee;
+    min-height: 500px;
+    border-radius: 15px;
+    padding: 0rem;
+    background-color: transparent ;
+    margin-top: 15px;
+}
+#questionbank_container #question_bank_tabs .nav-link{
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#questionbank_container #question_bank_tabs .nav-link:not(.active){
+    color: #98A9B4;
+}
+#questionbank_container #question_bank_tabs .nav-link.active{
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#questionbank_container .questionbank_content  {
+    border-bottom: 1px solid #D4DBE0;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+}
+#questionbank_container .questionbank_content .qbtitle{
+    font-weight: normal;
+}
+#questionbank_container .questionbank_content .qb_details_div{
+    padding: 1rem;
+    background-color: #E9ECF0;
+    border-radius: 10px;
+    border: 1px solid #E7EBED;
+}
+.question_bank_details_container{
+    padding: 1rem;
+    background-color: #E9ECF0;
+    border-radius: 10px;
+    border: 1px solid #E7EBED;
+}
+.question_bank_details_container h6{
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+.question_bank_details_container h5{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+.selectedcoursetopics{
+    margin-left:20px ;
+}
+.selectedcoursetopics .list-group .list-group-item{
+    background-color: #E9ECF0;
+    border:none;
+    margin-bottom: 10px;
+}
+#questionbank_container .questionbank_content .qb_details_div h6{
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+#questionbank_container .questionbank_content .qb_details_div h5{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+#questionbank_container .questionbank_content .qb_action_container .btn{
+    background-color: transparent;
+    padding: 0.3rem 0.45rem;
+    border-radius: 5px;
+    line-height: 1;
+    font-size: 1rem;
+    margin-right: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+/*//body.path-questionbank.questioncreation_page .mform div#fitem_id_category,
+*/
+body.path-question.path-question-type .mform div#fitem_id_status {
+display: none;
+}
+body.path-local.path-local-questionbank .queformulation{
+    color: #001a1e;
+    background-color: #e7f3f5;
+    border-color: #b8dce2;
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid black;
+    margin-bottom: 1rem;
+    margin-left: 7rem;
+    margin-top: -1.9rem;
+   /*border: 0 solid transparent;*/
+    border-radius: 0.5rem;
+}
+/*body.path-local.path-local-questionbank .que .formulation{
+    border-style: ridge;
+}*//* questions page styles */
+
+#questionswrapper .questions_header{
+
+    background-color: #E0F2F8;
+
+}
+
+#questionswrapper .questions_container .question:nth-child(odd){
+
+    background-color: #E9ECF0;
+
+}
+
+#questionswrapper .questions_container .question:nth-child(even){
+
+    background-color: #EAF6FB;
+
+}
+
+#questionswrapper .questions_container .question .action_tags .btn{
+
+    background-color: #fff;
+
+}
+.secondary-navigation nav ul li[data-key="coursehome"] {
+    display: none;
+}
+/* End questions page styles */

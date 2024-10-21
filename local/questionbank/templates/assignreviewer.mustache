@@ -1,0 +1,107 @@
+
+<div id="questionswrapper">
+
+    <div class="questions_container">
+        <div class="question p-4 mb-4">            
+          <div class="d-flex flex-sm-wrap align-items-center  justify-content-between mb-3">
+           <div class="d-flex action_btns justify-content-center"> 
+             {{# action_icons}}
+             {{! Adding Checkboxess }}
+             <div class="form-inline form-group mr-2">
+              <input type="checkbox" name="question" class="form-control" value="{{questionid}}">
+             </div>
+                <a href="{{{edit}}} " >
+                <span class="bg-info text-white"><i class="fa fa-pencil fa-fw"></i></span></a>
+                <a href="{{{delete}}}"  ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                {{/ action_icons}}
+                {{#canduplicate}}
+                <a href="{{{duplicate}}}" title="Duplicate question" ><span class="bg-primary text-white"><i class="fa fa-copy" aria-hidden="true"></i></span></a>
+                {{/canduplicate}}
+          </div>
+          
+            <div>
+              <form action="#" id="changestatus">
+                <h6>{{#str}}status,local_questionbank{{/str}} : <span id="status_span{{questionid}}" class="theme_text_color">{{status}}</span></h6>
+                  {{# statuschange}}
+                <span id="status_change{{questionid}}">
+                    <div class="input-group">
+                      <select class="form-control" name="status" id="status{{questionid}}">
+                         {{# qstatus}}
+                            <option value={{key}}>{{value}}</option>
+                          {{/ qstatus}}
+                      </select>
+                      <div class="input-group-append">
+                        <button type="submit" data-action='changestatus' data-hidestatus={{hidestatus}}  data-id={{questionid}} data-wid={{qbid}} data-status='assign' class='btn btn-primary' value="Update">{{#str}}update,local_questionbank{{/str}}</button>
+                      </div>
+                    </div>
+                </span>
+                  {{/statuschange}}
+              </form>
+            </div>
+          
+          </div> 
+          <input type='text' value= {{{questionid}}} disabled style="width: 7em;"> 
+          </br>
+          {{{question}}}
+            <div class="questionfooter">
+                <div class="d-flex flex-wrap align-items-center justify-content-between py-2">
+                    <h6>{{#str}}createdby,local_questionbank{{/str}} <span class="text-black">{{createduser}}</span></h6>
+                    <h6>{{#str}}reviewedby,local_questionbank{{/str}} <span class="text-black">{{reviewdby}}</span></h6>
+
+                    
+                    <div>
+                    {{# assignreviewer}}
+                      {{#expertslist}}
+                        <div class="d-flex  flex-column justify-content-start ">
+                          <!-- <h6 class="text-nowrap mr-2 mb-0">Assign Reviewer</h6> -->
+                           <h6>{{#str}}reviewer,local_questionbank{{/str}} <span id="reviewer_span{{questionid}}" class="theme_text_color">{{reviewername}}</span></h6>
+                            <span id= "assignreviewerto{{questionid}}">
+                             <form action="#" id="assignreviewer">
+                              <div class="input-group">
+                                <select class="form-control listreviewexperts"  name="reviewer" id="reviewer{{questionid}}">
+                                  <option value=''>{{#str}}assignreviewer,local_questionbank{{/str}}</option>
+                                  {{# hasrecords}}
+                                    <option value={{id}} data-name = '{{fullname}}'>{{fullname}}</option>
+                                  {{/ hasrecords}}
+                                </select>
+                                <div class="input-group-append">
+                                  <input type="submit" data-action='assignreviewer' data-id={{questionid}} data-wid={{qbid}} data-status='assign' class='btn-primar btn ' value="{{#str}} assign,local_questionbank{{/str}}">
+                                </div>
+                              </div>
+                              </form>
+                              <span class="d-block text-danger text-right"><small>{{#str}}notifyreviewer,local_questionbank{{/str}}</small></span>
+                              </span>
+                        </div>
+                       
+                        {{/ expertslist}}
+                        {{^expertslist}}
+                             <span class="d-block text-danger text-right"><small>{{noexpertsassigned}}</small></span>
+                        {{/ expertslist}}
+                    {{/ assignreviewer}}
+                    </div>
+                    
+                </div>
+                <div class="d-flex align-items-center justify-content-btween">
+                    <div class="flex-grow-1 action_tags">
+                        <!-- <button class="btn btn-sm btn-primary theme_text_color" >Competencies</button> -->
+                        {{# questioncompetencies}}
+                          <button class="btn btn-sm btn-primary theme_text_color" data-action="viewquestioncompetencies" data-id={{questionid}} data-name={{questionname}}>{{#str}}competencies,local_questionbank{{/str}}</button>
+                        
+                        {{/questioncompetencies}}
+                        {{# questioncourses}}
+                        <button class="btn btn-sm btn-primary theme_text_color" data-action="viewtopics" data-id={{questionid}} data-name={{questionname}} data-workshop={{qbid}}>{{#str}}topics,local_questionbank{{/str}}</button>
+                        {{/ questioncourses}}
+                    </div>
+                  
+                </div>
+              </div>
+            
+        </div>
+    </div>
+</div>
+{{#js}}
+
+require(['local_competency/competencyform'], function(s) {
+        s.init();
+});
+{{/js}}

@@ -1,0 +1,45 @@
+{{#response}}
+    {{#records}}
+    <div class= "table-responsive">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">{{# str}} fieldcode, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} entityname, local_trainingprogram{{/ str}}</th>
+                   <th scope="col">{{# str}} created_updated_by, local_trainingprogram{{/ str}}</th>
+                   <th scope="col">{{# str}} created_updated_at, local_trainingprogram{{/ str}}</th>
+                  <th>{{# str}} actions, local_userapproval{{/ str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+                <tr>
+                  <td><a href="#" data-action="offeringlogs" data-id={{rootid}}>{{entitycode}}</a></td>
+                  <td>{{entityname}}</td>
+                  <td>{{requestby}}</td>
+                  <td>{{requestat}}</td>
+                  <td>
+                    {{# actionview}} 
+                        <div class="flex-wrap align-items-center d-flex action_btns">
+                            <button class="launch_btn btn btn-primary btn-sm mr-3" data-id={{entityid}} data-code="{{entitycode}}" data-entitytype = "{{entitytype}}" data-actiontype ='publish'  data-action="publishorunpublishentity" >{{#str}} publish, local_trainingprogram {{/str}}</button>
+                        </div>
+                    {{/ actionview}}
+                    {{^ actionview}}
+                        <div class="flex-wrap align-items-center d-flex action_btns">
+                        ---
+                        </div>
+                    {{/ actionview}}
+                  </td>      
+                </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+        </div>
+    {{/ records}}
+{{/ response}}
+
+{{#js}}
+    require(['local_trainingprogram/tplogview'], function(s) {
+        s.init();
+    });
+{{/js}}

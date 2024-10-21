@@ -1,0 +1,11 @@
+<div class="row profileeditor">
+    <div class="col align-self-end">
+        <a tabindex="0" role="button" class="btn btn-primary" data-action="createcpd"><i class="fa fa-plus" aria-hidden="true"></i> {{#str}}addnew, local_cpd{{/str}}</a>
+    </div>
+</div>
+
+{{#js}}
+    require(['local_cpd/cpdform'], function(s) {
+        s.init();
+    });
+{{/js}}

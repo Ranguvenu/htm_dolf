@@ -1,0 +1,28 @@
+
+<div class="card mt-3" id="invoice-container" style="background-color: #e6f7fe;">
+	<div class="col-md-12" >
+		<p class="bold"> {{orgname}}</p>
+		<hr>
+		<p class="row">
+			<span class="form-inline col-sm-5">
+				{{num_users}} {{#str}}num_enrollment_amt, local_exams{{/str}}
+				<span class="small">({{num_users}} * {{productprice}} SAR)</span>
+			</span> 
+
+			<span class="col-sm-1">:</span>
+			<span class="col-sm-4"> <b class="inline">{{newamount}} SAR</b></span>
+		</p>
+		<p class="row">
+			<span class="form-inline col-sm-5">
+			{{#str}}taxe_amt, local_exams{{/str}} <span class=" col-sm-5 small"> ({{tax_slab}}%) </span> </span> 
+			<span class="col-sm-1">:</span>
+			<span class="col-sm-4"> <b class="inline">{{taxes}} SAR </b>  </span>
+			</p>
+		<hr>
+		<p class="row">
+			<span class="col-sm-5"> {{#str}}total_invoice_amt, local_exams{{/str}} </span>
+			<span class="col-sm-1">:</span>
+			<span class="col-sm-4"> <b class="inline">{{totalamount}} SAR</b></span>
+		</p>
+	</div>
+</div>

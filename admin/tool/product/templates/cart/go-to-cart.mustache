@@ -1,0 +1,18 @@
+
+{{#isloggedin}}
+	{{#checkout}}
+	<a class="btn btn-primary btn-block mb-3" href="{{globals.config.wwwroot}}/admin/tool/product/checkout.php">{{#str}}checkout, tool_product{{/str}}</a>	
+	{{/checkout}}
+	{{^checkout}}
+	<a class="btn btn-primary btn-block mb-3" href="{{globals.config.wwwroot}}/admin/tool/product/cart.php">{{#str}}gotocart, tool_product{{/str}}</a>
+	{{/checkout}}
+{{/isloggedin}}
+{{^isloggedin}}
+	<a class="btn btn-primary btn-block mb-3" href="{{globals.config.wwwroot}}/admin/tool/product/cart.php">{{#str}}gotocart, tool_product{{/str}}</a>
+{{/isloggedin}}
+{{# js}}
+require(['jquery', 'core/templates', 'core/modal_factory', 'tool_product/login-modal'], function($, Templates, ModalFactory, ModalLogin) {
+	var trigger = $(document).find('[data-action="login-for-cart"]');
+	ModalFactory.create({type: ModalLogin.TYPE}, trigger); 
+});
+{{/ js}}

@@ -1,0 +1,98 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <div class="border rounded p-3 bg-theme_light">
+            {{#records}}
+                <div class="row mx-0 rounded py-3 my-3 {{{trainingstatus}}}">
+                    <div class="col-md-2">
+                        <!-- <span class="d-block"><small>{{#str}} trainingname ,tool_product{{/str}}</small></span> -->
+                        <span class="d-block"><small>{{{productname}}}</small></span>
+                        <h6>{{{trainingname}}} </h6>
+                        {{#tagreement}}
+                        {{#pname}}
+                        <a href="{{{trainingagreement}}}" download data-toggle="tooltip"title="{{#str}} tagree ,tool_product{{/str}}"><i class="fa fa-download" aria-hidden="true" ></i></a>
+                        {{/pname}}
+                        {{/tagreement}}
+                    </div>
+                    {{# costview}}
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} cost ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}})</small></span>
+                        <h6>{{cost}}</h6>
+                    </div>
+                    {{/ costview}}
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} organizationname ,tool_product{{/str}}</small></span>
+                        <h6>{{organizationname}}</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} orgoffcialname ,tool_product{{/str}}</small></span>
+                        <h6>{{orgoffcialname}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} type ,tool_product{{/str}}</small></span>
+                        <h6>{{{invoicetype}}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} duedate ,tool_product{{/str}}</small></span>
+                        <h6>{{duedate}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} purchasedseats ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{purchasedseats}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} purchasedapprovedseats ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{approvalseats}}</h6>
+                    </div>
+                    <!--<div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} purchasedapprovedseats ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{{approvedseats}}}</h6>
+                    </div>-->
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} purchasedusedseats ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{{approvalseats}}}</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} transactionid ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{{transactionid}}}</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} invoicestatus ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{status}}</h6>
+                    </div>                    
+                    <div class="col-md-1">
+                         <span class="d-block"><small>{{#str}} action ,tool_product{{/str}}</small></span>
+                        {{#paymentsupdate}}
+
+                            <button class="btn btn-sm btn-primary mb-2" data-action="paymentsupdate" data-id="{{id}}"  data-name="{{trainingname}}">{{#str}} paymentsupdate ,tool_product{{/str}}</button>
+
+                        {{/paymentsupdate}}
+
+                         {{#sendemailactionview}}
+		             
+		                    <button class="btn btn-sm btn-primary mb-2" data-action="sendemailtoorgofficial" data-productid="{{id}}"   data-orgoffcialname="{{orgoffcialname}}">{{#str}}email,tool_product{{/str}}</button>
+
+                        {{/sendemailactionview}}
+                        {{# invoiceaction}}
+                            <a href="{{globals.config.wwwroot}}/admin/tool/product/invoicepdf.php?invoice={{orderinfo}}" class="btn btn btn-primary"><i class="fa fa-download"></i></a>
+                        {{/ invoiceaction}}
+                    </div>
+                </div>
+            {{/records}}
+            {{#records.0}}
+                    <div class="row mx-0 rounded py-3 my-3 alert alert-success">
+                        <div class="col-md-2">
+                                <h6>{{#str}} totalcost ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}}) </h6>
+                        </div>
+                        <div class="col-md-1">
+                            <h6> {{totalcost}}</h6>
+                        </div>
+                    </div>
+            {{/records.0}}
+        </div>
+   {{/viewtypeCard}}
+{{/response}}               

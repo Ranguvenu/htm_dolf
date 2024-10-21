@@ -1,0 +1,33 @@
+{{#response}}
+<div class="d-flex justify-content-end align-items-center my-3">
+    {{#qbstatus}}
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="mapcompetencies" data-id={{workshopid}}>{{#str}}addcompetency, local_questionbank{{/str}}</a>
+    {{/qbstatus}}
+</div>
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <table class="table generaltable table-striped">
+            <thead>
+                <tr>
+                    <th>{{#str}}competency,local_trainingprogram{{/str}}</th>
+                    <th>{{#str}}code,local_trainingprogram{{/str}}</th>
+                    <th>{{#str}}type,local_trainingprogram{{/str}}</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#records}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{code}}</td>
+                    <td>{{type}}</td>
+                </tr>
+                {{/records}}
+            </tbody>
+        </table>
+   {{/viewtypeCard}}
+{{/response}}

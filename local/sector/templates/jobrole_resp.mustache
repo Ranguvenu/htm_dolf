@@ -1,0 +1,23 @@
+<table  class="table" id="jobrole">
+<thead><tr>
+<th scope="col">
+<th>{{#str}}roleid , local_sector{{/str}}</th>
+<th>{{#str}}responsibilities , local_sector{{/str}}</th>
+</tr>
+</thead>
+<tbody>
+{{# jobrole}}<tr>
+<th scope="row"></th>
+<td>{{roleid}}</td>
+<td>{{responsibility}}</td>
+
+</tr>
+{{/ jobrole}}
+</tbody>
+</table>
+{{#js}}
+    require(['local_sector/jobrole_responsibility_table'], function(s) {
+        s.(CustomjobroleDatatable);
+    });
+{{/js}}
+

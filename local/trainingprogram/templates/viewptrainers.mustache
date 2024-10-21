@@ -1,0 +1,52 @@
+
+         <div id="trainer_table_container">
+        <table class="table generaltable">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center"><b>{{#str}}role, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col" class="text-center"><b>{{#str}}users_assigned, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col" class="text-center"><b>{{#str}}action, local_trainingprogram{{/str}}<b></th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                <tr>
+                    <td class="text-center">{{#str}}traineroredittingtrainer, local_trainingprogram{{/str}}</td>
+                    <td class="text-center"><a href="{{#enrolledaction}} {{{url}}}/local/trainingprogram/programenrolleduserslist.php?programid={{programid}}&offeringid={{offeringid}}&selectedroleid={{trainerid}} {{/ enrolledaction}}">{{programoffusers}}</a></td>
+                    <td class="text-center">
+                    {{#assigntrainer}}
+                        <a href="#" data-action="trainerassign" data-programid = {{programid}} data-programname = '{{{programname}}}' data-role = {{trainerid}} data-offeringid={{offeringid}} tabindex="0" role="button">{{#str}}assign_trainer, local_trainingprogram{{/str}}</a>
+                    {{/assigntrainer}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">{{#str}}trainee, local_trainingprogram{{/str}}</td>
+                    {{# enrolltraineesaction}}
+                    <td class="text-center"><a href="{{#enrolledaction}} {{{url}}}/local/trainingprogram/programenrolleduserslist.php?programid={{programid}}&offeringid={{offeringid}}&selectedroleid={{traineeid}} {{/ enrolledaction}}">{{traineeusers}}</a></td>
+                    {{/ enrolltraineesaction}}
+
+                    {{^ enrolltraineesaction}}
+
+                      <td class="text-center">{{traineeusers}}</td>
+
+                    {{/ enrolltraineesaction}}
+                   
+                    <td class="text-center">
+                        {{# enrolltraineesaction}}
+                        <a href="{{url}}/local/trainingprogram/programenrollment.php?programid={{programid}}&roleid={{traineeid}}&offeringid={{offeringid}}">{{#str}}assign_trainee, local_trainingprogram{{/str}} </a>
+                        {{/ enrolltraineesaction}}
+                    
+                    </td>
+                   
+                </tr>
+           
+            </tbody>
+        </table>
+        
+        </div>
+   {{#js}}
+      require(['local_trainingprogram/tpform'], function(s) {
+        s.init();
+    });
+{{/js}}
+

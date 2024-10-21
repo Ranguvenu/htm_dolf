@@ -1,0 +1,181 @@
+<nav class="navbar navbar-expand-lg navbar-light d-none d-md-block" id="homepagenavbar">
+    <div class="container-fluid px-4">
+    <a href="{{{ config.wwwroot }}}" class="navbar-brand aabtn {{# output.get_homepage_logo }}has-logo{{/ output.get_homepage_logo }}
+        {{^ output.get_homepage_logo }}
+            d-none d-sm-inline
+        {{/ output.get_homepage_logo }}
+            ">
+        {{# output.get_homepage_logo }}
+            <span class="logo d-sm-inline">
+                <img src="{{output.get_homepage_logo}}" alt="{{sitename}}" class="main_logo">
+                <span class="logocaption"><span>{{#str}}logocaption, theme_academy{{/str}}</span></span>
+            </span>
+        {{/ output.get_homepage_logo }}
+        {{^ output.get_homepage_logo }}
+            <span class="site-name d-none d-md-inline">{{{ sitename }}}</span>
+        {{/ output.get_homepage_logo }}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="ml-auto">
+        <ul class="navbar-nav topnav mb-2 align-items-center justify-content-md-end">
+          <li class="nav-item">
+            <a class="nav-link" href="{{{output.cart_link}}}">
+              <span class="navicon basketicon"></span>
+
+              {{#str}}cart,tool_product{{/str}}
+
+         
+
+            </a>
+          </li>
+          {{^isloggedin}}
+          <li class="nav-item">
+            <a class="nav-link" href="{{config.wwwroot}}/login/index.php">
+              <span class="navicon usericon"></span>
+              {{#str}}register_nlogin, theme_academy{{/str}}
+            </a>
+          </li>
+          {{/isloggedin}}
+          {{#isloggedin}}
+          <li>
+            <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+              {{#usermenu}}
+                  {{> core/user_menu }}
+              {{/usermenu}}
+            </div>
+          </li>
+          {{/isloggedin}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="languagedropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{{output.getcurrent_lang}}}
+              <span class="navicon languageglobeicon"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="languagedropdown">
+              <a class="dropdown-item" href="{{{output.generateenlangurl}}}">English</a>
+              <a class="dropdown-item" href="{{{output.generatearlangurl}}}">Arabic</a>
+            </div>
+          </li>
+        </ul>
+      <ul class="navbar-nav mainnav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{{output.nav_link_home_url}}}">{{#isloggedin}}{{#str}}leftmenu_dashboard, theme_academy{{/str}}{{/isloggedin}}{{^isloggedin}} {{#str}}nav_link_home, theme_academy{{/str}}{{/isloggedin}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{{output.about_link}}}">{{#str}}nav_link_about, theme_academy{{/str}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{{output.training_programs_link}}}">
+            {{#str}}nav_link_training_programs, theme_academy{{/str}}
+          </a>
+          
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="{{{output.learning_path_link}}}">
+            {{#str}}nav_link_learing_path, theme_academy{{/str}}
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{{output.exams_link}}}">
+            {{#str}}nav_link_exam_qualifications, theme_academy{{/str}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{{output.events_link}}}">
+            {{#str}}nav_link_events, theme_academy{{/str}}
+          </a>
+        </li>
+      </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg fixed-top front_sticky_navbar navbar-dark " id="front_sticky_navbar">
+    <a class="navbar-brand" href="#">
+      <div  class="piximg  mb-3 pb-2">
+        {{# pix }} academy/white_logo, theme_academy {{/ pix }}
+      </div>
+
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sticknavbarnav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="sticknavbarnav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">{{#str}}nav_link_home, theme_academy{{/str}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{{output.about_link}}}">{{#str}}nav_link_about, theme_academy{{/str}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{{output.training_programs_link}}}">
+            {{#str}}nav_link_training_programs, theme_academy{{/str}}
+          </a>
+          
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="{{{output.learning_path_link}}}">
+            {{#str}}nav_link_learing_path, theme_academy{{/str}}
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{{output.exams_link}}}">
+            {{#str}}nav_link_exam_qualifications, theme_academy{{/str}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{{output.events_link}}}">
+            {{#str}}nav_link_events, theme_academy{{/str}}
+          </a>
+        </li>
+        <li class="nav-item icon_link">
+          <a class="nav-link" href="{{{output.cart_link}}}">
+            <span class="navicon basketicon"></span>
+          </a>
+        </li>
+        {{^isloggedin}}
+        <li class="nav-item icon_link">
+          <a class="nav-link" href="{{config.wwwroot}}/login/index.php">
+            <span class="navicon usericon"></span>
+          </a>
+        </li>
+        {{/isloggedin}}
+        {{#isloggedin}}
+        <li class="nav-item icon_link">
+          <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+            {{#usermenu}}
+                {{> core/user_menu }}
+            {{/usermenu}}
+          </div>
+        </li>
+        {{/isloggedin}}
+        <li class="nav-item dropdown icon_link">
+          <a class="nav-link dropdown-toggle" href="#" id="languagedropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="navicon languageglobeicon"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="languagedropdown">
+            <a class="dropdown-item" href="{{{output.generateenlangurl}}}">English</a>
+            <a class="dropdown-item" href="{{{output.generatearlangurl}}}">Arabic</a>
+          </div>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+  {{#js}}
+  require(['tool_product/product'], function(product) {
+
+      let products = localStorage.getItem('products');
+
+      products = JSON.parse(products);
+
+      var productscount= products ? products.length : 0;
+
+      $('.basketicon').html('<span class="basketcount">'+productscount+'</span>');
+  });
+{{/js}}

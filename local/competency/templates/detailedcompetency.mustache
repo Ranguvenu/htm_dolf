@@ -1,0 +1,138 @@
+<div id="detailedcompetency_container">
+    <section>
+        <h3 class="text-black mb-3">{{name}} {{#str}}details,local_competency{{/str}}</h3>
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <div class="maininfocontainer">
+                    <div class="piximg">{{#pix}}competencycodeicon,local_competency{{/pix}}</div>
+                    <div class="content">
+                        <h6 class="theme_text_color2">{{#str}}competencycode,local_competency{{/str}}</h6>
+                        <h6>{{code}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="maininfocontainer">
+                    <div class="piximg">{{#pix}}competencytitle,local_competency{{/pix}}</div>
+                    <div class="content">
+                        <h6 class="theme_text_color2">{{#str}}competencytitle,local_competency{{/str}}</h6>
+                        <h6>{{name}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="maininfocontainer">
+                    <div class="piximg">{{#pix}}competencytype,local_competency{{/pix}}</div>
+                    <div class="content">
+                        <h6 class="theme_text_color2">{{#str}}competencytype,local_competency{{/str}}</h6>
+                        <h6>{{type}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="maininfocontainer desc my-4">
+            <div class="piximg">{{#pix}}competencydescicon,local_competency{{/pix}}</div>
+            <div class="content">
+                <h6 class="text-black my-2">{{#str}}competencydescriptor,local_competency{{/str}}</h6>
+                <p>{{{description}}}</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3 class="text-black mb-3">{{#str}}competencylevels,local_competency{{/str}}</h3>
+        <div class="level_container mb-2">
+          
+           {{#level}} 
+
+                <div class="level_header align-items-center p-2 d-flex justify-content-between"  data-toggle="collapse" href="#level-{{id}}">
+                    <h5 class="text-black m-0">{{name}}</h5>
+                    <div class="downarrow pr-1">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="level_content p-2 collapse" id="level-{{id}}">
+
+                    {{#addleveldescription}}
+
+                        <button class="launch_btn btn btn-primary pull-right" data-action="editleveldescription" data-levelid="{{levelid}}" data-competencyid="{{competencyid}}" data-name="{{name}}" data-toggle = "tooltip">{{^leveldescription}}{{#str}}addleveldescription,local_competency{{/str}}{{/leveldescription}}{{#leveldescription}}{{#str}}editleveldescriptiontl,local_competency{{/str}}{{/leveldescription}}</button>
+
+                    {{/addleveldescription}}
+
+                    {{#leveldescription}}
+
+                        {{{leveldescription}}}
+
+                    {{/leveldescription}}
+                    {{^leveldescription}}
+                        <div class='alert alert-info mt-6'>{{#str}}noleveldescription,local_competency{{/str}}</div>
+                    {{/leveldescription}}
+
+                    <p><h5 class="text-black m-0">{{#str}}recommendedcompetencyachievement,local_competency{{/str}}</h5></p>
+
+                    {{#achievements.0}}
+                        <table class="table generaltable ">
+                            <thead>
+                                <tr>
+                                    <th>{{#str}}achievementtitle,local_competency{{/str}}</th>
+                                    <th colspan="2">{{#str}}achievementtype,local_competency{{/str}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#achievements}}
+                                <tr>
+                                    <td>
+                                        {{{achievementtitle}}}
+                                    </td>
+                                    <td>
+                                        {{achievementtype}}
+                                    </td>
+                                    <td>
+                                        {{#achievementsviewtype}}
+
+                                            <a href="{{achievementurl}}" ><button class="launch_btn btn btn-primary">{{#str}}view,local_competency{{/str}}</button></a>
+
+                                        {{/achievementsviewtype}}
+
+                                        {{^achievementsviewtype}}
+
+                                            {{#viewtype}}
+
+                                              <a href="{{achievementurl}}" ><button class="launch_btn btn btn-primary">{{#str}}view,local_competency{{/str}}</button></a>
+
+                                            {{/viewtype}}
+
+                                            {{^viewtype}}
+
+                                                <a href={{{enrolurl}}} ><button class="launch_btn btn btn-primary">{{#str}}enroll,local_competency{{/str}}</button></a>
+
+                                            {{/viewtype}}
+
+                                        {{/achievementsviewtype}}
+
+                                    </td>
+                                </tr>
+                                {{/achievements}}
+                            </tbody>
+                        </table>
+                   {{/achievements.0}}
+                    {{^achievements.0}} 
+                        <div class='alert alert-info'>{{#str}}nolearningcontent,local_competency{{/str}}</div>
+                    {{/achievements.0}} 
+                </div>
+            {{/level}}
+            {{^level}} 
+                <div class='alert alert-info'>{{#str}}nojobrolelevel,local_competency{{/str}}</div>
+            {{/level}} 
+
+     
+        </div>
+    </section>
+
+</div>
+{{#js}}
+
+require(['local_competency/competencyform'], function(s) {
+        s.init();
+});
+
+{{/js}}

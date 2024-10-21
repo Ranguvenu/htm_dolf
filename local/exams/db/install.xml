@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/exams/db" VERSION="20150323" COMMENT="XMLDB file for Moodle local/organization"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_exams" COMMENT="List of Exams">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="old_id" TYPE="char" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="exam" TYPE="char" LENGTH="225" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="examnamearabic" TYPE="char" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="code" TYPE="char" LENGTH="225" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="2" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="examprice" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="sellingprice" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="actualprice" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="tax_free" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" />
+        <FIELD NAME="programdescription" TYPE="text" LENGTH="big"  SEQUENCE="false"/>
+        <FIELD NAME="sectors" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="targetgroup" TYPE="char" LENGTH="255" NOTNULL="false"  SEQUENCE="false"/>        
+        <FIELD NAME="targetaudience" TYPE="text" LENGTH="big"  SEQUENCE="false"/>
+        <FIELD NAME="clevels" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="ctype" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="competencies" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="competencyweights" TYPE="text" LENGTH="big"  SEQUENCE="false"/>
+        <FIELD NAME="programs" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="requirements" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="additionalrequirements"  TYPE="text" LENGTH="big"  SEQUENCE="false"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="certificatevalidity" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="ownedby" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="ownedbystatus" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false" />
+        <FIELD NAME="attachedmessage" TYPE="text" LENGTH="big"  SEQUENCE="false"/>
+         <FIELD NAME="termsconditions" TYPE="text" LENGTH="big" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="noofattempts" TYPE="int" LENGTH="8" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="appliedperiod" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="examineeshouldpass" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="courseid" UNIQUE="false" FIELDS="courseid"/>
+      </INDEXES>      
+    </TABLE>
+    <TABLE NAME="exam_enrollments" COMMENT="Exam enrolments">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="examid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="profileid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="examdate" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="hallscheduleid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="enrolstatus" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="orderid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="enrolledby" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="0"/> 
+        <FIELD NAME="organization" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="0"/>  
+        <FIELD NAME="orgofficial" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="0"/>
+        <FIELD NAME="tandcconfirm" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="enrolltype" TYPE="int" LENGTH="12" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>  
+    <TABLE NAME="exam_completions" COMMENT="table for exam completions">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="examid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="profileid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completion_status" TYPE="int" LENGTH="2" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completiondate" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+        <KEY NAME="fk_examid" TYPE="foreign" FIELDS="examid" REFTABLE="local_exams" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="examid" UNIQUE="false" FIELDS="examid"/>
+      </INDEXES>
+    </TABLE>
+
+    <TABLE NAME="local_exam_grievance" COMMENT="Exam Grievance">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="examid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="profileid" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="submittedon" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="actiontaken" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="approvedon" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="paymentstatus" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="reason" TYPE="text" LENGTH="big" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="actionby" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE> 
+
+    <TABLE NAME="exam_grievance_payments" COMMENT="Exam Grievance payments">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="grievanceid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_exam_profiles" COMMENT="Exam Profiles">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="examid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="sectionid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="quizid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="profilecode" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="activestatus" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="publishstatus" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="decision" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="language" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="duration" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="seatingcapacity" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="questions" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="trailquestions" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="material" TYPE="int" LENGTH="5"  SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="materialfile" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="materialurl" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="targetaudience" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="nondisclosure" TYPE="text" LENGTH="big"  SEQUENCE="false"/>
+        <FIELD NAME="instructions" TYPE="text" LENGTH="big"  SEQUENCE="false"/>
+        <FIELD NAME="registrationstartdate" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="registrationenddate" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="password" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="passinggrade" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>        
+        <FIELD NAME="hascertificate" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="preexampage" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="successrequirements" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="showquestions" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="showexamduration" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="showremainingduration" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="commentsoneachque" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="commentsaftersub" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="showexamresult" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="showexamgrade" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="competencyresult" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="resultofeachcompetency" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="evaluationform" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="notifybeforeexam" TYPE="int" LENGTH="5" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="examid" UNIQUE="false" FIELDS="examid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_exam_attempts" COMMENT="Exam Attempts">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="examid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="attemptid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="daysbeforeattempt" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="fee" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="examid" UNIQUE="false" FIELDS="examid"/>
+      </INDEXES>
+    </TABLE>
+
+    <TABLE NAME="local_exam_attemptpurchases" COMMENT="Exam Attempts">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="productid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="examid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="referenceid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="referencetable" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="examid" UNIQUE="false" FIELDS="examid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_exam_userhallschedules" COMMENT="User Hall Schedules">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="productid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="orderid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="examid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="profileid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="hallscheduleid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="attemptid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="examdate" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="enrolstatus" TYPE="int" LENGTH="5" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="1"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="organization" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="orgofficial" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="0"/>
+        <FIELD NAME="enrolltype" TYPE="int" LENGTH="12" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+         <FIELD NAME="productid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="orderid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="examid" UNIQUE="false" FIELDS="examid"/>
+      </INDEXES>
+    </TABLE>
+
+    <TABLE NAME="local_fast_examenrol" COMMENT="">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="username" TYPE="char" LENGTH="255" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="centercode" TYPE="char" LENGTH="255"  SEQUENCE="false" />
+        <FIELD NAME="examcode" TYPE="char" LENGTH="255"  SEQUENCE="false"/>
+        <FIELD NAME="profilecode" TYPE="char" LENGTH="255"  NOTNULL="false" />
+        <FIELD NAME="examlanguage" TYPE="char" LENGTH="255"  NOTNULL="false" />
+        <FIELD NAME="examdatetime" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="purchasedatetime" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="createdbyusername" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="billnumber" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true"  DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="paymentrefid" TYPE="text" LENGTH="big" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userorganization" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="reservationid" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="transactiontypes" TYPE="int" LENGTH="1" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="registrationdate" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="oldexamdatetime" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="oldcentercode" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="payementtypes" TYPE="int" LENGTH="10" UNSIGNED="true" NOTNULL="true"  DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" UNSIGNED="true" NOTNULL="false"  DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="errorcode" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="errormessage" TYPE="char" LENGTH="255" UNSIGNED="true" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="createdbyuserid" TYPE="int" LENGTH="10" UNSIGNED="true" NOTNULL="false"  DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="validation" TYPE="int" LENGTH="10" UNSIGNED="true" NOTNULL="true"  DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+
+
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>     
+    </TABLE>
+    <TABLE NAME="local_cancel_logs" COMMENT="Logs for cancel">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="entitytype"  TYPE="char" LENGTH="255"  NOTNULL="false" />
+        <FIELD NAME="entityid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="productid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="reason"  TYPE="text" LENGTH="big" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="policy" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="refundamount" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+      <TABLE NAME="local_exams_absenties" COMMENT="Exam Absentees">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>  
+        <FIELD NAME="examid"  TYPE="int" LENGTH="10"  NOTNULL="true"  DEFAULT="0"/>
+        <FIELD NAME="profileid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="quizid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" DEFAULT="0"  SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_absent_logs" COMMENT="Logs for absent">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="entitytype"  TYPE="char" LENGTH="255"  NOTNULL="false" />
+        <FIELD NAME="entityid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="productid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="reason"  TYPE="text" LENGTH="big" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="policy" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="refundamount" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_absent_logs" COMMENT="Logs for absent">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="entitytype"  TYPE="char" LENGTH="255"  NOTNULL="false" />
+        <FIELD NAME="entityid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="productid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="reason"  TYPE="text" LENGTH="big" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="policy" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="refundamount" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+  </TABLES>
+</XMLDB>

@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="col-md-12"><h4 class="mb-3"> {{^ is_loggedin}}{{#str}} videos,theme_academy{{/str}}{{/ is_loggedin}} {{# is_loggedin}}{{#str}} video,theme_academy{{/str}}{{/ is_loggedin}}   </h4></div>
+
+	{{# isloggedin}}
+
+	     {{^ organizationofficial}}
+	
+			<div class="col-md-6 text-right">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/T5X8A_ZLxKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			
+			</div>
+		{{/ organizationofficial}}
+		{{# organizationofficial}}
+
+			<div class="col-md-6 text-right">
+				
+		       <iframe width="560" height="315" src="https://www.youtube.com/embed/4Oceh2CM4oU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+			</div>
+
+
+		{{/ organizationofficial}}
+
+	{{/ isloggedin}}	
+	{{^ isloggedin}}	
+
+	    <div class="col-md-6 text-right">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/T5X8A_ZLxKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			
+		</div>
+
+		<div class="col-md-6 text-right">
+				
+		      <iframe width="560" height="315" src="https://www.youtube.com/embed/4Oceh2CM4oU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+		</div>
+
+	{{/ isloggedin}}	
+
+	<div class="col-md-12 my-4 "><h4 class="my-4 ">{{#str}}document,theme_academy{{/str}}</h4>  
+		
+		{{^ isloggedin}}
+
+		  <a href="{{{traineedocumenturl}}}" target="_blank"><button class="btn btn-primary w-9">{{#str}}viewdocument,theme_academy{{/str}}</button></a>
+
+		{{/ isloggedin}}
+
+		{{#isloggedin}}
+
+			{{^ organizationofficial}}
+		
+				<a href="{{{traineedocumenturl}}}" target="_blank"><button class="btn btn-primary w-9">{{#str}}viewdocument,theme_academy{{/str}}</button></a>
+
+			{{/ organizationofficial}}
+			{{# organizationofficial}}
+
+				<a href="{{{orgofficialdocumenturl}}}" target="_blank"><button class="btn btn-primary w-9">{{#str}}viewdocument,theme_academy{{/str}}</button></a>
+
+			{{/ organizationofficial}}
+
+		{{/ isloggedin}}
+	</div>
+	
+</div>
+

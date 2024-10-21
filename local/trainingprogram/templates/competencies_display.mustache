@@ -1,0 +1,38 @@
+<div class="global_filter_structure">
+      <input id="competency_data_global_filter" class="global filter form-control col-md-6" placeholder={{#str}}search_competency,local_competency{{/str}} type="text" name="search_query">
+</div>
+<div id="targetcompetencypc" data-region="targetcompetencypc-preview-container" class="competencies_pc_container viewcompetencys px-3 py-4">
+      <div data-region="targetcompetencypc-count-container"></div>
+      <div data-region="targetcompetencypc-list-container" class ="methoddata{{ competencyid }}">
+      </div>
+      <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+            <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+      </span>
+</div>              
+<script>
+      var options = 
+      {
+            targetID: 'targetcompetencypc',
+            templateName: 'local_trainingprogram/competencies_view',
+            methodName: 'display_competenciesinfo',
+            perPage: 5,
+            cardClass: 'col-md-6 col-12',
+            viewType: 'table'
+     };
+      var dataoptions = {programid:{{programid}}};
+      require(['theme_academy/cardPaginate'], function(cardPaginate) {
+            cardPaginate.reload(options, dataoptions,'');
+            var search_interval = 100;
+            var timer;
+            $(document).on('keyup', '#competency_data_global_filter', function(){
+                  var searchval = $(this).val();
+                  var filterdata = {search_query: searchval};
+                  timer = setTimeout(function(){
+                  cardPaginate.reload(options, dataoptions,filterdata);
+                  },search_interval);
+            });
+            $(document).on('keydown', '#competency_data_global_filter', function(){
+                clearTimeout(timer);
+            });
+      });
+</script>

@@ -1,0 +1,27 @@
+<div id="registration_container">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h3 class="text-black m-0">{{# str}} register, auth_registration{{/ str}}</h3>
+            <p class="theme_text_color2">{{# str}} register_text, auth_registration{{/ str}}
+        </div>
+        <div class="col-md-4 col-lg-3 d-none border-right">
+            <!-- nav tabs -->
+            {{> auth_registration/navtabs }} 
+        </div>
+        <div class="col-md-12 col-lg-12">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade" id="organization_reg_tab" role="tabpanel" aria-labelledby="organization_reg_tab-tab">
+                </div>
+               <div class="tab-pane show active fade org_reg" id="individual_reg" role="tabpanel" aria-labelledby="individual_reg-tab">
+                   {{{org_registration}}}
+                </div>
+            </div>
+        
+            
+    
+        </div>
+    </div>
+    </div>
+    </div>
+    

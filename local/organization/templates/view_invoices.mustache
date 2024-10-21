@@ -1,0 +1,38 @@
+{{#response}}
+    {{#records}}
+    <div class="table-responsive">
+        <table class="table generaltable">
+            <thead class="thead">
+                <tr>
+                  <th>{{# str}} invoicenumber , local_organization {{/str}}</th>
+                  <th>{{# str}} invoicetype , local_organization {{/str}}</th>
+                  <th>{{#str}} orgofficial,local_organization{{/str}}</th>
+                  <th>{{# str}} learningtype , local_organization {{/str}}</th>
+                  <th>{{# str}} learningitem , local_organization {{/str}}</th>
+                  <th >{{# str}} amount , local_organization {{/str}}</th>
+                  <th>{{# str}} seats , local_organization {{/str}}</th>
+                  <th>{{# str}} invoicestatus , local_organization {{/str}}</th>
+                   <th>{{# str}} paymentstatus , local_organization {{/str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{#hasinvoices}}
+          <tr>
+          <td>{{invoicenumber}}</td>
+          <td>  {{invoicetype}}  </td>
+          <td> {{orgofficial}}  </td>
+          <td>  {{learningtype}} </td>
+          <td>  {{learningitem}} </td>
+          <td> {{amount}} </td>
+          <td>  {{seats}}   </td>
+          <td> {{invoicestatus}} </td>
+          <td> {{paymentstatus}}  </td>
+          </tr>
+
+
+          {{/hasinvoices}}
+          {{/records}}
+          {{/response}}
+
+
+

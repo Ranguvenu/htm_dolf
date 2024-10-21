@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <div id="serch_input">
+             <div class="row my-3">
+                <div class="col-md-4">
+                    {{{globalinput}}}
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-end align-items-center">
+
+                        <button class="btn btn-outline-primary btn-sm" data-action="examschedules" data-examid="{{examid}}" data-userid="0"><i class="fa fa-plus" ></i> {{# str}}createschedules, local_exams{{/ str}}</button>
+
+                        <button class="btn filter_toggle_btn" id="filter_open_btn">
+                            <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                            {{# str}} filter, local_userapproval{{/ str}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="exam_schedules">
+                 {{{schedules}}}
+            </div>
+        </div> 
+    </div>
+     <div class="filters_container">
+        <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}}filter, local_hall{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}}close, local_hall{{/ str}}
+                </button>
+            </div>
+             
+            <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                {{# str}}allthefilter, local_hall{{/ str}}
+            </div>
+        </div>  
+        <div class="filters_contents">
+             {{{filterform}}}
+        </div>          
+    </div>
+</div>

@@ -1,0 +1,138 @@
+@media(min-width: 375px) and (max-width: 424px){
+    .main_navbar .has-logo .logo .main_logo {
+        min-height: 55px;
+    }
+}
+
+@media(max-width: 1024px){
+	.customLeftMemubtn [data-action="toggle-drawer"] {
+	    display: block;
+	    padding: 0 10px;
+	}
+	.customLeftMemubtn [data-action="toggle-drawer"] .icon {
+	    color: #b1b8c7;
+	}
+    .leftmenu_navigator{max-width: inherit;}
+    .customLeftMemubtn{
+        display:block;
+        margin-top: 18px;
+    }
+    #nav-drawer {
+        display: none;
+    }  
+    .left_sidebar {
+        display: none;
+    }
+    body.drawer-open-left #nav-drawer {
+        display: block !important;
+        width: 100%;
+    }
+    body {
+        margin-left: 0px !important;
+    }
+    #region-main .card-paginate_wrap {
+        min-height: 350px;
+    }
+    #nav-drawer .leftmenu_navigator,
+    body.notloggedin .customLeftMemubtn  {
+        display: none;
+    }
+}
+
+@media(min-width: 768px) {
+    body.notloggedin .main_navbar .mobile_menu {
+        display: none;
+    }
+}
+@media(min-width: 320px) {
+    .main_navbar .mobile_menu {
+            display: none;
+    }
+}
+@media(max-width: 767px) {
+    #filters_form .mform #fgroup_id_buttonar {
+        bottom: -46px;
+    }
+    #page-blog-index .course_extended_menu_list {
+        position: inherit;
+    }
+    #filteringform .fitem.form-group {
+        width: 100%;
+    }
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        margin-bottom: 2px;
+        display: inline-flex;
+    }
+    #page-site-index-guideline #guideline .accordion .card .collapsible-link {
+        padding-right: 30px;
+    }
+    body #page #page-content #region-main-box {
+        padding: 0;
+    }
+    body #page #page-content #region-main {
+        padding: 1.25rem;
+    }
+    body.notloggedin .main_navbar .desktop_menu{
+        display: none !important;
+    }
+    #page-header .custom_title,
+    body.notloggedin .main_navbar .mobile_menu {
+        display: block;
+    } 
+    #page-header .custom_title .breadcrumb:not(:empty){
+        border: none;
+    } 
+    #page-blog-index .forumpost .left .userpicture {
+        /*width: 45px;
+        height: 45px;*/
+        margin-left: 0;
+        width: 30px;
+        height: 30px;
+    } 
+    #page-blog-index .blog_entry .content {
+        /*margin-left: 60px;*/
+        margin-left: 0px;
+    }
+    #page-blog-index .forumpost .header {
+        justify-content: flex-end;
+    } 
+	#page-wrapper #page-footer .footer_menu {
+        display: block;
+    }
+    #page-footer .footer_menu li a::after {
+        content: "";
+    }
+}
+
+@media(max-width: 375px) {
+    #page-calendar-view .maincalendar .singlebutton {
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 374px) {
+    .path-calendar .maincalendar .header #calendarviewdropdown {
+        margin-bottom: 10px;
+    }
+    body.notloggedin .main_navbar #loginbtn {
+        margin: 10px !important;
+    }
+    .main_navbar .has-logo .logo .main_logo {
+        min-height: 40px;
+    }
+    .main_navbar .usernav .popover-region-notifications .nav-link .icon,
+    .main_navbar .usernav [data-region="popover-region-messages"] .icon {
+        font-size: 14px;
+    }
+	.main_navbar .usernav .customLeftMemubtn {
+		margin-left: 0 !important;
+	}
+    .main_navbar .usernav .nav-link {
+        padding-right: 0.2rem;
+        padding-left: 0.2rem;
+    }
+    .main_navbar .usernav .usermenu .action-menu .dropdown .dropdown-toggle .userbutton .userpicture {
+        width: 30px;
+        height: 30px;
+    }
+}

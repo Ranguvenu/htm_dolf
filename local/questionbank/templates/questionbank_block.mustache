@@ -1,0 +1,151 @@
+ {{#response}}
+{{#records}}
+<div id="questionbank_container">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-tabs" id="question_bank_tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="scheduled-tab" data-toggle="tab" href="#scheduled" role="tab" aria-controls="scheduled" aria-selected="true">{{#str}}scheduled, local_questionbank{{/str}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false">{{#str}}completed, local_questionbank{{/str}}</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="question_bank_tabsContent">
+                <div class="tab-pane fade show active" id="scheduled" role="tabpanel" aria-labelledby="scheduled-tab">
+                    <div id="questionbanks_wrapper">
+                   
+                    {{# hascourses}}
+                        <!-- questibank content -->
+                        <div class="questionbank_content">
+                            <div class="title_container d-flex align-items-center justify-content-between">
+                              <!--  <h6 class="qbtitle">{{#str}}qbworkshopname, local_questionbank{{/str}} :<a href="{{{questionbank_view_url}}}"> {{workshopname}}</a></h6> -->
+                                <h6 class="qbtitle">{{#str}}qbworkshopname, local_questionbank{{/str}} : {{workshopname}}</h6>
+                               {{# actions}}
+                               <div>
+                                    <h6><strong>{{#str}}status_schedule, local_questionbank{{/str}}</strong> 
+                                        <a href="{{url}}/local/questionbank/questionbank.php?edit={{id}}&form_status=0&formid={{id}}"  tabindex="0" role="button" class="btn btn-sm btn-primary ml-3 px-3">{{#str}}edit, local_questionbank{{/str}}</a>
+                                        <a href="#" data-action="deletequestionbank" data-id={{id}} data-name='{{workshopname}}' class="btn btn-sm btn-danger ml-3 px-3">{{#str}}delete, local_questionbank{{/str}}</a>
+                                    </h6>
+                               </div>
+                               {{/ actions}}
+                            </div>
+                            <div class="qb_details_div">
+                                <div class="row">
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}questiontarget, local_questionbank{{/str}}</h6>
+                                        <h6><strong>{{noofquestions}}</strong></h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}start_date, local_questionbank{{/str}}</h6>
+                                        <h6>{{workshopdate}}</h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}start_time, local_questionbank{{/str}}</h6>
+                                        <h6>{{workshopstarttime}}</h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}hall, local_questionbank{{/str}}</h6>
+                                        <h6>{{halladdress}}</h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}location, local_questionbank{{/str}}</h6>
+                                        <!-- <h6>{{location}}</h6> --> 
+                                        {{# locationstatus}}
+                                            <a href="{{location}}"><i class="fa fa-map-marker"></i></a> 
+                                        {{/ locationstatus}}
+                                        {{^ locationstatus}}
+                                            <h6>{{location}}</h6>
+                                        {{/ locationstatus}}
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}qb_admin, local_questionbank{{/str}}</h6>
+                                        <h6>{{workshopadmin}}</h6>
+                                    </div>
+                                  <div class="col-4 col-md-2">
+                                        <h6>{{#str}}generatedcode, local_questionbank{{/str}}</h6>
+                                        <h6>{{generatecode}}</h6>
+                                    </div>
+                                     
+                                </div>
+                               
+                            </div>
+                            <div class="qb_action_container mt-3 mb-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {{#display_questions}}
+                                                <a href="{{{questionbank_view_url}}}"><button class="btn btn-outline-primary theme_text_color btn sm">View Questions</button></a>
+                                        {{/display_questions}}
+                                    </div>
+                                </div>
+       
+                            </div>
+                       
+                        </div>
+                {{/hascourses}}
+                
+                      </div>
+                </div>
+                
+                <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+
+                     {{# completeddata}}
+                        <!-- questibank content -->
+                        <div class="questionbank_content">
+                            <div class="title_container d-flex align-items-center justify-content-between">
+                               <h6 class="qbtitle">{{#str}}qbworkshopname, local_questionbank{{/str}}  :<a href="{{{questionbank_view_url}}}"> {{workshopname}}</a></h6>
+                            </div>
+                            <div class="qb_details_div">
+                                <div class="row">
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}questiontarget, local_questionbank{{/str}}</h6>
+                                        <h6><strong>{{noofquestions}}</strong></h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}start_date, local_questionbank{{/str}}</h6>
+                                        <h6>{{workshopdate}}</h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}start_time, local_questionbank{{/str}}</h6>
+                                        <h6>{{workshopstarttime}}</h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}hall, local_questionbank{{/str}}</h6>
+                                        <h6>{{halladdress}}</h6>
+                                    </div>
+                                    <div class="col-4 col-md-2">
+                                        <h6>{{#str}}qb_admin, local_questionbank{{/str}}</h6>
+                                        <h6>{{workshopadmin}}</h6>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- <div class="qb_action_container mt-3 mb-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="{{{questionbank_workshop_url}}}"><button class="btn btn-outline-primary theme_text_color btn sm">View Questions</button></a>
+                                    </div>
+                                </div>
+       
+                            </div> -->
+                       
+                        </div>
+                {{/ completeddata}}
+                      
+                </div>
+             
+            </div>
+          
+        </div>
+        
+    </div>
+</div>
+
+ {{/records}}
+{{/response}}
+
+{{#js}}
+    require(['local_questionbank/questionBank'], function(s) {
+        s.init();
+    });
+{{/js}}

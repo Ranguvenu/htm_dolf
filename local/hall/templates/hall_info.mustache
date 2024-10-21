@@ -1,0 +1,26 @@
+<table class='generaltable table-striped'>
+    <tbody>
+        <tr><td>{{# str}} name, local_hall{{/ str}}</td><td>{{name}}</td></tr>
+        <tr><td>{{# str}} code, local_hall{{/ str}}</td><td>{{code}}</td></tr>
+        <tr><td>{{# str}} type, local_hall{{/ str}}</td><td>{{type}}</td></tr>
+        <tr><td>{{# str}} city, local_hall{{/ str}}</td><td>{{city}}</td></tr>
+        <tr><td>{{# str}} buildingname, local_hall{{/ str}}</td><td>{{buildingname}}</td></tr>
+        <tr><td>{{# str}} seatingcapacity, local_hall{{/ str}}</td><td>{{seatingcapacity}}</td></tr>
+        <tr><td>{{# str}} halllocation, local_hall{{/ str}}</td><td>{{halllocation}}</td></tr>
+        
+        {{# locationstatus}}
+            <tr><td>{{# str}} maplocation, local_hall{{/ str}}</td><td><a href="{{maplocation}}"><i class="fa fa-map-marker"></i></a></td></tr>
+        {{/ locationstatus}}
+        {{^ locationstatus}}
+            <tr><td>{{# str}} maplocation, local_hall{{/ str}}</td><td>{{maplocation}}</td></tr>
+        {{/ locationstatus}}
+
+        <tr><td>{{# str}} roomshape, local_hall{{/ str}}</td><td>{{roomshape}}</td></tr>
+        <tr><td>{{# str}} availability, local_hall{{/ str}}</td><td>{{availability}}</td></tr>
+        <tr><td>{{# str}} equipmentavailable, local_hall{{/ str}}</td><td>{{equipmentavailable}}</td></tr>
+        <tr><td>{{# str}} seatingcapacity, local_hall{{/ str}}</td><td>{{seating}}</td></tr>
+        <tr><td>{{# str}} starttime, local_hall{{/ str}}</td><td>{{starttime}}</td></tr>
+        <tr><td>{{# str}} endtime, local_hall{{/ str}}</td><td>{{endtime}}</td></tr>
+        <tr><td>{{# str}} description, local_hall{{/ str}}</td><td>{{{description}}}</td></tr>
+    </tbody>
+</table>

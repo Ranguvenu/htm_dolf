@@ -1,0 +1,7 @@
+<button class="btn btn btn-primary mt-3"  data-trigger="remove-group-from-cart-{{id}}" data-product="{{id}}" data-action="remove-group">{{#str}}removefromcart, tool_product{{/str}}</button>
+
+{{#js}}
+    require(['tool_product/product'], function(product) {
+    	product.cart_actions('[data-trigger=remove-group-from-cart-{{id}}]');
+    });
+{{/js}}

@@ -1,0 +1,53 @@
+
+{{#response}}
+
+<div class="my-4 table-responsive" id="view_exam_schedules">
+    <table class="table generaltable">
+        <thead> 
+            <tr>
+                <th>#</th>
+                <th>{{#str}}name, local_exams{{/str}}</th>
+                <th>{{#str}}city, local_exams{{/str}}</th>
+                <th>{{#str}}location, local_exams{{/str}}</th>
+                <th>{{#str}}buildingname, local_exams{{/str}}</th>
+                <th>{{#str}}date, local_exams{{/str}}</th>
+                <th>{{#str}}starttime, local_exams{{/str}}</th>
+                <th>{{#str}}endtime, local_exams{{/str}}</th>
+                <th>{{#str}}code, local_exams{{/str}}</th>
+                <th class="text-center">{{# str}}action , local_hall{{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <div class=" mb-3 collapse" id="hallid-{{hallid}}">
+                {{#records}}
+                <tr>
+                    <td> <h6>{{row_num}}</h6></td>
+                    <td> <h6>{{hallname}}</h6></td>
+                    <td> <h6>{{city}}</h6></td>
+                    <td class="text-center"> <h6>{{{maplocation}}}</h6></td>
+                    <td> <h6>{{buildingname}}</h6></td>
+                    <td> <h6>{{startdate}}</h6></td>
+                    <td> <h6>{{hallstarttime}}</h6></td>
+                    <td> <h6>{{hallendtime}}</h6></td>
+                    <td> <h6>{{code}}</h6></td>
+                    <td>
+                        <div class="d-flex action_btns">
+                            <a href="#"  data-action="editschedule" title="{{# str}}editschedule, local_exam{{/ str}}" data-id={{scheduleid}}>
+                                <span class="bg-success text-white">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                            <a href="#" data-action="deleteschedule" title="{{# str}}deleteschedule, local_exam{{/ str}}" data-id={{scheduleid}} data-context={{context}}>
+                                <span class="bg-danger text-white">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>        
+                {{/records}}
+            </div>
+        </tbody>
+    </table>
+</div>
+{{/response}}

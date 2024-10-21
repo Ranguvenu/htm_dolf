@@ -1,0 +1,55 @@
+Web service template plugin for Moodle 2.X
+------------------------------------------
+
+It is a template designed as a starting point for developing third party web services.
+It includes a simple Hello World example.
+
+To test:
+1- install the plugin in Moodle
+2- Read, setup and run /client/client.php
+
+JSON data for quiz attempt
+
+{
+    "questionresponse": [
+
+        {
+            "questionid": "5",
+            "steps": {
+                "state" :"complete",
+                "startime" : "1437905506"
+            },
+            "stepsdata" : {
+                "order" : "21,23,24,22,25",
+                "answer" : "1",
+                "finishtime" :"1437905506"
+            }
+        },
+        {
+            "questionid": "6",
+            "steps": {
+                "state" :"complete",
+                "startime" : "1437905506"
+            },
+            "stepsdata" : {
+                "order" : "29,30,27,28,26",
+                "answer" : "4",
+                "finishtime" :"1437905506"
+            }
+        }
+    ],
+
+    "quizattemptdata": {      
+        "quiz": "2",
+        "sumgrades": "25.0",
+        "layout" : "1,0,2,0",
+      	"userid" : 3,
+        "attempt" :29,	
+        "timestart": 1437905506,
+      	"timefinish": 1745962262,
+        "totaltimetaken": "1791",      	
+        "state" :"finished",
+        "scoreSummaryId": 1
+    }
+
+}

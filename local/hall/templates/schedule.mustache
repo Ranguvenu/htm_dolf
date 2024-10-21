@@ -1,0 +1,62 @@
+{{#response}}
+{{#records}}
+<div id="halls_schedule">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="selected_nav d-flex align-items-center mb-3 py-3 px-2 rounded">
+                {{^ filters}}
+                <span class="text_theme_color1 mr-3">{{# str}}selected, local_hall{{/ str}} : </span>
+                {{/ filters}} 
+
+                <h6 class="mr-1">{{city}}</h6>
+                {{# buildingname}}
+                <span class="arrowicon">{{#pix}}arrow,local_hall{{/pix}}</span>
+                {{/ buildingname}}
+                <h6 class="mr-1">{{buildingname}}</h6>
+                {{# halladdress}}
+                <span class="arrowicon">{{#pix}}arrow,local_hall{{/pix}}</span>
+                {{/ halladdress}}
+                <h6 class="mr-1">{{halladdress}}</h6>
+            </div>
+            <div class="hallslist rounded p-3">
+            {{# hascourses}}                
+                <div class="hallcontainer">
+                    <h6 class="mb-3">{{hallname}}</h6>
+                    {{# results}}
+                    
+                    <div class="py-3 px-3 details_container rounded">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <h6>{{# str}}date, local_hall{{/ str}}</h6>
+                                <span><strong>{{date}}</strong></span>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>{{# str}}event, local_hall{{/ str}}</h6>
+                                <span>{{type}}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <h6>{{# str}}duration, local_hall{{/ str}}</h6>
+                                <span>{{duration}}{{#str}}min,local_exams  {{/str}} </span>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <a href="{{url}}/local/hall/scheduledetails.php?hallid={{id}}&date={{examdate}}&examid={{examid}}" tabindex="0" role="button" class="btn btn-primary" >{{#str}}details, local_hall{{/str}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/ results}}
+
+                    <hr>
+                </div>
+                {{/ hascourses}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/ records}}
+{{/ response}}
+
+
+<div class="col-md-3 col-lg-3 filters_container">
+    {{> local_hall/filters }}
+</div>

@@ -1,0 +1,126 @@
+{{#response}}
+{{# records}}
+    {{# exams}}
+        <div class="exams_wrapper content_wrapper">
+            <!-- Exam content -->
+            <div class="exam_content">
+                <div class="title_containe">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <div class = "d-flex">
+                                <h6 class="examtitle theme_text_color m-0" title="{{exam}}">{{exam}}</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+
+                            <div class="exam_action_container ml-4 d-flex align-items-center">
+                                {{# manageactions}}
+                                    <a href="{{url}}/local/exams/examdetails.php?id={{id}}">
+                                        <button class="btn btn-outline-primary theme_text_color btn-sm">{{# str}}manage, local_exams{{/ str}}</button>
+                                    </a>
+                                    <button class="btn btn-outline-primary theme_text_color btn-sm" data-type="exam"  data-action="competencies" data-id={{id}}>{{# str}}competencies, local_exams{{/ str}}</button>
+                                {{/ manageactions}}
+                                {{# examleftdays}}
+                                    {{#hasreservation}}
+                                        {{# orgoff}}
+                                            {{^ sellingprice}}
+                                            <a href="{{url}}/local/exams/examusers.php?id={{id}}" tabindex="0" role="button" ><button class="btn btn-outline-primary theme_text_color btn-sm">{{#str}}enrolledusers, local_exams{{/str}}</button></a>
+                                            {{/ sellingprice}}
+                                        {{/ orgoff}}
+                                        {{^ orgoff}}
+                                            <a href="{{url}}/local/exams/examusers.php?id={{id}}" tabindex="0" role="button" ><button class="btn btn-outline-primary theme_text_color btn-sm">{{#str}}enrolledusers, local_exams{{/str}}</button></a>
+                                        {{/ orgoff}}
+                                    {{/hasreservation}}
+                                {{/ examleftdays}}
+                                {{# manageactions}}
+                                    <button class="btn btn-outline-primary theme_text_color btn-sm" data-action="viewsectors" data-id={{id}}>{{# str}}sectors, local_exams{{/ str}}</button>
+                                {{/ manageactions}}
+                                {{# manageactions}}
+                                    <button class="btn btn-outline-primary theme_text_color btn-sm" data-action="viewgrievance" data-examid="{{id}}" data-userid="0">{{# str}}viewgrievance, local_exams{{/ str}}</button>
+                                    <a href="{{url}}/local/exams/examattempts.php?id={{id}}" tabindex="0" role="button" ><button class="btn btn-outline-primary theme_text_color btn-sm">{{#str}}attempts, local_exams{{/str}}</button></a>
+                                    {{# view_schedules}}
+                                    <a href="{{url}}/local/exams/viewschedules.php?id={{id}}" tabindex="0" role="button" >
+                                        <button class="btn btn-outline-primary theme_text_color btn-sm">
+                                            {{#str}}schedules, local_exams{{/str}}
+                                        </button>
+                                    </a>
+                                    {{/ view_schedules}}
+                                {{/ manageactions}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="exam_details_div my-3 d-flex align-items-center flex-wrap">
+                    <div>
+                        <h6>{{# str}}code, local_exams{{/ str}}</h6>
+                        <div>{{code}}</div>
+                    </div>
+                    <div>
+                        <h6>{{# str}}pricetype, local_exams{{/ str}}</h6>
+                        <div>{{examprice}}</div>
+                    </div>
+                    <div>
+                        <h6>{{# str}}level, local_exams{{/ str}}</h6>
+                        <div>{{level}}</div>
+                    </div>
+                    <div>
+                        <h6>{{# str}}type, local_exams{{/ str}}</h6>
+                        <div>{{type}}</div>
+                    </div>
+                    <div>
+                        <h6>{{# str}}ownedby, local_exams{{/ str}}</h6>
+                        <div>{{ownedby}}</div>
+                    </div>
+                    <div>
+                        <h6>{{# str}}profiles, local_exams{{/ str}}</h6>
+                        <div>{{profilescount}}</div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                        {{# userview}}
+                            {{# certificateid}}
+                                <a title="{{#str}}download_certificate, local_exams {{/ str}}" href="{{ config.wwwroot}}/admin/tool/certificate/view.php?code={{certificateid}}"><i class="icon fa fa-download" aria-hidden="true"></i>
+                                </a>
+                            {{/ certificateid}}
+                            {{^ certificateid}}
+                                <a href="{{url}}/mod/quiz/view.php?id={{quizid}}" class="btn btn-primary ml-3 px-3">{{# str}}launch, local_exams{{/ str}}</a>
+                            {{/ certificateid}}
+                        {{/ userview}}
+                        {{^ manageactions}}
+                        {{^ userview}}
+                            <a href="{{url}}/local/exams/examdetails.php?id={{id}}" class="btn btn-sm btn-primary mt-4 mr-2">{{#str}}details, local_exams{{/str}}</a>
+       
+                        {{/ userview}}
+                        
+                        {{/ manageactions}}
+                </div>
+            </div>
+        </div>
+        {{/ exams}}
+{{/ records}}
+{{/ response}}
+
+{{#js}}
+ require(['local_exams/grievance'], function(s) {
+        s.init();
+    });
+    require(['local_exams/examschedules'], function(s) {
+        s.init();
+    });
+
+    require(['jquery'], function($) {
+        $(document).ready(function(){
+
+            $("#question_bank_tabs li:nth-child(2) .nav-link ").click(function(){
+                $(".review_exams_container, #manage_reviewexamsid").addClass('d-none');
+            });
+
+            $("#question_bank_tabs li:nth-child(1) .nav-link ").click(function(){
+                $(".review_exams_container, #manage_reviewexamsid").removeClass('d-none');
+            });
+
+
+        })
+    });
+{{/js}}

@@ -1,0 +1,98 @@
+<div id="competency_modal_container">
+    <div class="table-responsive">
+    {{#response}}
+        {{^records}}
+        {{#nodata}}
+            <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+        {{/nodata}}
+        {{/records}}
+        {{#viewtypeCard}}
+            <table class="table generaltable ">
+                <thead>
+                    <tr>
+                        <th colspan="1">{{#str}}name,local_competency{{/str}}</th>
+
+                        <th>{{#str}}competency_code,local_competency{{/str}}</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#records}}
+                    <tr>
+
+                        <td colspan="1">
+                            <div class="d-flex align-items-center">
+                                {{{name}}} 
+                                <a class="questioncompetencypc" href="javascript:void(0)" title="{{noperformance}}" data-competencyid="{{competencyid}}" data-questionid="{{questionid}}" data-target="questioncompetencypc{{ competencyid }}">
+                                    <div class="downarrow pr-1 ml-2">
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>{{code}}</td>
+                    </tr>
+                        <tr id="questioncompetencypctr{{ competencyid }}" style="display:none;">
+                            <td colspan="3">
+                                <div class="compentency_details_container theme_text_color2">
+
+                                    <div id="questioncompetencypc{{ competencyid }}" data-region="questioncompetencypc{{ competencyid }}-preview-container" class=" viewcompetencys px-3 py-4">
+                                          <div data-region="questioncompetencypc{{ competencyid }}-count-container"></div>
+                                          <div data-region="questioncompetencypc{{ competencyid }}-list-container" class ="methoddata{{ competencyid }}">
+                                          </div>
+                                          <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                                                <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                                          </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/records}}
+                </tbody>
+            </table>
+       {{/viewtypeCard}}
+    {{/response}}  
+    </div>
+</div>             
+{{#js}}
+$('.questioncompetencypc').click(function(){
+
+    var competencyid = $(this).data('competencyid');   
+
+    var questionid = $(this).data('questionid');   
+
+
+
+    $('#questioncompetencypctr' + competencyid).css('display', 'table-row');
+
+    if ($(this).hasClass('active')) {
+
+        $(this).removeClass("active");
+
+        $('#questioncompetencypctr' + competencyid).css('display', 'none');
+
+
+        return true;
+    }
+
+    var targetquestioncompetencypc = $(this).data('target'); 
+
+    $(this).addClass("active");
+
+    var options = {targetID: targetquestioncompetencypc,
+                templateName: 'local_competency/listquestioncompetencypc',
+                methodName: 'local_competency_get_competencypc',
+                perPage: 5,
+                cardClass: 'col-md-6 col-12',
+                viewType: 'table'};
+   
+    var dataoptions = {competencyid: competencyid,questionid:questionid};
+
+    $('.methoddata'+competencyid+'').empty();
+    
+    require(['theme_academy/cardPaginate'], function(cardPaginate) {
+        cardPaginate.reload(options, dataoptions,'');
+    });
+ 
+});
+{{/js}}

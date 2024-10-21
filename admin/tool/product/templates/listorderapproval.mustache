@@ -1,0 +1,54 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <div class="border rounded p-3 bg-theme_light">
+            {{#records}}
+                <div class="row mx-0 rounded py-3 my-3 bg-theme_dark">
+                    <div class="col-md-3">
+                        <span class="d-block"><small>{{{ordername}}}</small></span>
+                        <h6>{{{trainingname}}}</h6><h7>{{offercode}}</h7>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} organizationname ,tool_product{{/str}}</small></span>
+                        <h6>{{organizationname}}</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} orgoffcialname ,tool_product{{/str}}</small></span>
+                        <h6>{{orgoffcialname}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} duedate ,tool_product{{/str}}</small></span>
+                        <h6>{{duedate}}</h6>
+                    </div>
+                     <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} purchasedseats ,tool_product{{/str}}</small></span>
+                        <h6>{{purchasedseats}}</h6>
+                    </div>
+                     <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} approvalseats ,tool_product{{/str}}</small></span>
+                        <h6>{{approvalseats}}</h6>
+                    </div>
+        
+                    <div>
+                    {{#approvalsupdate}}
+                        <div class="d-flex action_btns">
+                            <a href="#"  data-action="approvalseats" title="{{# str}}approval, tool_product{{/ str}}" data-id={{id}}><span class="bg-success text-white"><i class="fa fa-check" aria-hidden="true"></i></span></a>
+                            <a href="#" data-action="cancelorder" title="{{# str}}cancelorder, tool_product{{/ str}}" data-id={{id}} ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                        </div>
+                    {{/approvalsupdate}}
+                    </div>
+                </div>
+            {{/records}}
+        </div>
+   {{/viewtypeCard}}
+{{/response}}               
+
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        product.make_payment('[data-action="make-payment"]');
+    });
+{{/js}}

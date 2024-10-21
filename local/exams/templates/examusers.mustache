@@ -1,0 +1,183 @@
+{{#response}}
+	{{# records}}
+	<div class= "table-responsive">
+            <table class="table">
+				<thead class="thead-light">
+					<tr>
+
+						<th scope="col">{{#str}}user, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}email, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}id, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}enrolledon, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}examdate, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}hall, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}completed, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}grade, local_exams{{/str}}</th>
+						<th scope="col">{{#str}}profilecode, local_exams{{/str}}</th>
+						{{#certificateview}}
+							<th scope="col">{{#str}}certificate, local_trainingprogram{{/str}}</th>
+						{{/certificateview}}
+						{{# actionview}}
+						<th class="text-center">{{#str}}action, local_exams{{/str}}</th>
+						{{/ actionview}}
+
+					</tr>
+				</thead>
+				<tbody>
+					{{# hascourses}}
+
+						<tr>
+							<th>{{user}}
+							<i class='fa fa-edit' data-action="users" 
+                             data-examid={{examid}}
+						    data-userid={{replacorcanceluerid}}
+							data-toggle="tooltip"title="{{#str}} updateorg, local_exams {{/str}}"></i></th>
+							<th>{{email}}</th>
+							<th>{{userid}}</th>
+							<td>{{enrolledon}}</td>
+							<td>{{examdate}}</td>
+							<td>{{hall}}</td>
+							<td>{{completeddate}}</td>
+							<td>{{grade}}</td>
+							<td>{{profilecode}} 
+						    <i class='fa fa-edit'  data-action="profilecode"
+						    data-examid={{examid}}
+						    data-userid={{replacorcanceluerid}}
+						    data-profileid={{profileid}}
+							  data-toggle="tooltip"title="{{#str}} updateprofile, local_exams {{/str}}"></i>
+							</td>
+							{{#certificateview}}
+								<td>{{#certid}}
+                                <div class="d-flex action_btns justify-content-center"> 
+                                       <div class="d-flex action_btns"> 
+                                    <a title="{{#str}} download_certificate, local_trainingprogram {{/ str}}" target = "_blanck" href="{{globals.config.wwwroot}}/admin/tool/certificate/view.php?code={{certid}}"><span class="bg-info text-white"><i class="fa fa-download"></i></span></a>
+                                </div> 
+                                       </div> 
+                                {{/certid}}
+								{{^certid}}
+									--
+								{{/certid}}
+								</td>
+							{{/certificateview}}
+							{{#certid}}
+								<td class="text-center">--</td>
+							{{/certid}}
+							{{^certid}}
+							{{# actionview}}
+								<td>		
+									<div class="d-flex action_btns justify-content-center"> 
+									{{# attemptenrol}}
+										{{# havinggrade}}
+											<a href="{{siteurl}}/local/exams/examdetails.php?id={{examid}}&tuserid={{replacorcanceluerid}}"  title="{{#str}} purchaseattempt, local_exams {{/str}}" ><span class="bg-success text-white"><i class="fa fa-user-plus" aria-hidden="true"></i></span></a>
+										{{/ havinggrade}}
+										{{^ havinggrade}}
+											<a href="#" data-action="purcahsenextattempt" data-examid="{{examid}}" data-profileid="{{profileid}}" data-tuserid="{{replacorcanceluerid}}" data-lastattemptprofileid="{{profileid}}" data-scheduleid="{{scheduleid}}" data-purchasinguser="orgoff"  title="{{#str}} purchaseattempt, local_exams {{/str}}"><span class="bg-success text-white"><i class="fa fa-user-plus" aria-hidden="true"></i></span></a>
+										{{/ havinggrade}}
+									{{/ attemptenrol}}
+									{{^ attemptenrol}}
+										{{^ disableallactions}}
+											{{#cancelbuttonoption}}
+												{{# cancelbuttonview}}
+										
+													<a href="#"  data-action="canceluser"  data-ownedby="{{ownedby}}"  data-entitytype="{{entitytype}}" data-examid={{examid}}  data-profileid={{profileid}} data-tobecancelleduserid={{replacorcanceluerid}} data-productid="{{productid}}" data-currentuserorgoff={{currentuserorgoff}}  data-username="{{user}}" data-enrolledrole="{{enrolledrole}}"  data-examname="{{examname}}"  data-examprice={{examprice}} data-remainingdays={{remainingdays}}  data-examdate="{{examdate}}" data-enrolltype = {{enrolltype}} data-cangenerateinvoice = {{cangenerateinvoice}} data-toggle="tooltip" title="{{#str}} cancel, local_exams {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-ban" aria-hidden="true"></i></span></a>
+												{{/ cancelbuttonview}}
+												{{^ cancelbuttonview}}
+
+													<a href="#" data-toggle="tooltip" title="{{#str}}notallowedtocancel , local_exams {{/str}}"><span class="bg-danger 	text-white"><i class="fa fa-ban" aria-hidden="true"></i></span></a>
+
+												{{/ cancelbuttonview}}
+												{{# absentaction}}
+													<a href="#"  data-action="absentuser"  data-ownedby="{{ownedby}}"  data-entitytype="{{entitytype}}" data-actiontype="absent" data-examid={{examid}}  data-profileid={{profileid}} data-tobeabsentuserid={{replacorcanceluerid}} data-productid="{{productid}}" data-currentuserorgoff={{currentuserorgoff}}  data-username="{{user}}" data-enrolledrole="{{enrolledrole}}"  data-examname="{{examname}}"  data-examprice={{examprice}} data-remainingdays={{remainingdays}}  data-examdate={{examdate}}  data-toggle="tooltip"title="{{#str}} absent, local_exams {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-user-times" aria-hidden="true"></i></span></a>
+												{{/ absentaction}}
+												{{# issiteadmin}}
+													<a href="#"  data-action="replaceuser" data-entitytype="exam" data-ownedby="{{ownedby}}" data-productid={{productid}}  data-userid={{replacorcanceluerid}} data-username="{{user}}"  data-entityname="{{examname}}"  data-costtype={{examprice}} data-remainingdays={{remainingdays}} data-useridnumber={{replaceorcanceluseridnumber}} data-replacementfee={{replacementfee}} data-issiteadmin={{issiteadmin}} data-orgofficialenrolled={{orgofficialenrolled}} data-cangenerateinvoice = {{cangenerateinvoice}}  data-toggle="tooltip"title="{{#str}} replace, local_exams {{/str}}" ><span class="bg-primary text-white"><i class="fa fa-retweet" aria-hidden="true"></i></span>
+												</a>
+												{{/ issiteadmin}}
+												{{^ issiteadmin}}
+													{{# replacebuttonview}}
+														<a href="#"  data-action="replaceuser" data-entitytype="exam" data-ownedby="{{ownedby}}" data-productid={{productid}}  data-userid={{replacorcanceluerid}}  
+														data-username="{{user}}"  data-entityname="{{examname}}"  data-costtype={{examprice}}  
+														data-remainingdays={{remainingdays}} data-useridnumber={{replaceorcanceluseridnumber}} data-replacementfee={{replacementfee}} data-issiteadmin={{issiteadmin}} data-orgofficialenrolled={{orgofficialenrolled}}  data-cangenerateinvoice = {{cangenerateinvoice}} data-toggle="tooltip"title="{{#str}} replace, local_exams {{/str}}" ><span class="bg-primary text-white"><i class="fa fa-retweet" aria-hidden="true"></i></span>
+														</a>
+													{{/ replacebuttonview}}
+													{{^ replacebuttonview}}
+														<a href="#" data-toggle="tooltip" title="{{#str}}notallowedtoreplace , local_exams {{/str}}"><span class="bg-primary text-white"><i class="fa fa-retweet" aria-hidden="true"></i></span></a>
+													{{/ replacebuttonview}}										
+												{{/ issiteadmin}}
+											{{/ cancelbuttonoption}}
+											{{^ policiesdisabled}}
+												{{# issiteadmin}}
+													
+													{{^ disablereschedulebutton}}
+														{{# reschedulebuttonview}}
+															{{# canapplypolicies}}
+																<a href="#" data-ownedby="{{ownedby}}" data-entitytype="{{entitytype}}" data-currentuser={{replacorcanceluerid}}  data-action="rescheduleexam" data-currentuserorgoff={{currentuserorgoff}} data-enrolledrole="{{enrolledrole}}" data-examid={{examid}} data-productid={{productid}} data-currentuser={{replacorcanceluerid}} data-entitytype="exam"  data-refundtype="reschedule"   data-profileid="{{profileid}}" data-enrolltype={{enrolltype}} data-toggle="tooltip" title="{{#str}}reschedule , local_exams {{/str}}"><span class="bg-info text-white"><i class="fa fa-repeat" aria-hidden="true"></i></span></a>
+															{{/ canapplypolicies}}
+
+															{{^ canapplypolicies}}
+																<a href="{{siteurl}}/local/exams/hallschedule.php?examid={{examid}}&profileid={{profileid}}&type=reschedule&tuserid={{replacorcanceluerid}}" title="{{# str}}reschedule, local_exams{{/ str}}"><span class="bg-info text-white"><i class="fa fa-repeat" aria-hidden="true"></i></span></a>
+															{{/ canapplypolicies}}														
+														{{/ reschedulebuttonview}}
+													{{/ disablereschedulebutton}}
+													{{# scheduleoption}}
+														<a href="{{siteurl}}/local/exams/hallschedule.php?examid={{examid}}&profileid={{profileid}}&type=schedule&tuserid={{replacorcanceluerid}}" title="{{# str}}schedule, local_exams{{/ str}}"><span class="bg-info text-white"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span></a>
+													{{/ scheduleoption}}
+												{{/ issiteadmin}}
+												{{^ issiteadmin}}
+													{{# ispaidexam}}
+														{{# scheduleoption}}
+															<a href="{{siteurl}}/local/exams/hallschedule.php?examid={{examid}}&profileid={{profileid}}&tuserid={{replacorcanceluerid}}" title="{{# str}}schedule, local_exams{{/ str}}"><span class="bg-info text-white"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span></a>
+														{{/ scheduleoption}}
+														{{^ scheduleoption}}
+															{{^ disablereschedulebutton}}
+																{{^ reschedulebuttonview}}
+																	<a href="#" data-toggle="tooltip" title="{{#str}}notallowedtoreschedule , local_exams {{/str}}"><span class="bg-info text-white"><i class="fa fa-repeat" aria-hidden="true"></i></span></a>
+																{{/ reschedulebuttonview}}
+															{{/ disablereschedulebutton}}
+														{{/ scheduleoption}}
+														{{^ disablereschedulebutton}}
+															{{# reschedulebuttonview}}
+																<a href="#" data-ownedby="{{ownedby}}" data-entitytype="{{entitytype}}" data-currentuser={{replacorcanceluerid}}  data-action="rescheduleexam" data-currentuserorgoff={{currentuserorgoff}} data-enrolledrole="{{enrolledrole}}" data-examid={{examid}} data-productid={{productid}} data-currentuser={{replacorcanceluerid}} data-entitytype="exam"  data-refundtype="reschedule"   data-profileid="{{profileid}}" data-enrolltype={{enrolltype}} data-toggle="tooltip" title="{{#str}}reschedule , local_exams {{/str}}" data-scheduleid="{{scheduleid}}"><span class="bg-info text-white"><i class="fa fa-repeat" aria-hidden="true"></i></span></a>
+
+															{{/ reschedulebuttonview}}
+														{{/ disablereschedulebutton}}
+													{{/ ispaidexam}}
+
+													{{^ ispaidexam}}
+														<a href="{{siteurl}}/local/exams/hallschedule.php?examid={{examid}}&profileid={{profileid}}&type=reschedule&tuserid={{replacorcanceluerid}}" title="{{# str}}reschedule, local_exams{{/ str}}"><span class="bg-info text-white"><i class="fa fa-repeat" aria-hidden="true"></i></span></a>
+													{{/ ispaidexam}}
+												{{/ issiteadmin}}
+
+											{{/ policiesdisabled}}	
+										{{/ disableallactions}}
+										{{# disableallactions}}
+											{{waitingforapproval}}
+										{{/ disableallactions}}
+									{{/ attemptenrol}}
+									</div>
+
+								</td>
+							{{/ actionview}}
+							{{/certid}}
+						</tr>
+					{{/ hascourses}}
+				</tbody>
+			</table>
+		</div>
+    {{/ records}}
+{{/ response}}
+</div>
+
+{{#js}}
+    require(['local_exams/replaceuser'], function(s) {
+        s.init();
+    });
+
+	require(['local_exams/cancelreschedule'], function(s) {
+        s.init();
+    });
+    require(['local_exams/attemptpurchase'], function(s) {
+        s.init();
+    });
+
+{{/js}}

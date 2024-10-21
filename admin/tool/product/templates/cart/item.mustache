@@ -1,0 +1,76 @@
+<div class="programs_wrapper p-4 mb-3">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="programsimagecontainer"{{# thumbnail }} style="background-image:url('{{{thumbnail}}}')" {{/ thumbnail}}>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <h5>{{ name }}</h5>
+            </div>
+            
+            <p>{{{ description }}}</p>
+            {{#programduration}}
+            <div>
+                <ul class="program_key_notes">
+                     <li>
+                        {{programduration}} {{#str}}days, tool_product {{/str}}
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            {{/programduration}}
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="pricelabelcontainer d-flex justify-content-between w-100">
+                    <div class="d-flex flex-wrap">
+                        {{# sectors}}
+                        <div class="statuslabel banking mr-2 mb-2">
+                           {{sectorname}}
+                        </div>
+                        {{/ sectors}}
+                  </div>
+                    <h4 class="programprice">{{#str}}price, tool_product{{/str}}  : <strong class="mr-2"> {{#str}}sa_currency,local_trainingprogram{{/str}} {{ sale_price }} </strong> <small class="theme_text_color2">
+                    {{#couponvalid}} <s>{{#str}}sa_currency,local_trainingprogram{{/str}}{{ actual_price }}</s> {{/couponvalid}}</small></h4>
+                </div>
+            </div>
+            {{ ^grouped }}
+            <button class="btn btn btn-primary mt-3"  data-trigger="remove-from-cart-{{product}}" data-category="{{category}}" data-product="{{product}}" data-couponcode="{{couponcode}}" data-action="remove">{{#str}}removefromcart, tool_product{{/str}}</button>
+            {{ /grouped }}
+            <!--{{#viewcourseurl}}
+            <a href="{{{viewcourseurl}}}"><button class="btn btn btn-primary mt-3">{{#str}}view_courses,local_trainingprogram{{/str}}</button></a>
+            {{/viewcourseurl}}-->
+            {{# couponactionview}}
+      
+                {{#couponvalid}}
+                    <div id="couponvalid-{{product}}" > 
+                      <div class="alert alert-success mt-3">{{#str}}coupon_code,tool_product{{/str}}<b>{{couponcode}}</b> {{#str}}  coupon_discount_applied ,tool_product,{{couponcode_discount_amount }}{{/str}}</div><button class="btn btn btn-primary"  data-trigger="removecoupon-to-{{product}}" data-category="{{category}}" data-product="{{product}}" data-couponcode="{{couponcode}}" data-action="removecoupon">{{#str}}remove_coupon_code,tool_product{{/str}}</button>
+                    </div>
+                {{/couponvalid}}  
+                {{^couponvalid}}   
+                    <div class="form-group couponform mt-3">
+                        <div class="input-group">
+                            <input type="text" name="coupon_code" class="form-control" placeholder="{{#str}}coupon_code,tool_product{{/str}}" id="couponcode-{{product}}">
+                            <span><button class="btn btn btn-primary"  data-trigger="applycoupon-to-{{product}}" data-category="{{category}}" data-product="{{product}}" data-action="applycoupon">{{#str}}apply,tool_product{{/str}}</button></span>
+                        </div>
+                    </div>  
+                    <div id="couponmsg-{{product}}"> </div>
+                {{/couponvalid}} 
+           {{/ couponactionview}}
+           {{# early_registration_discount_view}}
+                <p><div class="alert alert-success mt-3">{{#str}}early_discount_applied,tool_product,{{early_registration_discount_amount }} {{/str}}</div></p>
+            {{/ early_registration_discount_view}}
+            {{# groups_organization_discount_view}}
+                <p><div class="alert alert-success mt-3">Organization group discount SAR {{groups_organization_discount_amount }} applied on this purchase</div></p>
+            {{/ groups_organization_discount_view}}
+        </div>
+
+    </div>
+</div>
+
+{{#js}}
+    require(['tool_product/product'], function(product) {
+    	product.cart_actions('[data-trigger=remove-from-cart-{{product}}]');
+        product.cart_actions('[data-trigger=applycoupon-to-{{product}}]');
+        product.cart_actions('[data-trigger=removecoupon-to-{{product}}]');
+    });
+{{/js}}

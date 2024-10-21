@@ -1,0 +1,11 @@
+{{>tool_product/cart/add}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        localStorage.removeItem('products');
+        localStorage.removeItem('coupons');
+        localStorage.removeItem('productformdata');
+
+        $('[data-action="add-to-cart-{{product_attributes.product}}"]').trigger('click');
+        $('form#seatreservationcheckout-{{product_attributes.product}}').submit();
+    });
+{{/js}}

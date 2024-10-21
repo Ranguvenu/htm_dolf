@@ -1,0 +1,60 @@
+{{#response}}
+<div id="learningtrackslistcontainer" class="my-2">
+{{#records}}
+    <div class="row learningtrackcontainer border-bottom mb-3 pb-3">
+        <div class="col-md-10">
+            <div class="d-flex align-items-center mb-3">
+                <h5 class="m-0 flex-grow-1 text-themecolor2">{{name}} </h5>
+                <div class="d-flex align-items-center justify-content-center">
+                    <button class="btn btn-themecolor2 mr-2 fon-weight-bold  bg-themecolor2 border-themecolor2" data-action="competencylist" data-id="{{id}}">{{#str}}competency,local_learningtracks{{/str}}</button>
+                    {{^completedstatus}}
+                    <div class="statuslable text-themecolor2 themecolor2-border active d-flex align-items-center justify-content-center">
+                        <span class="piximg threedotsicon mx-2">{{#pix}}threedotsicon,local_learningtracks{{/pix}}</span> 
+                        <span>{{#str}}active,local_learningtracks{{/str}}</span>
+                    </div>
+                    {{/completedstatus}}
+                    {{#completedstatus}}
+                     <div class="statuslable text-themecolor2 completed d-flex align-items-center justify-content-center">
+                        <span class="piximg mr-2">{{#pix}}completedcheckicon,local_learningtracks{{/pix}}</span> 
+                        <span>{{#str}}completed,local_learningtracks{{/str}}</span>
+                     </div>
+                         {{#certid}}
+                             <div class="d-flex action_btns justify-content-center ml-2"> 
+                                    <a title="{{#str}} download_certificate, local_trainingprogram {{/ str}}" href="{{globals.config.wwwroot}}/admin/tool/certificate/view.php?code={{certid}}"><span class="bg-info text-white"><i class="fa fa-download"></i></span></a>
+                            </div>
+                        {{/certid}}
+                    {{/completedstatus}}
+                </div>
+            </div>
+            <div class="bg-themecolor4 flex-wrap rounded d-flex align-items-center justify-content-between px-4 py-4">
+                <div class="d-flex my-1">
+                    <span class="mr-2"><i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i></span>
+                    <span><strong>{{#str}}totalcourses,local_learningtracks{{/str}}</strong> : {{totalcourses}} {{#str}}courses,local_learningtracks{{/str}}</span>
+                </div>
+                <div class="d-flex my-1">
+                    <span class="mr-2"><i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i></span>
+                    <span><strong>{{#str}}enrolled,local_learningtracks{{/str}}</strong> : {{enrollcount}} {{#str}}courses,local_learningtracks{{/str}}</span>
+                </div>
+                <div class="d-flex my-1">
+                    <span class="mr-2"><i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i></span>
+                    <span><strong>{{#str}}completed,local_learningtracks{{/str}}</strong> : {{completed_count}} {{#str}}courses,local_learningtracks{{/str}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 d-flex align-items-center justify-content-center">
+            <a href="{{viewurl}}" class="viewbutton" >
+                <span>{{#str}}view,local_learningtracks{{/str}}</span>
+           
+
+    </a>
+        </div>
+    </div>
+    {{/records}}
+</div>
+ {{/response}}
+
+{{#js}}
+    require(['local_learningtracks/learningtracksform'], function(s) {
+        s.init();
+    });
+{{/js}}

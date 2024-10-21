@@ -1,0 +1,42 @@
+{{#response}}
+{{#records}}
+ <div class="table-responsive mt-3">
+            <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}title,local_events{{/str}}</th>
+                        <th>{{#str}}lc_startdate,local_events{{/str}}</th>
+                        <th>{{#str}}lc_enddate,local_events{{/str}}</th>
+                        <th>{{#str}}reg_startdate, local_events{{/str}}</th>
+                        <th>{{#str}}reg_enddate, local_events{{/str}}</th>
+                        <th>{{#str}}eventtype, local_events{{/str}}</th>
+                        <th>{{#str}}attendee, local_events{{/str}}</th>
+                        <th>{{#str}}action, local_events{{/str}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{# hasrecords}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{title}}</td>
+                        <td>{{startdate}}</td>
+                        <td>{{enddate}}</td>
+                        <td>{{reg_startdate}}</td>
+                        <td>{{reg_enddate}}</td>
+                        <td>{{eventtype}}</td>
+                        <td><a href="{{globals.config.wwwroot}}/local/events/attendees.php?id={{id}}">{{attendeescount}}</a></td>
+                        <td> {{#action}}
+                        <div class="d-flex action_btns">
+                            <a href = "{{viewurl}}" alt="{{#str}}view{{/str}}" title="{{#str}}view{{/str}}"><span class="bg-primary text-white"><i class="fa fa-search-plus" aria-hidden="true"></i></span></a>
+                            <a href = "{{editurl}}" alt="{{#str}}edit{{/str}}" title="{{#str}}edit{{/str}}"><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+                            <a alt="{{#str}}delete{{/str}}" title="{{#str}}delete{{/str}}"  data-action="deleteevent" data-id = "{{id}}" data-name="{{title}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                        </div>
+                        {{/ action}}
+                        </td>
+                    </tr>
+                    {{/ hasrecords}}
+                </tbody>
+            </table>
+
+{{/ records}}
+{{/ response}}

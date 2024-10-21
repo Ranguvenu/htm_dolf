@@ -1,0 +1,77 @@
+{{#response}}
+{{#records}}
+{{#hasevents}}
+<div class="event_wrapper p-4 mb-3">
+       <div class="row">
+                    <div class="col-md-3">
+                        <div class="eventimagecontainer"style="background-image:url('{{logo}}')"></div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h5 class="theme_text_color eventdateinfo d-flex aligin-items-center"><span class="piximg">{{#pix}}eventdateicon,local_events{{/pix}}</span><span class="eventdatetext"> {{fromdate}} - {{todate}}</span></h5>
+                            <div class="event_actions">
+                                <a href=""><span class="piximg">{{#pix}}pageicons/likeicon,theme_academy{{/pix}}</span></a>
+                                <a href=""><span class="piximg">{{#pix}}pageicons/shareicon,theme_academy{{/pix}}</span></a>
+                            </div>
+                        </div>
+                        <h5>{{title}}</h5>
+                        {{# isdescription}}
+                            {{^ descriptionstring}}
+                                <p>{{{ description }}}</p>
+                            {{/ descriptionstring }}
+                            {{# descriptionstring}}
+                                <p>{{{ descriptionstring }}} ...</p>
+                            {{/ descriptionstring }}
+                        {{/ isdescription}}
+                        {{^ isdescription }}
+                            <p class="alert alert-info text-center">{{#str}}nodesc, local_events{{/str}}</p>
+                        {{/ isdescription }}
+                                        
+                        <div>
+                            <ul class="event_key_notes">
+                                <li>
+                                    <span class="piximg">{{#pix}}eventlocationicon,local_events{{/pix}}</span>
+                                     {{location}}
+                                </li>
+                                
+                                <li>
+                                    <span class="piximg">{{#pix}}eventspeakericon,local_events{{/pix}}</span>
+                                        {{# managerslimit}}
+                                          {{#eventmanager}}
+                                            {{managername}}
+                                          {{/eventmanager}}
+                                        {{/ managerslimit}}
+                                        {{^ managerslimit}}
+                                          {{moremanagers}}
+                                        {{/ managerslimit}}
+                                </li>
+                                
+                                <li>
+                                    <span class="piximg">{{#pix}}eventtimeicon,local_events{{/pix}}</span>
+                                    {{starttime}} - {{endtime}}
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="pricelabelcontainer d-flex">
+                                {{#openstatus}}
+                                    <div class="statuslabel open mr-3">
+                                       {{openstatus}}
+                                    </div>
+                                {{/openstatus}}
+                                <h4 class="eventprice">{{#str}}price, local_events{{/str}} : <strong class="mr-2"> {{#str}}sr, local_events{{/str}} {{sellingprice}} </strong> <small class="theme_text_color2"><del> {{#str}}sr, local_events{{/str}} {{actualprice}}</del></small></h4>
+                            </div>
+                            <a role="button" href="{{config.wwroot}}./alleventsview.php?id={{id}}" class="btn btn-lg btn-primary">Book Now</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+{{/hasevents}}
+{{/records}}
+{{/response}}
+
+    

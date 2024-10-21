@@ -1,0 +1,18 @@
+{{#noloadmore}}
+    <div class="d-flex justify-content-center align-items-center col-12 py-3">
+        <button class="loadmorebtn" data-action="moreprograms" data-pagenumber="6" data-limit="6" data-options="{{options}}" data-dataoptions="{{dataoptions}}" data-filterdata="{{filterdata}}" data-numberofprograms={{numberofprograms}} >
+            {{#str}}loadmore,local_trainingprogram{{/str}}
+            {{# pix }} arrowwhite, theme_academy {{/ pix }}
+        </button>
+    </div>
+    {{#js}}
+        $(document).ready(function(){
+            $('[data-action="moreprograms"]').attr('data-numberofprograms', {{numberofprograms}})
+        })
+
+        require(['theme_academy/homepage'], function(homepage) {
+            let HomePage = new homepage();
+            HomePage.morePrograms();
+        });
+    {{/js}}
+{{/noloadmore}}

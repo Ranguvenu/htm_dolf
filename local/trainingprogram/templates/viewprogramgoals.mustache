@@ -1,0 +1,44 @@
+{{#response}}
+<div class="d-flex justify-content-end align-items-center my-3">
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createprogramgoal" data-id=0 data-programid={{programid}} >{{#str}}addgoals, local_trainingprogram{{/str}}</a>
+</div>
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+      {{#viewtypeCard}}
+        <table class="table generaltable table-striped">
+            <thead>
+               <tr>
+                    <th>{{# str}}programgoals , local_trainingprogram {{/str}}</th>
+                    <th class="text-center">{{# str}}action , local_trainingprogram{{/str}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#records}}
+                 <tr>
+                    <td>{{{programgoal}}}</td>
+                    <td>
+                         <div class="d-flex action_btns justify-content-center"> 
+
+                         <a  data-action="createprogramgoal" data-id={{id}} data-programid={{programid}}   data-toggle="tooltip" title="{{# str}} updategoals, local_trainingprogram {{/str}}"><span class="bg-primary text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+
+                         <a   data-action="deleteprogramgoals" data-id={{id}}  data-toggle="tooltip" title="{{# str}} delete, local_trainingprogram {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                         </a>
+                        </div>
+
+                    </td>
+                </tr>
+                {{/records}}
+            </tbody>
+        </table>
+         {{/viewtypeCard}}
+{{/response}}
+{{#js}}
+    require(['local_trainingprogram/tpview'], function(s) {
+        s.init();
+    });
+
+{{/js}}
+

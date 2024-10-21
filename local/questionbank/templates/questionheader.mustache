@@ -1,0 +1,15 @@
+    <div class="questions_header border rounded mb-4 p-4">
+        <div class="d-flex flex-wrap">
+            <h6 class="mr-4">{{#str}}qbworkshopname,local_questionbank{{/str}}: <span class="text-black">{{workshopname}}</span></h6>
+            <h6 class="mr-4 ml-4">{{#str}}questiontarget,local_questionbank{{/str}} : <span class="text-black">{{noofquestions}}</span></h6>
+            <h6 class="mr-4 ml-4">{{#str}} expert,local_questionbank{{/str}} :
+                {{#expertsnames}}<span class="text-black mr-2">{{expertsnames}}</span> {{/expertsnames}}
+                {{^expertsnames}}<span class="text-black mr-2">{{#str}}noexperts, local_questionbank{{/str}}</span> {{/expertsnames}}
+              <!-- //<a href="" class="font-weight-normal">View More</a> -->
+            </h6>
+        </div>
+        <div class="my-3">
+             <a href="{{{questionbank_workshop_url}}} " ><button class="btn btn-primary mr-3">{{#str}} viewdetails,local_questionbank{{/str}}</button></a>
+            <!-- {{{ createquestion }}} -->
+        </div>
+    </div>

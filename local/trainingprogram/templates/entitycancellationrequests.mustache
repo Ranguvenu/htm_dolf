@@ -1,0 +1,42 @@
+{{#response}}
+    {{#records}}
+    <div class= "table-responsive">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">{{# str}} fieldcode, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} entityname, local_trainingprogram{{/ str}}</th>
+                   <th scope="col">{{# str}} requestby, local_trainingprogram{{/ str}}</th>
+                   <th scope="col">{{# str}} cancel_reason, local_trainingprogram{{/ str}}</th>
+                   <th scope="col">{{# str}} requestat, local_trainingprogram{{/ str}}</th>
+                  <th>{{# str}} actions, local_userapproval{{/ str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                  <td>{{entitycode}}</a></td>
+                  <td>{{entityname}}</td>
+                  <td>{{requestby}}</td>
+                  <td>{{{reasonforcancel}}}</td>
+                  <td>{{requestat}}</td>
+                  <td>
+                    {{# actionview}} 
+                        <div class="align-items-center d-flex action_btns">
+                            <a href="#" data-action="cancelentity" data-rootid='{{rootid}}' data-fieldid={{entityid}} data-fieldcode={{entitycode}} data-productid={{productid}}  data-entitytype ="{{entitytype}}"  data-entityname = "{{entityname}}"   data-currentuser ={{currentuser}} data-costtype ={{costtype}} data-requestby="{{requestby}}" data-requesttype = 'approvecancelrequest'  data-hasenrollments=0 data-toggle = "tooltip" title="{{#str}} approve , local_trainingprogram{{/str}}"><span class="bg-success text-white"><i class="fa fa-check" aria-hidden="true"></i></span></a>
+                            <a href="#" data-action="cancelentity" data-rootid='{{rootid}}' data-fieldid={{entityid}} data-fieldcode={{entitycode}} data-productid={{productid}}  data-entitytype ="{{entitytype}}"  data-entityname = "{{entityname}}"   data-currentuser ={{currentuser}} data-costtype ={{costtype}} data-requestby="{{requestby}}"  data-requesttype = 'rejectcancelrequest' data-hasenrollments=0 data-toggle = "tooltip" title="{{#str}} reject , local_trainingprogram{{/str}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                        </div>
+                    {{/ actionview}}
+                    {{^ actionview}}
+                        <div class="flex-wrap align-items-center d-flex action_btns">
+                        ---
+                        </div>
+                    {{/ actionview}}
+                  </td>      
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+        </div>
+    {{/ records}}
+{{/ response}}

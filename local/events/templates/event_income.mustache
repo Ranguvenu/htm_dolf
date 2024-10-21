@@ -1,0 +1,24 @@
+{{#response}}
+{{# records}}
+<div class="table-responsive mt-1">
+    <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}itemname,local_events{{/str}}</th>
+                        <th>{{#str}}amt,local_events{{/str}}</th>
+                        <th>{{#str}}type, local_events{{/str}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+               {{# incomelist}}
+                    <tr>
+                        <td>{{itemname}}</td>
+                        <td>{{amount}}</td>
+                        <td>{{type}}</td>
+                    </tr>
+                {{/incomelist}}
+                </tbody>
+    </table>
+</div>
+{{/records}}
+{{/response}}

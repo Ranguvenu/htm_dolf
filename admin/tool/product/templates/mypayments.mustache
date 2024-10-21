@@ -1,0 +1,56 @@
+<div class="payments_container">
+		
+  {{# response}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodatatext}}</div>
+    {{/nodata}}
+    <!---table start-->
+    {{^nodata}}
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive mt-3">
+                    <table class="table mypayments_table">
+                        <thead> 
+                            <tr>
+                                <th>{{#str}} trainingname ,tool_product{{/str}}</th>
+                                <th>{{#str}} total_purchases ,tool_product{{/str}}</th>
+                                {{#quantity}}
+                                <th>{{#str}} purchasedseats ,tool_product{{/str}}</th>
+                                {{/quantity}}
+                                <th>{{#str}} totalprice ,tool_product{{/str}}</th>
+                                <th>{{#str}} discount ,tool_product{{/str}}</th>
+                                <!--<th>{{#str}} totaldiscount ,tool_product{{/str}}</th>-->
+                                <th>{{#str}} taxfee ,tool_product{{/str}}</th>
+                                <th>{{#str}} finalprice ,tool_product{{/str}}</th>
+                                <th>{{#str}} paymentstatus ,tool_product{{/str}}</th>
+                                <th>{{#str}} date ,tool_product{{/str}}</th>
+                            </tr>
+                        </thead>
+                       
+                        <tbody>
+                            {{# records}}
+                                <tr>
+                                    <td>{{trainingname}}</td>
+                                    <td>{{total_purchases}}</td>
+                                    {{#quantity}}
+                                     <td>{{purchasedseats}}</td>
+                                    {{/quantity}}
+                                    <td>{{total_price}}</td>
+                                    <td>{{discount_price}}</td>
+                                    <!--<td>{{total_discount}}</td>-->
+                                    <td>{{taxes}}</td>
+                                    <td>{{total}}</td>
+                                    <td>{{statuscode}}</td>
+                                    <td>{{timeupdated}}</td>
+                                </tr>
+                            {{/records}}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+     {{/nodata}}    
+    <!---table end-->
+  {{/ response}}
+
+</div>

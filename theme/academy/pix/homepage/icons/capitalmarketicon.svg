@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 37 33">
+      <image width="37" height="33" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAhCAYAAABeD2IVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEjUlEQVRYhc3Xe4ydRRkG8N9uW2oKjUCAMCGGgpJiCFiTrkYu/xRIiJVRQkOh5bIYMB9aCBFbELktl6ShNFSszUBBQSxV5DopN6PBGCMaS9CIjQQplEA+AgnUWgu0bA9/zHeSs8u257iU1ic5yZn53pl55n1nnvedPrsJIaaAS/B1fBYT8DqewrI6V+vatn3jXGAm7sQJda7+04P9XPwENe7BsxjGdMzHAK7HUJ2rVv94SGEffEHZbTdCp+MX+DE+X+fqBuyLL9a5uq3O1ZfxTVyJm2DiOEn1hBDT/liJ5XWuFjV90xsS00JM72Fdnau7Q0zbcU+I6ZGungoxzQwx/TXENLXdt2DhST+YM3/gpcuuOmWoy/DzlSPy/Wauo/B3TMNmDGEe1Ln6Gf6I747wVIhpohKaf9e5ajXdHwnVlL33OuLwIw48FId2ITULa+pcbW7aX8FWzKxztTHEdCre77C/H1eO9tTxeAef7rJYrwjY0NF+HBvxToiphcVY3/H9VRzUNXxjhWrLf7e+uP7Ft14a/mD7hp2Nxds4qKPdj3NxrOLFliITbRyATSPC1zd50pTW+9tMOGDqlGZHY4Zq+ZLf3ISncW0XUs/gvBDThDpXw5iDG/GAchym4ZUO+9l4ZoSnJh/zmRWfGjjcpMMOXNFlsV7xUxyMbzftdQ2hL+EkRQZugxDTcYqw3j5eSdiMvykCuEPUuVofYroWS0NMb9a5+iV+HWJaiOl1rtqEZuIhPILcldT24ZZt2z4wefKkzsXWYkaPG1isiOXqENNZuAP3YrjxzjxciCeVlDO3K6lbbnhiUDk/gz2SGIFGWi4PMT2uhOtRI0X7OUVMVyk3/9JPVNHbCDGdhotwmSIRUZGLd9Ff5+rnjR1Gp5lWS2t7S9+E8aXEENMZ+Oqo7r0wFz/EP/AjJVznNf0bR88zgtR7a18eNCpUda5+p4dqIsT0NdynnIu3Oj5txSIsU/LguTi9zlVuqoePYJeEL8R0vJIi7sDt2G8Ms3txFjbUuco7m+9jkwoxHY3Hmt/9WLuDeTcpGjXQbc4Rg3sNVQehw5Sr/Bd8D39u5vyOEsqj8Xslof8L3/qfSY2x6EKlMtwRDlFu01xkJddNxZamCmhXpZvqXG1p365xkwoxXYqbsRSv7WSOVbgOxyhe+FNPK+8EY979ENNFuBULlEKsNZZdg0WN3WCdq39+XEKM4akQ0zlYoVSLK5Ua6EQ8r+S6g5V664VmyOewus7Vg7uCEKM8FWKaj7uVcCxRQnNi8/mEOlczkPBCnasZTXst3txVhEaQCjHFhtCSOldDivLOxtW7csFeMLEhNFvRkFTn6ooQ05Byfb+hlCm7Ff0hpln4Fe7CJSGmi3ENrqhztWZ3E6KEbxYeVqrDM5QcRRG7PYL+OldX4WycrOSnpXuKTBvtgz6glKOrcPmeo1PQH2I6Ukmmv8UFHY/QPYa+ENOrynPnQmxp+p9WpOAPSi1+K05VbuKg8mi9oLFdppy/5U17TfP/SUVYVyolyxvKE2sOzmxsb2zmXNwxdkFf81L9f8L5HwKbKm0qQjEEvAAAAABJRU5ErkJggg=="/>
+    </pattern>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-131 226)">
+    <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(131 -226)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="60" height="60" stroke="none"/>
+      <rect x="0.5" y="0.5" width="59" height="59" fill="none"/>
+    </g>
+    <rect id="capital-market_copy" data-name="capital-market copy" width="59" height="53" transform="translate(132 -222)" fill="url(#pattern)"/>
+  </g>
+</svg>

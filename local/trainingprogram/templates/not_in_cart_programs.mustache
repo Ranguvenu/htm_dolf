@@ -1,0 +1,41 @@
+<div class="programs_wrapper p-4 mb-3">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="programsimagecontainer"{{# imageurl}} style="background-image:url('{{{imageurl}}}')" {{/ imageurl}}>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h5>{{programname}}</h5>
+                    <div class="program_actions">
+                        <a href=""><span class="piximg">{{#pix}}pageicons/likeicon,theme_academy{{/pix}}</span></a>
+                        <a href=""><span class="piximg">{{#pix}}pageicons/shareicon,theme_academy{{/pix}}</span></a>
+                    </div>
+                </div>                       
+                <p>{{description}}</p>
+                <div>
+                    <ul class="program_key_notes">
+                        <li>
+                            {{durationinmonths}} {{#str}}months, local_trainingprogram{{/str}}<!-- , 100 + Lectures -->
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="pricelabelcontainer d-flex justify-content-between w-100">
+                        
+                        <div class="d-flex flex-wrap">
+                            {{# sectors}}
+                            <div class="statuslabel banking m-1">
+                                <span>{{sectorname}}</span>          
+                            </div>
+                              {{/ sectors}}
+                       </div>
+                     
+                        <h4 class="programprice">{{#str}}price, local_trainingprogram{{/str}} : <strong class="mr-2"> SR {{sellingprice}} </strong> <small class="theme_text_color2"><s>SR {{actualprice}}</s></small></h4>
+                    </div>
+                </div>
+                <a href="{{globals.config.wwwroot}}/local/trainingprogram/programcourseoverview.php?programid={{trainingid}}" class="btn btn-md btn-primary mt-3">{{#str}}view_courses, local_trainingprogram{{/str}} </a></button>
+            </div>
+    </div>
+</div>

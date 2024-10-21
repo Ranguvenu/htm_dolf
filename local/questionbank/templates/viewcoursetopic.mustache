@@ -1,0 +1,41 @@
+<div class="col-md-12">
+       <div class="row">
+        <div class="col-6">
+        </div>
+            <div class="col-6 text-right">
+              {{# qbstatus}}
+                <a href="#" data-action="assignopicstocourse" data-id={{questionbankid}} data-name="{{workshopname}}"><span class="btn btn-primary btn-md mb-2">{{#str}}assign, local_questionbank{{/str}}</span></a>
+              {{/ qbstatus}}
+            </div>
+</div>
+<table class="table generaltable">
+   {{# courses}}
+  <thead> 
+    <tr>
+      <th> <span data-toggle="collapse" href="#selected_course-{{courseid}}"><b>{{fullname}}</th>
+      <th>{{#str}}date_added, local_questionbank{{/str}}</th>
+      <th>{{#str}}actions, local_questionbank{{/str}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="selectedcoursetopics mb-3 collapse" id="selected_course-{{courseid}}">         
+      {{# topics}}
+        <tr>
+          <td>
+            <h6>{{name}}</h6>
+          </td>
+          <td>
+            <h6>{{dateadded}}</h6>
+          </td>
+          <td>
+            <a  data-action="unassigntopic" data-courseid = "{{courseid}}" data-id='{{questionbankid}}' data-topicid='{{topicid}}' ><span class="btn btn-primary btn-md">{{#str}}unassign, local_questionbank{{/str}}</span></a>
+          </td>
+        </tr>        
+      {{/ topics}}         
+    </div>
+  </tbody>
+  {{/ courses}}
+   {{^ courses}}
+      <div class="w-100 pull-left alert alert-info" >{{#str}}norecordsfound, local_questionbank{{/str}}</div>
+    {{/ courses}}   
+</table>

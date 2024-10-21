@@ -1,0 +1,57 @@
+<table class='generaltable table-striped' id='popup_user{{id}}'>
+    <tbody>
+
+    {{#requestpage}}
+     {{#trainer}}
+        <tr><td>{{# str}} name, local_userapproval{{/ str}}</td><td>{{fullname}}</td></tr>
+        <tr><td>{{# str}} qualification, local_userapproval{{/ str}}</td><td><a href="{{qualifications}}" download>Trainer Document</a></td></tr>
+        <tr><td>{{# str}} yearsofexperience, local_userapproval{{/ str}}</td><td>{{yearsofexperience}}</td></tr>
+        <tr><td>{{# str}} fieldoftraining, local_userapproval{{/ str}}</td><td>{{fieldoftraining}}</td></tr>
+        <tr><td>{{# str}} certificates, local_userapproval{{/ str}}</td><td>{{certificates}}</td></tr>
+      {{/trainer}}
+
+      {{^trainer}}
+        <tr><td>{{# str}} name, local_userapproval{{/ str}}</td><td>{{fullname}}</td></tr>
+         <tr><td>{{# str}} qualification, local_userapproval{{/ str}}</td><td><a href="{{qualifications}}" download>Expert Document</a></td></tr>
+        <tr><td>{{# str}} yearsofexperience, local_userapproval{{/ str}}</td><td>{{yearsofexperience}}</td></tr>
+        <tr><td>{{# str}} certificates, local_userapproval{{/ str}}</td><td>{{certificates}}</td></tr>
+        <tr><td>{{# str}} fieldofexperience, local_userapproval{{/ str}}</td><td>{{fieldofexperience}}</td></tr>
+      {{/trainer}}
+      {{/requestpage}}
+
+       {{^requestpage}}
+        <tr><td>{{# str}} name, local_userapproval{{/ str}}</td><td>{{fullname}}</td></tr>
+        <tr><td>{{# str}} gender, local_userapproval{{/ str}}</td><td>{{gender}}</td></tr>
+        <tr><td>{{# str}} prefered_language, local_userapproval{{/ str}}</td><td>{{lang}}</td></tr>
+        <tr><td>{{# str}} nationality, local_userapproval{{/ str}}</td><td>{{nationality}}</td></tr>
+        <tr><td>{{# str}} email, local_userapproval{{/ str}}</td><td>{{email}}</td></tr>
+        <tr><td>{{# str}} mobile, local_userapproval{{/ str}}</td><td>{{phone1}}</td></tr>
+        <tr><td>{{# str}} username, local_userapproval{{/ str}}</td><td>{{username}}</td></tr>
+        <tr><td>{{# str}} id_type, local_userapproval{{/ str}}</td><td>{{id_type}}</td></tr>
+        <tr><td>{{# str}} idnumber, local_userapproval{{/ str}}</td><td>{{id_number}}</td></tr>
+        {{#organization}}
+         <tr><td>{{# str}} organisation, local_userapproval{{/str}}</td><td>{{organization}}</td></tr>
+        {{/organization}}
+        {{#sector}}
+         <tr><td>{{# str}} sector, local_userapproval{{/ str}}</td><td>{{sector}}</td></tr>
+        {{/sector}}
+        {{#segment}}
+         <tr><td>{{# str}} segment, local_userapproval{{/ str}}</td><td>{{segment}}</td></tr>
+        {{/segment}}
+        {{#jobfamily}}
+         <tr><td>{{# str}} job_family, local_userapproval{{/ str}}</td><td>{{jobfamily}}</td></tr>
+        {{/jobfamily}}
+        <tr><td>{{# str}} country, local_userapproval{{/ str}}</td><td>{{country}}</td></tr>
+        <tr><td>{{# str}} city, local_userapproval{{/ str}}</td><td>{{city}}</td></tr>
+        <tr><td>{{# str}} timecreated, local_userapproval{{/ str}}</td><td>{{timecreated}}</td></tr>
+
+         {{/requestpage}}
+    
+        
+        {{^requesttype}}
+        <tr><td>{{# str}} reg_status, local_userapproval{{/ str}}</td><td>{{approvedstatus}}</td></tr>
+        {{/requesttype}}
+      </tbody>
+</table>
+
+

@@ -1,0 +1,38 @@
+{{#response}}
+{{#records}}
+  
+    <table class="table" >
+    <thead>
+        <tr>
+            <th scope="col">{{#str}} name, local_userapproval{{/str}}</th>
+            <th scope="col">{{#str}} email, local_userapproval{{/str}}</th>
+            <th scope="col">{{#str}} role, local_userapproval{{/str}}</th>
+            <th class="text-center">{{#str}} assigndate, local_userapproval{{/str}}</th>
+            <!-- <th class="text-center">{{#str}} assignby, local_userapproval{{/str}}</th> -->
+        </tr>
+    </thead>
+    {{#hascourses}}
+    <tbody>
+       
+        <tr>
+            <td>{{trainername}}</td>
+            <td>{{email}}</td>
+            <td>{{requesttype}}</td>
+            <td class="text-center">{{assigndate}}
+            <!-- <td class="text-center">{{assignby}}
+            </td> -->
+        </tr>
+      
+    </tbody>
+      {{/hascourses}}
+</table>
+ 
+{{/records}}
+{{/ response}}
+{{#js}}
+
+
+    require(['local_userapproval/dynamicForm'], function(s) {
+        s.init();
+    });
+{{/js}}

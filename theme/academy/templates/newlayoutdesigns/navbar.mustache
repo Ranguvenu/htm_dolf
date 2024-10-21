@@ -1,0 +1,298 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+
+    @template theme_academy/navbar
+
+    This template renders the top navbar.
+
+    Example context (json):
+    {
+        "output": {
+            "should_display_navbar_logo": true,
+            "get_compact_logo_url": "http://placekitten.com/50/50",
+            "custom_menu": "<li>..</li>",
+            "page_heading_menu": "<li>..</li>",
+            "search_box": "<div><input type='text'></div>",
+            "navbar_plugin_output": "<div class='dropdown'>Messaging</div>",
+            "user_menu": "<div class='dropdown'>John Doe</div>"
+        },
+        "config": {
+            "wwwroot": "#",
+            "homeurl": "/my/"
+        },
+        "sitename": "Moodle Site",
+        "mobileprimarynav": [
+            {
+                "text": "Dashboard",
+                "url": "/my",
+                "isactive": true
+            },
+            {
+                "text": "Site home",
+                "url": "/",
+                "isactive": false
+            },
+            {
+                "text": "My courses",
+                "url": "/course",
+                "isactive": false
+            }
+        ]
+    }
+}}
+<header id="newheader">
+    <nav class="navbar newnavbar main_navbar fixed-top navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand text-light" href="{{{ config.wwwroot }}}">
+                {{# output.should_display_main_logo }}
+                <span class="logo d-sm-inline text-center">
+                    <img src="{{output.get_custom_logo}}" alt="{{sitename}}" class="main_logo">
+                    <span class="logocaption"><span>{{#str}}logocaption, theme_academy{{/str}}</span></span>
+                </span>
+                {{/ output.should_display_main_logo }}
+                {{^ output.should_display_main_logo }}
+                    <span class="site-name d-none d-md-inline">{{{ sitename }}}</span>
+                {{/ output.should_display_main_logo }}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex justify-content-end mt-3">
+                    <button class="navbar-toggler close_btn justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-times text-light"></i>
+                    </button>
+                </div>
+            <ul class="navbar-nav " id="usernavigation">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{#str}}nav_link_certificates, theme_academy{{/str}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/ExamsOverview.aspx" target="_blank">{{#str}}exams_view, theme_academy{{/str}} </a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/ExamsPolicies.aspx" target="_blank">{{#str}}exam_policy, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/ExamCenters.aspx" target="_blank">{{#str}}exam_center, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/Exams.aspx" target="_blank">{{#str}}exams, theme_academy{{/str}} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{#str}}nav_link_training_programs, theme_academy{{/str}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/TrainingOverview.aspx" 
+                                target="_blank">{{#str}}training_dev, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/TrainingPolicy.aspx" 
+                                target="_blank">{{#str}}training_policy, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/Programs.aspx" 
+                                target="_blank">{{#str}}training_prog, theme_academy{{/str}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{#str}}nav_link_events, theme_academy{{/str}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/WebinarsandSeminarsOverview.aspx" 
+                                target="_blank">{{#str}}webinars, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/WebinarsandSeminarsTypes.aspx"
+                                target="_blank">{{#str}}webinar_types, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/Events.aspx" target="_blank">{{#str}}events, theme_academy{{/str}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{#str}}nav_link_jadarat, theme_academy{{/str}}</a>
+                    <div class="dropdown-menu col2" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat" target="_blank">{{#str}}about_jadarat, theme_academy{{/str}} </a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/JadaratDictionary.aspx" target="_blank">{{#str}}dictionary, theme_academy{{/str}} </a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/jadaratConcepts.aspx" target="_blank">{{#str}}concepts, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/JadaratVideos.aspx" target="_blank">{{#str}}videos, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/jadaratFAQ.aspx" target="_blank">{{#str}}questions, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/FrameworkStructure.aspx" target="_blank">{{#str}}framework, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/JadaratCareerPath.aspx" target="_blank">{{#str}}career, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/JadaratDocuments.aspx" target="_blank">{{#str}}documents, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/jadarat/Pages/PartnersDevelopment.aspx" target="_blank">{{#str}}partners, theme_academy{{/str}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{#str}}nav_link_initiatives, theme_academy{{/str}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/Leadership.aspx" target="_blank">{{#str}}financial_future, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/hackathon.aspx"target="_blank">{{#str}}bootcamp, theme_academy{{/str}} </a>
+                            </li>
+                            <li>
+                                <a href="{{#is_eng_lang}}https://fa.gov.sa/en/TDP{{/is_eng_lang}}{{^is_eng_lang}}https://fa.gov.sa/ar/services/Pages/irteqaa.aspx{{/is_eng_lang}}" target="_blank">{{#str}}intiative, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/FinancialKnowledge/Pages/FinancialAcademy.aspx" target="_blank">{{#str}}knowledge_path, theme_academy{{/str}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{#str}}nav_link_services, theme_academy{{/str}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li>
+                                <a href="https://lms.fa.gov.sa/admin/tool/certificate/index.php" target="_blank">{{#str}}certificates, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://lms.fa.gov.sa/login/index.php" target="_blank">{{#str}}download_certificate, theme_academy{{/str}}</a>
+                            </li>
+                            <li>
+                                <a href="https://fa.gov.sa/{{output.currentlang}}/services/Pages/Advisor.aspx" target="_blank">{{#str}}advisor, theme_academy{{/str}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar_icons d-flex flex-wrap align-items-center">
+            <button class="navbar-toggler close_btn justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-inline-flex">
+                <ul class="nav_menuicons ml-auto mb-0">
+                    <li class="list_icon">
+                            <a href="{{config.wwwroot}}/theme/academy/help.php">
+                                <span class="help_icon"><i class="fa text-white fa-question"></i></span>
+                            </a>
+                    </li>
+                    <li class="list_icon">
+                        <a href="{{{output.cart_link}}}">
+                            <span class="basket_icon"></span>
+                        </a>
+                    </li>
+                    {{^isloggedin}}
+                    <li class="list_icon loginlink">
+                        <a href="{{config.wwwroot}}/login/index.php" >
+                            <span class="leftupload_icon"></span>
+                        </a>
+                    </li>
+                    <li class="list_icon userreglink">
+                        <a href="{{output.individual_registration_url}}">
+                            <span class="user_icon"></span>
+                        </a>
+                    </li>
+                    {{/isloggedin}}
+                    <li class="list_icon">
+                	  {{{ output.language_nav_link}}}
+                    </li>     
+                </ul>
+                {{#isloggedin}}
+                    
+                    {{# output.search_box }}
+                        {{{ output.search_box }}}
+                        <div class="divider border-left h-75 align-self-center mx-1"></div>
+                    {{/output.search_box}}
+                    {{#langmenu}}
+                        {{> theme_academy/language_menu }}
+                        <div class="divider border-left h-75 align-self-center mx-1"></div>
+                    {{/langmenu}}
+                    {{{ output.navbar_plugin_output }}}
+                        <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+                            {{#usermenu}}
+                                {{{output.user_menu}}}
+                            {{/usermenu}}
+                        </div>
+                {{/isloggedin}}
+            </div>
+            
+        </div>
+      </nav>
+    <section id="topbgsection">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                {{{ output.full_header }}}
+                </div>
+                <div class="col-md-2">{{{ output.edit_switch }}}</div>
+            </div>
+        </div>
+    </section>
+</header>
+{{> theme_academy/primary-drawer-mobile }}
+
+{{#js}}
+    require(['tool_product/product'], function(product) {
+
+        let products = localStorage.getItem('products');
+
+        products = JSON.parse(products);
+
+        var productscount= products ? products.length : 0;
+
+        $('.basketicon').html('<span class="basketcount">'+productscount+'</span>');
+    });
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+        if (scroll >= 80) {           
+            $(".newnavbar").addClass("sticky");
+        }else{
+            $(".newnavbar").removeClass("sticky"); 
+        }
+    });
+   
+{{/js}}

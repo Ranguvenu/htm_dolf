@@ -1,0 +1,47 @@
+{{# response}}
+    {{^records}}
+        {{#nodata}}
+            <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+        {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+            <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}id,local_exams{{/str}}</th>
+                        <th>{{#str}}from,local_exams{{/str}}</th>
+                        <th>{{#str}}exam, local_exams{{/str}}</th>
+                        <th>{{#str}}relatedto, local_exams{{/str}}</th>
+                        <th>{{#str}}status, local_exams{{/str}}</th>
+                        <th>{{#str}}reason, local_exams{{/str}}</th>
+                        {{#action}}
+                            <th>{{#str}}action, local_exams{{/str}}</th>
+                        {{/action}} 
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#records}}
+                        <tr>
+                            <td>{{srno}}</a></td>
+                            <td>{{username}}</td>
+                            <td>{{examname}}</td>
+                            <td>{{#str}}exam, local_exams{{/str}}</td>
+                            <td>{{status}}</td>
+                            <td>{{reason}}</td>
+                            {{#action}}
+                                <td>
+                                    <div class="d-flex action_btns">
+                                        <a tabindex="0" role="button" data-action = "grievancedetails" data-id ="{{id}}" data-examid="{{examid}}" data-name="{{examname}}"  alt="{{#str}}view{{/str}}" vieworganization title="{{#str}}view{{/str}}"><span class="bg-primary text-white"><i class="fa fa-search-plus"></i></span></a>
+                                        {{#statusaction}}
+                                            <a alt="{{#str}}approve, local_exams{{/str}}" title="{{#str}}approve, local_exams{{/str}}"  data-action="grievancestatus" data-title="{{examname}}" data-id="{{id}}" data-examid="{{examid}}" data-userid="{{userid}}" data-status="2"><span class="bg-success text-white"><i class="fa fa-check" aria-hidden="true"></i></span></a>
+                                            <a alt="{{#str}}reject, local_exams{{/str}}" title="{{#str}}reject, local_exams{{/str}}"  data-action="grievancestatus" data-title="{{examname}}" data-id="{{id}}" data-examid="{{examid}}" data-userid="{{userid}}" data-status="3"><span class="bg-danger text-white"><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                        {{/statusaction}}
+                                    </div>
+                                </td>
+                            {{/action}}
+                        </tr>
+                    {{/records}}
+                </tbody>
+            </table>
+        {{/viewtypeCard}}
+{{/ response}}

@@ -1,0 +1,16 @@
+<div id="cart_container">
+	<div id="cart-loader"/>
+		{{>tool_product/loader}}
+	</div>
+	<div><h4>{{#str}}cart,tool_product{{/str}}</h4>{{#total_items}}{{ total_items }} {{#str}}itemsincart, tool_product{{/str}}{{/total_items}}</div>
+	<div data-region="empty-cart-button"></div>
+	<hr/>
+	<div data-region="cart-body"></div>
+</div>
+
+
+{{#js}}
+    require(['tool_product/product'], function(product) {
+    	product.cart();
+    });
+{{/js}}

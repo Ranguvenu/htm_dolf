@@ -1,0 +1,59 @@
+{{#response}}
+{{#records}}
+{{# hascourses}}
+<div class="hallcontainer py-3">
+    <h6 class="hall_title my-3 col-md-6">{{id}}. {{exam}}</h6>
+    <span class="col-md-6">
+        <div class="exam_actions col-md-3 col-lg-2 col-sm-3">
+            <div class="main_detail_content">
+                <div class="d-flex action_btns">
+                    <a href="#"  data-action="createexam" data-id={{id}}><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+                    <a href="#" data-action="deleteexam" data-id={{id}} data-context={{context}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                </div>                    
+            </div>
+        </div>
+    </span>
+    <div class="halldetails_container p-4">
+        <div class="details_header row">
+            <div class="hall_main_details col-md-12 col-lg-10 col-sm-9 justify-content-between">
+                <div class="row">
+                    <div class="main_detail_content col-md-2 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}date, local_exams{{/str}}</h6>
+                        <h6 class="detail_content">{{timecreated}}</h6>
+                    </div>
+                    <div class="main_detail_content col-md-2 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}noofquestions, local_exams{{/str}}</h6>
+                        <p class="detail_content">{{noofquestions}}</p>
+                    </div>
+                    <div class="main_detail_content col-md-2 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}type, local_exams{{/str}}</h6>
+                        <p class="detail_content">{{type}}</p>
+                    </div>
+                    <div class="main_detail_content col-md-2 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}passingscore, local_exams{{/str}}</h6>
+                        <p class="detail_content">{{passingscore}}</p>
+                    </div>
+                    <div class="main_detail_content col-md-1 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}fees, local_exams{{/str}}</h6>
+                        <h6 class="detail_content">{{fees}}</h6>
+                    </div>
+                    <div class="main_detail_content col-md-1 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}enroll, local_exams{{/str}}</h6>
+                        <p class="detail_content">{{enroll}}</p>
+                    </div>
+                    <div class="main_detail_content col-md-2 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}duration, local_exams{{/str}}</h6>
+                        <p class="detail_content">{{duration}}</p>
+                    </div>
+                    <div class="main_detail_content col-md-2 col-sm-6">
+                        <h6 class="detail_heading">{{#str}}language, local_exams{{/str}}</h6>
+                        <p class="detail_content">{{language}}</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- hall details_header ended  -->
+    </div>
+</div>
+{{/ hascourses}}
+{{/ records}}
+{{/ response}}

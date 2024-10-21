@@ -1,0 +1,12 @@
+
+
+<div class="d-flex justify-content-end align-items-center">
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createdocumentupload"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createdocumentupload, block_documentupload{{/str}}</a>
+</div>
+
+{{#js}}
+    require(['block_documentupload/documentupload'], function(s) {
+        s.init();
+    });
+{{/js}}
+

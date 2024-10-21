@@ -1,0 +1,138 @@
+{{#response}}
+{{# records}}
+    {{# exams}}
+<div id="exams_block_container">
+	<div class="tab-content" id="exam_tabscontent">    
+		<div class="tab-pane show active" id="currentexamstab" role="tabpanel" aria-labelledby="exams-tab">
+			<div class="exam_details_container mb-4">
+				{{# completedtab}}
+				<h6 class="text-themecolor2 mb-2">
+                    {{exam}}</h6>
+				{{/ completedtab}}
+				{{^ completedtab}}
+					{{# purchase}}
+						 <h5 class="text-themecolor2 mb-2">
+                  <a href="{{url}}/local/exams/examdetails.php?id={{id}}&profileid={{purchasedprofile}}&hallscheduleid={{scheduleid}}">{{exam}}</a></h5>
+
+					{{/ purchase}}
+					{{^ purchase}}
+						<h5 class="text-themecolor2 mb-2">
+                   <a href="{{url}}/local/exams/hallschedule.php?examid={{id}}&profileid={{purchasedprofile}}&tuserid={{userid}}&status=en">{{exam}}</a></h5>
+					{{/ purchase}}
+				{{/ completedtab}}
+				<div class="row my-3">
+					<div class="col-10 bg-themecolor3 rounded pt-4">
+						<div class="row">
+							<div class="col-md-4 mb-3"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold">{{#str}}code,local_exams{{/str}} </span> {{code}}</div>
+							{{# profilecode}}
+							<div class="col-md-4 mb-3"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold">{{#str}}profilecode,local_exams{{/str}} </span> {{profilecode}}</div>
+	                        {{/ profilecode}}
+	                        {{^ completedtab}}
+	                        {{# language}}
+							<div class="col-md-4 mb-3"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold">{{#str}}language,local_exams{{/str}} </span> {{language}}</div>
+	                        {{/ language}}
+	                        {{/ completedtab}}
+	                        {{# completedtab}}
+								<div class="col-md-4 mb-3"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold"> {{#str}}completedon,local_exams{{/str}}</span> {{completedon}} </div>
+	                        {{/ completedtab}}
+
+	                        {{^ completedtab}}
+								{{# examdatetime}}
+									<div class="col-md-4 mb-3"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold"> {{#str}}examdate,local_exams{{/str}}</span>
+
+										{{examdatetime}}
+									</div>
+								{{/ examdatetime}}
+                            {{/ completedtab}}
+
+                            {{^ completedtab}}
+	                            {{# showexamduration}}
+									<div class="col-md-4 mb-3"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold">{{#str}}examduration,local_exams{{/str}}</span> {{examduration}} 
+									{{#str}}min,local_exams{{/str}}
+									</div>
+								{{/ showexamduration}}
+							{{/ completedtab}}
+							
+	                        {{# completedtab}}
+		                        {{# showgrade}}
+									<div class="col-md-4"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold"> {{#str}}gradereceived,local_exams{{/str}} </span> {{passinggrade}} %</div>
+		                        {{/showgrade}}
+								<div class="col-md-4"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold"> {{#str}}attempt,local_exams{{/str}} </span> {{attemptnumber}}</div>
+								
+								<div class="col-md-4"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold"> {{#str}}result,local_exams{{/str}} </span> {{result}} </div>
+	                        {{/ completedtab}}
+                            {{^ completedtab}}
+	                            {{# examdatetime}}
+								<div class="col-md-4"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold"> {{#str}}location,local_exams{{/str}}</span> <a href="{{maplocation}}"><i class="fa fa-map-marker"></i></a> </div>
+								<div class="col-md-4"><i class="fa fa-chevron-right mr-2" aria-hidden="true"></i> <span class="font-weight-bold"> {{#str}}hall,local_exams{{/str}} </span> {{name}} </div>
+								{{/ examdatetime}}
+                            {{/ completedtab}}
+
+						</div>
+					</div>
+	                <div class="col-2 mb-4">
+	                        {{# userview}}
+   	                        	{{# gradeachieved}}
+	                        	{{# hascertificate}}
+		                            {{# certificateid}}
+		                                <a role="button" title="{{#str}}download_certificate, local_exams {{/ str}}" href="{{url}}/admin/tool/certificate/view.php?code={{certificateid}}" class="btn btn-primary mt-3"><i class="icon fa fa-download" aria-hidden="true"></i>
+		                                </a>
+		                            {{/ certificateid}}
+	                            {{/ hascertificate}}
+   	                        	{{/ gradeachieved}}
+                            		{{^ completedtab}}
+			                        	{{# purchase}}
+	                                		<a href="{{url}}/local/exams/examdetails.php?id={{id}}&profileid={{purchasedprofile}}&hallscheduleid={{scheduleid}}" class="btn btn-primary mt-3" > <span>{{#str}}previewexam,local_exams{{/str}}</span> </a>
+		                            	{{/ purchase}}
+			                        	{{^ purchase}}
+											<a href="{{url}}/local/exams/hallschedule.php?examid={{id}}&profileid={{purchasedprofile}}&tuserid={{userid}}&status=en" class="btn btn-primary mt-3">{{#str}}schedulehall, local_exams{{/str}}</a>
+		                            	{{/ purchase}}
+
+										{{#grievanceexist}}
+										<button class="btn btn-sm btn-primary mt-3" data-action="viewgrievance" data-examid="{{id}}" data-userid="{{userid}}">{{#str}}viewgrievance, local_exams{{/str}}</button>
+										{{/grievanceexist}}
+										{{^grievanceexist}}
+											{{#grievance2}}
+												<button class="btn btn-sm btn-primary mt-3" data-action="addgrievance" data-userid="{{userid}}" data-examid="{{id}}" data-profileid="{{profileid}}">{{#str}}grievance, local_exams{{/str}}</button>
+												<div data-region="grievance-order-summary" class="hidden"></div>
+											{{/grievance2}}
+										{{/grievanceexist}}
+                            		{{/ completedtab}}
+	                            {{^ certificateid}}
+	                            	{{# examcompleted}}
+										<button class="btn btn-sm btn-danger mt-3">{{#str}}examcompleted, local_exams{{/str}}</button>
+	                            	{{/ examcompleted}}
+	                            {{/ certificateid}}
+	                           <!-- {{^ examcompleted}}
+									{{#grievanceexist}}
+										<button class="btn btn-sm btn-primary mt-3" data-action="viewgrievance" data-examid="{{id}}" data-userid="{{userid}}">{{#str}}viewgrievance, local_exams{{/str}}</button>
+									{{/grievanceexist}}
+									{{^grievanceexist}}
+										{{#grievance}}
+											<button class="btn btn-sm btn-primary mt-3" data-action="addgrievance" data-userid="{{userid}}" data-examid="{{id}}" data-profileid="{{profileid}}">{{#str}}grievance, local_exams{{/str}}</button>
+											<div data-region="grievance-order-summary" class="hidden"></div>
+										{{/grievance}}
+									{{/grievanceexist}}
+								{{/ examcompleted}}-->
+
+	                        {{/ userview}}
+	                        {{^ userview}}
+	                        	<a href="{{url}}/local/exams/examdetails.php?id={{id}}" class="btn btn-sm btn-primary mt-4 mr-2">{{#str}}details, local_exams{{/str}}</a>
+	                        {{/ userview}}
+	                </div>
+				</div>
+			</div>
+			
+		</div>
+	</div>	
+</div>
+        {{/ exams}}
+    {{/ records}}
+{{/ response}}
+
+
+{{#js}}
+    require(['local_exams/grievance'], function(s) {
+        s.init();
+    });
+{{/js}}

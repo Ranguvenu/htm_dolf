@@ -1,0 +1,96 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_trainingprogram/listofdiscountgroups
+
+    TODO describe template listofdiscountgroups
+
+    Example context (json):
+    {
+    }
+}}
+
+{{#response}}
+    {{#records}}
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">{{# str}} min_enrollments, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} earlyregistration_discount, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} organizations, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} created_date, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} expired_date, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} status, local_trainingprogram{{/ str}}</th>
+                  <th>{{# str}} actions, local_trainingprogram{{/ str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                  <td>{{group_count}}</a></td>
+                  <td>{{discount}}</td>
+                  <td>
+                    {{# all}}
+                     {{# str}} all,local_trainingprogram {{/str}}
+                    {{/ all}}
+                    {{^ all}}
+                        <p>
+                            {{limitedorganization}}
+                            {{# moreorganization}}
+                                <span class="dots">...</span><span class="organization_view_more d-none">
+                                {{allorganization}}
+                                </span> <a  id="myBtn" class = "show-more-organization-btn text-themecolor" data-type = "show">{{#str}} show_more, local_trainingprogram {{/str}}</a>
+                            {{/ moreorganization}}
+                        </p>
+                    {{/ all}}
+                  </td>
+                  <td>{{created_date}}</td>                  
+                  <td>{{expired_date}}</td>                  
+                  <td>{{status}}</td>                                           
+                  <td>
+                        <div class="d-flex action_btns">
+                          <a href="#"  data-action="viewdiscountentity" data-id={{id}}  data-entitytype ="group" data-toggle="tooltip" title="{{#str}} view, local_trainingprogram {{/str}}"><span class="bg-primary text-white"><i class="fa fa-search-plus"></i></span></a>
+                          {{# actionview}}
+                            <a href="#"  data-action="creatediscountgroups" data-id={{id}} data-toggle ="tooltip" title={{#str}}edittp,local_trainingprogram{{/str}}><span class="bg-info text-white"><i class="fa fa-pencil"></i></span></a>
+                          {{/ actionview}}
+                           <a href="#" data-action="deletediscountgroups" data-id={{id}} data-count={{group_count}} data-discount={{discount}} data-toggle ="tooltip" title={{#str}}delete,local_sector{{/str}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                        </div>
+                  </td>      
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+    {{/ records}}
+{{/ response}}
+{{#js}}
+    $('.show-more-organization-btn').click(function(){
+    var type  = $(this).attr('data-type');
+        if(type == 'show') {
+            $(this).attr('data-type','hide');
+            $(this).parent('p').find('.dots').addClass('d-none');
+            $(this).parent('p').find('.organization_view_more').removeClass('d-none');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        } else {
+
+            $(this).attr('data-type','show');
+            $(this).parent('p').find('.dots').removeClass('d-none');
+            $(this).parent('p').find('.organization_view_more').addClass('d-none');
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+{{/js}}
+

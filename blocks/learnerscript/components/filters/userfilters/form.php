@@ -1,0 +1,127 @@
+<?php
+
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * LearnerScript Reports
+ * A Moodle block for creating customizable reports
+ * @package blocks
+ * @author: eAbyas Info Solutions
+ * @date: 2022
+ */
+if (!defined('MOODLE_INTERNAL')) {
+    //  It must be included from a Moodle page.
+    die(get_string('nodirectaccess','block_learnerscript'));
+}
+
+require_once($CFG->libdir . '/formslib.php');
+
+class userfilters_form extends moodleform {
+
+    public function definition() {
+        global $DB, $USER, $CFG;
+
+        $mform = & $this->_form;
+
+        $mform->addElement('header', 'crformheader', get_string('userfilters', 'block_learnerscript'), '');
+
+        $columns = $DB->get_columns('local_users');
+
+        $tpcolumns = array();
+        foreach ($columns as $c) {
+            $tpcolumns[$c->name] = ucfirst($c->name);
+        }
+
+        unset($tpcolumns['id']);
+        unset($tpcolumns['oldid']);
+        unset($tpcolumns['deleted']);
+        unset($tpcolumns['dateofbirth']);
+        unset($tpcolumns['jobfamily']);
+        unset($tpcolumns['role']);
+        unset($tpcolumns['jobrole_level']);
+        unset($tpcolumns['password']);
+        unset($tpcolumns['confirm_password']);
+        unset($tpcolumns['email']);
+        unset($tpcolumns['phone1']);
+        unset($tpcolumns['usercreated']);
+        unset($tpcolumns['id_number']);
+        unset($tpcolumns['usermodified']);
+        unset($tpcolumns['timecreated']);
+        unset($tpcolumns['timemodified']);
+        unset($tpcolumns['bannerimage']);
+        unset($tpcolumns['certificates']);
+        unset($tpcolumns['linkedinprofile']);
+        unset($tpcolumns['qualifications']);
+        unset($tpcolumns['yearsofexperience']);
+        unset($tpcolumns['fieldoftraining']);
+        unset($tpcolumns['fieldofexperience']);
+        unset($tpcolumns['usersource']);
+        unset($tpcolumns['addresscountryid']);
+        unset($tpcolumns['nationalitycountryid']);
+
+        $mform->addElement('select', 'column', get_string('column', 'block_learnerscript'), $tpcolumns);
+
+        $this->_customdata['compclass']->add_form_elements($mform, $this);
+
+        // Buttons.
+        $this->add_action_buttons(true, get_string('add'));
+    }
+
+    public function validation($data, $files) {
+        $errors = parent::validation($data, $files);
+        $errors = $this->_customdata['compclass']->validate_form_elements($data, $errors);
+        return $errors;
+    }
+
+    public function advanced_columns() {
+        global $DB;
+        $columns = $DB->get_columns('local_users');
+
+        $tpcolumns = array();
+        foreach ($columns as $c) {
+            $tpcolumns[$c->name] = ucfirst($c->name);
+        }
+
+        unset($tpcolumns['id']);
+        unset($tpcolumns['oldid']);
+        unset($tpcolumns['deleted']);
+        unset($tpcolumns['dateofbirth']);
+        unset($tpcolumns['jobfamily']);
+        unset($tpcolumns['role']);
+        unset($tpcolumns['jobrole_level']);
+        unset($tpcolumns['password']);
+        unset($tpcolumns['confirm_password']);
+        unset($tpcolumns['email']);
+        unset($tpcolumns['phone1']);
+        unset($tpcolumns['usercreated']);
+        unset($tpcolumns['usermodified']);
+        unset($tpcolumns['timecreated']);
+        unset($tpcolumns['timemodified']);
+        unset($tpcolumns['bannerimage']);
+        unset($tpcolumns['certificates']);
+        unset($tpcolumns['linkedinprofile']);
+        unset($tpcolumns['qualifications']);
+        unset($tpcolumns['yearsofexperience']);
+        unset($tpcolumns['fieldoftraining']);
+        unset($tpcolumns['fieldofexperience']);
+        unset($tpcolumns['usersource']);
+        unset($tpcolumns['addresscountryid']);
+        unset($tpcolumns['nationalitycountryid']);
+
+        return $tpcolumns;
+    }
+
+}

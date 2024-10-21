@@ -1,0 +1,169 @@
+{{#response}}
+{{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+{{/records}}    
+<div id="currentofferingcontainer">
+    <div class="row offerwrapper">
+        <div class="col-md-12">
+            {{# records}}
+            <div class="d-flex justify-content-between offerheader">
+                <h5 class="m-0 theme_text_color">{{#str}}current_offer, local_trainingprogram{{/str}}
+                  <small style="display: block;font-size: 12px;margin-top: 5px;">{{code}}  </small>
+                  
+                </h5>
+            </div>
+            <div class="offertablecontainer table-responsive my-3">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}start_date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}end_date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}olanguage , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}seats , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}enrolled , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}location , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}price , local_trainingprogram{{/str}}</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{startdate}}</td>
+                            <td>{{enddate}}</td>
+                            <td>{{languages}}</td>
+                            <td>{{availableseats}}</td>
+                            <td>{{enrolled}}</td>
+                            <td><a href="{{maplocation}}" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i></a></td>
+                            <td>{{sellingprice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {{# viewtypeCard}}
+         
+            <div class="offerdayscontainer row">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}session , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}action , local_trainingprogram{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{# sessiondata}}
+                        <tr>
+                            <td>Session {{cid}}</td>
+                            <td>{{sessiondate}}</td>
+                            <td><a href="{{url}}"><span class="bg-primary text-white"></span>{{#str}}attendance , local_trainingprogram{{/str}} </a></td>
+                        </tr>
+                        {{/ sessiondata}}
+                    </tbody>
+                </table>
+            </div>
+            {{/ viewtypeCard}}
+            {{/ records}}
+        </div>
+    </div>
+</div>
+
+
+
+
+{{^previousofferingdata}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{#str}}noprevdata,local_trainingprogram{{/str}}</div>
+    {{/nodata}}
+{{/previousofferingdata}}
+<div id="previousofferingcontainer">
+    <div class="row offerwrapper">
+        <div class="col-md-12">
+            {{# previousofferingdata}}
+            <div class="d-flex justify-content-between offerheader prevrecdata">
+                <h5 class="m-0 prevreccontent">{{#str}}previous_offer, local_trainingprogram{{/str}}
+                  <small style="display: block;font-size: 12px;margin-top: 5px;">{{code}}  </small>
+                </h5>
+            </div>
+
+
+            <div class="offertablecontainer table-responsive my-3">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}start_date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}end_date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}olanguage , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}seats , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}enrolled , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}location , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}price , local_trainingprogram{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{startdate}}</td>
+                            <td>{{enddate}}</td>
+                            <td>{{languages}}</td>
+                            <td>{{availableseats}}</td>
+                            <td>{{enrolled}}</td>
+                            <td><a href="{{maplocation}}" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i></a></td>
+                            <td>{{sellingprice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {{# viewtypeCard}}
+
+            <div class="offerdayscontainer row">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}session , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}date , local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}action , local_trainingprogram{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{# prevsessiondata }}
+                        <tr>
+                            <td>Session {{cid}}</td>
+                            <td>{{sessiondate}}</td>
+                            <td>{{#str}}attendance , local_trainingprogram{{/str}}</td>
+                        </tr>
+                        {{/ prevsessiondata}}
+                    </tbody>
+                </table>
+            </div>
+            {{/ viewtypeCard}}
+            {{/ previousofferingdata}}
+        </div>
+    </div>
+</div>
+
+
+
+{{#js}}
+    require(['local_trainingprogram/tpview'], function(s) {
+        "bPaginate": false
+        s.init();
+    });
+    $('.show-more-trainer-btn').click(function(){
+        var type  = $(this).attr('data-type');
+        if(type == 'show') {
+
+            $(this).attr('data-type','hide');
+            $(this).parent('p').find('.dots').addClass('d-none');
+            $(this).parent('p').find('.trainer_view_more').removeClass('d-none');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        } else {
+
+            $(this).attr('data-type','show');
+            $(this).parent('p').find('.dots').removeClass('d-none');
+            $(this).parent('p').find('.trainer_view_more').addClass('d-none');
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+{{/js}}
+{{/ response}}

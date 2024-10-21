@@ -1,0 +1,191 @@
+{{#event}}
+
+<div id="events_main_container">
+    <div class="row">
+    <div class="col-md-12  mb-4">
+       <div class="row">
+            <div class="col-6"></div>
+                <!--<div class="col-6 text-right">
+                    <button class="btn btn-primary register_btn">{{#str}}registeryourself, local_events{{/str}}</button>
+                </div>-->
+            </div>
+       </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- image container -->
+                    <div class="eventimagecontainer" style="background-image:url('{{eventlogo}}')"></div>
+                    <div class="details_container my-4">
+                        <h3 class="mb-3">{{eventname}}</h3>
+                        <hr>
+                        {{# isdescription}}
+                            <p> {{{description}}} </p>
+                        {{/ isdescription}}
+                        {{^ isdescription }}
+                            <p class="alert alert-info text-center">{{#str}}nodesc, local_events{{/str}}</p>
+                        {{/ isdescription }}
+                    </div>
+                    <div class="available_halls_section mb-4">
+                        <h4 class="mb-3">{{#str}}availablehalls,local_events{{/str}}</h4>
+                        <div id="hall_records" class="{{^hallslimit}} hide {{/hallslimit}}">
+                        {{#halldata}}
+                        <div class="list-group-item border rounded d-flex available_hall_details {{^hallfull}}selected{{/hallfull}} mb-2">
+                            <div class="section_content">
+                                <h5>{{hallcount}}. {{hallname}} {{#hallfull}}<span class="badge badge-dark">FULL</span>{{/hallfull}} </h5>
+                                <div class="d-flex flex-wrap">
+                                    <div class="mr-3 mt-2">{{#str}}city,local_events{{/str}} : <strong>{{city}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}buildingname,local_events{{/str}} : <strong>{{buildingname}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}seatingcapacity,local_events{{/str}} : <strong>{{seatingcapacity}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}seatsavailble,local_events{{/str}} : <strong>{{seatsavailble}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}availableon,local_events{{/str}} : <strong>{{availableon}}</strong></div>
+                                    <div class="mr-3 mt-2"><a>{{#str}}viewdetails,local_events{{/str}}</a></div>
+                                </div>
+                            </div>
+                             <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                {{>tool_product/cart/variation}}
+                            </div>
+                        </div>
+                         {{/halldata}}
+                        </div>
+                        <div id="more_records" class="">
+                        {{^hallslimit}}
+                        {{#morehalls}}
+                        <div class="list-group-item border rounded d-flex available_hall_details {{^hallfull}}selected{{/hallfull}} mb-2">
+                            <div class="section_content">
+                                <h5>{{hallcount}}. {{hallname}} {{#hallfull}}<span class="badge badge-dark">FULL</span>{{/hallfull}} </h5>
+                                <div class="d-flex flex-wrap">
+                                    <div class="mr-3 mt-2">{{#str}}city,local_events{{/str}} : <strong>{{city}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}buildingname,local_events{{/str}} : <strong>{{buildingname}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}seatingcapacity,local_events{{/str}} : <strong>{{seatingcapacity}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}seatsavailble,local_events{{/str}} : <strong>{{seatsavailble}}</strong></div>
+                                    <div class="mr-3 mt-2">{{#str}}availableon,local_events{{/str}} : <strong>{{availableon}}</strong></div>
+                                    <div class="mr-3 mt-2"><a>{{#str}}viewdetails,local_events{{/str}}</a></div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                {{>tool_product/cart/variation}}
+                            </div>
+                        </div>
+                         {{/morehalls}}
+                         {{/hallslimit}}
+                         </div>
+                        {{^hallslimit}}
+                        <div id="view_records_btn">
+                            <div class="list-group-item border rounded align-items-center justify-content-center d-flex mb-2">
+                                <a id="view_more_records">{{#str}}viewmore,local_events{{/str}}</a>
+                            </div>
+                        </div>
+                        {{/hallslimit}}
+                    </div>
+                    <div class="agendacontainer">
+                         <h4 class="mb-3"> {{#str}}agenda,local_events{{/str}}</h4>
+                         <ul>
+                            {{# agendadata}}
+                            <li>
+                                <div class="adendadetails">
+                                    <h6>{{#str}}agenda,local_events{{/str}}{{agendano}}</h6>
+                                    <div class="topiccontainer">
+                                        <h5 class="heading pb-2"> {{#str}}topic,local_events{{/str}}{{agendano}} : <strong>{{agendatopic}}</strong></h5>
+                                        <p>{{agenda_description}}</p>
+                                        <hr>
+                                        <div class="d-flex topic_footer">
+                                            <span class="mr-4 d-flex align-items-center"> <i class="piximg">{{#pix}}eventtimeicon,local_events{{/pix}}</i>  <span>{{agendatime}}</span> </span>
+                                            <span class="ml-4 d-flex align-items-center"> <i class="piximg">{{#pix}}speakericon,local_events{{/pix}}</i> <span>{{agendaspeaker}}</span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/agendadata}}
+                         </ul>
+                    </div>
+                    <div class="d-flex my-3">
+                        <div class="border-right pr-4 flex-fill">
+                            <h4> {{#str}}language,local_events{{/str}}</h4>
+                            <hr>
+                            <h5 class="my-3">{{language}}</h5>
+                        </div>
+                        <div class="pl-4 flex-fill">
+                            <h4>{{#str}}gender,local_events{{/str}}</h4>
+                            <hr>
+                            <h5 class="my-3">{{audiencegender}}</h5>
+                        </div>
+                    </div>
+                    <div class="virtualaudience_container mb-3 bg-theme text-white rounded p-3 d-flex flex-column align-items-start justify-content-center">
+                        <h4 class="flex-fill mb-2">{{#str}}virtualattendance,local_events{{/str}}</h4>
+                        <div>
+                            <h3 class="m-0">0</h3>
+                            <small>{{#str}}attendance,local_events{{/str}}</small>
+                        </div>
+                    </div>
+                    <div class="sponsers mb-3">
+                        <h4>{{#str}}eventpartners,local_events{{/str}}</h4>
+                        <hr>
+                        <div class="d-flex flex-wrap">
+                            {{#partnerdata}}
+                            <div class="rounded border imgcontainer m-2">
+                                <img class="icon" alt="{{partnername}}" aria-hidden="true" src="{{partnerlogo}}">
+                            </div>
+                            {{/partnerdata}}
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <h4>{{#str}}sponsors,local_events{{/str}}</h4>
+                        <hr>
+                        <h5 class="my-3"> {{#sponsordata}}{{sponsorname}}{{/sponsordata}}</h5>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="eventdetailscontainer">
+                        <div class="price_section mb-3 pb-3">
+                            <div class="d-flex">
+                                <h3 class="text-black mr-4">{{#str}}price,local_events{{/str}}</h3>
+                                <h3 class="theme_text_color mr-2">{{#str}}sr,local_events{{/str}}</h3>
+                                <h2 class="theme_text_color">{{event_sellingprice}}</h2>
+                            </div> 
+                        </div>
+                        <h4>{{#str}}details,local_events{{/str}}</h4>
+                        <div class="detail_content">
+                            <h6>{{#str}}start,local_events{{/str}}</h6>
+                            <p>{{startdate}}</p>
+                        </div>
+                        <div class="detail_content">
+                            <h6>{{#str}}end,local_events{{/str}} </h6>
+                            <p>{{enddate}}</p>
+                        </div>
+                    </div>
+                    <div class="eventdetailscontainer">
+                        <h4>{{#str}}reg_details,local_events{{/str}}</h4>
+                        <div class="detail_content">
+                            <h6> {{#str}}start,local_events{{/str}} </h6>
+                            <p> {{reg_startdate}}</p>
+                        </div>
+                        <div class="detail_content">
+                            <h6> {{#str}}end,local_events{{/str}} </h6>
+                            <p>{{reg_enddate}}</p>
+                        </div>
+                    </div> 
+
+                    <div class="eventdetailscontainer">
+                        <div class="detail_content">
+                        {{>tool_product/cart/add}}
+                            <!--<button class="btn btn-primary btn-block register_btn">{{#str}}registeryourself,local_events{{/str}}</button>-->
+                        </div>
+                        <div class="detail_content">
+                             <button class="btn btn-primary btn-block business_btn">{{#str}}businessdownload,local_events{{/str}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/event}}
+
+{{#js}}
+$('#view_more_records').on('click', function(){
+    $('#view_records_btn').hide();
+    $('#hall_records').removeClass('hide');
+    $('#more_records').addClass('hide'); 
+});
+{{/js}}

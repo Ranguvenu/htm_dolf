@@ -1,0 +1,279 @@
+div[data-region="page-loader"] > div {
+    text-align: center;
+    position: absolute;
+    left: calc(50% - 30px);
+    top: calc(50% - 30px);
+}
+div[data-region="page-loader"] {
+    background: #a5a5a54d;
+    position: absolute;
+    /* width: 100%; */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+}
+
+#page-admin-tool-product-cart .programsimagecontainer {
+    background-image: url('[[pix:local_trainingprogram|programview/program_defaultimage]]');
+    width: 100%;
+    background-position: center;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 180px;
+}
+/* financial payments */
+#finacialpaymentscontainer .bg-theme_light {
+
+    background-color:#FDFDFD;
+
+}
+#finacialpaymentscontainer .bg-theme_dark {
+
+    background-color:#E9ECF0;
+
+}
+#finacialpaymentscontainer form#viewpayments{
+
+    background-color: #E9ECF0;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    padding: 20px;
+
+}
+#finacialpaymentscontainer form#viewpayments .heading_label{
+
+    font-size: 14px;
+
+    font-weight: normal;
+
+}
+#finacialpaymentscontainer form#viewpayments .fitem .col-form-label {
+
+    display: none !important;
+
+}
+#finacialpaymentscontainer form#viewpayments  #fgroup_id_buttonar{
+
+    width: 250px;
+
+    align-items: center;  
+
+}
+#finacialpaymentscontainer form#viewpayments .form-control,
+
+#finacialpaymentscontainer form#viewpayments .custom-select{
+
+    background-color: #fff;
+
+    border-radius: 0;
+
+    box-shadow: 0px 0px 3px 1px #00000014;
+
+    border-color: #eeee;
+
+}
+ /* end financial payments */
+ #page-admin-tool-product-checkout .alertdialogmodal .dialog_action_btns .btn{
+    background-color: #ca3120;
+ }
+#page-admin-tool-product-checkout .alertdialogmodal.accessdenieddialog .modal-content {
+    background-color: #f4d6d2;
+    background-image: none;
+}
+#page-admin-tool-product-checkout .alertdialogmodal.accessdenieddialog .modal-body {
+    color: #691911;
+}
+.basketicon .basketcount{
+    padding: 0px 2px;
+    border-radius: 2px;
+    background-color: #ca3120;
+    color: #fff;
+    font-size: 11px;
+    line-height: 37px;
+    top: 22.5px;
+    right: 0;
+}
+
+.couponform{
+    width: 49% !important;
+    padding: 7px 0px !important;
+}
+
+.cat{
+  margin: 4px;
+  background-color: #104068;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  overflow: hidden;
+  float: left;
+}
+.cat label {
+  float: left; line-height: 3.0em;
+  width: 8.0em; height: 3.0em;
+}
+
+.cat label span {
+  text-align: center;
+  padding: 3px 0;
+  display: block;
+}
+
+.cat label input {
+  position: absolute;
+  display: none;
+  color: #fff !important;
+}
+/* selects all of the text within the input element and changes the color of the text */
+.cat label input + span{color: #fff;}
+
+
+/* This will declare how a selected input will look giving generic properties */
+.cat input:checked + span {
+    color: #ffffff;
+    text-shadow: 0 0  6px rgba(0, 0, 0, 0.8);
+}
+
+
+/*
+This following statements selects each category individually that contains an input element that is a checkbox and is checked (or selected) and chabges the background color of the span element.
+*/
+
+.action input:checked + span{background-color: #F75A1B;}
+
+#page-admin-tool-product-financialpayments .dot-warning {
+  height: 25px;
+  width: 25px;
+  background-color: #fcefdc;
+  border-radius: 50%;
+  display: inline-block;
+}
+#page-admin-tool-product-financialpayments .dot-info {
+  height: 25px;
+  width: 25px;
+  background-color: #cce6ea;
+  border-radius: 50%;
+  display: inline-block;
+}
+#page-admin-tool-product-financialpayments .dot-danger {
+  height: 25px;
+  width: 25px;
+  background-color: #f4d6d2;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#page-admin-tool-product-financialpayments .dot-warningtext {
+  color: #7d5a29;
+  display: inline-block;
+  font-family: "Helvetica-bold";
+}
+#page-admin-tool-product-financialpayments .dot-infotext {
+  color: #00434e;
+  display: inline-block;
+  font-family: "Helvetica-bold";
+}
+#page-admin-tool-product-financialpayments .dot-dangertext {
+  color: #691911;
+  display: inline-block;
+  font-family: "Helvetica-bold";
+}
+#page-admin-tool-product-financialpayments .dot-warningrow{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    width: 110px;
+    margin-left: 5px;
+}
+#page-admin-tool-product-financialpayments .dot-inforow{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    width: 150px;
+    margin-left: 5px;
+}
+#page-admin-tool-product-financialpayments .dot-dangerrow{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    width: 130px;
+    margin-left: 5px;
+}
+
+#page-tool-product-mypayments .dot-warning {
+  height: 25px;
+  width: 25px;
+  background-color: #fcefdc;
+  border-radius: 50%;
+  display: inline-block;
+}
+#page-tool-product-mypayments .dot-info {
+  height: 25px;
+  width: 25px;
+  background-color: #cce6ea;
+  border-radius: 50%;
+  display: inline-block;
+}
+#page-tool-product-mypayments .dot-danger {
+  height: 25px;
+  width: 25px;
+  background-color: #f4d6d2;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#page-tool-product-mypayments .dot-warningtext {
+  color: #7d5a29;
+  display: inline-block;
+  font-family: "Helvetica-bold";
+}
+#page-tool-product-mypayments .dot-infotext {
+  color: #00434e;
+  display: inline-block;
+  font-family: "Helvetica-bold";
+}
+#page-tool-product-mypayments .dot-dangertext {
+  color: #691911;
+  display: inline-block;
+  font-family: "Helvetica-bold";
+}
+#page-tool-product-mypayments .dot-warningrow{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    width: 110px;
+    margin-left: 5px;
+}
+#page-tool-product-mypayments .dot-inforow{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    width: 150px;
+    margin-left: 5px;
+}
+#page-tool-product-mypayments .dot-dangerrow{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    width: 130px;
+    margin-left: 5px;
+}
+
+#page-admin-tool-product-financialpayments .table-responsive{
+    overflow: hidden;
+}
+#page-local-trainingprogram-index .course_details_row .action_btns {
+  gap: 5px;
+}
+
+#page-local-exams-index .course_details_row .action_btns {
+  gap: 5px;
+}
+#page-local-events-index .course_details_row .action_btns {
+  gap: 5px;
+}

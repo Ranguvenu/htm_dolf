@@ -1,0 +1,35 @@
+{{#response}}
+    {{#records}}
+    <div class="authusrs">
+    <h4>{{#str}}authusers, local_organization{{/str}}</h4>
+<table class="table generaltable">
+    <thead>
+        <tr>
+            <th scope="col"><b>{{#str}}name,local_organization{{/str}}</b></th>
+            <th scope="col"><b>{{#str}}email,local_organization{{/str}}</b></th>
+            <th scope="col"><b>{{#str}}identity_no,local_organization{{/str}}<b></th>
+            <th scope="col"><b>{{#str}}phone_no,local_organization{{/str}}</b></th>
+            <th scope="col"><b>{{#str}}role,local_organization{{/str}}Role</b></th>
+            <th scope="col"><b>{{#str}}un_assign,local_organization{{/str}}<b></th>      
+        </tr>
+    </thead>
+    <tbody>
+    {{# authusers}}     
+        <tr>
+            <td>{{authfirstname}}</td>
+            <td>{{authemail}}</td>
+            <td>{{authid_number}}</td>
+            <td>{{authphone}}</td>
+            <td>{{authrolename}}</td>
+            <td>
+            {{#unassignuser}}
+            <div class="d-flex action_btns"><a data-action = "deleteuser" data-id={{id}} data-roleid={{authroleid}} data-rolename="{{authrolename}}" data-orgid={{orgid}}><i class="fa fa-times" aria-hidden="true"></i></a></div>
+            {{/unassignuser}}
+            </td>
+        </tr>
+    {{/ authusers}} 
+    </tbody>
+</table>
+</div>
+    {{/ records}}
+{{/ response}}

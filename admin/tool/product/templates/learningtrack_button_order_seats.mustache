@@ -1,0 +1,14 @@
+<div data-region="booking-order-summary" class="hidden">
+</div>
+
+<button class="btn btn-primary px-4 learningtrack_product_orderseats" data-action="{{{action}}}" data-seatsdata="{{{seatsdata}}}" data-product="{{id}}" >{{label}}</button>
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        $(document).on('click','.learningtrack_product_orderseats',function(e){
+            e.stopImmediatePropagation();
+            var action = $(this).data('action');
+            product.add_learningtrack_order_seats('[data-action='+action+']');
+        });
+    });
+{{/js}}
+

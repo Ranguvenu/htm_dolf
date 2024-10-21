@@ -1,0 +1,128 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_academy/login
+
+    Login page template
+
+    Example context (json):
+    {
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Login page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headers keep HTML validators happy</h1>"
+        }
+    }
+}}
+{{> theme_academy/head }}
+
+<body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
+
+<div id="page-wrapper" class="newsitefrontpage">
+
+    {{{ output.standard_top_of_body_html }}}
+
+    {{> theme_academy/newlayoutdesigns/navbar }}
+   <div class="alert alert-danger alert_msg" role="alert"> 
+        <!-- Commented By Reda r.ghareeb@dolftech.com!
+        <h6 class="justify-content-center d-flex font-weight-bold align-items-center">
+            <span class="alert_icon"></span>{{notice}}
+        </h6>
+         -->
+    </div>
+    <div id="page" class="container-fluid mt-0">
+        <div id="page-content" class="row">
+            <div id="region-main-box" class="col-12">
+
+                <section id="region-main" class="col-12" aria-label="{{#str}}content{{/str}}">
+                    <!-- <div class="alert alert-danger" role="alert"> 
+                        <h4 class="text-center font-weight-bold mb-2">
+                            {{notice}}
+                        </h4>
+                    </div> -->
+                        {{{ output.main_content }}}
+                    <div class="loginpage_container">
+                        <div class="loginpage_course loginpage_course row justify-content-center">
+                            <div class=" login_registration d-flex col-lg-6 py-5 justify-content-center">
+                                <div class="user_registration px-4 py-2 mr-3">
+                                    <a href="{{output.individual_registration_url}}">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <div class="user_plusicon mr-3"></div>
+                                            <div class="registration_content d-flex align-items-center justify-content-center flex-column">
+                                                <div class="user_name font-weight-bold">{{#str}}userregistration, theme_academy{{/str}}</div>
+                                                <p class="personal_content mb-0">{{#str}}personal, theme_academy{{/str}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="new_organization px-4 py-2">
+                                    <a href="{{config.wwwroot}}/auth/registration/registration.php">
+                                        <div class="d-flex  align-items-center justify-content-center">
+                                            <div class="org_icon mr-3"></div>
+                                            <div class="registration_content d-flex align-items-center justify-content-center flex-column">
+                                                <div class="user_name font-weight-bold">{{#str}}oraganization, theme_academy{{/str}}</div>
+                                                <p class="personal_content mb-0">{{#str}}companies, theme_academy{{/str}}</p>
+                                            </div> 
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="help_course row justify-content-center">
+                            <div class=" help_coursecontainer col-lg-4 py-5 d-flex align-items-center justify-content-center">
+                                <a href="{{url}}" target="_blank">
+                                    <div class="d-flex guidance_course ">
+                                        <div class="help_container p-2">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <div class="help_icon mr-3"></div>
+                                                <div class="help-content  d-flex align-items-center justify-content-center flex-column ">
+                                                    <div class="user_name font-weight-bold">{{#str}}help, theme_academy{{/str}}</div>
+                                                    <p class="personal_content mb-0">{{#str}}guidancevideo, theme_academy{{/str}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="align-items-center text-center d-flex justify-content-center w-100" >
+                <a href="{{iamregistrationurl}}" ><button class="btn btn-primary  mt-3">{{#str}} registerviaiam, theme_academy {{/str}}</button></a>
+               
+            </div>
+            <!-- <div class="align-items-center text-center d-flex justify-content-center w-100" >
+                <a href="{{url}}" target="_blank"><button class="btn btn-primary  mt-3">{{#str}}help,theme_academy{{/str}}</button></a>
+               
+            </div> -->
+
+        </div>
+    </div>
+    {{> theme_academy/newlayoutdesigns/footer }}
+</div>
+
+</body>
+</html>
+{{#js}}
+M.util.js_pending('theme_academy/loader');
+require(['theme_academy/loader'], function() {
+  M.util.js_complete('theme_academy/loader');
+});
+{{/js}}

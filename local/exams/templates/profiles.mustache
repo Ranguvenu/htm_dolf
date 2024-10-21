@@ -1,0 +1,208 @@
+{{#response}}
+	{{# records}}
+			<div>
+			    <div class="reservationheadings pb-3">
+			    <h4 class="text-themecolor">{{#str}}profiles,local_exams{{/str}}</h4>
+			    </div>
+			</div>	  
+	    {{# profiles}}  
+			<div class="bg-white shadow rounded p-3 mt-2 available_times_container">
+
+				 <div class="col-md-12"><h6 class="text-themecolor2">{{profilecode}}</h6></div>
+			    <div class="row mb-3">			        
+			        <div class="col-md-10">
+			            <div class="rounded bg-themecolor3 avail_dates_container p-3 position-relative">
+			                <div class="d-flex flex-wrap align-items-center mb-3 justify-content-between">
+			                    <div>
+			                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+			                        <strong>{{#str}}language, local_exams{{/str}} :</strong> {{language}}
+			                    </div>
+			                    {{# showexamduration}}
+			                    <div>
+			                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+			                        <strong>{{#str}}duration, local_exams{{/str}}:</strong> {{duration}}
+			                    </div>
+								{{/ showexamduration}}
+			                    {{# showquestions}}
+			                    <div>
+			                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+			                        <strong>{{#str}}noofquestions, local_exams{{/str}}:</strong> {{questions}}
+			                    </div>
+								{{/ showquestions}}
+
+					        	{{# trainee}}
+				                    <div>
+				                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+				                        <strong>{{#str}}userattemptscompleted, local_exams{{/str}}:</strong> {{attemptid}}
+				                    </div>
+						        	{{# launch}}
+					                    <div>
+					                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+					                        <strong>{{#str}}examdates, local_exams{{/str}}:</strong> {{examdate}}
+					                    </div>
+				                    {{/ launch}}
+					        	{{/ trainee}}
+					        	{{^ trainee}}
+				                    <div>
+				                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+				                        <strong>{{#str}}registrationstartdate, local_exams{{/str}}:</strong> {{registrationstartdate}}
+				                    </div>
+				                    <div>
+				                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+				                        <strong>{{#str}}registrationenddate, local_exams{{/str}}:</strong> {{registrationenddate}}
+				                    </div>
+					        	{{/ trainee}}
+			                </div>
+			            </div>
+			        </div>
+			        {{# isadmin}}
+		            <div class="col-md-2 font-weight-bold d-flex align-items-center flex-column justify-content-center">
+		                <div class="d-flex action_btns">
+                            <a href="#"  data-action="viewprofile" title="{{# str}}viewprofile, local_exams{{/ str}}" data-id={{id}}><span class="bg-primary text-white"><i class="fa fa-eye" aria-hidden="true"></i></span></a>
+                            <a href="#"  data-action="addprofile" title="{{# str}}editprofile, local_exams{{/ str}}" data-id={{id}} data-examid={{examid}}><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+							{{# enrolled}} 
+	                            <a href="#" title="{{# str}}restrictdelete, local_exams{{/ str}}" data-examid={{examid}} data-profileid={{id}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+							{{/ enrolled}}
+							{{^ enrolled}} 
+	                            <a href="#" data-action="deleteprofile" title="{{# str}}deleteprofile, local_exams{{/ str}}" data-examid={{examid}} data-profileid={{id}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+							{{/ enrolled}}
+
+		                </div>
+		        	</div>
+		        	<tr class="course_content_row">
+					    <td colspan="6">
+					        <div>
+					            <div class="actions ml-4 my-3">
+					                <button class="btn btn-outline-primary theme_text_color"><a href="{{config.wwwroot}}./examenrollment.php?examid={{examid}}&profileid={{id}}">{{#str}} enroluser, local_exams {{/str}}</a></button>
+					                <button class="btn btn-outline-primary theme_text_color"><a href="{{url}}/mod/quiz/view.php?id={{cmid}}">{{#str}} previewexam, local_exams {{/str}}</a></button>
+					                 <button class="btn btn-outline-primary theme_text_color"><a href="{{config.wwwroot}}./questionbank.php?id={{id}}">{{#str}} workshopname, local_exams {{/str}}</a></button>
+					            </div>					         
+					        </div>
+					    </td>
+                    </tr>
+		        	{{/ isadmin}}
+			        {{# orgoff}}
+	`					{{# purchasenextattempt}}
+							<div class="col-md-2">
+								<a href="{{config.wwwroot}}./hallschedule.php?examid={{examid}}&profileid={{id}}&tuserid={{tuserid}}" class="btn btn-primary mt-2">{{#str}}enrol, local_exams{{/str}}</a>
+							</div>
+						{{/ purchasenextattempt}}
+						{{^ purchasenextattempt}}
+							<div class="col-md-2">
+								<a href="{{config.wwwroot}}./examenrollment.php?examid={{examid}}&profileid={{id}}" class="btn btn-primary mt-2">{{#str}}enrol, local_exams{{/str}}</a>
+							</div>
+						{{/ purchasenextattempt}}
+		        	{{/ orgoff}}
+					<!-- If current user is having Assesment Operatio role -->
+					{{^isadmin}}
+					{{#is_assesmentoperation}}
+
+						 <div class="col-md-2 font-weight-bold d-flex align-items-center flex-column justify-content-center">
+			                <div class="d-flex action_btns">
+	                            <a href="#"  data-action="viewprofile" title="{{# str}}viewprofile, local_exams{{/ str}}" data-id={{id}}><span class="bg-primary text-white"><i class="fa fa-eye" aria-hidden="true"></i></span></a>
+	                            <a href="#"  data-action="addprofile" title="{{# str}}editprofile, local_exams{{/ str}}" data-id={{id}} data-examid={{examid}}><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+	                            <a href="#" data-action="deleteprofile" title="{{# str}}deleteprofile, local_exams{{/ str}}" data-examid={{examid}} data-profileid={{id}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+			                </div>
+			            </div>
+						<div class="col-md-2">
+							<a href="{{config.wwwroot}}./examenrollment.php?examid={{examid}}&profileid={{id}}" class="btn btn-primary mt-2">{{#str}}enrol, local_exams{{/str}}</a>
+						</div>
+					{{/ is_assesmentoperation}}
+					{{/ isadmin}}
+		        	{{# trainee}}
+					{{^ exampassed}}
+						{{# examstatus}}
+							<div class="col-md-2 alert alert-info">
+								{{# str}}waitingforapproval, local_exams{{/ str}}
+							</div>
+						{{/ examstatus}}
+						{{^ examstatus}}
+							{{# launchbtnstatus}}
+								<div class="col-md-2 alert alert-info">{{#str}}attemptscompleted, local_exams{{/str}}</div>
+							{{/ launchbtnstatus}}
+							{{^ launchbtnstatus}}				
+								<div class="col-md-2 font-weight-bold d-flex align-items-center justify-content-center">
+										<div class="d-flex action_btns">
+											{{# selectedprofile}}
+											{{^ disableallactions}}
+													{{# canceloption}}
+														<a href="#" title="{{# str}}cancel, local_exams{{/ str}}" data-action="cancelexam" data-productid={{product_profile}} data-entitytype='exam' data-currentuser={{userid}} data-refundtype="cancel" data-ownedby={{ownedby}}><span class="bg-danger text-white"><i class="fa fa-ban" aria-hidden="true"></i></span></a>
+														{{/ canceloption}}
+													{{# attemptfee}}
+													{{^ disablereschedule}}
+														{{# launch}}
+															<a href="#" data-currentuser={{userid}} data-productid={{product_profile}} data-entitytype='exam' data-refundtype="reschedule" data-productprice={{attemptfee}} data-examid="{{examid}}" data-profileid="{{id}}" {{#canreschedule}} data-action="rescheduleexam" title="{{# str}}reschedule, local_exams{{/ str}}" {{/ canreschedule}} {{^ canreschedule}} title="{{# str}}cannotreschedule, local_exams{{/ str}}" {{/ canreschedule}}   ><span class="bg-primary text-white"><i class="fa fa-repeat" aria-hidden="true"></i></span></a>
+														{{/ launch}}
+													{{/ disablereschedule}}
+													{{/ attemptfee}}
+													{{^ attemptfee}}
+													{{^ disablereschedule}}
+														<a href="{{url}}/local/exams/hallschedule.php?examid={{examid}}&profileid={{id}}&type=reschedule" title="{{# str}}reschedule, local_exams{{/ str}}"><span class="bg-primary text-white"><i class="fa fa-repeat" aria-hidden="true"></i></span></a>
+													{{/ disablereschedule}}
+													{{/ attemptfee}}
+												{{/ disableallactions}}
+											{{/ selectedprofile}}
+										</div>
+									{{# launchbtnstatus}}
+										<div class="alert alert-info">{{#str}}attemptscompleted, local_exams{{/str}}</div>
+									{{/ launchbtnstatus}}
+										{{^ launchbtnstatus}}
+											{{^ launch}}
+												{{# havinggrade}}
+													<div class="mt-4">
+														<a href="{{url}}/local/exams/hallschedule.php?examid={{examid}}&profileid={{id}}&tuserid={{userid}}" title="{{# str}}purchasenextattempt, local_exams{{/ str}}" class="btn btn-primary btn-sm  mt-1 ml-2">{{# str}}purchasenextattempt, local_exams{{/ str}}</a>
+													</div>
+												{{/ havinggrade}}
+												{{^ havinggrade}}
+													<a href="#" class="btn btn-primary mt-1 ml-2" data-action="purcahsenextattempt" data-examid="{{examid}}" data-profileid="{{id}}" data-tuserid="{{userid}}" data-lastattemptprofileid="{{lastattemptprofileid}}" data-scheduleid="{{scheduleid}}">{{#str}}purchasenextattempt, local_exams{{/str}}</a>
+												{{/ havinggrade}}
+											{{/ launch}}
+										{{/ launchbtnstatus}}
+									{{# readytolaunch}}
+										{{# selectedprofile}}
+											<a href="{{url}}/mod/quiz/view.php?id={{cmid}}" class="btn btn-primary mt-1 ml-2">{{#str}}launch, local_trainingprogram{{/str}}</a>		
+										{{/ selectedprofile}}
+									{{/ readytolaunch}}
+								</div>
+							{{/ launchbtnstatus}}
+						{{/ examstatus}}
+						{{/ exampassed}}
+						{{# exampassed}}
+							<div class="col-md-2 alert alert-success">{{#str}}exampassed, local_exams{{/str}}</div>							
+						{{/ exampassed}}
+		        	{{/ trainee}}					
+			    </div>
+			</div>
+
+	    {{/ profiles}}
+	{{/ records}}
+{{/ response}}
+
+{{#js}}
+    require(['local_exams/exams'], function(s) {
+        s.init();
+    });
+
+    require(['local_exams/cancelreschedule'], function(s) {
+        s.init();
+    });
+
+    require(['local_exams/attemptpurchase'], function(s) {
+        s.init();
+    });
+
+    require(['jquery'], function($) {
+        $(document).ready(function(){
+
+            $("#question_bank_tabs li:nth-child(2) .nav-link ").click(function(){
+                $(".review_exams_container, #manage_reviewexamsid").addClass('d-none');
+            });
+
+            $("#question_bank_tabs li:nth-child(1) .nav-link ").click(function(){
+                $(".review_exams_container, #manage_reviewexamsid").removeClass('d-none');
+            });
+
+
+        })
+    });
+{{/js}}

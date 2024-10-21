@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<report version="2021051704.16"><visible><![CDATA[1]]></visible>
+<name><![CDATA[{mlang en}Programs{mlang}{mlang ar}برامج{mlang}]]></name>
+<summary><![CDATA[<p dir="ltr" style="text-align: left;">{mlang en}<strong>Enrollments</strong>: The number of enrollments by users across all the programs</p><p dir="ltr" style="text-align: left;"><strong>Completions</strong>: The number of completions by users across all the programs{mlang}<br></p><p dir="ltr" style="text-align: left;">{mlang ar}الالتحاقات: عدد الالتحاقات من قبل المستخدمين في جميع البرامج</p><p dir="ltr" style="text-align: left;">الإكمالات: عدد مرات إكمال المستخدمين في جميع البرامج{mlang}<br></p>]]></summary>
+<type><![CDATA[statistics]]></type>
+<components><![CDATA[YToyOntzOjk6ImN1c3RvbXNxbCI7YToxOntzOjY6ImNvbmZpZyI7Tzo4OiJzdGRDbGFzcyI6MTE6e3M6NDoibmFtZSI7czo4ODoiJTdCbWxhbmcrZW4lN0RQcm9ncmFtcyU3Qm1sYW5nJTdEJTdCbWxhbmcrYXIlN0QlRDglQTglRDglQjElRDglQTclRDklODUlRDglQUMlN0JtbGFuZyU3RCI7czo0OiJ0eXBlIjtzOjEwOiJzdGF0aXN0aWNzIjtzOjg6InF1ZXJ5c3FsIjtzOjcyMToiU0VMRUNUKyUyOFNFTEVDVCtDT1VOVCUyOGUuaWQlMjkrQVMrRW5yb2xsbW5lbnRzJTBEJTBBRlJPTStwcmVmaXhfcHJvZ3JhbV9lbnJvbGxtZW50cytBUytlKyUwRCUwQUpPSU4rcHJlZml4X3JvbGUrcitPTityLmlkKyUzRCtlLnJvbGVpZCtBTkQrci5zaG9ydG5hbWUrJTNEKyUyN3RyYWluZWUlMjcrJTBEJTBBJTI1JTI1VFJBSU5FUlNRTCUyNSUyNSUwRCUwQVdIRVJFK2UudGltZWNyZWF0ZWQrQkVUV0VFTislMjUlMjVMU19TVEFSVERBVEUlMjUlMjUrQU5EKyUyNSUyNUxTX0VORERBVEUlMjUlMjUrJTI5K0FTK0Vucm9sbG1lbnRzJTJDJTBEJTBBQ09VTlQlMjhESVNUSU5DVCtjLmlkJTI5K0FTK0NvbXBsZXRpb25zJTBEJTBBRlJPTStwcmVmaXhfcHJvZ3JhbV9jb21wbGV0aW9ucytBUytjKyUwRCUwQUpPSU4rcHJlZml4X3Byb2dyYW1fZW5yb2xsbWVudHMrQVMrZStPTitlLnVzZXJpZCslM0QrYy51c2VyaWQrQU5EK2UucHJvZ3JhbWlkKyUzRCtjLnByb2dyYW1pZCslMEQlMEFKT0lOK3ByZWZpeF9yb2xlK3IrT04rci5pZCslM0QrZS5yb2xlaWQrQU5EK3Iuc2hvcnRuYW1lKyUzRCslMjd0cmFpbmVlJTI3KyUwRCUwQSUyNSUyNVRSQUlORVJDU1FMJTI1JTI1JTBEJTBBV0hFUkUrYy5jb21wbGV0aW9uX3N0YXR1cyslM0UrMCtBTkQrYy5jb21wbGV0aW9uZGF0ZStCRVRXRUVOKyUyNSUyNUxTX1NUQVJUREFURSUyNSUyNStBTkQrJTI1JTI1TFNfRU5EREFURSUyNSUyNSI7czoxMToiZGVzY3JpcHRpb24iO2E6Mjp7czo0OiJ0ZXh0IjtzOjExMzM6IiUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJTdCbWxhbmcrZW4lN0QlM0NzdHJvbmclM0VFbnJvbGxtZW50cyUzQyUyRnN0cm9uZyUzRSUzQStUaGUrbnVtYmVyK29mK2Vucm9sbG1lbnRzK2J5K3VzZXJzK2Fjcm9zcythbGwrdGhlK3Byb2dyYW1zJTNDJTJGcCUzRSUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJTNDc3Ryb25nJTNFQ29tcGxldGlvbnMlM0MlMkZzdHJvbmclM0UlM0ErVGhlK251bWJlcitvZitjb21wbGV0aW9ucytieSt1c2VycythY3Jvc3MrYWxsK3RoZStwcm9ncmFtcyU3Qm1sYW5nJTdEJTNDYnIlM0UlM0MlMkZwJTNFJTNDcCtkaXIlM0QlMjJsdHIlMjIrc3R5bGUlM0QlMjJ0ZXh0LWFsaWduJTNBK2xlZnQlM0IlMjIlM0UlN0JtbGFuZythciU3RCVEOCVBNyVEOSU4NCVEOCVBNyVEOSU4NCVEOCVBQSVEOCVBRCVEOCVBNyVEOSU4MiVEOCVBNyVEOCVBQSUzQSslRDglQjklRDglQUYlRDglQUYrJUQ4JUE3JUQ5JTg0JUQ4JUE3JUQ5JTg0JUQ4JUFBJUQ4JUFEJUQ4JUE3JUQ5JTgyJUQ4JUE3JUQ4JUFBKyVEOSU4NSVEOSU4NislRDklODIlRDglQTglRDklODQrJUQ4JUE3JUQ5JTg0JUQ5JTg1JUQ4JUIzJUQ4JUFBJUQ4JUFFJUQ4JUFGJUQ5JTg1JUQ5JThBJUQ5JTg2KyVEOSU4MSVEOSU4QSslRDglQUMlRDklODUlRDklOEElRDglQjkrJUQ4JUE3JUQ5JTg0JUQ4JUE4JUQ4JUIxJUQ4JUE3JUQ5JTg1JUQ4JUFDJTNDJTJGcCUzRSUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJUQ4JUE3JUQ5JTg0JUQ4JUE1JUQ5JTgzJUQ5JTg1JUQ4JUE3JUQ5JTg0JUQ4JUE3JUQ4JUFBJTNBKyVEOCVCOSVEOCVBRiVEOCVBRislRDklODUlRDglQjElRDglQTclRDglQUErJUQ4JUE1JUQ5JTgzJUQ5JTg1JUQ4JUE3JUQ5JTg0KyVEOCVBNyVEOSU4NCVEOSU4NSVEOCVCMyVEOCVBQSVEOCVBRSVEOCVBRiVEOSU4NSVEOSU4QSVEOSU4NislRDklODElRDklOEErJUQ4JUFDJUQ5JTg1JUQ5JThBJUQ4JUI5KyVEOCVBNyVEOSU4NCVEOCVBOCVEOCVCMSVEOCVBNyVEOSU4NSVEOCVBQyU3Qm1sYW5nJTdEJTNDYnIlM0UlM0MlMkZwJTNFIjtzOjY6ImZvcm1hdCI7czoxOiIxIjt9czo2OiJnbG9iYWwiO3M6MToiMSI7czoyOiJpZCI7aToyODtzOjg6ImNvdXJzZWlkIjtpOjE7czozNToibWZvcm1faXNleHBhbmRlZF9pZF9hZHZhbmNlZG9wdGlvbnMiO2k6MDtzOjEyOiJzdWJtaXRidXR0b24iO3M6NDoiTmV4dCI7czoxMjoiZGlzYWJsZXRhYmxlIjtpOjA7czo3OiJzdW1tYXJ5IjtzOjExMzM6IiUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJTdCbWxhbmcrZW4lN0QlM0NzdHJvbmclM0VFbnJvbGxtZW50cyUzQyUyRnN0cm9uZyUzRSUzQStUaGUrbnVtYmVyK29mK2Vucm9sbG1lbnRzK2J5K3VzZXJzK2Fjcm9zcythbGwrdGhlK3Byb2dyYW1zJTNDJTJGcCUzRSUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJTNDc3Ryb25nJTNFQ29tcGxldGlvbnMlM0MlMkZzdHJvbmclM0UlM0ErVGhlK251bWJlcitvZitjb21wbGV0aW9ucytieSt1c2VycythY3Jvc3MrYWxsK3RoZStwcm9ncmFtcyU3Qm1sYW5nJTdEJTNDYnIlM0UlM0MlMkZwJTNFJTNDcCtkaXIlM0QlMjJsdHIlMjIrc3R5bGUlM0QlMjJ0ZXh0LWFsaWduJTNBK2xlZnQlM0IlMjIlM0UlN0JtbGFuZythciU3RCVEOCVBNyVEOSU4NCVEOCVBNyVEOSU4NCVEOCVBQSVEOCVBRCVEOCVBNyVEOSU4MiVEOCVBNyVEOCVBQSUzQSslRDglQjklRDglQUYlRDglQUYrJUQ4JUE3JUQ5JTg0JUQ4JUE3JUQ5JTg0JUQ4JUFBJUQ4JUFEJUQ4JUE3JUQ5JTgyJUQ4JUE3JUQ4JUFBKyVEOSU4NSVEOSU4NislRDklODIlRDglQTglRDklODQrJUQ4JUE3JUQ5JTg0JUQ5JTg1JUQ4JUIzJUQ4JUFBJUQ4JUFFJUQ4JUFGJUQ5JTg1JUQ5JThBJUQ5JTg2KyVEOSU4MSVEOSU4QSslRDglQUMlRDklODUlRDklOEElRDglQjkrJUQ4JUE3JUQ5JTg0JUQ4JUE4JUQ4JUIxJUQ4JUE3JUQ5JTg1JUQ4JUFDJTNDJTJGcCUzRSUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJUQ4JUE3JUQ5JTg0JUQ4JUE1JUQ5JTgzJUQ5JTg1JUQ4JUE3JUQ5JTg0JUQ4JUE3JUQ4JUFBJTNBKyVEOCVCOSVEOCVBRiVEOCVBRislRDklODUlRDglQjElRDglQTclRDglQUErJUQ4JUE1JUQ5JTgzJUQ5JTg1JUQ4JUE3JUQ5JTg0KyVEOCVBNyVEOSU4NCVEOSU4NSVEOCVCMyVEOCVBQSVEOCVBRSVEOCVBRiVEOSU4NSVEOSU4QSVEOSU4NislRDklODElRDklOEErJUQ4JUFDJUQ5JTg1JUQ5JThBJUQ4JUI5KyVEOCVBNyVEOSU4NCVEOCVBOCVEOCVCMSVEOCVBNyVEOSU4NSVEOCVBQyU3Qm1sYW5nJTdEJTNDYnIlM0UlM0MlMkZwJTNFIjt9fXM6MTE6InBlcm1pc3Npb25zIjthOjI6e3M6NjoiY29uZmlnIjtPOjg6InN0ZENsYXNzIjozOntzOjEzOiJjb25kaXRpb25leHByIjtzOjIwOiIlMjhjMStvcitjMitvcitjMyUyOSI7czoxNDoiY29uZGl0aW9uZXhwcjEiO3M6MDoiIjtzOjE0OiJjb25kaXRpb25leHByMiI7czoyMDoiJTI4YzErb3IrYzIrb3IrYzMlMjkiO31zOjg6ImVsZW1lbnRzIjthOjM6e2k6MDthOjU6e3M6MjoiaWQiO3M6MTU6Ik1DZ21pZ3IwRFR6d3BmRCI7czo4OiJmb3JtZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czoxMjoiY29udGV4dGxldmVsIjtzOjI6IjEwIjtzOjg6InJvbGVuYW1lIjtzOjIwOiJvcmdhbml6YXRpb25vZmZpY2lhbCI7czoxMjoic3VibWl0YnV0dG9uIjtzOjM6IkFkZCI7fXM6MTA6InBsdWdpbm5hbWUiO3M6MTI6InJvbGVpbmNvdXJzZSI7czoxNDoicGx1Z2luZnVsbG5hbWUiO3M6MzE6IlVzZXIrd2l0aCt0aGUrc2VsZWN0ZWQrcm9sZSUyRnMiO3M6Nzoic3VtbWFyeSI7czozNjoib3JnYW5pemF0aW9ub2ZmaWNpYWwrYXQrU3lzdGVtK2xldmVsIjt9aToxO2E6NTp7czoyOiJpZCI7czoxNToiQ1E2VUswdzgyRGx5bTRoIjtzOjg6ImZvcm1kYXRhIjtPOjg6InN0ZENsYXNzIjozOntzOjEyOiJjb250ZXh0bGV2ZWwiO3M6MjoiMTAiO3M6ODoicm9sZW5hbWUiO3M6MjoidG8iO3M6MTI6InN1Ym1pdGJ1dHRvbiI7czozOiJBZGQiO31zOjEwOiJwbHVnaW5uYW1lIjtzOjEyOiJyb2xlaW5jb3Vyc2UiO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjMxOiJVc2VyK3dpdGgrdGhlK3NlbGVjdGVkK3JvbGUlMkZzIjtzOjc6InN1bW1hcnkiO3M6MTg6InRvK2F0K1N5c3RlbStsZXZlbCI7fWk6MjthOjU6e3M6MjoiaWQiO3M6MTU6InVLZEIxZTlZS1FmMkxxaiI7czo4OiJmb3JtZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czoxMjoiY29udGV4dGxldmVsIjtzOjI6IjEwIjtzOjg6InJvbGVuYW1lIjtzOjc6InRyYWluZXIiO3M6MTI6InN1Ym1pdGJ1dHRvbiI7czozOiJBZGQiO31zOjEwOiJwbHVnaW5uYW1lIjtzOjEyOiJyb2xlaW5jb3Vyc2UiO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjMxOiJVc2VyK3dpdGgrdGhlK3NlbGVjdGVkK3JvbGUlMkZzIjtzOjc6InN1bW1hcnkiO3M6MjM6InRyYWluZXIrYXQrU3lzdGVtK2xldmVsIjt9fX19]]></components>
+<export><![CDATA[]]></export>
+<global><![CDATA[1]]></global>
+<lastexecutiontime><![CDATA[2326]]></lastexecutiontime>
+<disabletable><![CDATA[0]]></disabletable>
+<instance version="2021051704.16"><blockname><![CDATA[reporttiles]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard]]></pagetypepattern>
+<subpagepattern><![CDATA[]]></subpagepattern>
+<defaultregion><![CDATA[reportdb-one]]></defaultregion>
+<defaultweight><![CDATA[0]]></defaultweight>
+<timecreated><![CDATA[1676008255]]></timecreated>
+<timemodified><![CDATA[1676008255]]></timemodified>
+<title><![CDATA[Programs]]></title>
+<reportcontenttype><![CDATA[]]></reportcontenttype>
+<reporttype><![CDATA[table]]></reporttype>
+<logo><![CDATA[71399161]]></logo>
+<tilescolourpicker><![CDATA[FFFFFF]]></tilescolourpicker>
+<tileformat><![CDATA[fill]]></tileformat>
+<reportduration><![CDATA[all]]></reportduration>
+<tilescolour><![CDATA[000000]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position><instance version="2021051704.16"><blockname><![CDATA[reporttiles]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[center-second]]></defaultregion>
+<defaultweight><![CDATA[-3]]></defaultweight>
+<timecreated><![CDATA[1676008255]]></timecreated>
+<timemodified><![CDATA[1676008255]]></timemodified>
+<title><![CDATA[Programs]]></title>
+<reportcontenttype><![CDATA[]]></reportcontenttype>
+<reporttype><![CDATA[table]]></reporttype>
+<logo><![CDATA[432772411]]></logo>
+<tilescolourpicker><![CDATA[FFFFFF]]></tilescolourpicker>
+<tileformat><![CDATA[fill]]></tileformat>
+<reportduration><![CDATA[all]]></reportduration>
+<tilescolour><![CDATA[000000]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position><instance version="2021051704.16"><blockname><![CDATA[reporttiles]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard-organizationofficial_10]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[reportdb-one]]></defaultregion>
+<defaultweight><![CDATA[0]]></defaultweight>
+<timecreated><![CDATA[1676008255]]></timecreated>
+<timemodified><![CDATA[1676008255]]></timemodified>
+<title><![CDATA[{mlang en}Programs{mlang}{mlang ar}برامج{mlang}]]></title>
+<reportcontenttype><![CDATA[]]></reportcontenttype>
+<reporttype><![CDATA[table]]></reporttype>
+<logo><![CDATA[60304721]]></logo>
+<tilescolourpicker><![CDATA[FFFFFF]]></tilescolourpicker>
+<tileformat><![CDATA[fill]]></tileformat>
+<reportduration><![CDATA[all]]></reportduration>
+<tilescolour><![CDATA[000000]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position><instance version="2021051704.16"><blockname><![CDATA[reporttiles]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard-to_10]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[center-second]]></defaultregion>
+<defaultweight><![CDATA[1]]></defaultweight>
+<timecreated><![CDATA[1676008255]]></timecreated>
+<timemodified><![CDATA[1676008255]]></timemodified>
+<title><![CDATA[{mlang en}Programs{mlang}{mlang ar}برامج{mlang}]]></title>
+<reportcontenttype><![CDATA[]]></reportcontenttype>
+<reporttype><![CDATA[table]]></reporttype>
+<logo><![CDATA[728929144]]></logo>
+<tilescolourpicker><![CDATA[FFFFFF]]></tilescolourpicker>
+<tileformat><![CDATA[fill]]></tileformat>
+<reportduration><![CDATA[all]]></reportduration>
+<tilescolour><![CDATA[000000]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position><instance version="2021051704.16"><blockname><![CDATA[reporttiles]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard-trainer_10]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[center-second]]></defaultregion>
+<defaultweight><![CDATA[1]]></defaultweight>
+<timecreated><![CDATA[1676008255]]></timecreated>
+<timemodified><![CDATA[1676008255]]></timemodified>
+<title><![CDATA[{mlang en}Programs{mlang}{mlang ar}برامج{mlang}]]></title>
+<reportcontenttype><![CDATA[]]></reportcontenttype>
+<reporttype><![CDATA[table]]></reporttype>
+<logo><![CDATA[311759092]]></logo>
+<tilescolourpicker><![CDATA[12445f]]></tilescolourpicker>
+<tileformat><![CDATA[fill]]></tileformat>
+<reportduration><![CDATA[all]]></reportduration>
+<tilescolour><![CDATA[000000]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position></report>

@@ -1,0 +1,67 @@
+<div id="learning_tabs" class="pull-left w-100 courselddata marginb-10">
+        <div id="questioncompetencies_{{questionid}}">
+                <div class="row my-3">
+
+                    <div class="col-md-8">
+
+                        <div class="global_filter_structure form-group m-0   col-md-4 ">
+                                <div class="input_container position-relative">
+                                  <input id="global_filter_{{questionid}}" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                                    <span class="search_icon"></span>
+                                </div>
+                        </div>
+
+                     </div>
+
+                    <div class="col-md-4">
+
+                    </div>
+
+                </div>
+        </div>
+         <div id="competencies_{{questionid}}" data-region="competencies_{{questionid}}-preview-container" class="viewlearningcontents">
+              <div data-region="competencies_{{questionid}}-count-container"></div>
+              <div data-region="competencies_{{questionid}}-list-container" class ="qcompetenciesmethoddata_{{questionid}}">
+              </div>
+              <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                    <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                </span>
+        </div>
+</div>   
+{{#js}}
+
+$(document).ready(function() { 
+
+
+    var options = {targetID: 'competencies_{{questionid}}',
+                templateName: 'local_competency/listquestioncompetencies',
+                methodName: 'local_competency_get_competencyquestions',
+                perPage: 10,
+                cardClass: 'col-xl-4 col-md-6 col-12',
+                viewType: 'table'};
+   
+    var dataoptions = {questionid:{{questionid}}};
+    $(".qcompetenciesmethoddata_{{questionid}}").empty();
+    
+    require(['theme_academy/cardPaginate'], function(cardPaginate) {
+        cardPaginate.reload(options, dataoptions,'');
+
+        var search_interval = 100;
+        var timer;
+        $(document).on('keyup', '#global_filter_{{questionid}}', function(){
+            var searchval = $(this).val();
+            var filterdata = {search_query: searchval};
+            timer = setTimeout(function(){
+
+                cardPaginate.reload(options,dataoptions,filterdata);
+
+            },search_interval);
+        });
+        $(document).on('keydown', '#global_filter_{{questionid}}', function(){
+            clearTimeout(timer);
+        });
+    });
+  
+});
+
+{{/js}}

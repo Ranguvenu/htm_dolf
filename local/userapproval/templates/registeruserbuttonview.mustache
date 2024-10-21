@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-end align-items-center">
+    {{# createuseraction}}
+    <button class="btn btn-primary mr-2"  data-action="createuser"><i class="fa fa-plus" aria-hidden="true" ></i>
+        {{#str}}registernewuser, local_userapproval{{/str}}
+    </button>
+    {{/ createuseraction}}
+    {{# uploadusersaction}}
+        <a href="{{config.wwroot}}./uploadusers.php"><button class="btn btn-primary mr-2"><i class="fa fa-upload" aria-hidden="true" ></i>
+                {{#str}}uploadafile , local_userapproval {{/str}}
+        </button></a>
+        {{# is_siteadmin}}
+         <a href="{{config.wwwroot}}/local/userapproval/fast_userenrol.php"><button class="btn btn-primary mr-2">
+                {{#str}}fastapilogs , local_userapproval {{/str}}
+        </button></a>
+        {{/ is_siteadmin}}
+    {{/ uploadusersaction}}
+    <button class="btn filter_toggle_btn" id="filter_open_btn">
+        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+       {{# str}} filter, local_userapproval{{/ str}}
+     </button>
+</div>
+
+{{#js}}
+    require(['local_userapproval/dynamicForm'], function(s) {
+        s.init();
+    });
+{{/js}}

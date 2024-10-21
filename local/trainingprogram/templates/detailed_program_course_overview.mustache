@@ -1,0 +1,509 @@
+{{# programnameview}}
+<div class="page-context-header"><div class="page-header-headings"><h1 class="h2">{{programname}} <small><h5>({{#str}} code, local_trainingprogram{{/str}} : {{programcode}})</small></h5></h1></div></div>
+{{/ programnameview}}
+<div id="programdetailscontainer">
+    <div class="d-flex flex-column position-relative">
+        <div class="mainsectioncontainer text-light">
+            <div class="d-flex flex-column">
+                <!-- <div class="d-flex align-items-center">
+                   <span class="piximg calendericon">{{# pix }} calendericon_white, local_trainingprogram {{/ pix }}</span> 
+                    {{#str}} releasedate, local_trainingprogram {{/str}} <strong class="ml-2"> {{releasedate}} </strong>
+                </div> -->
+                <div>
+                
+                  <div class="programdesc my-3">
+                    {{{program_description}}}
+                  </div>
+                  <a class="description-toggler text-light d-none">{{#str}} show_more, local_trainingprogram {{/str}}</a>
+                </div>
+                {{# sectorview}}
+                <div class="d-flex sectors_covered_container align-items-center mt-3 flex-wrap">
+                    <h5 class="mr-2">{{#str}} sectors, local_trainingprogram {{/str}}</h5>
+                    {{# sectorslists}}
+                    <div class="d-flex border sector_div mr-2"><span class="piximg checkicon">{{# pix }} check_circluaricon_white, local_trainingprogram {{/ pix }}</span>  {{sectorname}}</div>
+                    {{/ sectorslists}}
+                    
+                </div>
+                {{/ sectorview}}
+
+
+
+                {{# trainingtopicsview}}
+
+
+
+
+                <div class="d-flex sectors_covered_container align-items-center mt-3 flex-wrap">
+                    <h5 class="mr-2">{{#str}} trainingtopics, local_trainingprogram {{/str}}</h5>
+                    {{# fourtrainingtopiclist}}
+                    <div class=" d-flex border sector_div mr-2"><span class="piximg checkicon">{{# pix }} check_circluaricon_white, local_trainingprogram {{/ pix }}</span> 
+                   
+                            {{{topicname}}}
+                 
+                    </div>
+                    {{/ fourtrainingtopiclist}}
+
+                    {{#hastrainingtopicslistmore}}
+                  
+
+                    <button class="btn btn-outline-primary"><a href="#"  class = "text-white"data-action ="viewprogramtrainingtopics" data-id={{programid}}>{{#str}} show_more, local_trainingprogram {{/str}} </a>
+                    </button>
+
+                        
+                {{/hastrainingtopicslistmore}}
+                    
+                </div>
+
+
+
+
+
+                <!-- <ul class="row trainingtopic_list {{#hastrainingtopicslistmore}}showlimited{{/hastrainingtopicslistmore}} list-unstyled d-flex flex-wrap m-0">
+                    {{# trainingtopiclist}}
+                    <li class="col-md-3 p-3 mx-3">{{{topicname}}}</li>
+                    {{/ trainingtopiclist}}
+                </ul>
+                {{#hastrainingtopicslistmore}}
+                    <div class="text-center my-2"><a class="trainingtopic_list_showtoggler" href="#">{{#str}} show_more, local_trainingprogram {{/str}}</a></div>
+                {{/hastrainingtopicslistmore}} -->
+           
+                {{/ trainingtopicsview}}
+                
+
+
+
+
+
+            </div>
+        </div>
+        <div class="pricedetails_container rounded hexabgcontainer text-light h-100">
+            <div class="d-flex flex-column text-center">
+                <span class="mb-2">{{#str}} programfee, local_trainingprogram {{/str}}</span>
+                {{# priceview}}
+                <h1 class="mt-2 mb-1">{{sellingprice}}</h1>
+                <span>{{#str}} sa_currency, local_trainingprogram {{/str}}</span>
+                {{/ priceview}}
+
+                {{^ priceview}}
+                 <h1 class="mt-2 mb-1">{{#str}} free, local_trainingprogram {{/str}}</h1>
+                {{/ priceview}}
+
+                {{^is_external_link}}
+                {{# cartactionview}}
+                <div class="mt-4">
+                    
+                        <div class="cart_btn">
+                          {{>tool_product/cart/add}}
+                        </div>
+                
+                </div>
+                {{/ cartactionview}}
+                {{/is_external_link}}
+                 {{#is_external_link}}
+                <a href={{externallink}} class="btn btn-primary border mb-3">
+                    {{#str}} externallink, local_trainingprogram {{/str}}
+               </a>
+                  {{/is_external_link}}
+            </div>
+                {{#isorgofficialortrainee}}
+                   <div class="mt-2">
+                        <div class="cart_btn">
+                          <div data-region="add-btn-580">
+                    {{#checkfavornot}}
+                            <button class="btn btn-primary btn-block mb-3 removefav removeshow{{programid}}"  data-component="local_trainingprogram" data-action="removefavourites" data-itemtype="trainingprogram" data-itemid="{{ programid }}" data-userid="{{userid}}" data-courseid={{courseid}} title="Remove Favourites" >Remove Favourites</button>
+                            <button class="btn btn-primary btn-block mb-3 addfav addhide{{programid}}"  data-component="local_trainingprogram" data-action="addtofavourites" data-itemtype="trainingprogram" data-itemid="{{ programid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Add To Favourites" style="display:none;" >Add Favourites</button>
+                            
+                   {{/checkfavornot}}
+                   {{^checkfavornot}}
+                       <button class="btn btn-primary btn-block mb-3  addfav addshow{{programid}}"  data-component="local_trainingprogram" data-action="addtofavourites" data-itemtype="trainingprogram" data-itemid="{{ programid }}" data-userid="{{userid}}"  data-courseid={{courseid}} title="Add To Favourites"  >Add Favourites</button>
+
+                       <button class="btn btn-primary btn-block mb-3 removefav removehide{{programid}}"  data-component="local_trainingprogram" data-action="removefavourites" data-itemtype="trainingprogram" data-itemid="{{ programid }}" data-userid="{{userid}}" data-courseid={{courseid}} title="Remove Favourites" style="display:none;">Remove Favourites</button>
+                   {{/checkfavornot}}
+                          </div>
+                        </div>
+                    </div>
+                {{/isorgofficialortrainee}}
+
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-8 d-flex">
+            <div class="videopreviewcontainer h-100 w-100 rounded d-flex align-items-center justify-content-center" {{# imageurl}} style="background-image:url('{{{imageurl}}}')" {{/ imageurl}}>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h5 class="text-center mb-3 text-themecolor">{{#str}} trainingprogram_content, local_trainingprogram {{/str}} </h5>
+            <div class="bg-white shadow rounded p-2 mt-2">
+                <div class="border-bottom d-flex py-3 mx-2 align-items-center justify-content-between">
+                    <h6 class="m-0">{{#str}} program_duration, local_trainingprogram {{/str}}</h6>
+                    <span> {{durationindays}} {{#str}}days , local_trainingprogram{{/str}}</span>
+                </div>
+                <div class="d-flex py-3 mx-2 align-items-center justify-content-between">
+                    <h6 class="m-0">{{#str}} olanguage, local_trainingprogram {{/str}}</h6>
+                    <span>{{courselanguage}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}} program_goals, local_trainingprogram {{/str}}</h5>
+            <h6>{{#str}} program_goals_description, local_trainingprogram {{/str}}</h6>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class="row list-unstyled d-flex flex-wrap m-0">
+                    {{# program_goals}}
+                    <li class="col-md-12 p-3 mx-3 text-justify">{{programgoal}}</li>
+                     {{/ program_goals}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{# offeringview}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}} available_times, local_trainingprogram {{/str}}</h5>
+            {{> local_trainingprogram/offerings}}
+
+        </div>
+    </div>
+    {{/ offeringview}}
+    <!-- <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">Pre-requirements</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <p>There are no prerequisites to start the program ... The program is available for all levels</p>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">Program Agenda</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <div class="d-flex align-items-center justify-content-end mb-2">
+                    <h6> {{# pix }} checklisticon, local_trainingprogram {{/ pix }} {{totalmodules}} Modules | {{sectionscount}} Topics</h6>
+                </div>
+                {{# sections}}
+                <div class="program_agenda">
+                    <div class="programs_section_header d-flex align-items-center justify-content-between collapsed" data-toggle="collapse" href="#section-{{sectionid}}">
+			            <div class="d-flex align-items-center justify-content-between flex-grow-1">
+			            	{{# sectionname}}
+                            <h6 class="text-black">{{sectionname}}</h6>
+                            {{/ sectionname}}
+                            {{^ sectionname}}
+                            <h6 class="text-black">Topic {{sid}}</h6>
+                            {{/ sectionname}}
+			            </div>
+			        </div>
+			        <div class="programs_section_content_container collapse" id="section-{{sectionid}}">
+
+						<ul class="list-unstyled sessions_list">
+                             {{# modules}}
+                             
+                            <li class="d-flex">
+                                <div class="d-flex flex-grow-1 align-items-center justify-content-between">
+                                    <h6>{{modulename}}</h6>
+                                    <span class="session_time">{{modulecreateddate}}</span>
+                                </div>
+                            </li>
+                              {{/ modules}}
+                        </ul>
+			        </div>
+			    </div>
+                {{/ sections}}
+            </div>
+        </div>
+    </div> -->
+    {{# programagendaview}}
+    <div class="row my-4 program_agenda_container">
+
+        <div class="col-md-12">
+
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}} programagenda, local_trainingprogram {{/str}}</h5>
+
+            <div class="bg-white shadow rounded p-3 mt-2">
+
+                <div class="row">
+                    <div class="col-12 col-sm-3 col-md-2">
+
+                        <ul class="nav nav-tabs d-flex flex-column" id="myTab" role="tablist">
+                            {{# program_days}}
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link btn-block {{# selected}} active {{/ selected}}" id="day-{{day}}-navtab" data-toggle="tab" data-target="#day-{{day}}-tab" type="button" role="tab" aria-controls="day-{{day}}-tab" aria-selected="false">
+                              {{#str}} day, local_trainingprogram {{/str}} {{day}}  </button>
+                            </li>
+                            {{/ program_days}} 
+
+                          </ul>
+                    </div>
+                    <div class="col-12 col-sm-9 col-md-10">
+                      <div class="tab-content" id="v-pills-tabContent">
+                        {{# program_days}}
+                        <div class="tab-pane fade {{# selected}} show active {{/ selected}}" id="day-{{day}}-tab" role="tabpanel" aria-labelledby="day-{{day}}-tab">
+                        <div class="d-flex flex-column goals_detail_container">
+                             {{{agenda}}}
+                        </div>
+                    </div>
+                        {{/ program_days}} 
+
+                      </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/ programagendaview}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}} training_method, local_trainingprogram {{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class="list-unstyled d-flex flex-wrap m-0">
+                    {{# trainingmethods}}    
+                    <li class="p-3 mx-3">{{name}}</li>
+                     {{/ trainingmethods}}   
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{# evaluationmethoddisplay}}
+     <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}} evaluation_method, local_trainingprogram {{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class="list-unstyled d-flex flex-wrap m-0">
+                    {{# evaluationmethod}}
+                
+                    <li class="p-3 mx-3">{{name}}</li>
+
+                     {{/ evaluationmethod}}
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/ evaluationmethoddisplay}}
+    {{# jobfamilyview}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}} jobfamilies, local_trainingprogram {{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class=" row jobfamilies_list {{#hasjobfamilylistmore}}showlimited{{/hasjobfamilylistmore}} list-unstyled d-flex flex-wrap m-0">
+                    {{# jobfamilylist}}
+                    <li class=" col-md-3 p-3 mx-3">{{{fullname}}}</li>
+                    {{/ jobfamilylist}}
+                </ul>
+                {{#hasjobfamilylistmore}}
+                    <div class="text-center my-2"><a class="jobfamilies_list_showtoggler" href="#">{{#str}} show_more, local_trainingprogram {{/str}}</a></div>
+                {{/hasjobfamilylistmore}}
+                
+            </div>
+        </div>
+    </div>
+    {{/ jobfamilyview}}
+
+    <!-- {{# trainingtopicsview}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}} trainingtopics, local_trainingprogram {{/str}}</h5>
+             <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class="row trainingtopic_list {{#hastrainingtopicslistmore}}showlimited{{/hastrainingtopicslistmore}} list-unstyled d-flex flex-wrap m-0">
+                    {{# fourtrainingtopiclist}}
+                    <li class="col-md-3 p-3 mx-3">{{{topicname}}}</li>
+                    {{/ fourtrainingtopiclist}}
+                </ul>
+                {{#hastrainingtopicslistmore}}
+                    <div class="text-center my-2"><a class="trainingtopic_list_showtoggler" href="#">{{#str}} show_more, local_trainingprogram {{/str}}</a></div>
+                {{/hastrainingtopicslistmore}}
+                
+            </div> 
+        </div>
+    </div>
+    {{/ trainingtopicsview}} -->
+
+    <!-- {{# trainingtypesview}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}} trainingtype, local_trainingprogram {{/str}}</h5>
+             <div class="bg-white shadow rounded p-3 mt-2">
+                <ul class="trainingtype_list {{#hastrainingtypeslistmore}}showlimited{{/hastrainingtypeslistmore}} list-unstyled d-flex flex-wrap m-0">
+                    {{# trainingtypelist}}
+                    <li class="p-3 mx-3">{{{name}}}</li>
+                    {{/ trainingtypelist}}
+                </ul>
+                {{#hastrainingtypeslistmore}}
+                    <div class="text-center my-2"><a class="trainingtype_list_showtoggler" href="#">{{#str}} show_more, local_trainingprogram {{/str}}</a></div>
+                {{/hastrainingtypeslistmore}}
+                
+            </div> 
+        </div>
+    </div>
+    {{/ trainingtypesview}} -->
+
+
+
+    {{# competenciesview}}
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 text-themecolor">{{#str}} targeted_comp, local_trainingprogram {{/str}}</h5>
+            <div class="bg-white shadow rounded p-3 mt-2">
+                <table class="table competencies_table">
+                    <thead>
+                        <tr class="bg-themecolor text-light font-weight-bold">
+                            <td class="rounded-left">{{#str}} competencies, local_trainingprogram {{/str}}</td>
+                            <td class="rounded-right">{{#str}} levels, local_trainingprogram {{/str}}</td>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {{#programcompetencies}}
+                        <tr>
+                            <td colspan="2" class="p-0 border-0"><div class="bg-themecolor2 px-3 py-2 my-2 text-light font-weight-bold rounded"> {{fullname}} </div></td>
+                        </tr>
+                        {{#competencies}}
+                        <tr>
+                            <td class="align-middle"><h6>{{{competencyname}}}</h6></td>
+                            
+                            <td>
+                                <div class = "d-flex flex-wrap align-items-center justify-content-end">
+                                
+                                
+                                        <div class="rounded p-2 bg-themecolor2 text-light font-weight-bold text-center mr-2 mb-2 level-div">{{competencylevel}}
+                                        </div>
+
+                            
+                                 </div>
+                            </td>
+                           
+                        </tr>
+                        {{/competencies}}
+                        {{/programcompetencies}}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+     {{/ competenciesview}}
+
+     {{# preprogramsview}}
+     <div class="row my-4">
+         <div class="col-md-12">
+             <h5 class="mb-3 text-themecolor">{{#str}} preprogram, local_trainingprogram {{/str}}</h5>
+              <div class="bg-white shadow rounded p-3 mt-2">
+                 <ul class="row preprogram_list {{#haspreprogramlistmore}}showlimited{{/haspreprogramlistmore}} list-unstyled d-flex flex-wrap m-0">
+                     {{# preprogramlist}}
+                     <li class="col-md-3 p-3 mx-3"><a href = "{{config.wwwroot}}/local/trainingprogram/programcourseoverview.php?programid={{{preid}}}">{{{prename}}}</a></li>
+                     {{/ preprogramlist}}
+                 </ul>
+                 {{#haspreprogramlistmore}}
+                     <div class="text-center my-2"><a class="preprogram_list_showtoggler" href="#">{{#str}} show_more, local_trainingprogram {{/str}}</a></div>
+                 {{/haspreprogramlistmore}}
+                 
+             </div> 
+         </div>
+     </div>
+     {{/ preprogramsview}}
+ 
+     {{# postprogramsview}}
+     <div class="row my-4">
+         <div class="col-md-12">
+             <h5 class="mb-3 text-themecolor">{{#str}} postprogram, local_trainingprogram {{/str}}</h5>
+              <div class="bg-white shadow rounded p-3 mt-2">
+                 <ul class="row postprogram_list {{#haspostprogramslistmore}}showlimited{{/haspostprogramslistmore}} list-unstyled d-flex flex-wrap m-0">
+                     {{# postprogramlist}}
+                     <li class="col-md-3 p-3 mx-3"><a href = "{{config.wwwroot}}/local/trainingprogram/programcourseoverview.php?programid={{{postid}}}">{{{postname}}}</a></li>
+                     {{/ postprogramlist}}
+                 </ul>
+                 {{#haspostprogramslistmore}}
+                     <div class="text-center my-2"><a class="postprogram_list_showtoggler" href="#">{{#str}} show_more, local_trainingprogram {{/str}}</a></div>
+                 {{/haspostprogramslistmore}}
+                 
+             </div> 
+         </div>
+     </div>
+     {{/ postprogramsview}}
+
+
+</div>
+
+{{#js}}
+  require(['local_exams/fav'], function(s) {
+        s.init();
+    });
+
+    require(['local_trainingprogram/tpview'], function(s) {
+     
+        s.init();
+    });
+
+
+$(document).ready(function(){
+
+    var program_desc_height = $('.programdesc').height();
+    
+    if(program_desc_height > 70){
+        $('.programdesc').addClass('short');
+        $('.description-toggler').removeClass('d-none');
+    } 
+    $('.description-toggler').click(function(e){
+        e.preventDefault();
+        var desc_element = $(this).parent().find('.programdesc');
+        if(desc_element.hasClass('short')){
+            desc_element.removeClass('short');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        }else{
+            desc_element.addClass('short'); 
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+    $('.jobfamilies_list_showtoggler').click(function(e){
+        e.preventDefault();
+        var list_element = $(this).parent().parent().find('.jobfamilies_list');
+
+        if(list_element.hasClass('showlimited')){
+            list_element.removeClass('showlimited');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        }else{
+            list_element.addClass('showlimited'); 
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+    $('.trainingtopic_list_showtoggler').click(function(e){
+        e.preventDefault();
+        var list_topic = $(this).parent().parent().find('.trainingtopic_list');
+
+        if(list_topic.hasClass('showlimited')){
+            list_topic.removeClass('showlimited');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        }else{
+            list_topic.addClass('showlimited'); 
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+    $('.preprogram_list_showtoggler').click(function(e){
+        e.preventDefault();
+        var list_element = $(this).parent().parent().find('.preprogram_list');
+
+        if(list_element.hasClass('showlimited')){
+            list_element.removeClass('showlimited');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        }else{
+            list_element.addClass('showlimited'); 
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+    $('.postprogram_list_showtoggler').click(function(e){
+        e.preventDefault();
+        var list_element = $(this).parent().parent().find('.postprogram_list');
+
+        if(list_element.hasClass('showlimited')){
+            list_element.removeClass('showlimited');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        }else{
+            list_element.addClass('showlimited'); 
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+})
+{{/js}}

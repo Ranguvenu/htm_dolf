@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-_06">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="_06" data-name="06" clip-path="url(#clip-_06)">
+    <image id="Icon_material-business" data-name="Icon material-business" width="40" height="36" transform="translate(5 7)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAABHNCSVQICAgIfAhkiAAAAONJREFUWEftV9sRgzAMgw1gg67AGEzEDEzUMTpKYQLwV6/x5ar4ZHIUzK/zkCxbxO0wzlvj+/Wv57R4HdkGQDKVf5nBh5Bev4i/VRJQ/PAaTC7I1KgpTirc5CQ2AUAEbgmQJe26/4guDoCuGWAPy0mMfM4at2JMfPd0NqNtKwBa9S3JoPVMtJ76M9XwwQCIJERx9wxafQ69F1eZUT5zjzRBpxjpeDIjhc0g/XW8xGaompELqSd/CUArabSeIhw+qCVHM8wlJA4f/NVVJRJTXVfDZk4PEPla1XgNH6QIBUAqfbJ5By/jf2xA19T4AAAAAElFTkSuQmCC"/>
+  </g>
+</svg>

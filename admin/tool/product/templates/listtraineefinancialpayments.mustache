@@ -1,0 +1,121 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <div class ="d-flex mb-3">
+            <div onClick="window.location = '{{{purchaseurl}}}';" class="mr-3">
+                <input type="radio" name="age" {{#ispurchasechecked}} checked {{/ispurchasechecked}}>{{#str}} purchase ,tool_product{{/str}}</input>
+            </div>
+            <div onClick="window.location = '{{{cancelurl}}}';" class="mr-3">
+                <input type="radio" name="age" {{#iscancelchecked}} checked {{/iscancelchecked}}>{{#str}} cancel ,tool_product{{/str}}</input> 
+            </div>  
+             <div onClick="window.location = '{{{refundurl}}}';" class="mr-3">
+                <input type="radio" name="age" {{#isrefundchecked}} checked {{/isrefundchecked}}>{{#str}} refund ,tool_product{{/str}}</input> 
+            </div> 
+        </div>
+        <div class="border rounded p-3 bg-theme_light">
+            {{#records}}
+                <div class="row mx-0 rounded py-3 my-3 {{{trainingstatus}}}">
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{{productname}}}</small></span>
+                        <h6>{{{trainingname}}}</h6>
+                        {{#pname}}
+                       {{#tagreement}}
+                        
+                        <a href="{{{trainingagreement}}}" download data-toggle="tooltip"title="{{#str}} tagree ,tool_product{{/str}}"><i class="fa fa-download" aria-hidden="true" ></i></a>
+                        
+                        {{/tagreement}}
+                        {{/pname}}
+                    </div>
+                    {{# costview}}
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} cost ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}})</small></span>
+                        <h6>{{cost}}</h6>
+                    </div>
+                    {{/ costview}}
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} organizationname ,tool_product{{/str}}</small></span>
+                        <h6>{{organizationname}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} traineename ,tool_product{{/str}}</small></span>
+                        <h6>{{username}}</h6>
+                    </div>
+                    {{#mode}}
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} mode ,tool_product{{/str}}</small></span>
+                        <h6>{{mode}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} duedate ,tool_product{{/str}}</small></span>
+                        <h6>{{duedate}}</h6>
+                    </div>
+
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} type ,tool_product{{/str}}</small></span>
+                        <h6>{{{invoicetype}}}</h6>
+                    </div>
+
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} purchasedseats ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{purchasedseats}}</h6>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <span class="d-block"><small>{{#str}} purchaseid ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{transcationref}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} transactionnumber ,tool_product{{/str}} </small></span>
+                        <h6>{{transcationnumber}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} cisi_enrollments ,tool_product{{/str}} </small></span>
+                        <h6>{{cisi_enrolment}}</h6>
+                    </div>
+                    {{# invoiceaction}}
+                        <div class="col-md-2">
+                            <span class="d-block"><small>{{#str}} invoice ,tool_product{{/str}}</small></span>
+                            <a href="{{globals.config.wwwroot}}/admin/tool/product/invoicepdf.php?invoice={{orderinfo}}" class="btn btn btn-primary"><i class="fa fa-download"></i></a>
+                        </div>
+                    {{/ invoiceaction}}
+                    {{/mode}}
+                    {{# refund}}
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} paymentstatus ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{{paymentstatus}}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} refund ,tool_product{{/str}}({{#str}}sa_currency,local_trainingprogram{{/str}})</small></span>
+                        <h6>{{discountprice}}</h6>
+                    </div>
+                        <div class="col-md-2">
+                            <span class="d-block"><small>{{#str}} purchaseid ,tool_product{{/str}}</small></span>
+                            <h6 class="align-items-center justify-content-center">{{transcationref}}</h6>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="d-block"><small>{{#str}} transactionnumber ,tool_product{{/str}} </small></span>
+                            <h6>{{transcationnumber}}</h6>
+                        </div>
+                         <div class="col-md-1">
+                            <span class="d-block"><small>{{#str}} date ,tool_product{{/str}}</small></span>
+                            <h6>{{paymentdate}}</h6>
+                        </div>
+                        {{/ refund}} 
+                </div>
+            {{/records}}
+            {{#records.0}}
+                    <div class="row mx-0 rounded py-3 my-3 alert alert-success">
+                        <div class="col-md-2">
+                                <h6>{{#str}} totalcost ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}}) </h6>
+                        </div>
+                        <div class="col-md-1">
+                            <h6> {{totalcost}}</h6>
+                        </div>
+                    </div>
+            {{/records.0}}
+        </div>
+   {{/viewtypeCard}}
+{{/response}}               

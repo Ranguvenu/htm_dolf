@@ -1,0 +1,86 @@
+{{^data}}
+ <div class = 'w-100 alert alert-info'>{{#str}} pleaseassignlearningitems, local_learningtracks{{/str}}</div>
+{{/data}}
+
+{{#data}}
+<div id="programdetailscontainer">
+<form  method="post" name="form_name" id="user_assign_entities" class="form_class  my-4" >
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h5 class="mb-3 mt-2 text-themecolor">{{#str}} pluginname, local_trainingprogram{{/str}}</h5>
+              {{#programs}}
+              
+                    <h6 class="mb-3 mt-2 text-themecolor">{{title}}</h6>
+                        <div>
+                        {{> local_trainingprogram/offerings}}
+                        <div class="clearfix"></div>
+                        </div>
+               {{/programs}}
+               {{^programs}}
+                <div class="alert alert-info"> {{#str}}noprogramsassigned, local_learningtracks {{/str}}</div>
+               {{/programs}}
+        </div>
+    </div>
+
+<div class="row my-4">
+        <div class="col-md-12">
+           <h5 class="mb-3 mt-2 text-themecolor">{{#str}} pluginname, local_exams{{/str}}</h5>
+            {{#exams}}
+           
+            <h6 class="mb-3 mt-2 text-themecolor">{{title}}</h6>
+            {{> local_exams/examreservations}}
+            
+            {{/exams}}
+           {{^exams}}
+            <div class="alert alert-info"> {{#str}}nopexamsassigned, local_learningtracks {{/str}}</div>
+           {{/exams}}
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-md-5"> </div>
+
+        {{^manage_organizationofficial}}
+            <div class="col-md-2"> 
+
+                {{> tool_product/cart/group}}
+
+            </div>
+
+        {{/manage_organizationofficial}}
+
+        
+    <div class="col-md-5"> </div>
+
+</div>
+</div>
+{{/data}}
+{{#js}}
+    $(document).ready(function() {
+        var examlist = JSON.parse("{{examlist}}".replace(/&quot;/g,'"'));//JSON.parse("{{examlist}}");
+        $.each(examlist, function( index, value ) {
+            $('#exam_id_'+value).attr("checked","checked");
+        });
+    
+        var programlist = JSON.parse("{{programlist}}".replace(/&quot;/g,'"'));
+        $.each(programlist, function( index, value ) {
+            $('#program_id_'+value).attr("checked","checked");
+        });
+
+        $('input[id^="program_id_"]').change(function () {
+            $('#bootstrap-duallistbox-container').hide();
+        });
+
+        $('input[id^="exam_id_"]').change(function () {
+            //if ($(this).prop('checked')) {
+            $('#bootstrap-duallistbox-container').hide();
+            //}
+        });
+       
+               
+        
+
+
+    });
+
+{{/js}}

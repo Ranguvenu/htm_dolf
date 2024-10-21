@@ -1,0 +1,28 @@
+<div>
+    <h3>{{#str}}switchroleto{{/str}}</h3>
+    <div>{{#str}}switchroleto_help{{/str}}</div>
+</div>
+{{#roles}}
+    {{#switchrole}}
+    <div class="singlebutton">
+        <a href="{{config.wwwroot}}/local/userapproval/customswitchrole.php?id=1&switchrole=0&returnurl={{config.wwwroot}}/my&sesskey={{sesskey}}" class="btn btn-primary" title="{{rolename}}">{{rolename}}</a>
+    </div>
+    {{/switchrole}}
+    {{#originalrole}}
+        <div>
+            {{#rolename}}
+
+            <div class="singlebutton">
+                <form method="post" action="{{config.wwwroot}}/local/userapproval/customswitchrole.php">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="switchrole" value="{{id}}">
+                        <input type="hidden" name="returnurl" value="http://localhost/phase2s2/course/view.php?id=1">
+                        <input type="hidden" name="sesskey" value="{{sesskey}}">
+                    <button type="submit" class="btn btn-secondary" id="single_button649e701c3b4bd5" title="{{rolename}}">{{rolename}}</button>
+                </form>
+            </div>
+            {{/rolename}}
+        </div>
+        <br>
+    {{/originalrole}}
+{{/roles}}

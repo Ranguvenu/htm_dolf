@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 34 37">
+      <image width="34" height="37" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAlCAYAAAAnQjt6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFE0lEQVRYhc3Xf4xdVREH8M+2xaRV6CKxcpWsVRqtBXFZG6tUa4Wgpk1ua9L4o42hQVIuxZDdaLRGI1uDURbJEhPrbbS00SD8QbBedfFHLFpoLIlu2rTijxBtNqZXDJouWooK6h9ndvt4+/bt221Qv8nNO29mzpzvuWfmzNwuc0CWl+dhO67DCnThGPZid10Vz87WZ9ccSLwM38Zy7MIjoXpbkPs18roqnnzBiGR5OQ8H8BKsr6viieHRsc0w0NfzzSwvX47vYRzX1lXxr059L5gNEWxGL1YEiWW4AfOHR8eW4P6hwZEcj+F9uK9Tx/NmSeR67Kqr4uTw6Nj5eBSXYDHuxLK6Kk7iy0GwY3RMJMvLzVIcfDdEr8YFuCbkH5LiQ9isiTkdYcajyfLyAikoPxjET4bqVxjFWPx/APfGuMZ5+EaWl+uwva6Kp9qt0/aNZHm5GkfxZqzC07go1C/GJ/AGrEGOy0J3UdiuirlHw9fsiGR5uSDLy504iB/hyroqfo4juDrMekN3Gz6Df+KPobsaR2LOlWF3MMvLnVletjyFKUSyvLw0CHwEm+qq2FZXxelQfx23xHH9QQrKV+FCXDvQ1/Nk6G4JW3VVnK6rYhs2hc+Dscb0RLK8vC52fRpX1FXxrSb7vdIdcd/Q4MjJgb6efuzBvoG+nkNZXi6SUnY8bCcRvq4I30dirUlMXmhZXu7CTbHLO/HvZtaB1+B+/BlfwKGQr8YOKT424XfTzO/CR3EzvlJXxXaenzVXxe/N8cyEC/G1aXQ/7mB+45rPI/J+LMRnpRQtO3Q2WxR4hRTgZyaEU2pNlpf7cAK/wIcbdXVVbMzy8h4pdScwcY1/oEF2uq6KLVle7m9yvwdvwtK6KrY2KtrdI5dKd8QJKcA2hHx9/D8R+uXxNNquD9sNTbZTsqUTInCsrop+3NEkvyPkx+ZoO2si/zX83xCZqeitz/LyFOY3yR/O8vI5KWjfE7L5DbbPTWP7k7kQ+Y4UZM3YghdJl9JV+HzIP43j0mX4j5C9t2nuMaldmIKuLC9zZwsZvAtP4XAbkq+VKu4W/DJkl+EeqU79ts3ct0h9zA8bZAe6srz8O34qle2ZsARvlXqQXDqGH4Tu3dKRVOjBz/CnDnwuwjsWSK95W10VJ9pZZ3n5xljkUWzE67FfaojgoZCvCvkrcVNdFUdn8LsUv+8oa7K83CAVt0ewVnorD+KrUh97fYwfDN3asD0Uc2dEV5aXT0g1pl3rfz5uxedi0d3YUVfFF5sIf0yqyDfibnwKO/HXNr7n4UxXlpeX4DdS9B9vYXi5lBGHpSxbHY5Hp3HcF8QP4VkpOG9r4/uTeF1X7OQUNn58cN3lWNZoOX7qzNO773ropbHLnVLPsc/ZtrAZF2Or9GZuxe4b+9/5l8XdCxc12T0+NDhyHPvrquhujpFN0ufB0njWLO5euE60BHVVDOIZlDG+XerojuD2kJV4JsZQho81DX6vibUm0epC2zPQ13MXDI+ObUV/q21nebkED0upCmNZXr69lW3gSwN9PfvCb7+UYZM4l1qzA3+TjuLiGO+Yq7NzIdKHvXVVjNdVMdEs9/0viJDeQqvxrNEqRjYPj471xnhZC/1cccPw6NjaGK/QVFKaiXxfavsm8Liz37bngon6M4HHnP1gn0Kkd2hw5LDWVXclZHm5NuasRDeWh4y0ge7QLWiQrxwaHDkwDcHeiUHjhbZ4+g29oBivq6L7P0ZJj6fXYrl+AAAAAElFTkSuQmCC"/>
+    </pattern>
+  </defs>
+  <g id="Group_2" data-name="Group 2" transform="translate(-69 226)">
+    <g id="Rectangle_8" data-name="Rectangle 8" transform="translate(69 -226)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="60" height="60" stroke="none"/>
+      <rect x="0.5" y="0.5" width="59" height="59" fill="none"/>
+    </g>
+    <rect id="banking_copy" data-name="banking copy" width="56" height="60" transform="translate(71 -226)" fill="url(#pattern)"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<div data-region="booking-order-summary" class="hidden">
+</div>
+
+<button class="btn btn-primary px-4 product_orderseats" data-action="{{{action}}}" data-seatsdata="{{{seatsdata}}}" data-product="{{id}}" data-autoapproval={{autoapproval}}>{{label}}</button>
+<script>
+    require(['tool_product/product'], function(product) {
+        $(document).on('click','.product_orderseats',function(e){
+            e.stopImmediatePropagation();
+            var action = $(this).data('action');
+            product.add_order_seats('[data-action='+action+']');
+        });
+    });
+</script>
+

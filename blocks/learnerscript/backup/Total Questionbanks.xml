@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<report version="2021051704.16"><visible><![CDATA[1]]></visible>
+<name><![CDATA[{mlang en}Total Questionbanks{mlang}{mlang ar}إجمالي عدد بنوك الأسئلة{mlang}]]></name>
+<summary><![CDATA[<p dir="ltr" style="text-align: left;">{mlang en}<strong>Total Question Banks:</strong> The total question banks that are available{mlang}</p><p dir="ltr" style="text-align: left;">{mlang ar}إجمالي بنوك الأسئلة: العدد الإجمالي لبنوك الأسئلة المتوفرة{mlang}</p>]]></summary>
+<type><![CDATA[statistics]]></type>
+<components><![CDATA[YToyOntzOjk6ImN1c3RvbXNxbCI7YToxOntzOjY6ImNvbmZpZyI7Tzo4OiJzdGRDbGFzcyI6MTE6e3M6NDoibmFtZSI7czoxOTI6IiU3Qm1sYW5nK2VuJTdEVG90YWwrUXVlc3Rpb25iYW5rcyU3Qm1sYW5nJTdEJTdCbWxhbmcrYXIlN0QlRDglQTUlRDglQUMlRDklODUlRDglQTclRDklODQlRDklOEErJUQ4JUI5JUQ4JUFGJUQ4JUFGKyVEOCVBOCVEOSU4NiVEOSU4OCVEOSU4MyslRDglQTclRDklODQlRDglQTMlRDglQjMlRDglQTYlRDklODQlRDglQTklN0JtbGFuZyU3RCI7czo0OiJ0eXBlIjtzOjEwOiJzdGF0aXN0aWNzIjtzOjg6InF1ZXJ5c3FsIjtzOjE3MDoiU0VMRUNUK0NPVU5UJTI4aWQlMjkrQVMrJTI3VG90YWwrUXVlc3Rpb25iYW5rcyUyNyUwRCUwQUZST00rcHJlZml4X2xvY2FsX3F1ZXN0aW9uYmFuayUwRCUwQVdIRVJFK3dvcmtzaG9wZGF0ZStCRVRXRUVOKyUyNSUyNUxTX1NUQVJUREFURSUyNSUyNStBTkQrJTI1JTI1TFNfRU5EREFURSUyNSUyNSsiO3M6MTE6ImRlc2NyaXB0aW9uIjthOjI6e3M6NDoidGV4dCI7czo1OTI6IiUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJTdCbWxhbmcrZW4lN0QlM0NzdHJvbmclM0VUb3RhbCtRdWVzdGlvbitCYW5rcyUzQSUzQyUyRnN0cm9uZyUzRStUaGUrdG90YWwrcXVlc3Rpb24rYmFua3MrdGhhdCthcmUrYXZhaWxhYmxlJTdCbWxhbmclN0QlM0MlMkZwJTNFJTNDcCtkaXIlM0QlMjJsdHIlMjIrc3R5bGUlM0QlMjJ0ZXh0LWFsaWduJTNBK2xlZnQlM0IlMjIlM0UlN0JtbGFuZythciU3RCVEOCVBNSVEOCVBQyVEOSU4NSVEOCVBNyVEOSU4NCVEOSU4QSslRDglQTglRDklODYlRDklODglRDklODMrJUQ4JUE3JUQ5JTg0JUQ4JUEzJUQ4JUIzJUQ4JUE2JUQ5JTg0JUQ4JUE5JTNBKyVEOCVBNyVEOSU4NCVEOCVCOSVEOCVBRiVEOCVBRislRDglQTclRDklODQlRDglQTUlRDglQUMlRDklODUlRDglQTclRDklODQlRDklOEErJUQ5JTg0JUQ4JUE4JUQ5JTg2JUQ5JTg4JUQ5JTgzKyVEOCVBNyVEOSU4NCVEOCVBMyVEOCVCMyVEOCVBNiVEOSU4NCVEOCVBOSslRDglQTclRDklODQlRDklODUlRDglQUElRDklODglRDklODElRDglQjElRDglQTklN0JtbGFuZyU3RCUzQyUyRnAlM0UiO3M6NjoiZm9ybWF0IjtzOjE6IjEiO31zOjY6Imdsb2JhbCI7czoxOiIxIjtzOjI6ImlkIjtpOjI1O3M6ODoiY291cnNlaWQiO2k6MTtzOjM1OiJtZm9ybV9pc2V4cGFuZGVkX2lkX2FkdmFuY2Vkb3B0aW9ucyI7aToxO3M6MTI6InN1Ym1pdGJ1dHRvbiI7czo0OiJOZXh0IjtzOjEyOiJkaXNhYmxldGFibGUiO2k6MDtzOjc6InN1bW1hcnkiO3M6NTkyOiIlM0NwK2RpciUzRCUyMmx0ciUyMitzdHlsZSUzRCUyMnRleHQtYWxpZ24lM0ErbGVmdCUzQiUyMiUzRSU3Qm1sYW5nK2VuJTdEJTNDc3Ryb25nJTNFVG90YWwrUXVlc3Rpb24rQmFua3MlM0ElM0MlMkZzdHJvbmclM0UrVGhlK3RvdGFsK3F1ZXN0aW9uK2JhbmtzK3RoYXQrYXJlK2F2YWlsYWJsZSU3Qm1sYW5nJTdEJTNDJTJGcCUzRSUzQ3ArZGlyJTNEJTIybHRyJTIyK3N0eWxlJTNEJTIydGV4dC1hbGlnbiUzQStsZWZ0JTNCJTIyJTNFJTdCbWxhbmcrYXIlN0QlRDglQTUlRDglQUMlRDklODUlRDglQTclRDklODQlRDklOEErJUQ4JUE4JUQ5JTg2JUQ5JTg4JUQ5JTgzKyVEOCVBNyVEOSU4NCVEOCVBMyVEOCVCMyVEOCVBNiVEOSU4NCVEOCVBOSUzQSslRDglQTclRDklODQlRDglQjklRDglQUYlRDglQUYrJUQ4JUE3JUQ5JTg0JUQ4JUE1JUQ4JUFDJUQ5JTg1JUQ4JUE3JUQ5JTg0JUQ5JThBKyVEOSU4NCVEOCVBOCVEOSU4NiVEOSU4OCVEOSU4MyslRDglQTclRDklODQlRDglQTMlRDglQjMlRDglQTYlRDklODQlRDglQTkrJUQ4JUE3JUQ5JTg0JUQ5JTg1JUQ4JUFBJUQ5JTg4JUQ5JTgxJUQ4JUIxJUQ4JUE5JTdCbWxhbmclN0QlM0MlMkZwJTNFIjt9fXM6MTE6InBlcm1pc3Npb25zIjthOjI6e3M6NjoiY29uZmlnIjtPOjg6InN0ZENsYXNzIjozOntzOjEzOiJjb25kaXRpb25leHByIjtzOjg6IiUyOGMxJTI5IjtzOjE0OiJjb25kaXRpb25leHByMSI7czowOiIiO3M6MTQ6ImNvbmRpdGlvbmV4cHIyIjtzOjg6IiUyOGMxJTI5Ijt9czo4OiJlbGVtZW50cyI7YToxOntpOjA7YTo1OntzOjI6ImlkIjtzOjE1OiJ1aGhqZW9yQUZ3WFlVYjIiO3M6ODoiZm9ybWRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6MTI6ImNvbnRleHRsZXZlbCI7czoyOiIxMCI7czo4OiJyb2xlbmFtZSI7czo2OiJleHBlcnQiO3M6MTI6InN1Ym1pdGJ1dHRvbiI7czozOiJBZGQiO31zOjEwOiJwbHVnaW5uYW1lIjtzOjEyOiJyb2xlaW5jb3Vyc2UiO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjMxOiJVc2VyK3dpdGgrdGhlK3NlbGVjdGVkK3JvbGUlMkZzIjtzOjc6InN1bW1hcnkiO3M6MjI6ImV4cGVydCthdCtTeXN0ZW0rbGV2ZWwiO319fX0=]]></components>
+<export><![CDATA[]]></export>
+<global><![CDATA[1]]></global>
+<lastexecutiontime><![CDATA[0]]></lastexecutiontime>
+<disabletable><![CDATA[0]]></disabletable>
+<instance version="2021051704.16"><blockname><![CDATA[reporttiles]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard-expert_10]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[first-maindb]]></defaultregion>
+<defaultweight><![CDATA[0]]></defaultweight>
+<timecreated><![CDATA[1676008258]]></timecreated>
+<timemodified><![CDATA[1676008258]]></timemodified>
+<title><![CDATA[Total Questionbanks]]></title>
+<reportcontenttype><![CDATA[]]></reportcontenttype>
+<reporttype><![CDATA[table]]></reporttype>
+<logo><![CDATA[94373641]]></logo>
+<tilescolourpicker><![CDATA[]]></tilescolourpicker>
+<tileformat><![CDATA[fill]]></tileformat>
+<reportduration><![CDATA[all]]></reportduration>
+<tilescolour><![CDATA[]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position></report>

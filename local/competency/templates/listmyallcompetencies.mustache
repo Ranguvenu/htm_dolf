@@ -1,0 +1,33 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <table class="table generaltable ">
+            <thead>
+                <tr>
+                    <th>{{#str}}name,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_code,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_type,local_competency{{/str}}</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#records}}
+                <tr>
+                    <td>{{{name}}}</td>
+                    
+                    <td>{{code}}</td>
+
+                    <td>{{type}}</td>
+
+                </tr>
+                {{/records}}
+            </tbody>
+        </table>
+   {{/viewtypeCard}}
+{{/response}}               

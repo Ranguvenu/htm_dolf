@@ -1,0 +1,282 @@
+{{#response}}
+{{#records}}
+<div id="trainingprograms">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab-pane show active" id="tab_content_tab1" role="tabpanel"   aria-labelledby="tab1-tab">
+                <div class="table-responsive mt-3">
+                    <table class="table training_prgrams_table">
+                        <thead> 
+                            <tr>
+                                <th>{{#str}}course, local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}date, local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}end_date, local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}sector, local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}job_family, local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}status, local_trainingprogram{{/str}}</th>
+                                <th class="text-center">{{#str}}actions, local_trainingprogram{{/str}}</th>
+                            </tr>
+                        </thead>
+                       
+                        <tbody>
+                        {{# hascourses}}
+                            <tr class="course_details_row">
+                                
+                               <td>
+                                   {{# isorgofficialortrainee}} 
+                                    {{#checkfavornot}}
+                                  <i class="fa fa-star removefav removeshow{{trainingid}}" data-component="local_trainingprogram" data-action="removefavourites" data-itemtype="trainingprogram" data-itemid="{{ trainingid }}" data-userid="{{traineeuserid}}"  data-courseid={{courseid}} title="Remove Favourites"></i>
+                                  <i class="fa fa-star addfav addhide{{trainingid}}" data-component="local_trainingprogram" data-action="addtofavourites" data-itemtype="trainingprogram" data-itemid="{{ trainingid }}" data-userid="{{traineeuserid}}"  data-courseid={{courseid}} title="Add To Favourites" style="display:none;"></i>
+                                     {{/checkfavornot}}
+                                        {{^checkfavornot}}
+                                  <i class="fa fa-star addfav addshow{{trainingid}}" data-component="local_trainingprogram" data-action="addtofavourites" data-itemtype="trainingprogram" data-itemid="{{ trainingid }}" data-userid="{{traineeuserid}}"  data-courseid={{courseid}} title="Add To Favourites"></i>
+                                  <i class="fa fa-star removefav removehide{{trainingid}}" data-component="local_trainingprogram" data-action="removefavourites" data-itemtype="trainingprogram" data-itemid="{{ trainingid }}" data-userid="{{traineeuserid}}"  data-courseid={{courseid}} title="Remove Favourites" style="display:none;"></i>
+                                     {{/checkfavornot}}
+                                   {{/ isorgofficialortrainee}}
+                                {{{tainingprogramname}}}
+
+                            </td>
+
+                                <td>{{# datedisplay}}{{availablefrom}}{{/ datedisplay}} {{^ datedisplay}} -- {{/ datedisplay}}</td>
+                                <td>{{# datedisplay}}{{availableto}}{{/ datedisplay}} {{^ datedisplay}} -- {{/ datedisplay}}</td>
+                                <td>
+                                    <div class="d-flex flex-wrap">
+                                        {{# sectors}}
+                                        <div class="statuslabel banking mr-2 mb-2">
+                                           {{sectorname}}
+                                        </div>
+                                        {{/ sectors}}
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <p>
+                                        {{limitedjobfamily}}
+                                        {{# moreactinview}}
+                                        <span class="dots">...</span><span class="job_family_view_more d-none">
+                                            {{alljobbfamilies}}
+                                        </span> <a  id="myBtn" class = "show-more-jobfamily-btn text-themecolor" data-type = "show">{{#str}} show_more, local_trainingprogram {{/str}}</a>
+                                        {{/ moreactinview}}
+                                    </p>
+                                    </td>
+                                <td>{{programstatus}}</td>
+                                
+                                <td>
+                                    <div class="d-flex action_btns justify-content-center"> 
+
+                                        <a href="{{{detailedprogramviewurl}}}" data-toggle="tooltip" title="{{#str}} view_detailed_program, local_trainingprogram {{/str}}"><span class="bg-info text-white"><i class="fa fa-search-plus"></i></span></a>
+                                        {{# istrainee}}
+
+                                            {{# isnotelearningmethod}}
+                                                {{^ disableallactions}}
+                                                    {{# cancelbuttonview}}
+                                                            <a href="#"  data-action="cancelexam"  data-entitytype="trainingprogram" data-currentuser={{traineeuserid}}   
+                                                            data-productid="{{productid}}"  data-refundtype="cancel"  data-programprice={{programprice}} 
+                                                            data-ownedby=0  data-toggle="tooltip"title="{{#str}} cancel_offering, local_trainingprogram {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-ban" aria-hidden="true"></i></span>
+                                                            </a>
+                                                    {{/ cancelbuttonview}}
+                                                    {{^ cancelbuttonview}}
+                                                        <a href="#" data-toggle="tooltip" title="{{#str}}notallowedtocancel , local_trainingprogram {{/str}}"><span class="bg-danger text-white"><i class="fa fa-ban" aria-hidden="true"></i></span></a>
+                                                    {{/ cancelbuttonview}}
+                                                {{/ disableallactions}}
+                                            {{/ isnotelearningmethod}}
+
+                                         {{/ istrainee}}
+                                        {{# completedprofileactionview}}
+                                            <a href="#"  data-action="createprogram" data-id={{trainingid}} data-courseid={{courseid}}  data-toggle="tooltip"title="{{#str}} edittp, local_trainingprogram {{/str}}" >
+                                            <span class="bg-info text-white"><i class="fa fa-pencil fa-fw"></i></span></a>
+                                            {{^ deleteaction}}
+                                            <a href="#" data-action="deleteprogram" data-id={{trainingid}} data-name="{{tainingprogramname}}" data-userroleshortname="{{userroleshortname}}"  data-code="{{programcode}}" data-toggle="tooltip"title="{{#str}} delete, local_trainingprogram {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                                            {{/ deleteaction}}
+
+                                            {{# deleteaction}}
+                                            <a href="#" data-toggle="tooltip" title="{{#str}}remove_dependent_offering , local_trainingprogram {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                                            {{/ deleteaction}}
+                                            
+                                          
+                                        {{/ completedprofileactionview}}
+
+                                    {{# manageprogramactions}}
+                                     
+                                     
+                                        <a href="#"  data-action="createprogram" data-id={{trainingid}} data-courseid={{courseid}} data-toggle="tooltip"title="{{#str}} edittp, local_trainingprogram {{/str}}">
+                                        <span class="bg-info text-white"><i class="fa fa-pencil fa-fw"></i></span></a>
+                                        {{^ deleteaction}}
+                                        <a href="#" data-action="deleteprogram" data-id={{trainingid}} data-name="{{tainingprogramname}}" data-userroleshortname="{{userroleshortname}}" data-code="{{programcode}}"  data-toggle="tooltip"title="{{#str}} delete, local_trainingprogram {{/str}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                                        {{/ deleteaction}}
+
+                                        {{# deleteaction}}
+                                        <a href="#" data-toggle="tooltip" title="{{#str}}remove_dependent_offering , local_trainingprogram {{/str}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                                        {{/ deleteaction}}                                        
+                                        
+                                     {{/ manageprogramactions}}
+
+                                        {{# certificateview}}
+                                            <a title="{{# certid}} {{#str}} download_certificate, local_trainingprogram {{/ str}} {{/certid}} {{^ certid}} {{#str}} certificate_not_available, local_trainingprogram {{/ str}} {{/certid}}" href="{{# certid}} {{{viewcertificateurl}}} {{/certid}} {{^ certid}} # {{/ certid}} "><span class="bg-info text-white"><i class="fa fa-download"></i></span></a>
+                                    
+                                         {{/ certificateview}}
+                                   </div>
+                               </td>
+                              
+                            </tr>
+                              {{# completedprofileactionview}}
+                              
+                                
+
+                                <tr class="course_content_row">
+
+                                    <td colspan="6">
+
+
+                                        <div class="actions my-2">
+
+                                            <button class="btn btn-outline-primary theme_text_color"><a href="{{globals.config.wwwroot}}/course/view.php?id={{courseid}}">{{#str}} view_content, local_trainingprogram {{/str}}</a></button>
+
+                                            {{# competenciesexists}}
+                                            <button class="btn btn-outline-primary theme_text_color" data-type="program"  data-id={{trainingid}} data-action="competencies">{{#str}} competencies, local_trainingprogram {{/str}}</button>
+                                            {{/ competenciesexists}}
+
+                                            <button class="btn btn-outline-primary theme_text_color">
+                                            <a href="{{globals.config.wwwroot}}/local/trainingprogram/programenrolleduserslist.php?programid={{trainingid}}">{{#str}} enrolled, local_trainingprogram {{/str}}</a></button>
+                                            {{# currentofferingsexists}}
+                                             <button class="btn btn-outline-primary theme_text_color"><a href="#" data-action="currentofferings" data-sorting={{sorting}} data-id={{trainingid}}>{{#str}} current_offerings, local_trainingprogram {{/str}} </a>
+                                            {{/ currentofferingsexists}}
+
+                                            {{# sectorexists}}
+                                            <button class="btn btn-outline-primary theme_text_color"><a href="#" data-action="viewprogramsectors" data-id={{trainingid}}>{{#str}} sectors, local_trainingprogram {{/str}} </a>
+                                            {{/ sectorexists}}
+
+                                        </div>   
+                                    </td>   
+                                </tr>   
+                            {{/ completedprofileactionview}}
+
+                            {{# viewcurentofferingbutton}}
+
+                               <tr class="course_content_row">
+                                    <td colspan="6">
+                                        <div>
+                                            <div class="actions my-2">
+
+                                                <button class="btn btn-outline-primary  theme_text_color">
+                                                 <a href="{{globals.config.wwwroot}}/local/trainingprogram/programenrolleduserslist.php?programid={{trainingid}}">{{#str}} enrolled, local_trainingprogram {{/str}}</a>
+                                                </button>
+
+                                                {{# currentofferingsexists}}
+                                                     <button class="btn btn-outline-primary theme_text_color"><a href="#" data-action="currentofferings" data-sorting={{sorting}} data-id={{trainingid}}>{{#str}} current_offerings, local_trainingprogram {{/str}}</a>
+                                                    </button>
+                                                {{/ currentofferingsexists}}
+                                           </div>
+                                        </div>
+                                    </td>
+                               </tr>
+                            {{/ viewcurentofferingbutton}}
+
+                            {{# isfinancialmanager}}
+                               <tr class="course_content_row">
+                                    <td colspan="6">
+                                        <div>
+                                            <div class="actions my-2">
+
+                                                {{# currentofferingsexists}}
+                                                     <button class="btn btn-outline-primary theme_text_color"><a href="#" data-action="currentofferings" data-sorting={{sorting}} data-id={{trainingid}}>{{#str}} current_offerings, local_trainingprogram {{/str}}</a>
+                                                    </button>
+                                                {{/ currentofferingsexists}}
+                                           </div>
+                                        </div>
+                                    </td>
+                               </tr>
+                             {{/ isfinancialmanager}}
+                                                 
+                            
+                            <tr class="course_content_row">
+                                <td colspan="6">
+                                    <div>
+                                        
+                                        <div class="actions my-2">
+                                         
+                                         {{# manageprogramactions}} 
+                                        
+                                            <button class="btn btn-outline-primary theme_text_color"><a href="{{globals.config.wwwroot}}/course/view.php?id={{courseid}}">{{#str}} view_content, local_trainingprogram {{/str}}</a></button>
+
+                                            {{# competenciesexists}}
+                                            <button class="btn btn-outline-primary theme_text_color" data-type="program" data-id={{trainingid}} data-action="competencies">{{#str}} competencies, local_trainingprogram {{/str}}</button>
+                                            {{/ competenciesexists}}
+
+                                             <button class="btn btn-outline-primary theme_text_color">
+                                            <a href="{{globals.config.wwwroot}}/local/trainingprogram/programenrolleduserslist.php?programid={{trainingid}}">{{#str}} enrolledusers, local_trainingprogram {{/str}}</a></button>                                       
+                                             
+                                            <button class="btn btn-outline-primary theme_text_color"><a href="javascript::void(0)" data-action="schedule" data-traineeid={{trainingid}} data-programname="{{tainingprogramname}}">{{#str}} schedule_now, local_trainingprogram {{/str}}</a></button>
+                                            <!-- <button class="btn btn-outline-primary theme_text_color"><a href="javascript:void(0)" class="curentoffering" onclick="(function(e){ require(['local_trainingprogram/currentoffering']).currentoffering({contextid: 1, type:2, testid: {{trainingid}} }) })(event)")>Current Offerings</a></button> -->
+                                            {{# currentofferingsexists}}
+                                             <button class="btn btn-outline-primary theme_text_color"><a href="#" data-action="currentofferings" data-sorting={{sorting}} data-id={{trainingid}}>{{#str}} current_offerings, local_trainingprogram {{/str}}</a>
+                                            {{/ currentofferingsexists}}
+                                            
+                                            {{# sectorexists}}
+                                            <button class="btn btn-outline-primary theme_text_color"><a href="#" data-action="viewprogramsectors" data-id={{trainingid}}>{{#str}} sectors, local_trainingprogram {{/str}}</a>
+                                            {{/ sectorexists}}
+
+                                            {{# programagendaview}}
+                                            <button class="btn btn-outline-primary theme_text_color"><a href="#" data-action="programagenda" data-programid={{trainingid}} data-programname ='{{tainingprogramname}}' >{{#str}} programagenda, local_trainingprogram {{/str}}</a>
+                                            {{/ programagendaview}}
+
+                                            <button class="btn btn-outline-primary theme_text_color" data-action="viewprogramgoal" data-programid={{trainingid}} data-name="{{tainingprogramname}}">{{#str}} createprogramgoal, local_trainingprogram {{/str}}</button>
+                                          
+                                            <button class="btn btn-outline-primary theme_text_color" data-type="program" data-id={{trainingid}} data-action="addcpd">{{#str}} addcpd, local_trainingprogram {{/str}}</button>
+                                           
+                                           {{/ manageprogramactions}}   
+                                        </div>
+                                        {{# manageprogramactions}}   
+                                        <div class="mb-2">
+                                            <h6><span class="text-black theme-font-bold"> {{#str}} trainers, local_trainingprogram {{/str}} </span>: <span>{{triners}}</span></h6>
+                                        </div>
+                                        {{/ manageprogramactions}}     
+                                    </div>
+                                </td>
+                                <td> 
+                                 {{# manageprogramactions}}     
+                                 <div class="text-center">
+                                        {{# published}}
+                                        <button class="launch_btn btn btn-primary btn-sm" data-id={{trainingid}} data-name="{{tainingprogramname}}" data-action="publichprogram">{{#str}} publish, local_trainingprogram {{/str}}</button>
+                                        {{/ published}} 
+                                         {{^published}}
+                                        <button class="launch_btn btn btn-primary btn-sm" data-id={{trainingid}} data-name="{{tainingprogramname}}" data-action="unpublichprogram">{{#str}} unpublish, local_trainingprogram {{/str}}</button>
+                                        {{/ published}}
+                                 </div> 
+                                  {{/ manageprogramactions}}       
+
+
+                                </td>
+                            </tr>
+                            {{/ hascourses}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ records}}
+
+{{#js}}
+    require(['local_trainingprogram/tpview'], function(s) {
+        s.init();
+    });
+    $('.show-more-jobfamily-btn').click(function(){
+        var type  = $(this).attr('data-type');
+        if(type == 'show') {
+
+            $(this).attr('data-type','hide');
+            $(this).parent('p').find('.dots').addClass('d-none');
+            $(this).parent('p').find('.job_family_view_more').removeClass('d-none');
+            $(this).html("{{#str}} show_less, local_trainingprogram {{/str}}");
+        } else {
+
+            $(this).attr('data-type','show');
+            $(this).parent('p').find('.dots').removeClass('d-none');
+            $(this).parent('p').find('.job_family_view_more').addClass('d-none');
+            $(this).html("{{#str}} show_more, local_trainingprogram {{/str}}");
+        }
+    });
+{{/js}}
+{{/ response}}

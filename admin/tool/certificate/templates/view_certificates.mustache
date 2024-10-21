@@ -1,0 +1,80 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+   
+}}
+    {{#response}}
+            {{#viewtypeCard}}
+            <table class="table generaltable" id="view_certificates" role="grid" aria-describedby="view_certificates_info">
+                <thead>
+                    <tr role="row">
+                        <th class="header c0">{{#str}} entity_type, tool_certificate {{/str}}</th>
+                        <th class="header c1">{{#str}} entity_name, tool_certificate {{/str}}</th>
+                        <th class="header c2">{{#str}} username, tool_certificate {{/str}}</th>
+                        <th class="header c2">{{#str}} user_email, tool_certificate {{/str}}</th>
+                        <th class="header c2">{{#str}} text_code, tool_certificate {{/str}}</th>
+                        <th class="header c2">{{#str}} issueddate, tool_certificate {{/str}}</th>
+                        <th class="header c3">{{#str}} exp_date, tool_certificate {{/str}}</th>
+                        <th class="header c4" style="width: 124px;" scope="col" tabindex="0" aria-controls="view_certificates" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending">{{#str}} actions, tool_certificate {{/str}}
+                        </th>
+                    </tr>
+                </thead>
+            <tbody>
+            {{#records}}
+
+                <tr>
+                    <td>
+                        {{moduletype}}
+                    </td>
+                    <td>
+                        {{{entityname}}}
+                    </td>
+                    <td>
+                       {{username}}
+                    </td>
+                    <td>
+                       {{useremail}}
+                    </td>
+                    <td>
+                      <a href="{{{viewcodeurl}}}"> {{code}}</a>
+                    </td>
+                    <td>
+                       {{issueddate}}
+                    </td>
+                    <td>
+                       {{exp_date}}
+                    </td>
+                    <td>
+                       <a href="{{view_certificate}}" title="{{# str}}view{{/ str}}">
+                            <i class="icon fa fa-search fa-fw " aria-hidden="true" target="_blank" aria-label="view"></i>
+                        </a>
+                        <a href="javascript:void(0)" data-action = 'regenerate' data-id = '{{id}}'  title="{{# str}}regenerateissuefile, tool_certificate{{/ str}}" onclick="(function(e){ require('tool_certificate/issues-list').regenerate({{code}})})(event)">
+                            <i class="fa fa-refresh fa-fw" aria-hidden="true" aria-label="regenerate"></i>
+                        </a>
+
+                        <a href="javascript:void(0)" data-action = 'revoke' data-id = '{{id}}'  title="{{# str}}revoke{{/ str}}" onclick="(function(e){ require('tool_certificate/issues-list').revoke({{code}})})(event)">
+                            <i class="fa fa-trash fa-fw" aria-hidden="true" aria-label="revoke"></i>
+                        </a>
+                    </td>
+                </tr>     
+            {{/records}}
+            </tbody>
+    </table>
+    {{/viewtypeCard}}
+{{/response}}
+
+
+

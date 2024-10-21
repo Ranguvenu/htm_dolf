@@ -1,0 +1,20 @@
+<div>
+{{^entity}}
+<button class="select_btn btn" data-variation="{{product_variations.variation}}" data-language="Arabic" {{#product_variations.hallscheduleid}} data-hallscheduleid="{{product_variations.hallscheduleid}}" {{/product_variations.hallscheduleid}} {{^product_variations.hallscheduleid}} data-hallscheduleid=0 {{/product_variations.hallscheduleid}} data-action="select-variation-{{product_variations.variation}}" data-type="variations-{{entity}}-{{entityid}}" data-tptandc="{{product_variations.tptandc}}" data-programid="{{product_variations.product}}" data-isloggedin="{{product_variations.isloggedin}}" data-parent="add-to-cart-{{product_variations.product}}" data-checkout="true">{{#str}}select, tool_product{{/str}}</button>
+</div>
+{{#js}}
+	require(['tool_product/product'], function(product) {
+        product.variations('[data-action="select-variation-{{product_variations.variation}}"]');
+    });
+{{/js}}
+
+{{/entity}}
+{{#entity}}
+<div class="cat action">
+   <label>
+	<input type="radio" class="learningitem" name={{entity}}-{{entityid}} data-variation="{{product_variations.variation}}" data-action="select-variation-{{product_variations.variation}}" data-type="variations-{{entity}}-{{entityid}}" data-parent="add-to-cart-{{product_variations.product}}" value="{{product_variations.variation}}">
+	  <span>{{#str}}select, tool_product{{/str}} </span>
+	  </label>
+	  </div>
+</div>
+{{/entity}}

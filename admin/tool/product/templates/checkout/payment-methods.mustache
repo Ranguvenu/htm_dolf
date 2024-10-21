@@ -1,0 +1,19 @@
+{{#data.items.length}}
+<div>
+	{{#data.payment_methods}}
+		<label class="d-block"><input type="radio" name="payment-method" value="{{slug}}" checked="true">     {{name}}    </label>
+	{{/data.payment_methods}}
+	<button class="btn btn-primary w-100" data-action="make-payment" data-summary='{{summary}}' data-formdata='{{formdata}}'>{{#str}}makepayment, tool_product{{/str}}</button>
+</div>
+{{/data.items.length}}
+{{^data.items}}
+	{{#data.userprofileaccess}}
+		<div class="alert alert-danger">{{userprofileaccess}}</div>
+	{{/data.userprofileaccess}}
+	{{>tool_product/checkout/empty}}
+{{/data.items}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+    	product.make_payment('[data-action="make-payment"]');
+    });
+{{/js}}

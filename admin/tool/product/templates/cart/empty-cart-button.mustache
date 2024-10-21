@@ -1,0 +1,8 @@
+{{ #total_items }}
+<button class="emptycart_btn" data-trigger="empty-cart" data-action="empty">{{#str}}emptycart, tool_product{{/str}}<i class="fa fa-trash-o ml-2" aria-hidden="true"></i></button>
+{{ /total_items }}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+    	product.cart_actions('[data-trigger="empty-cart"]');
+    });
+{{/js}}

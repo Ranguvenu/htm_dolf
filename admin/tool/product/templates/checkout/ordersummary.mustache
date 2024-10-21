@@ -1,0 +1,55 @@
+{{#total_purchases}}
+<div class="order_summary">
+	<div data-region="loader-checkout-summary"></div>
+	<h4>{{#str}} order_summary, tool_product {{/str}}</h4>
+	<hr>
+	<p>{{#str}} total_purchases, tool_product {{/str}} - {{ total_purchases }}</p>
+	{{#items}}
+	<div class="row d-flex justify-content-between mt-2">
+		<div class="col-md-9">{{ name }} x {{quantity }}</div>
+		<div class="col-md-3">
+			{{ #is_enrolled }}
+				<h6 class="text-right">{{#str}} enrolled, tool_product {{/str}}</h6>
+			{{ /is_enrolled }}
+			{{ ^is_enrolled }}
+				<h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ total }}</h6>
+			{{ /is_enrolled }}
+		</div>
+	</div>
+	{{/items}}
+	{{#total_discount}}
+	<hr>
+		<div class="row d-flex justify-content-between mt-2">
+			<div class="col-md-9">{{#str}} totaldiscount, tool_product {{/str}}</div>
+			<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ total_discount }}</h6></div>
+		</div>
+	{{/total_discount}}
+	{{^total_discount}}
+	   <hr>
+		<div class="row d-flex justify-content-between mt-2">
+			<div class="col-md-9">{{#str}} totaldiscount, tool_product {{/str}}</div>
+			<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ total_discount }}</h6></div>
+		</div>
+	{{/total_discount}}
+	<hr>
+	{{# taxdisplay}}
+	<div class="row d-flex justify-content-between">
+		<div class="col-md-9">{{#str}} value_added_taxes, tool_product {{/str}}({{ tax_slab }}%)</div>
+		<div class="col-md-3"><h6 class="text-right">{{#str}} sa_currency, local_trainingprogram {{/str}} {{ taxes }}</h6></div>
+	</div>
+	{{/ taxdisplay}}
+	<div class="d-flex justify-content-between align-content-center">
+		<h5>{{#str}} total, tool_product {{/str}}</h5>
+		<h3 class="text-black">{{#str}} sa_currency, local_trainingprogram {{/str}} {{total}}</h3>
+	</div>
+	
+</div>
+{{/total_purchases}}
+
+{{#js}}
+
+ require(['tool_product/product'], function(s) {
+        s.reset_cart();
+ });
+
+{{/js}}

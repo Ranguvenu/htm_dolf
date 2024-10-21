@@ -1,0 +1,10 @@
+<div id="deductionsettings" data-region="deductionsettings-preview-container" class="competencies_pc_container viewcompetencys px-3 py-4">
+      <label for="html"><strong>{{#str}} amount, tool_product {{/str}} : </strong></label>
+      <input type="text" id="deductedamount" size="5"></input><strong>/{{walletamount}}</strong>
+      <div data-region="deductionsettings-count-container"></div>
+      <div data-region="deductionsettings-list-container" class ="methoddata{{ competencyid }}">
+      </div>
+      <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+            <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+      </span>
+</div>

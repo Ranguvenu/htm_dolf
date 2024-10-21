@@ -1,0 +1,54 @@
+<div class="row" id="competencies_container">
+      <div class="col-md-12">
+            <div class="row my-3">
+                  <div class="col-6">
+                        <div class="global_filter_structure">
+                        <label>{{# str}}search{{/ str}} : </label>
+                        <input id="global_filter{{trackid}}" class="global filter" type="text" name="search_query">
+                        </div>
+                  </div>
+                  {{#addaction}}
+                  <div class="col-6">
+                        <button class="btn btn-primary mr-2" data-action="mapcompetencies" data-id = "{{trackid}}" > {{#str}}addcomptency, local_learningtracks{{/str}}</button>
+                  </div>
+                  {{/addaction}}
+            </div>
+            
+            <div id="trackcompetency{{trackid}}" data-region="trackcompetency{{trackid}}-preview-container" class="competencies_pc_container viewcompetencys px-3 py-4">
+                  <div data-region="trackcompetency{{trackid}}-count-container"></div>
+                  <div data-region="trackcompetency{{trackid}}-list-container" class ="methoddata{{ trackid }}">
+                  </div>
+                  <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                        <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                  </span>
+            </div> 
+      </div>
+</div>           
+{{#js}}
+      require(['theme_academy/cardPaginate'], function(cardPaginate) {
+      var options = 
+      {
+            targetID: 'trackcompetency{{trackid}}',
+            templateName: 'local_learningtracks/competecylist',
+            methodName: 'local_learningtracks_competency_list',
+            perPage: 5,
+            cardClass: 'col-md-6 col-12',
+            viewType: 'table'
+     };
+      var filteroptions = {trackid:{{trackid}}};
+      var dataoptions = {};
+      cardPaginate.reload(options, dataoptions,filteroptions);
+      var search_interval = 100;
+      var timer;
+      $(document).on('keyup', '#global_filter{{trackid}}', function(){
+      var searchval = $(this).val();
+      var filterdata = {search_query: searchval, trackid:{{trackid}}};
+      timer = setTimeout(function(){
+      cardPaginate.reload(options, dataoptions,filterdata);
+      },search_interval);
+      });
+      $(document).on('keydown', '#global_filter{{trackid}}', function(){
+      clearTimeout(timer);
+      });
+      });
+{{/js}}

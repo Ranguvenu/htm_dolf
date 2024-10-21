@@ -1,0 +1,188 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_academy/footer
+
+    Page footer.
+
+    Example context (json):
+    {
+        "output": {
+            "page_doc_link": "Help and documentation",
+            "supportemail": "<a href=\"#\">Contact site support</a>",
+            "has_popover_links": true,
+            "services_support": "Services and support",
+            "login_info": "You are logged in as cute kitten",
+            "moodle_release": "90210"
+        }
+    }
+}}
+
+<footer id="homepagefooter" class="text-light">
+        <div id="footercontainer">
+            <div class="content_container">
+                <div class="facademy_footermain_section">
+                    <div class="footerfacademylogo">
+                        <div class="border-right pr-3">
+                            <a href="">
+                                {{#pix}} footer/footer-logo, theme_academy{{/pix}}
+                            </a>
+                        </div>
+                        <div class="pl-3">
+                            <a href="">
+                                {{#pix}} footer/vision-logo-white, theme_academy{{/pix}}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mb-3 footerpartnerssection text-center">
+                        <p>{{#str}}footer_partnerdevelopment,theme_academy{{/str}}</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="px-2 mx-2">
+                                <a href="">
+                                    {{#pix}} footer/footer-cma, theme_academy{{/pix}}
+                                </a>    
+                            </div>
+                            <div class="px-2 mx-2">
+                                <a href="">
+                                    {{#pix}} footer/footer-fsdp, theme_academy{{/pix}}
+                                </a>
+                            </div>
+                            <div class="px-2 mx-2">
+                                <a href="">
+                                    {{#pix}} footer/footer-scb, theme_academy{{/pix}}
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex footer-map-section">
+                        <div class="footer-map">
+                            <div class="footer-map-title">
+                                {{#str}}footer_ourlocation,theme_academy{{/str}}
+                            </div>
+                            <a href="https://goo.gl/maps/Q75jTWxQxuB8YkvZA" target="_blank" class="footer-map-overlay">
+                                {{#pix}} homepage/footer-map, theme_academy{{/pix}}
+                                {{#pix}} footer/footermapimage, theme_academy{{/pix}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row footermenusection">
+                    <div class="col-md-8 col-lg-9 contentsection">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3">
+                                <h6 class="footer_content_heading">
+                                    {{#str}}about_fa,theme_academy{{/str}}
+                                </h6>
+                                <ul class="footer_links">
+                                    <li><a href="{{config.wwwroot}}/theme/academy/aboutus.php">{{#str}}about_us,theme_academy{{/str}}</a></li>
+                                    <!-- <li><a href="#">{{#str}}vision_nmission,theme_academy{{/str}}</a></li> -->
+                                    <li><a href="https://fa.gov.sa/ar/AboutUs/Pages/Strategy.aspx" target="_blank">{{#str}}financial_academy_strategy,theme_academy{{/str}}</a></li>
+                                    <li><a href="{{{output.events_link}}}">{{#str}}news_nevents,theme_academy{{/str}}</a></li>
+                                    <li><a href="https://fa.gov.sa/en/Pages/FAQ.aspx" target="_blank">{{#str}}faq,theme_academy{{/str}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <h6 class="footer_content_heading">
+                                    {{#str}}program_ntraining,theme_academy{{/str}}
+                                </h6>
+                                <ul class="footer_links">
+                                     <!--<li><a href="#">{{#str}}certificate_program,theme_academy{{/str}}</a></li>-->
+                                    <!--  <li><a href="{{config.wwwroot}}/local/trainingprogram/trainingprogram.php?lang=en&sector=1">{{#str}}banking_programs,theme_academy{{/str}}</a></li>
+                                     <li><a href="{{config.wwwroot}}/local/trainingprogram/trainingprogram.php?lang=en&sector=2">{{#str}}capital_marketprograms,theme_academy{{/str}}</a></li>
+                                     <li><a href="{{config.wwwroot}}/local/trainingprogram/trainingprogram.php?lang=en&sector=3">{{#str}}insurance_programs,theme_academy{{/str}}</a></li>
+                                     <li><a href="{{config.wwwroot}}/local/trainingprogram/trainingprogram.php?lang=en&sector=4">{{#str}}finance_programs,theme_academy{{/str}}</a></li> -->
+
+                                      <li><a href="https://fa.gov.sa/ar/services/Pages/Programs.aspx?sectorId=03dd072d-c325-41a6-a6c8-ab2d00f0a2dc">{{#str}}banking_programs,theme_academy{{/str}}</a></li>
+                                     <li><a href="https://fa.gov.sa/ar/services/Pages/Programs.aspx?sectorId=38e0b4f4-0d59-40a0-99d3-ab3b00950a95">{{#str}}capital_marketprograms,theme_academy{{/str}}</a></li>
+                                     <li><a href="https://fa.gov.sa/ar/services/Pages/Programs.aspx?sectorId=fda299e6-feeb-449b-9cc0-ab3b0095631c ">{{#str}}insurance_programs,theme_academy{{/str}}</a></li>
+                                     <li><a href="https://fa.gov.sa/ar/services/Pages/Programs.aspx?sectorId=c5408768-fa32-42fb-a535-ab3b00960650 ">{{#str}}finance_programs,theme_academy{{/str}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <h6 class="footer_content_heading">
+                                    {{#str}}support_nhelp,theme_academy{{/str}}
+                                </h6>
+                                <ul class="footer_links">
+                                    <!-- <li><a href="#">{{#str}}terms_of_use,theme_academy{{/str}}</a></li>
+                                    <li><a href="#">{{#str}}service_agreement,theme_academy{{/str}}</a></li>
+                                    <li><a href="#">{{#str}}support_center,theme_academy{{/str}}</a></li> -->
+                                    <!-- <li><a href="#">{{#str}}contact_us,theme_academy{{/str}}</a></li> -->
+                                    <li><a href="https://fa.gov.sa/en/services/Pages/TrainingPolicy.aspx" target="_blank">{{#str}}training_and_development_policy,theme_academy{{/str}}</a></li>
+                                    <li><a href="https://fa.gov.sa/en/services/Pages/ExamsPolicies.aspx" target="_blank">{{#str}}exam_policy,theme_academy{{/str}}</a></li>
+                                    <li><a href="https://fa.gov.sa/ar/Pages/contactus.aspx">{{#str}}support_center,theme_academy{{/str}}</a></li>
+                                    <li><a href="{{config.wwwroot}}/admin/tool/certificate/index.php">{{#str}}certificate_verification,theme_academy{{/str}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <h6 class="footer_content_heading">
+                                    {{#str}}connectwithus,theme_academy{{/str}}
+                                </h6>
+                                {{#str}}footer_address,theme_academy{{/str}}
+                            </div>
+                            <div class="col-md-12">
+                                <div class="my-4">
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-3 d-flex align-items-center">
+                                            <!--<span class="piximg d-block chatwithusicon">{{# pix }} homepage/icons/chatwithusicon, theme_academy {{/ pix }}</span>
+                                            <span class="ml-2"><strong><big> {{#str}}chat_withus,theme_academy{{/str}}</big></strong></span>-->
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <ul class="list-unstyled p-0 d-flex flex-wrap ml-0 my-3">
+                                                <li><a href="/" class="mx-2 px-3 text-light">{{#str}}home,theme_academy{{/str}}</a></li>
+                                                
+                                                <li><a href="" class="mx-2 px-3 text-light">{{#str}}privacy_policy,theme_academy{{/str}}</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <ul id="social_links">
+                                                <!-- <li>  
+                                                     <a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                                                </li> -->
+                                                <li>
+                                                     <a href="https://twitter.com/thefaksa" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.youtube.com/channel/UCqIPPzbk9cabMEWBP0BeIZQ" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li>
+                                                     <a href="https://www.linkedin.com/company/thefaksa" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 gapsection">
+                        
+                    </div>
+                </div>
+
+            </div>
+            {{{ output.standard_footer_html }}}
+            {{{ output.standard_end_of_body_html }}}
+            <!-- Commented By Reda r.ghareeb@dolftech.com!
+            <div class="endcreditsfooter mt-auto d-flex w-100 align-items-center justify-content-center">
+                <span>{{#str}}copyrights,theme_academy{{/str}}</span>
+            </div>
+            -->
+        </div>
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=54672c3f-6a3e-48ee-8563-5223a7db49e8"></script>  
+    
+</footer>

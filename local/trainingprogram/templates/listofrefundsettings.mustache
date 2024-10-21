@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-12">
+        <div id="refundsettings_section">
+            <div class="row my-3">
+                <div class="col-md-4">
+                    {{{globalinput}}}
+                </div>
+                <div class="col-md-8">
+                
+                   {{> local_trainingprogram/refundsettingsaction}}
+                   
+                </div>
+            </div>
+
+            <div id="refundsettings_container">
+                 {{{refundsettings}}}
+            </div>
+        </div> 
+    </div>
+     <div class="filters_container">
+         <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}} filter, local_trainingprogram{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}} close_filter, local_trainingprogram{{/ str}}
+                </button>
+            </div>
+             
+            <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                {{# str}} filter_discription, local_trainingprogram{{/ str}}
+            </div>
+        </div>
+        <div class="filters_contents">
+             {{{filterform}}}
+        </div> 
+    </div>
+</div>
+
+

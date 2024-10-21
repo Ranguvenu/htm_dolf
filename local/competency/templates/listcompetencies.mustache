@@ -1,0 +1,137 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <table class="table generaltable ">
+            <thead>
+                <tr>
+                    <th>{{#str}}name,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_noperformance,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_code,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_type,local_competency{{/str}}</th>
+
+                    <th>{{#str}}competency_level,local_competency{{/str}}</th>
+                    {{#records.0}}
+                        {{#action}}
+                            <th>{{#str}}action,local_competency{{/str}}</th>
+                        {{/action}}
+                    {{/records.0}}
+
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#records}}
+                <tr>
+                    <td>{{{name}}}</td>
+
+                    <td><a class="competencypc" href="javascript:void(0)" title="{{noperformance}}" data-competencyid="{{competencyid}}" data-target="competencypc{{ competencyid }}">
+                         {{noperformance}}
+                     </a>
+                     </td>
+                    <td>{{code}}</td>
+
+                    <td>{{type}}</td>
+
+                    <td>{{level}}</td>
+
+                    {{#action}}
+                        <td>
+                            <div class="d-flex action_btns">
+
+                                {{#assignperformance}}
+
+                                    <a class="competencypc" href="javascript:void(0)" title="{{noperformance}}" data-competencyid="{{competencyid}}" data-target="competencypc{{ competencyid }}">
+
+                                        <span class="bg-primary text-white" data-action="editcompetencyperformance" data-competencyid="{{competencyid}}" data-name="{{name}}" data-toggle = "tooltip"  title={{#str}}assignperformance,local_competency{{/str}}>
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </span>
+
+                                    </a>
+
+                                {{/assignperformance}}
+
+                                {{#edit}}
+
+                                    <span class="bg-success text-white" data-action="editcompetency" data-id="{{competencyid}}" data-name="{{name}}" data-toggle = "tooltip" title={{#str}}edit,local_competency{{/str}}><i class="fa fa-edit" aria-hidden="true"></i></span>
+
+                                {{/edit}}
+
+                                {{#delete}}
+
+                                    <span class="bg-danger text-white" data-action="deletecompetency" data-competencyid="{{competencyid}}" data-competencyname="{{name}} ( {{code}} )" data-toggle = "tooltip"  title={{#str}}delete,local_competency{{/str}}><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+
+                                {{/delete}}
+
+
+                            </div>
+                        </td>
+                    {{/action}}
+                </tr>
+                {{#viewperformance}}
+                    <tr id="competencypctr{{ competencyid }}" style="display:none;">
+                        <td colspan="7">
+                                <div id="competencypc{{ competencyid }}" data-region="competencypc{{ competencyid }}-preview-container" class="competencies_pc_container viewcompetencys px-3 py-4">
+                                      <div data-region="competencypc{{ competencyid }}-count-container"></div>
+                                      <div data-region="competencypc{{ competencyid }}-list-container" class ="methoddata{{ competencyid }}">
+                                      </div>
+                                      <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                                            <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                                      </span>
+                                </div>
+                        </td>
+                    </tr>
+                {{/viewperformance}}
+                {{/records}}
+            </tbody>
+        </table>
+   {{/viewtypeCard}}
+{{/response}}               
+{{#js}}
+require(['local_questionbank/questionBank'], function(s) {
+        s.init();
+});
+$('.competencypc').click(function(){
+
+    var competencyid = $(this).data('competencyid');   
+
+
+    $('#competencypctr' + competencyid).css('display', 'table-row');
+
+    if ($(this).hasClass('active')) {
+
+        $(this).removeClass("active");
+
+        $('#competencypctr' + competencyid).css('display', 'none');
+
+
+        return true;
+    }
+
+    var targetcompetencypc = $(this).data('target'); 
+
+    $(this).addClass("active");
+
+    var options = {targetID: targetcompetencypc,
+                templateName: 'local_competency/listcompetencypc',
+                methodName: 'local_competency_get_competencypc',
+                perPage: 5,
+                cardClass: 'col-md-6 col-12',
+                viewType: 'table'};
+   
+    var dataoptions = {competencyid: competencyid};
+
+    $('.methoddata'+competencyid+'').empty();
+    
+    require(['theme_academy/cardPaginate'], function(cardPaginate) {
+        cardPaginate.reload(options, dataoptions,'');
+    });
+ 
+});
+{{/js}}

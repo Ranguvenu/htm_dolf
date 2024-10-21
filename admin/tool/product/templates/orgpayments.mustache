@@ -1,0 +1,52 @@
+<div class="payments_container">
+  {{# response}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodatatext}}</div>
+    {{/nodata}}
+    <!---table start-->
+    {{^nodata}}
+    <div>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table generaltable mypayments_table">
+                        <thead> 
+                            <tr>
+                                <th>{{#str}} trainingname ,tool_product{{/str}}</th>
+                                <th>{{#str}} purchasedseats ,tool_product{{/str}}</th>
+                                <th>{{#str}} purchasedapprovedseats ,tool_product{{/str}}</th>
+                                <th>{{#str}} cost ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}})</th>
+                                <th>{{#str}} type ,tool_product{{/str}}</th>
+                                <th>{{#str}} transactionid ,tool_product{{/str}}</th>
+                                <th>{{#str}} paymentstatus ,tool_product{{/str}}</th>
+                                <th>{{#str}} invoicestatus ,tool_product{{/str}}</th>
+                                <th>{{#str}} date ,tool_product{{/str}}</th>
+                                <th>{{#str}} orgoffcialname ,tool_product{{/str}}</th>
+                            </tr>
+                        </thead>
+                       
+                        <tbody>
+                            {{# records}}
+                                <tr>
+                                    <td>{{{trainingname}}}</td>
+                                    <td>{{purchasedseats}}</td>
+                                    <td>{{approvalseats}}</td>
+                                    <td>{{cost}}</td>
+                                    <td>{{{invoicetype}}}</td>
+                                    <td>{{{transactionid}}}</td>
+                                    <td>{{{statuscode}}}</td>
+                                    <td>{{{invoicestatuscode}}}</td>
+                                    <td>{{timecreated}}</td>
+                                    <td>{{orgoffcialname}}</td>
+                                </tr>
+                            {{/records}}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+     {{/nodata}}    
+    <!---table end-->
+  {{/ response}}
+
+</div>

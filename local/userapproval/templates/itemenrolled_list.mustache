@@ -1,0 +1,25 @@
+
+{{#response}}
+    <table class="table generaltable">
+        <thead>
+            <tr>
+                <th>{{#str}}name, local_events{{/str}}</th>
+                <th>{{#str}}code, local_events{{/str}}</th>
+                <th>{{#str}}lc_startdate, local_events{{/str}}</th>
+                <th>{{#str}}lc_enddate, local_events{{/str}}</th>
+                <th>{{#str}}cost, tool_product{{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#records}}
+                <tr>
+                    <td>{{{itemname}}}</td>
+                    <td>{{code}}</td>
+                    <td>{{startdate}}</td>
+                    <td>{{enddate}}</td>
+                    <td>{{cost}}</td>
+                </tr>
+            {{/records}}
+        </tbody>
+    </table>
+{{/response}}

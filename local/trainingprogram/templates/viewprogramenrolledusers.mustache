@@ -1,0 +1,157 @@
+{{#response}}
+    {{#records}}
+    <div class="table-responsive">
+        <h4>{{#str}}enrolledusers, local_trainingprogram{{/str}}</h4>
+          <table class="table">
+            <thead class="thead-light">
+                <tr>    
+                    <th scope="col"><b>{{#str}}name, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}email, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}phone_no, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}idnumber, local_userapproval{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}role, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}organization, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}code, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}enrolled_date, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}enrolled_by, local_trainingprogram{{/str}}</b></th>
+                    {{# completiontabs}}
+                    <th scope="col"><b>{{#str}}offering_status, local_trainingprogram{{/str}}</b></th>
+                    <th scope="col"><b>{{#str}}certificate, local_trainingprogram{{/str}}</b></th>
+                    {{/ completiontabs}}
+                    {{# hideofferingstatustraoff}}
+                    <th scope="col"><b>{{#str}}certificate, local_trainingprogram{{/str}}</b></th>
+                    {{/ hideofferingstatustraoff}}
+                    <th scope="col" class="text-center"><b>{{#str}}action, local_trainingprogram{{/str}}<b></th>  
+                        
+
+                </tr>
+            </thead>
+            <tbody>
+                {{# hascourses}}     
+                    <tr>
+                        <td>{{fullname}}</td>
+                        <td>{{email}}</td>
+                        <td>{{phone}}</td>
+                        <td>{{id_number}}</td>
+                        <td>{{rolename}}</td>
+                        <td>{{organization}}</td>
+                        <td>{{offeringcode}}</td>
+                        <td>{{enrolledat}}</td>
+                        <td>{{enrolledby}}</td>
+                        {{# completiontabs}}
+                        <td>{{offering_status}}</td>
+                        <td> 
+                            {{# certificateview}}
+                                {{#certid}}
+                                <div class="d-flex action_btns justify-content-center"> 
+                                       <div class="d-flex action_btns"> 
+                                    <a title="{{#str}} download_certificate, local_trainingprogram {{/ str}}" href="{{globals.config.wwwroot}}/admin/tool/certificate/view.php?code={{certid}}"><span class="bg-info text-white"><i class="fa fa-download"></i></span></a>
+                                </div> 
+                                       </div> 
+                                {{/certid}}
+                            {{/ certificateview}}
+                        </td>
+                        {{/ completiontabs}}
+
+                             {{# hideofferingstatustraoff}}
+                        <td> 
+                            {{# certificateview}}
+                                {{#certid}}
+                                <div class="d-flex action_btns justify-content-center"> 
+                                       <div class="d-flex action_btns"> 
+                                    <a title="{{#str}} download_certificate, local_trainingprogram {{/ str}}" href="{{globals.config.wwwroot}}/admin/tool/certificate/view.php?code={{certid}}"><span class="bg-info text-white"><i class="fa fa-download"></i></span></a>
+                                </div> 
+                                       </div> 
+                                {{/certid}}
+                            {{/ certificateview}}
+                        </td>
+                        {{/ hideofferingstatustraoff}}
+                       
+                        <td class="text-center">
+                            <div class="d-flex action_btns justify-content-center"> 
+                            {{^ hasofferingcompleted}}
+                            
+                                {{^ isfinaciallyclosed}}
+                                    {{#unassignuser}}
+                                        {{#istrainer}}
+                                        {{# iswaitingforapproval}}
+                                        {{#str}} waitingforapproval, local_trainingprogram {{/ str}}
+                                        {{/ iswaitingforapproval}}
+                                        {{^ iswaitingforapproval}}
+                                            <a href="#"  data-action = "unassignuser" data-id={{id}} data-rolename="{{rolename}}" data-roleid={{roleid}}  data-programid={{programid}}  data-offeringid={{offeringid}}  data-username="{{fullname}}" data-coursename="{{programname}}" tabindex="0" role="button">{{#str}}un_assign, local_trainingprogram{{/str}}</a>
+                                        {{/ iswaitingforapproval}}
+                                        {{/istrainer}} 
+                                    {{/unassignuser}}
+                                {{^ istrainer}}
+                                        {{# iswaitingforapproval}}
+                                        {{#str}} waitingforapproval, local_trainingprogram {{/ str}}
+                                        {{/ iswaitingforapproval}}
+                                        {{^ iswaitingforapproval}}
+                                        {{# isnotelearningmethod}}
+                                                {{^ disableallactions}}
+                                                    {{# absentviewaction}}
+                                                        <a href="#"  data-action="absentuser" data-actiontype="absent" data-ownedby=0  data-entitytype="trainingprogram" data-examid={{programid}}  data-profileid={{offeringid}} data-tobeabsentuserid={{id}} data-productid="{{productid}}" data-currentuserorgoff={{currentuserorgoff}}
+                                                        data-username="{{fullname}}" data-enrolledrole="{{enrolledrole}}"  data-examname="{{programname}}"  data-examprice={{sellingprice}} 
+                                                        data-remainingdays={{remainingdays}}  data-examdate={{programdate}}  data-toggle="tooltip"title="{{#str}} absent, local_trainingprogram {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+                                                    {{/ absentviewaction}}
+                                                    {{# cancelbuttonview}}
+                                                    
+                                                        <a href="#"  data-action="canceluser"  data-ownedby=0  data-entitytype="trainingprogram" data-examid={{programid}}  data-profileid={{offeringid}} data-tobecancelleduserid={{id}} data-productid="{{productid}}" data-currentuserorgoff={{currentuserorgoff}}
+                                                        data-username="{{fullname}}" data-enrolledrole="{{enrolledrole}}"  data-examname="{{programname}}"  data-examprice={{sellingprice}} 
+                                                        data-remainingdays={{remainingdays}}  data-examdate={{programdate}} data-enrolltype = {{enrolltype}} data-cangenerateinvoice = {{cangenerateinvoice}}  data-toggle="tooltip"title="{{#str}} cancel_offering, local_trainingprogram {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-ban" aria-hidden="true"></i></span>
+                                                        </a>
+                                                    {{/ cancelbuttonview}}
+                                                    {{^ cancelbuttonview}}
+                                                    
+                                                        <a href="#" data-toggle="tooltip" title="{{#str}}notallowedtocancel , local_trainingprogram {{/str}}"><span class="bg-danger text-white"><i class="fa fa-ban" aria-hidden="true"></i></span></a>
+                                                    {{/ cancelbuttonview}}
+                                                    
+                                                
+                                                    {{# replacebuttonview}}
+                                                        <a href="#"  data-action="replaceuser" data-entitytype="trainingprogram" data-ownedby="0" data-productid={{productid}}  data-userid={{id}}  
+                                                            data-username="{{fullname}}"  data-entityname="{{programname}}"  data-costtype={{programprice}}  
+                                                            data-remainingdays={{remainingdays}} data-useridnumber={{id_number}} data-replacementfee={{replacementfee}} data-issiteadmin={{currentuserisadmin}}  data-orgofficialenrolled={{orgofficialenrolled}} data-cangenerateinvoice = {{cangenerateinvoice}} data-toggle="tooltip" title="{{#str}} replace, local_trainingprogram {{/str}}" ><span class="bg-primary text-white"><i class="fa fa-retweet" aria-hidden="true"></i></span>
+                                                        </a>
+                                                    {{/ replacebuttonview}}
+                                                    {{^ replacebuttonview}}
+                                                        <a href="#" data-toggle="tooltip" title="{{#str}}notallowedtoreplace , local_trainingprogram {{/str}}"><span class="bg-primary text-white"><i class="fa fa-retweet" aria-hidden="true"></i></span></a>
+                                                    {{/ replacebuttonview}}
+                                                {{/ disableallactions}}
+                                            {{/ isnotelearningmethod}}
+                                        {{/ iswaitingforapproval}}
+                                    {{/istrainer}}
+                                {{/ isfinaciallyclosed}}
+                            {{/ hasofferingcompleted}}    
+                            </div>
+                        </td>
+                       
+                    </tr>
+                {{/ hascourses}} 
+
+                {{^ hascourses}}
+               <tr>
+                <td colspan="11">
+
+                   <div class="text-center alert alert-info mt-1" data-region="empty-message">
+                           {{#str}} no_data_available, theme_academy {{/str}}
+                  </div>
+                </td>
+              </tr>
+           {{/ hascourses}}
+            </tbody>
+        </table>
+    </div>
+
+    {{/ records}}
+{{/ response}}
+{{#js}}
+    require(['local_trainingprogram/tpform'], function(s) {
+        s.init();
+    });
+    require(['local_exams/cancelreschedule'], function(s) {
+        s.init();
+    });
+    require(['local_exams/replaceuser'], function(s) {
+        s.init();
+    });
+{{/js}}

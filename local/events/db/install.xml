@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/events/db" VERSION="2018092500" COMMENT="XMLDB for event creation"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+<TABLES>
+    <TABLE NAME="local_events" COMMENT="table for creatingevents">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="title" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="titlearabic" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
+            <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="enddate" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="registrationstart" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="registrationend" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="code" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="price" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="sellingprice" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="actualprice" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="taxfree" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="type" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="logo" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="language" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="audiencegender" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="status" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="certificate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="requiredapproval" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="sendemailtopreregister" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="logisticsestimatedbudget" TYPE="int" LENGTH="9" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="logisticsactualbudget" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="eventmanager" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="targetaudience" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="method" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="halladdress" TYPE="char" LENGTH="100" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="eventduration" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="slot" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="virtualtype" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="zoom" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="webex" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="teams" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="cancelled" TYPE="int" LENGTH="12" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" />
+            <FIELD NAME="cancelledby" TYPE="int" LENGTH="12" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" />
+            <FIELD NAME="cancelledat" TYPE="int" LENGTH="12" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" />
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+        </KEYS>
+    </TABLE>
+    <TABLE NAME="local_eventagenda" COMMENT="table for event related information">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="eventid" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="day" TYPE="int" LENGTH="9" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="timefrom" TYPE="char" LENGTH="100" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timeto" TYPE="char" LENGTH="100" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="speaker" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="title" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/> 
+        </KEYS>
+    </TABLE>
+
+     <TABLE NAME="local_event_attendees" COMMENT="table for event attendees">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="eventid" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="email" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="userid" TYPE="int" LENGTH="9" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="realuser" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="audiencegender" TYPE="int" LENGTH="9" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="enrolstatus" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="1"/>
+            <FIELD NAME="orderid" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="0"/>
+            <FIELD NAME="enrolledby" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="0"/>
+            <FIELD NAME="organization" SEQUENCE="false" NOTNULL="false" LENGTH="10" TYPE="int" UNSIGNED="true" DEFAULT="0"/>
+            <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+ 
+     <TABLE NAME="local_event_speakers" COMMENT="table for event speakers">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="eventid" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="speaker" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="sellingprice" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="actualprice" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_event_sponsors" COMMENT="table for event sponsers">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="eventid" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="sponsor" TYPE="int" LENGTH="10" NOTNULL="true"  SEQUENCE="false"/>
+            <FIELD NAME="amount" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="category" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+    <TABLE NAME="local_event_partners" COMMENT="table for event partners">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="eventid" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="partner" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="sellingprice" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="actualprice" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_speakers" COMMENT="table for speakers">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="specialist" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="biography" TYPE="text"  NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="linked_profile" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="logo" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+
+     <TABLE NAME="local_partners" COMMENT="table for partners">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="specialist" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="biography" TYPE="text"  NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="logo" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="picture" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+
+     <TABLE NAME="local_sponsors" COMMENT="table for sponsors">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="biography" TYPE="text"  NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="website" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="logo" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="picture" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_event_finance" COMMENT="table for finance">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="9" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="eventid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="itemname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="type" TYPE="int"  LENGTH="10" NOTNULL="true"  SEQUENCE="false"/>
+            <FIELD NAME="expensetype" TYPE="int"  LENGTH="10" NOTNULL="false"  SEQUENCE="false"/>
+            <FIELD NAME="itemid" TYPE="int"  LENGTH="10" NOTNULL="false"  SEQUENCE="false"/>
+            <FIELD NAME="amount" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="logistic" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="billingfile" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+            <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        </KEYS>
+    </TABLE>
+</TABLES>
+</XMLDB>

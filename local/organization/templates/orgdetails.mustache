@@ -1,0 +1,58 @@
+{{#response}}
+    {{#records}}
+    <div class="table-responsive">
+        <table class="table generaltable">
+            <thead class="thead">
+                <tr>
+                  <th>{{# str}} org_name , local_organization {{/str}}</th>
+                  <th>{{# str}} shortname , local_organization {{/str}}</th>
+                  <th>{{# str}} org_hr , local_organization {{/str}}</th>
+                  <th>{{# str}} org_hr_email , local_organization {{/str}}</th>
+                  <th class="text-center">{{# str}} no_of_trainees , local_organization {{/str}}</th>
+                  <th>{{# str}} org_status , local_organization {{/str}}</th>
+                  <th class="text-center">{{# str}} action , local_organization {{/str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                  <td>{{{fullname}}}</td>
+                  <td>{{code}}</td>
+                  <td>{{hrfullname}}</td>
+                  <td> 
+                    <div class="d-flex action_btns">
+                        <p class="mr-1">{{hremail}}</p>
+                        {{#sendmail}}
+                            <a href="#" title="Send Email" class="course_extended_menu_itemlink" data-action = "sendemailtohr" data-id={{id}} data-hremail="{{hremail}}">
+                                <span class="bg-primary text-white" data-toggle="tooltip"title="{{#str}} sendemail, local_organization {{/str}}">
+                                <!--<i class="icon fa fa-envelope-square"></i>-->
+                                <i class="fa fa-envelope"></i>
+                                </span>
+                            </a>
+                        {{/sendmail}}
+                    </div>
+                  </td>
+                  <td class="text-center">{{nooftrainees}}</td>
+                  <td><p class="text-{{statustext}}">{{status}}</p></td>
+                  <td>
+                      <div class="d-flex action_btns justify-content-center">
+                          {{# manageorg}}
+                              {{# actions}}
+                                  <a href="#"  data-action="approveorganization" data-id={{id}}><span class="bg-success text-white" data-toggle="tooltip"title="{{#str}} approve, local_organization {{/str}}"><i class="fa fa-check"title={{#str}}approve,local_organization{{/str}}></i></span></a>
+                                  <a href="#" data-action="rejectorganization" data-id={{id}}><span class="bg-danger text-white" data-toggle="tooltip"title="{{#str}} reject, local_organization {{/str}}"><i class="fa fa-times"title={{#str}}reject,local_organization{{/str}}></i></span></a>
+                              {{/ actions}}
+                              <a href="#"  data-action="vieworganization" data-id={{id}}><span class="bg-info text-white" data-toggle="tooltip"title="{{#str}} view_org, local_organization {{/str}}"><i class="fa fa-search-plus"></i></span></a>
+                              <a href="#"  data-action="createorganization" data-id={{id}}><span class="bg-info text-white" data-toggle="tooltip"title="{{#str}} edit, local_organization {{/str}}" ><i class="fa fa-pencil fa-fw"></i></span></a>
+                            
+                              <a href="#" data-action="deleteorganization" data-id={{id}} data-orgname = '{{{fullname}}}' data-toggle="tooltip"title="{{#str}} delete, local_organization {{/str}}"   ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>             
+                                       
+                          {{/ manageorg}}
+                      </div>
+                  </td>      
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+      </div>
+    {{/ records}}
+{{/ response}}

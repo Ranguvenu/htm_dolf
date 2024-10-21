@@ -1,0 +1,111 @@
+<XMLDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PATH="local/sector/db" VERSION="20130407" COMMENT="XMLDB file for local sector plugin" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+<TABLES>
+
+
+<TABLE NAME="local_sector" COMMENT="sector table">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="old_id" TYPE="char" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+<FIELD NAME="title" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="titlearabic" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="code" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="timemodified" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usermodified" TYPE="int"   LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+</KEYS>
+</TABLE>
+
+
+<TABLE NAME="local_segment" COMMENT="segment table">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="old_id" TYPE="char" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+<FIELD NAME="title" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="titlearabic" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="code" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="sectorid" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>\
+<FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+<FIELD NAME="timemodified" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usermodified" TYPE="int"   LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+</KEYS>
+</TABLE>
+
+<TABLE NAME="local_jobfamily" COMMENT="jobfamily table">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="old_id" TYPE="char" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+<FIELD NAME="familyname" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="familynamearabic" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="code" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="description" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="careerpath" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" />
+<FIELD NAME="segmentid" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="shared" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+<FIELD NAME="timemodified" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usermodified" TYPE="int"   LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="careerpath_ar" TYPE="int"   LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false"/> 
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+</KEYS>
+</TABLE>
+
+<TABLE NAME="local_jobrole_level" COMMENT="jobrole_level table">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="old_id" TYPE="char" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+<FIELD NAME="title" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="titlearabic" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="code" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="description" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="jobfamily" TYPE="int"   LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="level" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+<FIELD NAME="ctypes" TYPE="text"  NOTNULL="false"  SEQUENCE="false"/>
+<FIELD NAME="competencies" TYPE="char" LENGTH="255" NOTNULL="false"  SEQUENCE="false"/>
+<FIELD NAME="shared" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"  DEFAULT="0"/>
+<FIELD NAME="timemodified" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usermodified" TYPE="int"   LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+</KEYS>
+</TABLE>
+
+<TABLE NAME="local_jobrole_responsibility" COMMENT="jobrole_level table">
+<FIELDS>
+    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="jobid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="roleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="responsibility" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="timecreated" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="timemodified" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usercreated" TYPE="text"  NOTNULL="true" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+</KEYS>
+</TABLE>
+
+<TABLE NAME="local_sector_info" COMMENT="each record is a text">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="code" TYPE="char" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="sector" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="segment" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="jobfamily" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="jobrole"  TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="level" TYPE="text" NOTNULL="true" LENGTH="5" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+</KEYS>
+</TABLE>
+
+</TABLES>
+</XMLDB>
+

@@ -1,0 +1,381 @@
+<?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * @package   local_notifications
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+namespace local_notifications\output;
+defined('MOODLE_INTERNAL') || die();
+use plugin_renderer_base as mainbase;
+use context_system;
+use html_table;
+use html_writer;
+use plugin_renderer_base;
+use moodle_url;
+use stdClass;
+use single_button;
+use local_notifications\local\notification_master;
+
+
+/**
+ * The renderer for the notifications module.
+ * * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class renderer extends mainbase  {
+    
+     protected function render_notifications(notifications $renderable) {
+          $data = $this->display($renderable->id, $renderable->context);
+          $content = ['notificationslist' => $data,
+                      'contextid' => $renderable->context,
+                      'notificationid'=>$renderable->id
+                      ];
+          return $this->render_from_template('local_notifications/notifications', $content);
+     }
+     function display($id, $context) {
+          global $DB, $OUTPUT, $PAGE,$USER;
+          $lib = new notifications();
+          $costcenter = new \costcenter();
+          $systemcontext = \context_system::instance();
+         
+       if(is_siteadmin()){
+            $sql = "SELECT ni.id, nt.name, nt.shortname, ni.subject, ni.arabic_subject, ni.active
+                FROM {local_notification_info} ni
+                JOIN {local_notification_type} nt ON ni.notificationid = nt.id ORDER BY ni.id DESC";
+        }else {
+             print_error(get_string('dont_have_permission_view_page', 'local_notifications'));
+              die();  
+        }
+        $notifications_info = $DB->get_records_sql($sql);
+        if($notifications_info){
+            $data = array();
+                       
+            foreach($notifications_info as $each_notification){
+                $row = array();
+                $row[] = $each_notification->name;
+                $row[] = $each_notification->shortname;
+                $row[] = $each_notification->subject;
+                $row[] = $each_notification->arabic_subject;
+                
+                $editurl = new \moodle_url('/local/notifications/index.php', array('id'=>$each_notification->id));
+                $deleteurl = new \moodle_url('/local/notifications/index.php', array('deleteid'=>$each_notification->id));
+                                
+                $actions = array();
+                
+                $actions[] = \html_writer::link('javascript:void(0)', $OUTPUT->pix_icon('t/edit', get_string('edit'), 'moodle', array('class' => 'iconsmall', 'title' => '')), array('data-action' => 'createnotificationmodal', 'class'=>'createnotificationmodal', 'data-value'=>$each_notification->id, 'class' => '', 'onclick' =>'(function(e){ require("local_notifications/notifications").init({selector:"createnotificationmodal", context:'.$systemcontext->id.', id:'.$each_notification->id.', form_status:0}) })(event)','style'=>'cursor:pointer' , 'title' => 'edit'));    
+
+                $actions[] = \html_writer::link(
+						"javascript:void(0)",
+						$OUTPUT->pix_icon('i/delete', get_string('delete'), 'moodle', array('class' => 'iconsmall', 'title' => '')),
+						array('id' => 'deleteconfirm' . $each_notification->id . '', 'onclick' => '(
+							  function(e){
+				require("local_notifications/custom").deletenotification("' . $each_notification->id . '")
+				})(event)'));
+                $row[] = implode(' &nbsp;', $actions);
+                $data[] = $row;
+            }
+            $table = new \html_table();
+            $table->id = 'notification_info';
+            $table->size = array('25%', '15%', '25%', '25%', '10%');
+            $table->head = array(get_string('notification_type', 'local_notifications'),
+                                 get_string('code', 'local_notifications'),
+                                 get_string('english_subject', 'local_notifications'),
+                                 get_string('arabic_subject', 'local_notifications'),
+                                 get_string('actions'));
+            $table->data = $data;
+            $notfn_types_table = \html_writer::table($table);
+            $notfn_types = \html_writer::tag('div',$notfn_types_table,array('class'=>'notification_overflow'));
+        }else{
+            $notfn_types = \html_writer::tag('h5', get_string('no_records', 'local_notifications'), array());
+        }
+        
+        return $notfn_types;
+     }
+
+     /**
+     * [render_form_status description]
+     * @method render_form_status
+     * @param  \local_notifications\output\form_status $page [description]
+     * @return [type]                                    [description]
+     */
+    public function render_form_status(\local_notifications\output\form_status $page) {
+        $data = $page->export_for_template($this);
+        return parent::render_from_template('local_notifications/form_status', $data);
+    }
+
+
+     ////Using service.php showing data on index page instead of ajax datatables
+    public function managenotifications_content($filter = false){
+        global $USER;
+
+        $systemcontext = context_system::instance();
+
+        $options = array('targetID' => 'managenotifications','perPage' => 10, 'cardClass' => 'col-md-6 col-12', 'viewType' => 'table');
+        
+        $options['methodName']='local_notifications_managenotifications_view';
+        $options['templateName']='local_notifications/notifications_view'; 
+        $options = json_encode($options);
+
+        $dataoptions = json_encode(array('userid' =>$USER->id,'contextid' => $systemcontext->id));
+        $filterdata = json_encode(array());
+
+        $context = [
+                'targetID' => 'managenotifications',
+                'options' => $options,
+                'dataoptions' => $dataoptions,
+                'filterdata' => $filterdata
+        ];
+
+        if($filter){
+            return  $context;
+        }else{
+            return  $this->render_from_template('theme_academy/cardPaginate', $context);
+        }
+    }
+
+    public function view_email_status() {
+        global $OUTPUT, $CFG, $DB;
+        $notimaster = new notification_master;
+
+            $output='<ul class="course_extended_menu_list  position-relative">
+          <li>
+          <div class="coursebackup course_extended_menu_itemcontainer">
+            <a href="'.$CFG->wwwroot.'/local/notifications/index.php" title="'.get_string('back').'" class="course_extended_menu_itemlink">
+              <i class="icon fa fa-reply" style="background-color: #004c98;"></i>
+            </a>
+        </div>
+        </li>
+        </ul>';
+            
+            //------Adding Custom Search Filters --------//
+            $output.= "<table class='email-filter-table'>
+                 <tr>";
+
+              $output .= "<td class='d-xs-block'>
+                     <select class='custom_noti_filter custom-select form-control-danger' id='2' style='margin-left: 30px;'>
+                       <option value=''>".get_string('select_status', 'local_notifications')."</option>
+                       <option value='1'>".get_string('option_sent', 'local_notifications')."</option>
+                       <option value='0'>".get_string('option_not_sent', 'local_notifications')."</option>
+                       <option value='2'>".get_string('option_sent_notdelivered', 'local_notifications')."</option>
+                     </select>
+                   </td>
+                 </tr>
+               </table>";
+             //------Adding Custom Search Filters Done --------//
+
+            $output .='<table  id = "noti_list" cellpadding="30" cellspacing="10" style="width:100%;">
+                <thead>
+                <tr>
+                <th>'.get_string('send_from', 'local_notifications').'</th>
+                <th>'.get_string('send_to', 'local_notifications').'</th>
+                <th>'.get_string('type', 'local_notifications').'</th>
+                <th>'.get_string('created_date', 'local_notifications').'</th>
+                <th>'.get_string('sent_date', 'local_notifications').'</th>
+                <th>'.get_string('status').'</th>
+                <th>'.get_string('action').'</th>
+                </tr>
+                </thead>';   
+             $output .='</table>';
+
+
+        $output .= html_writer::script("$(document).ready(function() {
+          //$.fn.dataTable.ext.errMode = 'none';
+          $.fn.dataTable.ext.errMode = 'throw';
+          var oTable = $('#noti_list').DataTable( {
+              'bInfo' : false,
+              'bLengthChange': false,
+              'language': {
+                      'paginate': {
+                          'next': '>',
+                          'previous': '<'
+                      }
+              },
+              'pageLength': 10,
+              'processing': true,
+              'serverSide': true,
+              'ajax': M.cfg.wwwroot + '/local/notifications/email_status_filters.php',
+      
+          });
+          $('.dataTables_filter').css('display','none');
+          $('.custom_noti_filter').click(function() {
+              var i =$(this).attr('id');  // getting column index
+              var v =$(this).val();  // getting search input value
+              oTable.columns(i).search(v).draw();
+
+          });
+                });
+          ");
+
+        return $output;
+      
+    
+    }
+    /////Calling this function to view details of email status///////
+     public function view_email_status_details($id) {
+        global $OUTPUT, $CFG, $DB;
+
+       
+
+        $notimaster = new notification_master;
+
+        $notidetails = $notimaster->getNotificationInfoById($id);
+        $sender_name= $notimaster->getSenderDetails($notidetails);
+        $receiver_name = $notimaster->getReceiverDetails($notidetails);
+       
+     
+         $return .="<h4>From: ".$sender_name['fullname']."</h4>";
+         $return .="<h4>To: ".$notidetails->to_emailid."</h4>";
+         if (!empty($notidetails->ccusers) && $notidetails->ccusers != ''){
+              $ccusers = json_decode($notidetails->ccusers,true);
+              $return .="<h4>CC: ";
+             
+               foreach( $ccusers as $ccemails){  
+                 $return .= $ccemails['email'].',' ;               
+
+              };         
+              $return .=  " </h4>";
+              
+
+         }
+
+
+     
+
+         if(!empty($notidetails->arabic_subject) && !empty($notidetails->arabic_body)) {
+
+            $return .="<h4>Subject (Arabic): ".$notidetails->arabic_subject."</h4>";
+            $return .="<h4>Content (Arabic): ".$notidetails->arabic_body."</h4>";
+
+
+         }else{         
+
+             $return .="<h4>Subject (English): ".$notidetails->subject."</h4>";
+             $return .="<h4>Content (English): ".$notidetails->emailbody."</h4>";
+
+        }
+
+
+        return $return;
+
+    }
+    public function view_sms_status() {
+        global $OUTPUT, $CFG, $DB;
+        $notimaster = new notification_master;
+
+            $output='<ul class="course_extended_menu_list  position-relative">
+          <li>
+          <div class="coursebackup course_extended_menu_itemcontainer">
+            <a href="'.$CFG->wwwroot.'/local/notifications/index.php" title="'.get_string('back').'" class="course_extended_menu_itemlink">
+              <i class="icon fa fa-reply" style="background-color: #004c98;"></i>
+            </a>
+        </div>
+        </li>
+        </ul>';
+            
+            //------Adding Custom Search Filters --------//
+            $output.= "<table class='email-filter-table'>
+                 <tr>";
+
+              $output .= "<td class='d-xs-block'>
+                     <select class='custom_noti_filter custom-select form-control-danger' id='2' style='margin-left: 30px;'>
+                       <option value=''>".get_string('select_status', 'local_notifications')."</option>
+                       <option value='1'>".get_string('option_sent', 'local_notifications')."</option>
+                       <option value='0'>".get_string('option_not_sent', 'local_notifications')."</option>
+                       <option value='2'>".get_string('option_sent_notdelivered', 'local_notifications')."</option>
+                     </select>
+                   </td>
+                 </tr>
+               </table>";
+             //------Adding Custom Search Filters Done --------//
+
+            $output .='<table  id = "noti_list" cellpadding="30" cellspacing="10" style="width:100%;">
+                <thead>
+                <tr>
+                <th>'.get_string('send_phonenumber', 'local_notifications').'</th>
+                <th>'.get_string('send_to', 'local_notifications').'</th>
+                <th>'.get_string('type', 'local_notifications').'</th>
+                <th>'.get_string('created_date', 'local_notifications').'</th>
+                <th>'.get_string('sent_date', 'local_notifications').'</th>
+                <th>'.get_string('status').'</th>
+                <th>'.get_string('action').'</th>
+                </tr>
+                </thead>';   
+             $output .='</table>';
+
+
+        $output .= html_writer::script("$(document).ready(function() {
+          //$.fn.dataTable.ext.errMode = 'none';
+          $.fn.dataTable.ext.errMode = 'throw';
+          var oTable = $('#noti_list').DataTable( {
+              'bInfo' : false,
+              'bLengthChange': false,
+              'language': {
+                      'paginate': {
+                          'next': '>',
+                          'previous': '<'
+                      }
+              },
+              'pageLength': 10,
+              'processing': true,
+              'serverSide': true,
+              'ajax': M.cfg.wwwroot + '/local/notifications/sms_status_filters.php',
+      
+          });
+          $('.dataTables_filter').css('display','none');
+          $('.custom_noti_filter').click(function() {
+              var i =$(this).attr('id');  // getting column index
+              var v =$(this).val();  // getting search input value
+              oTable.columns(i).search(v).draw();
+
+          });
+                });
+          ");
+
+        return $output;
+      
+    }
+    /////Calling this function to view details of email status///////
+     public function view_sms_status_details($id) {
+        global $OUTPUT, $CFG, $DB;
+
+       
+
+        $notimaster = new notification_master;
+
+        $notidetails = $notimaster->getSMSNotificationInfoById($id);
+        $receiver_name= $notimaster->getSMSReceiverDetails($notidetails);
+     
+         $return .="<h4>Receiver User Fullname: ".$receiver_name['fullname']."</h4>";
+         $return .="<h4>Receiver Phone Numder: ".$notidetails->to_phonenumber."</h4>";
+
+         if($receiver_name['lang'] == 'ar') {
+
+            $return .="<h4>Content (Arabic): ".$notidetails->arabic_smstext."</h4>";
+
+
+         }else{
+
+             $return .="<h4>Content (English): ".$notidetails->english_smstext."</h4>";
+
+        }
+
+
+        return $return;
+
+    }
+
+}

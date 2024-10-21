@@ -1,0 +1,42 @@
+<?php
+$string['pluginname'] = 'مستند إضافة التحميل'; 
+$string['title'] = 'العنوان'; 
+$string['createdocumentupload'] = 'إنشاء';
+$string['editdocumentupload'] = 'تحرير';
+$string['title'] = 'العنوان';
+$string['description'] = ' الوصف';
+$string['search_documentupload'] = 'بحث';
+$string['documentupload'] = ' رفع المستند';
+$string['listofdocumentupload'] = 'قائمة المرفوعات';
+$string['createdocumentupload'] = 'إنشاء';
+$string['actions'] = 'الإجراءات';
+$string['viewdocumentupload'] = 'عرض';
+$string['delete'] = 'حذف';
+$string['deletedocumentupload'] = 'حذف';
+$string['deletedocumentuploadconfirm'] = 'هل أنت متأكد من الحذف؟';
+$string['documentdrop'] = 'مستند';
+$string['pdf'] = 'pdf';
+$string['download'] = ' تحميل';
+$string['view'] = 'عرض';
+$string['totalnoofuploads'] = 'إجمالي عدد المستندات';
+$string['totalnoofvideos'] = 'إجمالي عدد مقاطع الفيديو';
+$string['viewfiles'] = 'عرض';
+$string['media'] = 'نوع الوسائط ';
+$string['mp4'] = '.MP4';
+$string['videodrop'] = ' مقطع فيديو';
+$string['general'] = 'عام';
+$string['required'] = 'هذه الحقول إلزامية';
+
+$string['English'] = 'إنجليزي ';
+$string['language'] = 'اللغة';
+$string['Arabic'] = 'عربي';
+$string['titleenglish'] = 'الاسم (انجليزي)';
+$string['titlearabic'] = 'الاسم (عربي)';
+$string['rank'] = 'الترتيب';
+$string['rankexist'] = 'تم استخدام هذا الترتيب سابقًا';
+$string['acceptsnumeric'] = 'هذا الحقل يقبل أرقامًا فقط';
+
+$string['video'] = 'الفيديو (بالانجليزي)';
+$string['videoar'] = ' الفيديو (بالعربي)';
+$string['document'] = 'المستند (بالانجليزي)';
+$string['arabicdocument'] = 'المستند (بالعربي)';

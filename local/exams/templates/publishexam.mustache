@@ -1,0 +1,87 @@
+<div id="exams_container">
+    <div class="row">
+        <div class="col-12">
+            <div class="review_exams_container mt-4">
+                <ul class="nav nav-tabs" id="exam_tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="true">{{#str}}exam_list, local_exams{{/str}}</a>
+                    </li>
+                </ul>
+                {{# response}}
+                {{# records}}
+                {{# reviewexms}}
+                    <div class="tab-pane fade show active" id="scheduled" role="tabpanel" aria-labelledby="scheduled-tab">
+                        <div class="exams_wrapper">
+                            <!-- Exam content -->
+                            <div class="exam_content">
+                                <div class="title_containe">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-3">
+                                            <div class = "d-flex">
+                                                <h6 class="examtitle m-0">{{id}}. </h6>
+                                                <h6 class="examtitle m-0">{{exam}}</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="exam_action_container ml-4 d-flex align-items-center">
+                                                <a href="{{config.wwroot}}./examdetails.php?id={{id}}" class="btn btn-outline-primary theme_text_color btn-sm">{{#str}}manage, local_exams{{/str}}</a>
+                                                <button class="btn btn-outline-primary theme_text_color btn-sm"   data-action="competencies" data-id={{id}}>{{#str}}competencies, local_exams{{/str}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="exam_details_div my-3 d-flex align-items-center flex-wrap">
+                                    <div>
+                                        <h6>{{#str}}date, local_exams{{/str}}</h6>
+                                        <h5>{{enddate}}</h5>
+                                    </div>
+                                    <div>
+                                        <h6>{{#str}}noofquestions, local_exams{{/str}}</h6>
+                                        <h5><a href="">{{noofquestions}}</a></h5>
+                                    </div>
+                                    <div>
+                                        <h6>{{#str}}type, local_exams{{/str}}</h6>
+                                        <h5>{{type}}</h5>
+                                    </div>
+                                    <div>
+                                        <h6>{{#str}}passing_score, local_exams{{/str}}</h6>
+                                        <h5>{{passingscore}}%</h5>
+                                    </div>
+                                    <div>
+                                        <h6>{{#str}}fees, local_exams{{/str}}</h6>
+                                        <h5>{{actualprice}}</h5>
+                                    </div>
+                                    <div>
+                                        <h6>{{#str}}enroll, local_exams{{/str}}</h6>
+                                        <h5><a href="">{{enroll}}</a></h5>
+                                    </div>
+                                    <div>
+                                        <h6>{{#str}}duration, local_exams{{/str}}</h6>
+                                        <h5>{{examduration}} {{#str}}min,local_exams {{/str}}</h5>
+                                    </div>
+                                    <div>
+                                        <h6>{{#str}}language, local_exams{{/str}}</h6>
+                                        <h5>{{language}}</h5>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <button class="btn btn-primary" data-action="publishexam" data-id={{id}}>{{#str}}publish, local_exams{{/str}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/ reviewexms}}
+                {{/ records}}
+                {{/ response}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{#js}}
+    require(['local_exams/exams'], function(s) {
+        s.init();
+    });
+{{/js}}
+

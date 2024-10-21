@@ -1,0 +1,29 @@
+<!-- <div class="global_filter_structure">
+       <input id="global_filter" class="global filter form-control col-md-6" placeholder="Search Hall Details" type="text" name="search_query">
+</div> -->
+
+<div id="targetcurrentoffering" data-region="targetcurrentoffering-preview-container" class="currentifferings_pc_container viewcompetencys px-3 py-4">
+      <!-- <div data-region="targetcurrentoffering-count-container"></div> -->
+      <div data-region="targetcurrentoffering-list-container" class ="methoddata{{ offeringid }}">
+      </div>
+</div>
+{{#js}}
+      require(['theme_academy/cardPaginate'], function(cardPaginate) {
+
+      var options = 
+      {
+            bPaginate   : false,
+            targetID    : 'targetcurrentoffering',
+            templateName: 'local_trainingprogram/recent_offering_modal',
+            methodName  : 'display_recent_offeringlist',
+            cardClass   : 'col-md-6 col-12',
+            viewType    : 'card'
+     };
+      var filterdata = {programid:{{programid}}};
+      var dataoptions = {};
+
+      cardPaginate.reload(options, dataoptions, filterdata);
+      var search_interval = 100;
+      var timer;
+      });
+{{/js}}

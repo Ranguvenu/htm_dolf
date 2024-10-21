@@ -1,0 +1,87 @@
+<div>
+    <div class="filterscontainer">
+        <div class="global_filter">
+            <div class="global_filter_structure form-group m-0  col-md-14">
+                {{#searchlabel}} <label class="{{labelclasses}}">{{searchlabel}}</label> {{/searchlabel}}
+                <div class="input_container position-relative" >
+                <input id="global_filter" class="global filter form-control {{inputclasses}}" placeholder="{{#placeholder}} {{placeholder}} {{/placeholder }} {{^placeholder }} Search Programs... {{/placeholder }}" type="text" name="search_query" data-options="{{options}}" value="{{q}}" data-dataoptions="{{dataoptions}}" data-status="{{status}}">
+                <span class="search_icon"></span>
+                </div>
+            </div>
+       </div>
+        <div>
+           {{{card_view_programs_filterform}}}
+        </div>
+    <!--     <a href="javascript::void(0)" onclick='(function(e){ require("theme_academy/cardPaginate").resetingData(e,"viewprograms") })(event)'>
+            <div class="searchbtnicon"> </div>
+        </a> -->
+        <a href="javascript::void(0)" class="searchbtnicon" name="filter_apply" id="id_filter_apply" 
+             onclick="(function(e){ require('theme_academy/cardPaginate').filteringData(e,'viewprograms') })(event)">{{#str}}search,local_events{{/str}}</a>
+    </div>
+    <div class="programs_container"> 
+
+           <div id="program_container" >
+                        <div data-region='program_container-list-container'>
+                        </div>
+                    </div>
+
+    </div>
+    {{noloadmore}}
+
+</div>
+
+{{# js}}
+  if(typeof "select[name='sectors[]']" != 'undefined'){
+        var sectors = $("select[name='sectors[]']").val();
+        if(typeof $('#el_segmentlist') != 'undefined'){
+            $('select#el_segmentlist').data('sectorid',sectors);
+        }
+
+        if(typeof $('#el_jobfamily') != 'undefined'){
+            $('#el_jobfamily').data('sectorid',sectors);
+        }
+    }
+    $("select[name='sectors[]']").on('change', function(e){
+
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+    });
+
+    if(typeof "select[name='sectors']" != 'undefined'){
+        var sectors = $("select[name='sectors']").val();
+        if(typeof $('#el_segmentlist') != 'undefined'){
+            $('select#el_segmentlist').attr('data-sectorid',sectors);
+        }
+
+        if(typeof $('#el_jobfamily') != 'undefined'){
+            $('#el_jobfamily').attr('data-sectorid',sectors);
+        }
+    }
+    $("select[name='sectors']").on('change', function(e){
+
+       var sectors = $(this).val();
+
+       var segments = $(this).closest("form").find("select[name='segments[]']");
+       var segment = $(this).closest("form").find("select[name='segment']");
+       segments.val('');
+       segments.attr('data-sectorid',sectors);
+
+       segment.val('');
+       segment.attr('data-sectorid',sectors);
+
+       var targetgroup = $(this).closest("form").find("select[name='targetgroup[]']");
+
+       targetgroup.val('');
+       targetgroup.attr('data-sectorid',sectors);
+    });
+
+
+{{/ js}}

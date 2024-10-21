@@ -1,0 +1,30 @@
+{{#response}}
+{{#nodata}}<div class="text-center alert alert-info mt-1" data-region="empty-message">{{nodatatext}}</div>{{/nodata}}
+{{^nodata}}
+         <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"><b>{{# str}} name, local_organization{{/ str}}</b></th>
+                        <th scope="col"><b>{{# str}} code, local_events{{/ str}}</b></th>
+                        <th scope="col"><b>{{# str}} lc_startdate, local_events{{/ str}}</b></th>
+                        <th scope="col"><b>{{# str}} lc_enddate, local_events{{/ str}}</b></th>
+                        <th scope="col"><b>{{#str}}users_assigned,local_organization{{/str}}</b></th>
+                           
+                    </tr>
+                </thead>
+                <tbody>
+                {{# records}}     
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{code}}</td>
+                        <td>{{startdate}}</td>
+                        <td>{{enddate}}</td>
+                        <td>{{enrolledcount}}</td>
+                    </tr>
+                {{/ records}} 
+                </tbody>
+            </table>
+        </div>
+   {{/nodata}}
+{{/ response}}

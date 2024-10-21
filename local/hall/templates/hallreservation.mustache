@@ -1,0 +1,57 @@
+{{#response}}
+{{# records}}
+<h5>{{#str}}availableslotsstring, local_hall, {{entityname}}{{/str}} </h5>
+    <table class='generaltable table'>
+      <thead>
+        <tr>
+          <th scope="col">{{#str}}time, local_hall{{/str}}</th>
+          <th scope="col">{{#str}}status, local_hall{{/str}}</th>
+          <th scope="col" class="text-center">{{#str}}avaialblehallseats, local_hall{{/str}}</th>
+          <th scope="col" class="text-center">{{#str}}avaialbleentityseats, local_hall, {{type}}{{/str}}</th>
+          <th scope="col">{{#str}}seats, local_hall{{/str}}</th>
+          <th scope="col">{{#str}}action, local_hall{{/str}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{# hascourses}}
+        <tr>
+          <td>{{start}} to {{end}}</td>
+            {{# booked}}
+
+                <td><span class="text-danger">{{#str}}booked, local_hall{{/str}}</span></td>
+                <td class="text-center"><b>{{availableseats}}</b></td>
+                <td class="text-center"><b>{{entitiesseats}}</b></td>
+                <td><b>{{#str}}allseatsreserved,local_hall{{/str}}</b></td>
+
+            {{/ booked}}
+            {{^ booked}}
+                <td><span  class="text-success">{{#str}}availability, local_hall{{/str}}</span></td>
+                <td class="text-center"><b>{{availableseats}}</b></td>
+                <td class="text-center"><b>{{entitiesseats}}</b></td>
+                {{# currentbooking}}
+                    <td><input type="text" class="selectedseats{{slid}}" size="3"/><b> / {{availableseats}}</b></td>
+                {{/ currentbooking}}
+                {{^ currentbooking}}
+                    <span>--</span>
+                {{/ currentbooking}}
+
+            {{/ booked}}
+            <td>
+                {{# booked}}
+                    <span>--</span>
+                {{/ booked}}
+                {{^ booked}}
+                {{# currentbooking}}
+                    <button type="button" class="btn btn-primary reservebtn" data-slid={{slid}} data-action="hallreserve" data-typeid='{{typeid}}' data-type='{{type}}' data-hallid='{{hallid}}' data-examdate='{{examdate}}' data-start='{{start_time}}' data-end='{{end_time}}' data-available='{{availableseats}}'  data-entitiesseats = '{{entitiesseats}}' data-entityid='{{entityid}}' data-reservationid='{{reservationid}}' data-submit_type = '{{submit_type}}'>{{#str}}reserve, local_hall{{/str}}</button>                    
+                {{/ currentbooking}}
+                {{^ currentbooking}}
+                    <span>--</span>
+                {{/ currentbooking}}                
+                {{/ booked}}
+            </td>
+        </tr>
+        {{/ hascourses}}
+      </tbody>
+    </table>
+{{/ records}}
+{{/ response}} 

@@ -1,0 +1,185 @@
+/* registrition */
+#registration_container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+#registration_container .form-heading{
+    margin-bottom: 2.5rem;
+}
+#registration_container #sidenav_tabs .nav-link{
+    color: #939fac;
+}
+#registration_container #sidenav_tabs .nav-link.active{
+    font-weight: bold;
+    color: #000;
+}
+#registration_container #sidenav_tabs .nav-link i{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 9px;
+    border-color: transparent transparent transparent #397ec1;
+    display: inline-block;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+#registration_container #sidenav_tabs .nav-link.active i{
+    
+    opacity: 1;
+}
+#page-auth-registration-register #page-header,#page-auth-registration-registration #page-header{
+    display: none;
+}
+#registration_container .form-control, #registration_container .custom-select{
+    border: 1px solid #d4dbe0;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 8%);
+    
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+    
+
+}
+#registration_container .form-control:not(textarea), #registration_container .custom-select{
+    height: calc(1.5em + 0.75rem + 8px);
+}
+#registration_container .btn{
+    border-radius: 5px;
+
+    font-weight: bold;
+    padding: 0.45rem 0.85rem;
+    
+}
+#registration_container .tab-content{
+    max-width: 800px;
+    padding: 0 20px;
+}
+#registration_container #licensekeyvalidate_btn{
+    width: 180px;
+    margin-left: 8px;
+}
+
+#registration_container .heading_label {
+    font-size: 16px;
+    margin-top: 3rem;
+}
+#registration_container .dynamic_form_id_enter_ur_org_details_personal_details{
+    margin-top: 0px;
+}
+#registration_container .dynamic_form_id_iam_login{
+    margin-top: 2.5rem;
+}
+#registration_container .form-group.femptylabel .col-form-label{
+    display: none !important;
+}
+#registration_container .mform>.form-group {
+    margin: 15px 0;
+}
+#registration_container .form-group.femptylabel .felement{
+    padding:0;
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+#registration_container .mform label {
+    font-weight: normal;
+}
+#registration_container .form-group {
+    flex:1;
+}
+#registration_container .form-group span[data-fieldtype]{
+    display: block;
+    width: 100%;
+}
+#registration_container #fgroup_id_login_statusclass fieldset .d-flex {
+    justify-content: space-between;
+    max-width: 550px;
+}
+#registration_container #fgroup_id_login_statusclass label{
+    color: #475c6e;
+   
+}
+#registration_container .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+color: #868686;
+opacity: 1; /* Firefox */
+}
+  
+#registration_container .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: #868686;
+}
+  
+#registration_container .form-control::-ms-input-placeholder { /* Microsoft Edge */
+color: #868686;
+}
+#registration_container   #fgroup_id_licensekey{
+    margin-bottom: 0;      
+}
+#registration_container #fgroup_id_orgcontactinfo fieldset div.d-flex h6{
+    flex:0 0 50%;
+    margin:0px;
+}
+
+#registration_container #fgroup_id_approvalletter_group fieldset div.d-flex input{
+    flex:0 0 49%;
+}
+
+#registration_container .form-group:first-child {
+
+    margin-right: 15px;
+
+}
+#cart_container .emptycart_btn {
+    background: #f8f8f8;
+    padding: 8px 17px;
+    border: 1px solid #E7EBED;
+    border-radius: 4px;
+}
+#cart_container .emptycart_btn a {
+    color: #475C6E;
+}
+#cart_container .checkout_payment {
+    padding: 20px;
+}
+#cart_container .checkout_payment p {
+    font-size: 12px;
+}
+#cart_container .btn.checkout_btn {
+    background: #064d97;
+    color: #fff;
+    border-radius: 0px;
+    width: 100%;
+    padding: 15px 0px;
+    font-size: 16px;
+}
+
+#registration_container #fitem_id_username .form-control {
+    text-transform: lowercase !important;
+}
+
+#page-auth-registration-register .form-autocomplete-suggestions li[aria-selected=true]:not(:hover) {
+    background-color: #fff !important;
+    color: #1d2125 !important;
+    outline: 0;
+    box-shadow:none !important; 
+}
+#page-auth-registration-register .form-autocomplete-suggestions li[data-value=""] {
+    display: none !important;
+}
+
+.tagscontainer.invisible1 {
+    display: none;
+}
+
+#page-auth-registration-register .mform #fitem_id_dateofbirth fieldset{
+
+    width: 100%;
+}
+
+
+#page-auth-registration-registration .form-control-static  {
+    width: 100%;
+
+}

@@ -1,0 +1,38 @@
+{{#response}}
+{{# records}}
+    {{# ahascourses}}
+<div id="myexams_container">
+    <div class="row">
+        <div class="col-12">
+            <div class="allexams_container">
+                <ul class="nav nav-tabs" id="exam_tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="scheduled-tab" data-toggle="tab" href="#scheduled" role="tab" aria-controls="scheduled" aria-selected="true">{{#str}}exams, local_exams{{/str}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false">{{#str}}completed, local_exams{{/str}}</a>
+                    </li>
+                </ul>
+                    <div class="tab-content" id="exam_tabsContent">
+                        <div class="tab-pane fade show active" id="scheduled" role="tabpanel" aria-labelledby="scheduled-tab">
+                            <div class="tab-pane fade show active" id="scheduled" role="tabpanel" aria-labelledby="scheduled-tab">
+                                <div class="exam_content" id="scheduledexams" data-region="scheduledexams-preview-container">
+                                    <div data-region="scheduledexams-count-container"></div>
+                                    <div data-region="scheduledexams-list-container" id ="coursesid"></div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+                            <div class="exam_content" id="completedexams" data-region="completedexams-preview-container">
+                                <div data-region="completedexams-count-container"></div>
+                                <div data-region="completedexams-list-container" id ="coursesid"></div> 
+                            </div>                                                                              
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+        {{/ ahascourses}}
+    {{/ records}}
+{{/ response}}

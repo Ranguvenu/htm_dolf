@@ -1,0 +1,50 @@
+{{#response}}
+    {{#records}}
+    <div class= "table-responsive">
+        <table class="table">
+            <thead class="thead-light">
+                 <tr>
+                        <th scope="col"><b>{{# str}} name, local_organization{{/ str}}</b></th>
+                        <th scope="col"><b>{{# str}} email, local_organization{{/ str}}</b></th>
+                        <th scope="col"><b>{{# str}} identity_no, local_organization{{/ str}}<b></th>
+                        <th scope="col"><b>{{# str}} phone_no, local_organization{{/ str}}</b></th>
+                        <th scope="col"><b>{{# str}} role, local_organization{{/ str}}</b></th>
+                        <th scope="col" class="text-center"><b>{{# str}} action, local_organization{{/ str}}<b></th>      
+                    </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                        <td>{{fullname}}</td>
+                        <td>{{email}}</td>
+                        <td>{{id_number}}</td>
+                        <td>{{phone}}</td>
+                        <td>{{rolename}}</td>
+                        <td class="text-center">
+                        {{#unassignuser}}
+                        <a href="#"  data-action = "unassignuser" data-id={{id}} data-rolename="{{rolename}}" data-roleid={{roleid}} data-roleid={{roleid}}  data-orgid={{orgid}} data-orgname="{{organizationname}}" data-username="{{fullname}}" tabindex="0" role="button">{{# str}} un_assign, local_organization{{/ str}}</a>
+                        {{/unassignuser}}
+                        </td>
+                    </tr>
+           {{/ hascourses}} 
+
+           {{^ hascourses}}
+           <tr>
+            <td colspan="6">
+
+               <div class="text-center alert alert-info mt-1" data-region="empty-message">
+                       {{#str}} no_data_available, theme_academy {{/str}}
+              </div>
+            </td>
+          </tr>
+           {{/ hascourses}}
+          </tbody>
+        </table>
+        </div>
+    {{/ records}}
+{{/ response}}
+ {{#js}}
+      require(['local_organization/organization'], function(s) {
+        s.init();
+    });
+{{/js}}

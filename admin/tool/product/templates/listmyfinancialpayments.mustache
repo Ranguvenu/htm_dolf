@@ -1,0 +1,78 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+
+        <div class="border rounded p-3 bg-theme_light">
+            {{#records}}
+                <div class="row mx-0 rounded py-3 my-3 bg-theme_dark">
+                    <div class="col-md-3">
+                        <span class="d-block"><small>{{{productname}}}</small></span>
+                        <h6>{{{trainingname}}}</h6>
+                    </div>
+                    {{^ refund}}
+                        <div class="col-md-1">
+                            <span class="d-block"><small>{{#str}} purchasedseats ,tool_product{{/str}}</small></span>
+                            <h6 class="align-items-center justify-content-center">{{purchasedseats}}</h6>
+                        </div>
+                        <div class="col-md-1">
+                            <span class="d-block"><small>{{#str}} finalprice ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}})</small></span>
+                            <h6>{{finalprice}}</h6>
+                        </div>
+                    {{/ refund}}
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} totalprice ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}}){{#refund}}<div><sub>({{#str}} includetaxes ,tool_product{{/str}})</sub></div>{{/ refund}}</small> </span>
+                        <h6>{{originalprice}}</h6>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#refund}}{{#str}} refund ,tool_product{{/str}}{{/refund}}{{^refund}}{{#str}} discount ,tool_product{{/str}} {{/refund}}({{#str}}sa_currency,local_trainingprogram{{/str}})</small></span>
+                        <h6>{{discountprice}}</h6>
+                    </div>
+                    {{^ refund}}
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} taxfee ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}})</small></span>
+                        <h6>{{taxes}}</h6>
+                    </div>
+                    {{/ refund}}
+                    <div class="col-md-2">
+                        <span class="d-block"><small>{{#str}} paymentstatus ,tool_product{{/str}}</small></span>
+                        <h6 class="align-items-center justify-content-center">{{{paymentstatus}}}</h6>
+                    </div>
+
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} type ,tool_product{{/str}}</small></span>
+                        <h6>{{{invoicetype}}}</h6>
+                    </div>
+
+                    <div class="col-md-1">
+                        <span class="d-block"><small>{{#str}} date ,tool_product{{/str}}</small></span>
+                        <h6>{{paymentdate}}</h6>
+                    </div>
+                    {{# refund}}
+                        <div class="col-md-1">
+                            <span class="d-block"><small>{{#str}} purchaseid ,tool_product{{/str}}</small></span>
+                            <h6 class="align-items-center justify-content-center">{{transcationref}}</h6>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="d-block"><small>{{#str}} transactionnumber ,tool_product{{/str}} </small></span>
+                            <h6>{{transcationnumber}}</h6>
+                        </div>
+                    {{/ refund}}             
+                </div>
+            {{/records}}
+            {{#records.0}}
+                    <div class="row mx-0 rounded py-3 my-3 alert alert-success">
+                        <div class="col-md-2">
+                                <h6>{{#str}} totalcost ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}}) </h6>
+                        </div>
+                        <div class="col-md-1">
+                            <h6> {{totalcost}}</h6>
+                        </div>
+                    </div>
+            {{/records.0}}
+        </div>
+   {{/viewtypeCard}}
+{{/response}}               

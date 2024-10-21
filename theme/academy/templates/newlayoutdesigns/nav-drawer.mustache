@@ -1,0 +1,34 @@
+{{!
+    @deprecated since 4.0 but added as custom feature by Rizwana
+    @template theme_academy/nav-drawer
+
+
+    Example context (json): {}
+}}
+<div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex {{^navdraweropen}}closed{{/navdraweropen}}" aria-hidden="{{#navdraweropen}}false{{/navdraweropen}}{{^navdraweropen}}true{{/navdraweropen}}" tabindex="-1">
+    {{!> theme_academy/flat_navigation }}
+    {{#isloggedin}}
+       <div data-region="drawer-toggle" class="left_sidebar">
+            <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn pull-xs-left m-r-1 btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span></button>
+        </div>
+        {{{output.left_navigation_quick_links}}}
+        <!-- <span class="leftmenu_navigator leftmenu_navigator_btm d-none" id = 'firstdata' title="{{#str}}show_more_less, theme_academy{{/str}}"><i class="fa leftmenu_navigator_icon"></i></span>
+        <span class="leftmenu_navigator leftmenu_navigator_top d-none" id = 'arrow_top' title="{{#str}}show_more_less, theme_academy{{/str}}"><i class="fa leftmenu_navigator_icon"></i></span> -->
+    {{/isloggedin}}
+</div>
+<div class="nav-drawer-overlay" class="hidden-print {{^navdraweropen}}open{{/navdraweropen}}" tabindex="-1"></div>
+
+{{#js}}
+$(document).ready(function(){
+    var navbarheight= $('#newheader').height()+22;
+    $("#nav-drawer").css("top",navbarheight+'px');
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+        if (scroll >= 80) {           
+            $("#nav-drawer").css("top",'95px');
+        }else{
+            $("#nav-drawer").css("top",navbarheight+'px'); 
+        }
+    });
+});
+{{/js}}

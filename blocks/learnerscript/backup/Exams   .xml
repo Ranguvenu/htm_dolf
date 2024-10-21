@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<report version="2021051704.16"><visible><![CDATA[1]]></visible>
+<name><![CDATA[{mlang en} Exams {mlang} {mlang ar}  اختبارات{mlang} ]]></name>
+<summary><![CDATA[]]></summary>
+<type><![CDATA[exams]]></type>
+<components><![CDATA[YTo3OntpOjA7YjowO3M6NzoiY29sdW1ucyI7YToxOntzOjg6ImVsZW1lbnRzIjthOjU6e2k6MDthOjY6e3M6MjoiaWQiO3M6MTU6ImFOM09mSTlIZjMwNWU5aiI7czoxMDoicGx1Z2lubmFtZSI7czoxMToiZXhhbWNvbHVtbnMiO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjM4OiJFeGFtJTI1MjUyNTI1MjUyNTI1MjUyNTI1MjUyNTJCY29sdW1ucyI7czo3OiJzdW1tYXJ5IjtzOjA6IiI7czo0OiJ0eXBlIjtzOjE1OiJzZWxlY3RlZGNvbHVtbnMiO3M6ODoiZm9ybWRhdGEiO086ODoic3RkQ2xhc3MiOjQ6e3M6NToidmFsdWUiO2I6MTtzOjk6ImNvbHVtbmFtZSI7czoxMDc6IiU3Qm1sYW5nK2VuJTdEK0V4YW1zKyU3Qm1sYW5nJTdEKyU3Qm1sYW5nK2FyJTdEKyVEOCVBNyVEOCVBRSVEOCVBQSVEOCVBOCVEOCVBNyVEOCVCMSVEOCVBNyVEOCVBQSU3Qm1sYW5nJTdEIjtzOjY6ImNvbHVtbiI7czo4OiJleGFtbmFtZSI7czo3OiJoZWFkaW5nIjtzOjExOiJleGFtY29sdW1ucyI7fX1pOjE7YTo2OntzOjI6ImlkIjtzOjE1OiJxWVVVd0NHMVo3V1psS0oiO3M6MTA6InBsdWdpbm5hbWUiO3M6MTE6ImV4YW1jb2x1bW5zIjtzOjE0OiJwbHVnaW5mdWxsbmFtZSI7czoxNjoiRXhhbSUyNTJCY29sdW1ucyI7czo3OiJzdW1tYXJ5IjtzOjA6IiI7czo0OiJ0eXBlIjtzOjE1OiJzZWxlY3RlZGNvbHVtbnMiO3M6ODoiZm9ybWRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6NToidmFsdWUiO2I6MTtzOjk6ImNvbHVtbmFtZSI7czo4OiJQcm9maWxlcyI7czo2OiJjb2x1bW4iO3M6ODoicHJvZmlsZXMiO3M6NzoiaGVhZGluZyI7czoxMToiZXhhbWNvbHVtbnMiO3M6NToiYWxpZ24iO3M6NjoiY2VudGVyIjt9fWk6MjthOjY6e3M6MjoiaWQiO3M6MTU6IjV2eENleEVXSHZOOER5VSI7czoxMDoicGx1Z2lubmFtZSI7czoxMToiZXhhbWNvbHVtbnMiO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjQwOiJFeGFtJTI1MjUyNTI1MjUyNTI1MjUyNTI1MjUyNTI1MkJjb2x1bW5zIjtzOjc6InN1bW1hcnkiO3M6MDoiIjtzOjQ6InR5cGUiO3M6MTU6InNlbGVjdGVkY29sdW1ucyI7czo4OiJmb3JtZGF0YSI7Tzo4OiJzdGRDbGFzcyI6NTp7czo1OiJ2YWx1ZSI7YjoxO3M6OToiY29sdW1uYW1lIjtzOjEyNToiJTdCbWxhbmcrZW4lN0QrRW5yb2xsbWVudHMrJTdCbWxhbmclN0QrJTdCbWxhbmcrYXIlN0QrJUQ4JUE3JUQ5JTg0JUQ4JUE3JUQ5JTg0JUQ4JUFBJUQ4JUFEJUQ4JUE3JUQ5JTgyJUQ4JUE3JUQ4JUFBJTdCbWxhbmclN0QiO3M6NjoiY29sdW1uIjtzOjExOiJlbnJvbGxtZW50cyI7czo3OiJoZWFkaW5nIjtzOjExOiJleGFtY29sdW1ucyI7czo1OiJhbGlnbiI7czo2OiJjZW50ZXIiO319aTozO2E6Njp7czoyOiJpZCI7czoxNToiMWZwUUtOVFNod0hDY2gyIjtzOjEwOiJwbHVnaW5uYW1lIjtzOjExOiJleGFtY29sdW1ucyI7czoxNDoicGx1Z2luZnVsbG5hbWUiO3M6NDA6IkV4YW0lMjUyNTI1MjUyNTI1MjUyNTI1MjUyNTI1MjUyQmNvbHVtbnMiO3M6Nzoic3VtbWFyeSI7czowOiIiO3M6NDoidHlwZSI7czoxNToic2VsZWN0ZWRjb2x1bW5zIjtzOjg6ImZvcm1kYXRhIjtPOjg6InN0ZENsYXNzIjo1OntzOjU6InZhbHVlIjtiOjE7czo5OiJjb2x1bW5hbWUiO3M6MTE5OiIlN0JtbGFuZytlbiU3RCtDb21wbGV0aW9ucyslN0JtbGFuZyU3RCslN0JtbGFuZythciU3RCslRDglQTclRDklODQlRDglQTUlRDklODMlRDklODUlRDglQTclRDklODQlRDglQTclRDglQUElN0JtbGFuZyU3RCI7czo2OiJjb2x1bW4iO3M6MTE6ImNvbXBsZXRpb25zIjtzOjc6ImhlYWRpbmciO3M6MTE6ImV4YW1jb2x1bW5zIjtzOjU6ImFsaWduIjtzOjY6ImNlbnRlciI7fX1pOjQ7YTo2OntzOjI6ImlkIjtzOjE1OiJCTm9HblMyZTloZVBrQ3ciO3M6MTA6InBsdWdpbm5hbWUiO3M6MTA6ImV4YW1maWVsZHMiO3M6MTQ6InBsdWdpbmZ1bGxuYW1lIjtzOjEwOiJleGFtZmllbGRzIjtzOjc6InN1bW1hcnkiO3M6MDoiIjtzOjQ6InR5cGUiO3M6MTU6InNlbGVjdGVkY29sdW1ucyI7czo4OiJmb3JtZGF0YSI7Tzo4OiJzdGRDbGFzcyI6NTp7czo2OiJjb2x1bW4iO3M6Nzoic2VjdG9ycyI7czo5OiJjb2x1bW5hbWUiO3M6OTY6IiU3Qm1sYW5nK2VuJTdEK1NlY3RvcislN0JtbGFuZyU3RCslN0JtbGFuZythciU3RCslRDklODIlRDglQjclRDglQTclRDglQjklRDglQTclRDglQUElN0JtbGFuZyU3RCI7czo1OiJhbGlnbiI7czo0OiJsZWZ0IjtzOjQ6InNpemUiO3M6MDoiIjtzOjQ6IndyYXAiO3M6MDoiIjt9fX19czo3OiJmaWx0ZXJzIjthOjE6e3M6ODoiZWxlbWVudHMiO2E6Mjp7aTowO2E6NTp7czoyOiJpZCI7czoxNToicjZiRFNEREt0bEVaOU5TIjtzOjEwOiJwbHVnaW5uYW1lIjtzOjEwOiJjb21wZXRlbmN5IjtzOjE0OiJwbHVnaW5mdWxsbmFtZSI7czoxMDoiQ29tcGV0ZW5jeSI7czo3OiJzdW1tYXJ5IjtzOjA6IiI7czo4OiJmb3JtZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo0OiJuYW1lIjtzOjEwOiJDb21wZXRlbmN5IjtzOjQ6InR5cGUiO3M6NzoiZmlsdGVycyI7czo1OiJ2YWx1ZSI7YjoxO319aToxO2E6NTp7czoyOiJpZCI7czoxNToiRzhLODNiYVlQRTB3eEFwIjtzOjEwOiJwbHVnaW5uYW1lIjtzOjEzOiJsZWFybmluZ3RyYWNrIjtzOjE0OiJwbHVnaW5mdWxsbmFtZSI7czoxNDoiTGVhcm5pbmcrVHJhY2siO3M6Nzoic3VtbWFyeSI7czowOiIiO3M6ODoiZm9ybWRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6NDoibmFtZSI7czoxNDoiTGVhcm5pbmcrVHJhY2siO3M6NDoidHlwZSI7czo3OiJmaWx0ZXJzIjtzOjU6InZhbHVlIjtiOjE7fX19fXM6MTI6ImNhbGN1bGF0aW9ucyI7YToxOntzOjg6ImVsZW1lbnRzIjtOO31zOjg6Im9yZGVyaW5nIjthOjE6e3M6ODoiZWxlbWVudHMiO047fXM6NDoicGxvdCI7YToxOntzOjg6ImVsZW1lbnRzIjthOjE6e2k6MDthOjU6e3M6MjoiaWQiO3M6MTU6Ijd4dmpCU3VnY0tOeDRrNiI7czo4OiJmb3JtZGF0YSI7Tzo4OiJzdGRDbGFzcyI6OTp7czo5OiJjaGFydG5hbWUiO3M6MTA0OiIlN0JtbGFuZytlbiU3RCtQYXJ0aWNpcGF0aW9uKyU3Qm1sYW5nJTdEKyU3Qm1sYW5nK2FyJTdEKyVEOSU4NSVEOCVCNCVEOCVBNyVEOCVCMSVEOSU4MyVEOCVBOSslN0JtbGFuZyU3RCI7czo3OiJzZXJpZWlkIjtzOjg6ImV4YW1uYW1lIjtzOjU6InlheGlzIjthOjI6e2k6MDtzOjExOiJlbnJvbGxtZW50cyI7aToxO3M6MTE6ImNvbXBsZXRpb25zIjt9czoxMDoic2hvd2xlZ2VuZCI7czoxOiIxIjtzOjEwOiJkYXRhbGFiZWxzIjtzOjE6IjEiO3M6NToiY2FsY3MiO3M6MDoiIjtzOjEwOiJjb2x1bW5zb3J0IjtzOjg6ImV4YW1uYW1lIjtzOjc6InNvcnRpbmciO3M6MDoiIjtzOjU6ImxpbWl0IjtzOjA6IiI7fXM6MTA6InBsdWdpbm5hbWUiO3M6NjoiY29sdW1uIjtzOjE0OiJwbHVnaW5mdWxsbmFtZSI7czozOiJCYXIiO3M6Nzoic3VtbWFyeSI7czo0MDoiQStiYXIrZ3JhcGgrd2l0aCttdWx0aXBsZStzZXJpZXMrb2YrZGF0YSI7fX19czoxMToicGVybWlzc2lvbnMiO2E6Mjp7czo2OiJjb25maWciO086ODoic3RkQ2xhc3MiOjM6e3M6MTM6ImNvbmRpdGlvbmV4cHIiO3M6MTQ6IiUyOGMxK29yK2MyJTI5IjtzOjE0OiJjb25kaXRpb25leHByMSI7czowOiIiO3M6MTQ6ImNvbmRpdGlvbmV4cHIyIjtzOjE0OiIlMjhjMStvcitjMiUyOSI7fXM6ODoiZWxlbWVudHMiO2E6Mjp7aToxO2E6NTp7czoyOiJpZCI7czoxNToiNFZiNTRFN1pNZ3JCSXdjIjtzOjg6ImZvcm1kYXRhIjtPOjg6InN0ZENsYXNzIjozOntzOjEyOiJjb250ZXh0bGV2ZWwiO3M6MjoiMTAiO3M6ODoicm9sZW5hbWUiO3M6MjA6Im9yZ2FuaXphdGlvbm9mZmljaWFsIjtzOjEyOiJzdWJtaXRidXR0b24iO3M6MzoiQWRkIjt9czoxMDoicGx1Z2lubmFtZSI7czoxMjoicm9sZWluY291cnNlIjtzOjE0OiJwbHVnaW5mdWxsbmFtZSI7czozMToiVXNlcit3aXRoK3RoZStzZWxlY3RlZCtyb2xlJTJGcyI7czo3OiJzdW1tYXJ5IjtzOjM2OiJvcmdhbml6YXRpb25vZmZpY2lhbCthdCtTeXN0ZW0rbGV2ZWwiO31pOjI7YTo1OntzOjI6ImlkIjtzOjE1OiJ4ZWlKNWYwS2VIZWpTT1oiO3M6ODoiZm9ybWRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6MTI6ImNvbnRleHRsZXZlbCI7czoyOiIxMCI7czo4OiJyb2xlbmFtZSI7czoxMjoiZXhhbW9mZmljaWFsIjtzOjEyOiJzdWJtaXRidXR0b24iO3M6MzoiQWRkIjt9czoxMDoicGx1Z2lubmFtZSI7czoxMjoicm9sZWluY291cnNlIjtzOjE0OiJwbHVnaW5mdWxsbmFtZSI7czozMToiVXNlcit3aXRoK3RoZStzZWxlY3RlZCtyb2xlJTJGcyI7czo3OiJzdW1tYXJ5IjtzOjI4OiJleGFtb2ZmaWNpYWwrYXQrU3lzdGVtK2xldmVsIjt9fX19]]></components>
+<export><![CDATA[]]></export>
+<global><![CDATA[1]]></global>
+<lastexecutiontime><![CDATA[0]]></lastexecutiontime>
+<disabletable><![CDATA[0]]></disabletable>
+<instance version="2021051704.16"><blockname><![CDATA[reportdashboard]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[side-db-main]]></defaultregion>
+<defaultweight><![CDATA[-1]]></defaultweight>
+<timecreated><![CDATA[1676008245]]></timecreated>
+<timemodified><![CDATA[1676008245]]></timemodified>
+<title><![CDATA[Exams]]></title>
+<reportcontenttype><![CDATA[table]]></reportcontenttype>
+<reporttype><![CDATA[]]></reporttype>
+<logo><![CDATA[]]></logo>
+<tilescolourpicker><![CDATA[]]></tilescolourpicker>
+<disableheader><![CDATA[]]></disableheader>
+<reportduration><![CDATA[]]></reportduration>
+<tilescolour><![CDATA[]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position><instance version="2021051704.16"><blockname><![CDATA[reportdashboard]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard-organizationofficial_10]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[side-db-main]]></defaultregion>
+<defaultweight><![CDATA[2]]></defaultweight>
+<timecreated><![CDATA[1676008245]]></timecreated>
+<timemodified><![CDATA[1676008245]]></timemodified>
+<title><![CDATA[{mlang en} Exams {mlang} {mlang ar}  اختبارات{mlang}]]></title>
+<reportcontenttype><![CDATA[table]]></reportcontenttype>
+<reporttype><![CDATA[]]></reporttype>
+<logo><![CDATA[]]></logo>
+<tilescolourpicker><![CDATA[]]></tilescolourpicker>
+<disableheader><![CDATA[]]></disableheader>
+<reportduration><![CDATA[]]></reportduration>
+<tilescolour><![CDATA[]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position><instance version="2021051704.16"><blockname><![CDATA[reportdashboard]]></blockname>
+<parentcontextid><![CDATA[2]]></parentcontextid>
+<showinsubcontexts><![CDATA[0]]></showinsubcontexts>
+<requiredbytheme><![CDATA[0]]></requiredbytheme>
+<pagetypepattern><![CDATA[blocks-reportdashboard-dashboard-examofficial_10]]></pagetypepattern>
+<subpagepattern><![CDATA[Facademy]]></subpagepattern>
+<defaultregion><![CDATA[side-db-main]]></defaultregion>
+<defaultweight><![CDATA[0]]></defaultweight>
+<timecreated><![CDATA[1676008245]]></timecreated>
+<timemodified><![CDATA[1676008245]]></timemodified>
+<title><![CDATA[{mlang en} Exams {mlang} {mlang ar}  اختبارات{mlang}]]></title>
+<reportcontenttype><![CDATA[7xvjBSugcKNx4k6]]></reportcontenttype>
+<reporttype><![CDATA[]]></reporttype>
+<logo><![CDATA[]]></logo>
+<tilescolourpicker><![CDATA[]]></tilescolourpicker>
+<disableheader><![CDATA[]]></disableheader>
+<reportduration><![CDATA[]]></reportduration>
+<tilescolour><![CDATA[]]></tilescolour>
+<url><![CDATA[]]></url>
+</instance><position version="2021051704.16"></position></report>

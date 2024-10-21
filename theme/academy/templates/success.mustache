@@ -1,0 +1,22 @@
+{{#js}}
+require(['jquery', 'core/modal_factory'], function($, ModalFactory) {
+  ModalFactory.create({
+    title: 'Success',
+    body: "{{message}}",
+    type: ModalFactory.types.ALERT,
+    buttons: {
+        cancel: "Ok",
+    },
+    removeOnClose: true,
+    
+  })
+  .done(function(modal) {
+    modal.getRoot().addClass('alertdialogmodal successdialog').attr('data-backdrop','static').attr('data-keyboard','false');
+    modal.getRoot().find('.modal-dialog').addClass('modal-dialog-centered');
+    modal.show();
+    
+
+  });
+
+});
+{{/js}}

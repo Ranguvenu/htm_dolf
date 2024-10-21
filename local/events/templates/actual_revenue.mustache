@@ -1,0 +1,21 @@
+
+<div class="table-responsive mt-1">
+    <table class="table generaltable">
+        <thead>
+            <tr>
+                <th>{{#str}}logistics,local_events{{/str}}</th>
+                <th>{{#str}}speakers,local_events{{/str}}</th>
+                <th>{{#str}}totalincomes, local_events{{/str}}</th>
+                <th>{{#str}}revenue, local_events{{/str}}</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr> 
+                    <td>{{logistics}}</td>
+                    <td>{{speakers}}</td>
+                    <td>{{totalincome}}</td>
+                    <td>{{totalincome}} - ({{speakers}} + {{logistics}} )</td>
+                </tr>
+            </tbody>
+    </table>
+</div>

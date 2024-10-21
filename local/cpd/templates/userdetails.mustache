@@ -1,0 +1,84 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<table class='generaltable' id='popup_user{{partnershipid}}'>
+    <tbody>
+        <tr><td>{{#str}} traineename,local_cpd{{/str}}</td><td>{{username}}</td></tr>
+        <tr><td>{{# str}} evidencetype, local_cpd{{/ str}}</td><td>{{evidencetype}}</td></tr>
+         {{# formalevidence}}
+        <tr><td>{{# str}} name, local_cpd{{/ str}}</td><td>{{name}}</td></tr>
+        <tr><td>{{# str}} institutename, local_cpd{{/ str}}</td><td>{{institutename}}</td></tr>
+        <tr><td>{{# str}} institutelink, local_cpd{{/ str}}</td><td>{{institutelink}}</td></tr>
+        <tr><td>{{# str}} cityname, local_cpd{{/ str}}</td><td>{{cityname}}</td></tr>
+        <tr><td>{{# str}} startdate, local_cpd{{/ str}}</td><td>{{startdate}}</td></tr>
+        <tr><td>{{# str}} enddate, local_cpd{{/ str}}</td><td>{{enddate}}</td></tr>
+        <tr><td>{{# str}} noofdays, local_cpd{{/ str}}</td><td>{{noofdays}}</td></tr>
+        {{/formalevidence}}
+        {{# informalevidence}}
+            <tr><td>{{# str}} title, local_cpd{{/ str}}</td><td>{{title}}</td></tr>
+            <tr><td>{{# str}} institutelink, local_cpd{{/ str}}</td><td>{{institutelink}}</td></tr>
+            {{# isauthor}}
+                <tr><td>{{# str}} author, local_cpd{{/ str}}</td><td>{{author}}</td></tr>
+                <tr><td>{{# str}} editiondate, local_cpd{{/ str}}</td><td>{{editiondate}}</td></tr>
+            {{/ isauthor}}
+            {{# organization}}
+                <tr><td>{{# str}} organizer, local_cpd{{/ str}}</td><td>{{author}}</td></tr>
+                <tr><td>{{# str}} activitydate, local_cpd{{/ str}}</td><td>{{editiondate}}</td></tr>
+            {{/ organization}}
+            {{# ispublisher}}
+                <tr><td>{{# str}} publisher, local_cpd{{/ str}}</td><td>{{author}}</td></tr>
+                <tr><td>{{# str}} activitydate, local_cpd{{/ str}}</td><td>{{editiondate}}</td></tr>
+                <tr><td>{{# str}} published, local_cpd{{/ str}}</td><td>{{published}}</td></tr>
+                <tr><td>{{# str}} wordcount, local_cpd{{/ str}}</td><td>{{wordcount}}</td></tr>
+                <tr><td>{{# str}} pagecount, local_cpd{{/ str}}</td><td>{{pagecount}}</td></tr>
+            {{/ ispublisher}}
+            
+         {{/ informalevidence}}
+         <tr><td>{{# str}} creditedhours, local_cpd{{/ str}}</td><td> {{creditedhours}}</td></tr>
+         <tr><td>{{# str}} relationcpd, local_cpd{{/ str}}</td><td>{{{relationtocpd}}}</td></tr>
+         <tr><td>{{# str}} comment, local_cpd{{/ str}}</td><td>{{{comment}}}</td></tr>
+            <tr>
+                <td>{{# str}} attachment, local_cpd{{/ str}}</td>
+                        {{#attachment}}
+                         <td class="d-flex action_btns">
+                            <a title="{{#str}}download_attachment, local_cpd {{/ str}}" href="{{attachment}}" target="_blank" class="btn btn-primary download-btn">
+                                <span class="text-white"> <i class="icon fa fa-download" aria-hidden="true"></i></span>
+                            </a>  
+                        </td>
+                         {{/attachment}}
+                         {{^attachment}}  
+                         <td>--</td> 
+                         {{/attachment}}                
+            </tr>
+         <tr><td>{{# str}} dateofachievement, local_cpd{{/ str}}</td><td>{{dateofachievement}}</td></tr>
+           <tr><td>{{# str}} rejectionreason, local_cpd{{/ str}}</td><td>{{{rejectionreason}}}</td></tr> 
+         {{#action}}
+         {{#status}}
+         <!--<tr>
+            <td>  
+                <div class="flex-wrap align-items-center action_btns">
+                    <button class="btn btn-sm btn-primary" data-action="evidencestatus" data-id ="{{id}}" data-status = "1" data-title="approve" > {{#str}}approve,local_cpd{{/str}}</button>
+                    <button class="btn btn-sm btn-danger" data-action="evidencestatus" data-id ="{{id}}"  data-title="reject" data-status = "2"> {{#str}}reject,local_cpd{{/str}}</button>
+                </div>
+                <td></td>
+            </td>
+        </tr>-->
+        {{/status}}
+        {{/action}}
+
+    </tbody>
+</table>

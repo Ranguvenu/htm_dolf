@@ -1,0 +1,85 @@
+{{#response}}
+<div class="my-4 table-responsive" id="view_exam_schedules">
+	<table class="table generaltable">
+        <thead> 
+            <tr>
+                <th><input type="checkbox" data-action="checkall" class="checkbox" data-userid ="{{userid}}"></th>
+                <th>{{#str}}name, local_exams{{/str}}</th>
+                <th>{{#str}}id_number, local_exams{{/str}}</th>
+                <th>{{#str}}examcenter, local_exams{{/str}}</th>
+                <th>{{#str}}examprofiles, local_exams{{/str}}</th>
+                <th>{{#str}}examdate, local_exams{{/str}}</th>
+                <th>{{#str}}certificatecode, local_exams{{/str}}</th>
+                <th class="text-center">{{# str}}action , local_hall{{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <div class=" mb-3 collapse" id="hallid-{{hallid}}">
+                {{#records}}
+                <tr>
+                    <td><input type="checkbox" data-userid="{{userid}}" class="user-checkbox" data-examid="{{examid}}"></td>
+                    <td> <h6>{{fullname}}</h6></td>
+                    <td> <h6>{{id_number}}</h6></td>
+                    <td> <h6 data-hallscheduleid = "{{hallscheduleid}}">{{#name}}{{name}}{{/name}} {{^name}}--{{/name}}</h6></td>
+                    <!-- <td> <h6>{{#profilecode}}{{profilecode}}{{/profilecode}}{{^profilecode}}--{{/profilecode}}</h6></td> -->
+                    <td> <h6 data-id="{{examid}}">{{#examname}}{{examname}}{{/examname}}{{^examname}}--{{/examname}}</h6></td>
+                    <td> 
+                    	<h6>{{#examdate}}
+                    			{{examdate}}, {{examtime}}
+                    		{{/examdate}}
+	                    	{{^examdate}}
+	                    		--
+	                    	{{/examdate}}
+	                    </h6>
+	                </td>
+                    <td>
+                    	<h6>
+	                    	{{#certificate_code}}
+                            <a href="{{{url}}}/admin/tool/certificate/index.php?code={{certificate_code}}" target="_blank">
+	                    		{{certificate_code}}
+                            </a>
+	                    	{{/certificate_code}}
+	                    	{{^certificate_code}}
+	                    		--
+	                    	{{/certificate_code}}
+	                    </h6>
+	                </td>
+                    <td>
+                    	{{#certificate_code}}
+                        <div class="d-flex action_btns">
+                            <a href="{{{url}}}/admin/tool/certificate/view.php?code={{certificate_code}}" title="{{# str}}view{{/ str}}" target="_blank">
+                                <i class="icon fa fa-search fa-fw " aria-hidden="true" target="_blank" aria-label="view"></i>
+                            </a>
+                            <a href="javascript:void(0)" data-action = 'regenerate' data-id = '{{cer_id}}'  title="{{# str}}regenerateissuefile, tool_certificate{{/ str}}" onclick="(function(e){ require('tool_certificate/issues-list').regenerate({{certificate_code}})})(event)">
+                                <i class="fa fa-refresh fa-fw" aria-hidden="true" aria-label="regenerate"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" data-action = 'revoke' data-id = '{{cer_id}}'  title="{{# str}}revoke, local_exams{{/ str}}" onclick="(function(e){ require('tool_certificate/issues-list').revoke({{certificate_code}})})(event)">
+                                <i class="fa fa-trash fa-fw" aria-hidden="true" aria-label="revoke"></i>
+                            </a>
+                        </div>
+                        {{/certificate_code}}
+                        {{^certificate_code}}
+                        	<button class="btn btn-primary btn-small" data-page="exam_certificate" data-userid="{{userid}}" data-examid="{{examid}}" data-element= "addbutton" data-userid="{{userid}}" data-tid="{{templateid}}">
+	                        	{{#str}}issuecertificates, local_exams{{/str}}
+	                        </button>
+                        {{/certificate_code}}
+                        
+                    </td>
+                </tr>        
+                {{/records}}
+            </div>
+        </tbody>
+    </table>
+    <div class="col-md-12 row">
+        <div class="col-md-6">
+            <button data-action="issueforselectedusers" class="btn btn-primary" data-tid = "{{templateid}}" data-page="exam_certificate">
+                {{#str}}issueforselectedusers, local_exams{{/str}}
+            </button>
+            <button data-action="issueforallusers" class="btn btn-primary" data-tid = "{{templateid}}" data-page="exam_certificate">
+                {{#str}}issueforallusers, local_exams{{/str}}
+            </button>
+        </div>
+    </div>
+</div>
+{{/response}}

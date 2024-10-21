@@ -1,0 +1,46 @@
+{{#seatexceed}}
+
+	<div class='alert alert-danger'>{{#str}}noseats,tool_product{{/str}}</div>
+
+{{/seatexceed}}
+{{^seatexceed}}
+	{{#postpaid}}
+
+		{{#success}}
+
+			<div class='alert alert-success'>{{#str}}postpaidsuccess,tool_product{{/str}}</div>
+
+		{{/success}}
+
+		{{^success}}
+
+			<div class='alert alert-danger'>{{#str}}postpaidfail,tool_product{{/str}}</div>
+
+		{{/success}}
+
+	{{/postpaid}}
+
+	{{#prepaid}}
+
+		{{#success}}
+
+			<div class='alert alert-success'>{{#str}}prepaidsuccess,tool_product{{/str}}</div>
+
+		{{/success}}
+
+		{{^success}}
+
+			<div class='alert alert-danger'>{{#str}}prepaidfail,tool_product{{/str}}</div>
+
+		{{/success}}
+
+	{{/prepaid}}
+
+	{{#nopaymenttype}}
+
+			<div class='alert alert-success'>{{#str}}nopaymenttypeissue,tool_product{{/str}}</div>
+
+	{{/nopaymenttype}}
+{{/seatexceed}}
+
+

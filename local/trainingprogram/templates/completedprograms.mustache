@@ -1,0 +1,55 @@
+{{#response}}
+{{#records}}
+
+<div id="trainingprograms">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab-pane show active" id="tab_content_tab1" role="tabpanel"   aria-labelledby="tab1-tab">
+                <div class="table-responsive mt-3">
+                    <table class="table training_prgrams_table">
+                        <thead> 
+                            <tr>
+                                <th>{{#str}}course,local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}date,local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}end_date,local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}sector,local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}job_family,local_trainingprogram{{/str}}</th>
+                                <th>{{#str}}status,local_trainingprogram{{/str}}</th>
+                                <th class="text-center">{{#str}}actions,local_trainingprogram{{/str}}</th>
+                            </tr>
+                        </thead>
+                       
+                        <tbody>
+                        {{# hascourses}}
+                            <tr class="course_details_row">
+                                
+                                <td> {{tainingprogramname}}</td>
+                                <td>{{availablefrom}}</td>
+                                <td>{{availableto}}</td>
+                                <td>{{sector}}</td>
+                                <td>{{jobfamily}}</td>
+                                <td>Completed</td>
+                                
+                                <td>
+                                    <div class="d-flex action_btns justify-content-center"> 
+                                        <a href="{{{detailedprogramviewurl}}}"><span class="bg-info text-white"><i class="fa fa-search-plus"></i></span></a>
+                                   </div>
+                               </td>
+                              
+                            </tr>
+                            {{/ hascourses}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#js}}
+    require(['local_trainingprogram/tpview'], function(s) {
+        s.init();
+    });
+{{/js}}
+ {{/ records}}
+{{/ response}}
+ 

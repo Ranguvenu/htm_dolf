@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="globalfilter col-md-8">
+                {{{globalinput}}}
+            </div>
+            <div class="col-md-4 text-right">
+                {{# addevent}}
+                    <a  href = "{{addevent}}" role="button" class="btn btn-primary mr-2" data-action="createexam"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}addnew, local_events{{/str}}</a>
+                {{/ addevent}}
+                {{# filterform}}
+                    <button class="btn filter_toggle_btn" id="filter_open_btn">
+                        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                        {{#str}}filter,local_events{{/str}}
+                    </button>
+                {{/ filterform}}
+            </div>
+        </div>
+        <div id="events_section">
+            <div id="events_container">
+                {{{eventdetails}}}
+            </div>
+        </div> 
+    </div>
+    
+<div class="filters_container">
+    <div class="header_content">
+        <div class="d-flex align-items-center justify-content-between">
+            <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span>  {{#str}}filter,local_events{{/str}}</h6>
+            <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+            {{#str}}close,local_events{{/str}}
+            </button>
+        </div>
+            
+        <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+            {{#str}}shownfilters,local_events{{/str}}
+        </div>
+    </div>
+    <div class="filters_contents">
+            {{{filterform}}}
+    </div>
+</div>
+    
+</div>
+{{# addevent}}
+{{#js}}
+    require(['local_events/eventsform'], function(s) {
+        s.init();
+    });
+{{/js}}
+{{/ addevent}}

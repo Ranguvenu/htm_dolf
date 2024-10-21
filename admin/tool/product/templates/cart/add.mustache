@@ -1,0 +1,46 @@
+<div data-region="add-btn-{{product_attributes.product}}">
+    <button class="btn btn-primary btn-block mb-3" data-product="{{product_attributes.product}}" 
+    {{#product_attributes.orgofficial}}
+    data-orgofficial="{{product_attributes.orgofficial}}"
+    {{/product_attributes.orgofficial}}
+      
+    {{#product_attributes.tandc}}
+    data-tandc = "{{product_attributes.tandc}}"
+    {{/product_attributes.tandc}}
+
+     data-variation="{{product_attributes.variation}}" data-category="{{product_attributes.category}}" 
+    data-quantity="{{product_attributes.quantity}}" data-loggedin="{{product_attributes.isloggedin}}" data-hasvariations="{{product_attributes.hasvariations}}" 
+    data-checkout="{{product_attributes.checkout}}" {{^product_attributes.isloggedin}} data-login="login-for-cart"{{/ product_attributes.isloggedin}}
+    {{#product_attributes.profileid}} data-profileid="{{product_attributes.profileid}}" 
+    {{/ product_attributes.profileid}}
+    {{#product_attributes.hallscheduleid}} 
+    data-action="add-to-cart-{{product_attributes.product}}-{{product_attributes.hallscheduleid}}" {{/ product_attributes.hallscheduleid}} 
+    {{^product_attributes.hallscheduleid}}{{^product_attributes.profileid}} data-action="add-to-cart-{{product_attributes.product}}" 
+    {{/ product_attributes.profileid}} {{/ product_attributes.hallscheduleid}} data-errortext="{{ product_attributes.errortext }}" 
+    data-grouped="{{ product_attributes.grouped }}" {{#product_attributes.hallscheduleid}} 
+    data-hallscheduleid={{product_attributes.hallscheduleid}} {{/ product_attributes.hallscheduleid}} {{# product_attributes.processtype}} 
+    data-processtype={{product_attributes.processtype}} {{/ product_attributes.processtype}}>{{product_attributes.label}}</button>
+</div>
+
+
+{{#product_attributes.hallscheduleid}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        product.add('[data-action="add-to-cart-{{product_attributes.product}}-{{product_attributes.hallscheduleid}}"]');
+    });
+{{/js}}
+{{/product_attributes.hallscheduleid}}
+{{#product_attributes.profileid}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        product.add('[data-action="add-to-cart-{{product_attributes.product}}-{{product_attributes.profileid}}"]');
+    });
+{{/js}}
+{{/product_attributes.profileid}}
+{{^product_attributes.hallscheduleid}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        product.add('[data-action="add-to-cart-{{product_attributes.product}}"]');
+    });
+{{/js}}
+{{/product_attributes.hallscheduleid}}

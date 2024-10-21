@@ -1,0 +1,27 @@
+<table class="table generaltable">
+   {{# data}}
+  <thead> 
+    <tr>
+      <th>Course Name</th>
+      <th>Topics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="selectedcoursetopics mb-3 collapse" id="selected_course-{{courseid}}">         
+      {{# topics}}
+        <tr>
+          <td>
+            <h6>{{fullname}}</h6>
+          </td>
+          <td>
+            <h6>{{name}}</h6>
+          </td>
+        </tr>        
+      {{/ topics}}         
+    </div>
+  </tbody>
+  {{/ data}}
+   {{^ data}}
+      <div class="w-100 pull-left alert alert-info" >No Records Found</div>
+    {{/ data}}   
+</table>

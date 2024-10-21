@@ -1,0 +1,12 @@
+
+
+<div class="d-flex justify-content-end align-items-center">
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createfaq"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createfaq, block_faq{{/str}}</a>
+</div>
+
+{{#js}}
+    require(['block_faq/faq'], function(s) {
+        s.init();
+    });
+{{/js}}
+

@@ -1,0 +1,14 @@
+{{#js}}
+require(['jquery', 'core/modal_factory'], function($, ModalFactory) {
+  ModalFactory.create({
+    title: '',
+    body: '<div class="p-4"> <h1 class="m-3 p-2">{{message_title}}</h1> <p class="mt-4 mb-1">{{message_heading}}</p><p class="mb-3">{{message_body}}</p> </div><div class="text-center my-2 dialog_action_btns"><a href="{{{message_url}}}" class="btn btn-primary btn-lg px-5 py-1">{{message_footer}}</a></div>',
+    footer: '',
+  })
+  .done(function(modal) {
+    modal.getRoot().addClass('alertdialogmodal successdialog').attr('data-backdrop','static').attr('data-keyboard','false');
+    modal.getRoot().find('.modal-dialog').removeClass('modal-dialog-scrollable').addClass('modal-dialog-centered');
+    modal.show();
+  });
+});
+{{/js}}

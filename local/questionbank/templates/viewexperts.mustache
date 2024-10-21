@@ -1,0 +1,79 @@
+{{!
+    This file is part of eAbyas
+   Copyright eAbyas Info Solutons Pvt Ltd, India
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+   @author eabyas  <info@eabyas.in>
+}}
+<div class="row" id="experts_container">
+   <div class="col-md-12">
+        <div class="col-md-12">
+            <div id="experts_container">
+                <div class="row my-3">
+                    <div class="col-md-4">
+                         <div class="global_filter_structure">
+                            <input id="expert_global_filter" class="global filter form-control" placeholder={{#str}}search{{/str}} type="text" name="search_query">
+                        </div>
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center justify-content-end">
+                    
+                    {{# qbstatus}}
+                        <span class="text-black mr-2"><b>{{#str}}availableseats, local_questionbank{{/str}} : {{availableseats}}</b></span>
+                        <a href="#" data-action="assignexpert" data-id="{{workshopid}}" data-seats="{{availableseats}}" data-qbstatus="{{qbstatus}}"><span class="btn btn-primary btn-md">{{#str}}assign, local_questionbank{{/str}}</span></a>
+                    {{/ qbstatus}}
+                    </div>
+                </div>
+            </div> 
+       </div>
+
+       <div class="table-responsive mt-4">
+           <!-- table content -->
+            <div id="manage_qp_experts" data-region="manage_qp_experts-preview-container" class="competencies_pc_container viewcompetencys px-3 py-4">
+                <div data-region="manage_qp_experts-count-container"></div>
+                <div data-region="manage_qp_experts-list-container" class ="methoddata{{ workshopid }}">
+                </div>
+                <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                    <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, theme_academy, {{#str}} loading {{/str}} {{/pix}}</span>
+                </span>
+            </div> 
+       </div>
+   </div>
+</div>
+             
+{{#js}}
+    require(['theme_academy/cardPaginate'], function(cardPaginate) {
+    var options = 
+    {
+          targetID: 'manage_qp_experts',
+          templateName: 'local_questionbank/viewexpertslist',
+          methodName: 'local_questionbank_viewexperts',
+          perPage: 5,
+          cardClass: 'col-md-6 col-12',
+          viewType: 'table'
+   };
+    var filteroptions = {workshopid:{{workshopid}}};
+    var dataoptions = {};
+    cardPaginate.reload(options, dataoptions,filteroptions);
+    var search_interval = 100;
+    var timer;
+    $(document).on('keyup', '#expert_global_filter', function(){
+    var searchval = $(this).val();
+    var filterdata = {search_query: searchval, workshopid:{{workshopid}}};
+    timer = setTimeout(function(){
+    cardPaginate.reload(options, dataoptions,filterdata);
+    },search_interval);
+    });
+    $(document).on('keydown', '#expert_global_filter', function(){
+    clearTimeout(timer);
+    });
+    });
+{{/js}}

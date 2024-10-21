@@ -1,0 +1,31 @@
+{{#response}}
+
+    {{#records}}
+    <div class= "table-responsive">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">{{# str}} role, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} doc, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} fieldoftraining, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} requestdate, local_userapproval{{/ str}}</th>
+                  <th scope="col">{{# str}} status, local_userapproval{{/ str}}</th>
+                </tr>
+            </thead>
+          <tbody>
+          {{#hascourses}}
+              <tr>
+                    <td>{{role}}</td>
+                    <td>{{{document}}}</td>
+                    <td>{{fieldoftraining}}</td>
+                    <td>{{requestdate}}</td>
+                    <td>{{status}}</td>                                                                     
+        
+              </tr>
+           {{/hascourses}} 
+          </tbody>
+        </table>
+        </div>
+    {{/ records}}
+{{/ response}}
+

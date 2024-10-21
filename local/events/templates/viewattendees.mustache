@@ -1,0 +1,76 @@
+{{!
+    This file is part of eAbyas
+   Copyright eAbyas Info Solutons Pvt Ltd, India
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+   @author eabyas  <info@eabyas.in>
+}}
+<div class="row" id="competencies_container">
+   <div class="col-md-12">
+       <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6 text-right">
+                {{# addattendee}}
+                <a class="btn btn-primary" href="{{cfgurl}}/local/exams/certificateszip.php?entityid={{eventid}}&type=event" title="{{#str}}downloadallcertificates, local_exams{{/str}}"> <i class="fa fa-download" aria-hidden="true"></i></a>      
+                <button class="btn btn-primary" data-action="createattendee" data-eventid = "{{eventid}}" ><i class="fa fa-plus" aria-hidden="true"></i> {{#str}}registration, local_events{{/str}}</button>
+                {{/ addattendee}}
+                <button class="btn filter_toggle_btn" id="filter_open_btn">
+                    <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+                    {{#str}}filter, local_events{{/str}}
+                </button>
+            </div>
+     
+       </div>
+        <div class="table-responsive mt-4">
+          {{#organizationofficial}}
+
+            {{#eventmethod}}
+                 <div class='alert alert-info'>{{#str}}noofavailableseats, tool_product,{{availableseats}}{{/str}}</div>
+            {{/eventmethod}}
+
+          {{/organizationofficial}}
+          {{^organizationofficial}}
+            {{#eventmethod}}
+              {{#seats}}
+              <div class='alert alert-info'>{{#str}}noofavailableseats, tool_product,{{availableseats}}{{/str}}</div>
+              {{/seats}}
+              {{^seats}}
+                 <div class='alert alert-danger'>{{#str}}pleasereserseats, local_events,{{availableseats}}{{/str}}</div>
+              {{/seats}}
+            {{/eventmethod}}
+          {{/organizationofficial}}
+           <!-- table content -->
+         {{> theme_academy/cardPaginate }}
+       </div>
+   </div>
+   <div class="filters_container">
+    <div class="header_content">
+    <div class="d-flex align-items-center justify-content-between">
+    <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{#str}}filter, local_events{{/str}}</h6>
+    <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+    {{#str}}close, local_events{{/str}}
+    </button>
+    </div>
+    <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+    {{#str}}shownfilters, local_events{{/str}}
+    </div>
+    </div>
+    <div class="filters_contents">
+    {{{filterform}}}
+    </div>
+    </div>
+</div>
+{{#js}}
+    require(['local_events/eventsform'], function(s) {
+        s.init();
+    });
+{{/js}}

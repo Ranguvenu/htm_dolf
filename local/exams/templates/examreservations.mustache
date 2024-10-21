@@ -1,0 +1,23 @@
+{{#response}}
+{{# records}}
+    {{# hascourses}}
+
+		{{#examhallreservation}}
+			{{> local_exams/examreservation}}
+		{{/examhallreservation}}
+		{{^examhallreservation}}
+		    <div class='alert alert-info'>{{#str}}noreservations, local_exams{{/str}}</div>
+		{{/examhallreservation}}
+
+    {{/ hascourses}}
+
+{{/ records}}
+{{/ response}}
+{{^response}}
+	{{#examhallreservation}}
+		{{> local_exams/examreservation}}
+	{{/examhallreservation}}
+	{{^examhallreservation}}
+	    <div class='alert alert-info'>{{#str}}noreservations, local_exams{{/str}}</div>
+	{{/examhallreservation}}
+{{/ response}}

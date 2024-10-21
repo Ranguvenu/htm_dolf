@@ -1,0 +1,41 @@
+{{#total_purchases}}
+<div style="width: 100%;display:block;margin-top: 15px;margin-bottom: 15px;"> <table style="border-collapse: collapse;border:1px solid #333;">
+	<table style="border-collapse: collapse;border:1px solid #333;">
+	<tr>
+    	<td style="padding: 20px;"><b>{{#str}}order_summary,tool_product{{/str}}</b> </td>
+    	<td style="padding: 20px;"></td>
+    </tr>
+    <tr>
+    	<td style="border:1px solid #333; padding: 20px;"><p>{{#str}}total_purchases,tool_product{{/str}} - {{ total_purchases }}</p></td>
+        <td style="border:1px solid #333;padding: 20px;">{{ total_purchases }}</td>
+    </tr>
+    {{#items}}
+    <tr>
+        <td style="border:1px solid #333;padding: 20px;">{{ name }} x {{quantity }}</td>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}}sa_currency,local_trainingprogram{{/str}}{{ total }}</td>
+    </tr>
+    {{/items}}
+    {{#discount_price}}
+    <tr>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}}discount,tool_product{{/str}}</td>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}}sa_currency,local_trainingprogram{{/str}} {{ discount_price }}</td>
+    </tr>
+    {{/discount_price}}
+    {{#taxes}}
+    <tr>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}}taxes,tool_product{{/str}}</td>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}}sa_currency,local_trainingprogram{{/str}} {{ taxes }}</td>
+    </tr>
+    {{/taxes}}    
+    <!-- <tr>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}} value_added_taxes, tool_product {{/str}}({{ tax_slab }}%)</td>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}}sa_currency,local_trainingprogram{{/str}}{{ taxes }}</td>
+    </tr> -->
+
+    <tr>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}} total, tool_product {{/str}}</td>
+        <td style="border:1px solid #333;padding: 20px;">{{#str}}sa_currency,local_trainingprogram{{/str}} {{total_price}}</td>
+    </tr>
+</table>
+</div>
+{{/total_purchases}}

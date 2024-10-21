@@ -1,0 +1,117 @@
+{{#response}}
+{{#records}}
+ <div class="table-responsive mt-3">
+            <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}title,local_events{{/str}}</th>
+                        <th>{{#str}}lc_startdate,local_events{{/str}}</th>
+                        <th>{{#str}}lc_enddate,local_events{{/str}}</th>
+                        <th>{{#str}}reg_startdate, local_events{{/str}}</th>
+                        <th>{{#str}}reg_enddate, local_events{{/str}}</th>
+                        <th>{{#str}}eventtype, local_events{{/str}}</th>
+                        <th>{{#str}}attendee, local_events{{/str}}</th>
+                        <th>{{#str}}action, local_events{{/str}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{# hasevents}}
+                    <tr>
+                         <td>
+                         {{# isorgoffortrainee}}
+                           {{#checkfavornot}}
+                          <i class="fa fa-star removefav removeshow{{id}}" data-component="local_events" data-action="removefavourites" data-itemtype="events" data-itemid="{{ id }}" data-userid="{{userid}}" data-courseid="1" title="Add To Favourites"></i> 
+                          <i class="fa fa-star addfav addhide{{id}}" data-component="local_events" data-action="addtofavourites" data-itemtype="events" data-itemid="{{ id }}" data-userid="{{userid}}" data-courseid="1" title="Add To Favourites"  style="display:none;"></i>
+                           {{/checkfavornot}}
+                            {{^ checkfavornot}}
+                             <i class="fa fa-star addfav addshow{{id}}" data-component="local_events" data-action="addtofavourites" data-itemtype="events" data-itemid="{{ id }}" data-userid="{{userid}}" data-courseid="1" title="Add To Favourites"></i>                       
+                              <i class="fa fa-star removefav removehide{{id}}" data-component="local_events" data-action="removefavourites" data-itemtype="events" data-itemid="{{ id }}" data-userid="{{userid}}" data-courseid="1" title="Add To Favourites" style="display:none;"></i>
+                           {{/checkfavornot}}
+                          {{/ isorgoffortrainee}}
+                        {{title}}
+                        </td>
+                        <td>{{startdate}}</td>
+                        <td>{{enddate}}</td>
+                        <td>{{reg_startdate}}</td>
+                        <td>{{reg_enddate}}</td>
+                        <td>{{eventtype}}</td>
+                        {{#action}}
+                          <td><a href="{{globals.config.wwwroot}}/local/events/attendees.php?id={{id}}">{{attendeescount}}</a></td>
+                        {{/action}}
+                        
+                        {{^action}}
+                            {{#view_attendees_action}}
+                                <td><a href="{{globals.config.wwwroot}}/local/events/attendees.php?id={{id}}">{{attendeescount}}</a></td>
+                            {{/view_attendees_action}}
+                            {{^view_attendees_action}}
+                                <td>{{attendeescount}}</td>
+                            {{/view_attendees_action}}
+                        {{/action}}
+                        <td> 
+                            <div class="d-flex action_btns">
+                                {{^ iscancelled}}
+                                    {{^ cancelledrequestpending}}
+                                        <a href = "{{viewurl}}" alt="{{#str}}view{{/str}}" title="{{#str}}view{{/str}}"><span class="bg-primary text-white"><i class="fa fa-search-plus" aria-hidden="true"></i></span></a>
+                                        {{^ disableallactions}} 
+                                        {{# canceloption}}
+                                            {{# traineeview}}
+                                            <a href="#" title="{{# str}}cancel, local_exams{{/ str}}" data-action="cancelexam" data-productid={{productid}} data-entitytype='event' data-currentuser={{userid}} data-refundtype="cancel" data-productprice={{eventprice}}><span class="bg-danger text-white"><i class="fa fa-ban" aria-hidden="true"></i></span></a>
+                                            {{/ traineeview}}
+                                        {{/ canceloption}}
+                                        {{/ disableallactions}} 
+                                        {{#certificateid}}
+                                            <a title="{{#str}}download_certificate, local_exams {{/ str}}" href="{{{certificateurl}}}" class="btn btn-primary download-btn">
+                                            <span class="text-white"> <i class="icon fa fa-download" aria-hidden="true"></i></span>
+                                            </a>
+                                        {{/certificateid}}
+                                        {{#action}}
+                                            <a href = "{{editurl}}" alt="{{#str}}edit{{/str}}" title="{{#str}}edit{{/str}}"><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+                                            <a alt="{{#str}}delete{{/str}}" title="{{#str}}delete{{/str}}"  data-action="deleteevent" data-id = "{{id}}" data-name="{{title}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                                        {{/ action}}
+                                        {{# cancelevent}}
+                                            <a href="#" data-action="cancelentity" data-rootid='{{id}}' data-fieldid={{id}} data-fieldcode={{code}} data-productid={{productid}}  data-entitytype ='event' data-currentuser ={{currentuser}} data-costtype ={{costtype}} data-requestby="{{currentuser}}" data-requesttype = 'cancelentity' data-hasenrollments = {{hasenrollments}} data-toggle = "tooltip" title="{{#str}} cancel_event , local_events{{/str}}"><span class="btn btn-warning text-white"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                        {{/ cancelevent}}
+                                        <!--booknow button-->
+                                        {{# orgoff}}
+                                        <div class="orgenrolbtn">
+                                            <a href="{{config.wwwroot}}./attendees.php?id={{id}}" class="btn btn-primary orgenroll p-3">{{#str}}enrol, local_events{{/str}}</a>
+                                        </div>
+                                        {{/ orgoff}}
+                                    {{/ cancelledrequestpending}}
+                                {{/ iscancelled}}
+
+                                {{# iscancelled}}
+                                    <a href = "{{viewurl}}" alt="{{#str}}view{{/str}}" title="{{#str}}view{{/str}}"><span class="bg-primary text-white"><i class="fa fa-search-plus" aria-hidden="true"></i></span></a>
+                                    {{# candelete}}
+                                      <a alt="{{#str}}delete{{/str}}" title="{{#str}}delete{{/str}}"  data-action="deleteevent" data-id = "{{id}}" data-name="{{title}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                                    {{/ candelete}}
+                                {{/ iscancelled}}
+                                {{# cancelledrequestpending}}
+                                   {{cancelledstatustext}}
+                                {{/ cancelledrequestpending}}
+                            </div>
+                      
+                        </td>
+                    </tr>
+                    {{/ hasevents}}
+                </tbody>
+            </table>
+
+{{/ records}}
+{{/ response}}
+
+{{#js}}
+    require(['local_events/eventsform','tool_product/product'], function(s,product) {
+        s.init();
+
+        $(document).on('click','.product_orderseats',function(e){
+            e.stopImmediatePropagation();
+            var action = $(this).data('action');
+            product.add_order_seats('[data-action='+action+']');
+        });
+    });
+require(['local_exams/fav'], function(s) {
+        s.init();
+    });
+
+{{/js}}

@@ -1,0 +1,24 @@
+<div>
+    <div class="filterscontainer">
+        <div class="global_filter">
+                <div class="global_filter_structure form-group m-0  col-md-14">
+                      {{{globalinput}}}
+                </div>
+        </div>
+        <div>
+            {{{filterform}}}
+        </div>
+        <a href="javascript::void(0)" class="searchbtnicon" name="filter_apply" id="id_filter_apply" 
+             onclick="(function(e){ require('theme_academy/cardPaginate').filteringData(e,'events') })(event)"> {{#str}}search,local_events{{/str}}</a>
+        {{! <a href="">
+            <div class="searchbtnicon"></div>
+        </a> }}
+    </div>
+    <div class="programs_container" id="programs_container"> 
+          
+            <div data-region='programs_container-list-container'>
+            </div>
+ 
+    </div>
+
+</div>

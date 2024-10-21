@@ -1,0 +1,74 @@
+ {{#response}}
+ {{#records}} 
+<div id="exams_block_container">
+	<ul class="nav nav-tabs" id="exams_tabs" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="exams-tab" data-toggle="tab" href="#currentexamstab" role="tab" aria-controls="current" aria-selected="true">{{#str}}exams, local_exams{{/str}}</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="examscompleted-tab" data-toggle="tab" href="#completedexamstab" role="tab" aria-controls="completed" aria-selected="false">{{#str}}completed_exams, local_exams{{/str}}</a>
+		</li>
+	</ul>
+	<div class="tab-content" id="exam_tabscontent">    
+		<div class="tab-pane show active" id="currentexamstab" role="tabpanel" aria-labelledby="exams-tab">
+			<table class="table exams_content_table">
+				<thead>
+					<tr>
+						<th>{{#str}}exams, local_exams{{/str}}</th>
+						<th>{{#str}}date, local_exams{{/str}}</th>
+						<th>{{#str}}location, local_exams{{/str}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{# hascourses}}
+					<tr>
+						<td>
+							<h6>{{examname}}</h6>
+							<div>
+<!-- 								<button class="btn btn-outline-primary theme_text_color btn-sm mr-2">Grade : Passed Grade/Total Grade</button> -->
+								<a href="{{url}}/local/exams/examdetails.php?id={{examid}}" class="btn btn-outline-primary theme_text_color btn-sm mr-2">{{#str}}view_exam, local_exams{{/str}}</a>
+<!-- 								<button class="btn btn-outline-primary theme_text_color btn-sm mr-2">View exam</button> -->
+							</div>
+						</td>
+						<td>
+							{{examdatetime}}
+						</td>
+						<td>
+							{{location}}
+						</td>
+					</tr>
+					{{/ hascourses}}
+				</tbody>
+			</table>
+				
+		</div>
+		<div class="tab-pane" id="completedexamstab" role="tabpanel" aria-labelledby="completed-tab">
+			<table class="table exams_content_table">
+				<thead>
+					<tr>
+						<th colspan="2">{{#str}}exams, local_exams{{/str}}</th>
+						<th>{{#str}}status, local_exams{{/str}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{# completedexams}}
+					<tr>
+						<!-- <td><b>1.</b></td> -->
+						<td>
+							<h6>{{examname}}</h6>
+						</td>
+						<td>
+							<b>{{#str}}completed, local_exams{{/str}}</b>
+						</td>
+					</tr>
+					{{/ completedexams}}
+				</tbody>
+			</table>
+		
+		</div>
+	</div>
+	
+</div>
+
+ {{/ records}} 
+  {{/ response}}

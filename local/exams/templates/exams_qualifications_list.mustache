@@ -1,0 +1,37 @@
+<div class="row" id="exams_qualifications_list_container">
+    <div class="col-md-12">
+        <div class="input-group " id="find_input_group">
+            <div class="w-100">
+                
+                
+            </div>    
+        </div>
+        <div id="exams_qualifications_container">
+            <div class="row">
+                <div class="col-md-9">
+                    {{> local_exams/exams_qualifications_cards}}
+                    {{{examdetails}}}
+                </div>
+                <div class="col-md-3">
+                    <div class="filters_container displaystatic">
+                            <div class="header_content">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{#str}}filter, local_exams{{/str}}</h6>
+                                    <!-- <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                                        Close
+                                    </button> -->
+                                </div>
+                                
+                                <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                                    {{#str}}allthefilters, local_exams{{/str}}
+                                </div>
+                            </div>
+                            <div class="filters_contents">
+                                {{{filterform}}}
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

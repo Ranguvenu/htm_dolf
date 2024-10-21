@@ -1,0 +1,122 @@
+<div class="header_content">
+    <h6> <span class="piximg filter_icon">{{#pix}} filter,local_hall {{/pix}}</span> Filter</h6>            
+    <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+        All the shown filters are here by ...
+    </div>
+</div>
+<div class="filters_contents">
+    {{{filterform}}}
+     <!-- <form action="/action_page.php">
+        <div class="collapsed_div filter_sub_section">
+            <div class="d-flex align-items-center filter_header" data-toggle="collapse" href="#list_type_filters" role="button" aria-expanded="false" aria-controls="collapse">
+                <h6>Type</h6>
+                <span class="float-right collapseiconspan"><i class="collapseicon fa" aria-hidden="true"></i></span>
+            </div>
+            <div class="collapse show collapse_content px-1 py-2 mr-2 mt-3 tt" id="list_type_filters" >
+                <ul class="filter_list_items_ul">
+                {{#filtersinfo}}
+                    <li>
+                        <label for="type_training_program">
+                            <input type="radio" name="type" class='type' id="type_training_program" value="{{id}}" />{{name}}
+                        </label>
+                    </li>
+                {{/filtersinfo}}
+                </ul>
+            </div>
+        </div>
+        <div class="filter_sub_section">
+            <div class="form-group mt-2">
+                <label for=""><h6 class="filter_heading">Room Location</h6></label>
+                <select name="roomshape" id="roomshape" class="form-control" name="roomshape">
+                    <option value="">Select Room shape</option>
+                    {{#filtersinfo}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/filtersinfo}}
+                </select>
+            </div>
+        </div>
+        <div class="filter_sub_section">
+            <h6 class="filter_heading">Date</h6>
+            <div class="form-group mt-2">
+                <label for="">From</label>
+                <input type="date" class="form-control datefrom" name="datefrom" />
+            </div>
+            <div class="form-group">
+                <label for="">To</label>
+                <input type="date" class="form-control dateto" name="dateto" />
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary hallfitlers"  data-options="{{options}}" data-dataoptions="{{dataoptions}}" data-status="{{status}}">Apply</button>
+        <button type="reset" class="btn btn-primary hallfitlers" value="Reset" name='reset' data-options="{{options}}" data-dataoptions="{{dataoptions}}" data-status="{{status}}">Reset</button>
+    </form>-->
+</div>
+
+{{#js}}
+    require(['local_costcenter/cardPaginate'], function(cardPaginate) {
+        var search_interval = 100;
+        var timer;
+        $(document).on('click', '.hallfitlers', function(){
+            clearTimeout(timer);
+            var options = $(this).data('options');
+            var dataoptions = $(this).data('dataoptions');
+            var searchval = $(this).val();
+            var fieldname = $('.hallfilter').attr('name');
+            var thisstatus = $(this).data('status');
+            var roomshape = $('#roomshape').val();
+            var type = $("input[name='type']:checked").val();
+            var datefrom = $('.datefrom').val();
+            var dateto = $('.dateto').val();
+            timer = setTimeout(function(){
+                {{! var filterdata = $(this).data('filterdata'); }}
+                var formdata =  $('{{submitid}}').serializeArray();
+                values = [];
+                filterdatavalue = [];
+                $.each(formdata, function (i, field) {
+                    valuedata = [];
+                    if(field.name != '_qf__filters_form' && field.name != 'sesskey'){
+                        if(!(field.name == 'options' || field.name == 'dataoptions')){
+                            {{! values[field.name] = field.value; }}
+                        {{! }else{ }}
+                            var str = field.name;
+                            if(str.indexOf('[]') != -1){
+                                field.name = str.substring(0, str.length - 2);
+                            }
+                            if(field.value != '_qf__force_multiselect_submission'){
+                                if(field.name in filterdatavalue){
+                                    filterdatavalue[field.name] = filterdatavalue[field.name]+','+field.value;
+                                }else{  
+                                    filterdatavalue[field.name] = field.value;
+                                }
+                            }
+                        }
+
+                    }
+                });
+                {{! var filtervalue = {search_query: $(this).val()}; }}
+                if(searchval){
+                    filterdatavalue[fieldname] = searchval;
+                } else {
+                    filterdatavalue['status'] = thisstatus;
+                    filterdatavalue['roomshape'] = roomshape;
+                    filterdatavalue['type'] = type;
+                    filterdatavalue['datefrom'] = datefrom;
+                    filterdatavalue['dateto'] = dateto;
+                }
+                {{! if(searchval){ }}
+                {{! } }}
+                filterdataparsondata = $.extend({}, filterdatavalue);
+                {{! console.log(JSON.stringify(filterdata)); }}
+                {{! if(JSON.stringify(filterdata) != '[]')
+                    var filterdataoptions = $.extend(filterdata, filtervalue);
+                else
+                    var filterdataoptions = filtervalue; }}
+                cardPaginate.reload(options, dataoptions, filterdataparsondata);
+            }, search_interval);
+                
+        });
+        $(document).on('keydown', '#global_filter', function(){
+            clearTimeout(timer);
+        });
+    });
+{{/js}}

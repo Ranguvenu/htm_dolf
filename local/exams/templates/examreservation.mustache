@@ -1,0 +1,109 @@
+<div class="bg-white shadow rounded p-3 mt-2 available_times_container">
+    <div class="row mb-3">
+        <div class="col-md-12"><h6 class="text-themecolor2">{{hallname}} ({{language}} {{#str}}exam, local_exams{{/str}})</h6></div>
+        <div class="{{# enroloptions}} col-md-12 {{/ enroloptions}} {{^ enroloptions}} col-md-10 {{/ enroloptions}}">
+            <div class="rounded bg-themecolor3 avail_dates_container p-3 position-relative">
+                <div class="d-flex flex-wrap align-items-center mb-3 justify-content-between">
+                    {{# userreservations}}
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}seats, local_exams{{/str}} :</strong> {{seats}} {{#str}}seats, local_exams{{/str}}
+                    </div>
+                    {{/ userreservations}}
+                    {{^ userreservations}}
+                        <div>
+                            <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                            <strong>{{#str}}purchasedseats, local_exams{{/str}} :</strong> {{purchasedseats}} {{#str}}seats, local_exams{{/str}}
+                        </div>
+                        <div>
+                            <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                            <strong>{{#str}}availableseats, local_exams{{/str}} :</strong> {{availableseats}} {{#str}}seats, local_exams{{/str}}
+                        </div>
+                    {{/ userreservations}}
+
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}enrolled, local_exams{{/str}}:</strong> {{enrolled}} {{#str}}examinee, local_exams{{/str}}
+                    </div>
+                    <div>
+
+                    {{^ userreservations}}
+                        {{# locationstatus}}
+                            <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                            <strong>{{#str}}location, local_exams{{/str}}:</strong> <a href="{{location}}">{{#str}}view_on_map,local_hall{{/str}}</a>
+                        {{/ locationstatus}}
+                        {{^ locationstatus}}
+                            <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                            <strong>{{#str}}location, local_exams{{/str}}:</strong> {{location}}
+                        {{/ locationstatus}}
+                    {{/ userreservations}}
+
+                    </div>                            
+                    <div>
+                        <i class="fa fa-chevron-right text-themecolor2" aria-hidden="true"></i>
+                        <strong>{{#str}}fees, local_exams{{/str}}:</strong> {{fees}} {{#str}}sa_currency,local_trainingprogram{{/str}}
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="startdatecontainer">
+                        <span class="piximg">{{# pix }} calendericon, local_trainingprogram {{/ pix }}</span>
+                        <strong>{{#str}}startdate, local_exams{{/str}}:</strong> {{reservestartdate}} | {{slotstart}}
+                    </div>
+                    <div class="flex-grow-1 d-flex align-items-center mx-2 toindicator">
+                        <span class="w-100"></span>
+                    </div>
+                    <div class="enddatecontainer">
+                        <span class="piximg">{{# pix }} calendierwithcheck, local_trainingprogram {{/ pix }}</span>
+                        <strong>{{#str}}enddate, local_exams{{/str}}:</strong> {{reserveenddate}} | {{slotend}}
+                    </div>
+                </div>
+
+
+                {{#available}}
+                    <div class="statuslabel open">
+                        <span></span> {{#str}}open,local_events{{/str}}
+                    </div>
+                {{/available}}
+                {{^available}}
+                    {{# availablestatus}}
+                        <div class="statuslabel complete">
+                            <span></span> {{#str}}completed,local_exams{{/str}}
+                        </div>
+                    {{/ availablestatus}}
+                    {{^ availablestatus}}
+                        <div class="statuslabel inprogress">
+                            <span></span> {{#str}}inprogress,local_exams{{/str}}
+                        </div>
+                    {{/ availablestatus}}
+
+                {{/available}}
+            </div>
+        </div>
+        {{^ enroloptions}}
+            {{# exambooknowbtn}}
+                <div class="seatspurchase mt-4">
+                    {{# available}}
+                        {{{examseats}}}
+                    {{/ available}}
+                </div>
+            {{/ exambooknowbtn}}
+            {{# examselectbtn}}
+                {{# available}}
+                    <div class="seatspurchase mt-4">
+                        <a href="{{cfg.wwwroot}}./examenrollment.php?examid={{examid}}&hallreservationid={{reservationid}}" class="btn  btn-primary">{{#str}}enroll, local_exams{{/str}}</a>
+                    </div>
+                {{/ available}}
+            {{/ examselectbtn}}
+        {{/ enroloptions}}
+        {{#reservationview}}
+              <div class="col-md-2 font-weight-bold d-flex align-items-center flex-column justify-content-center">
+                <div class="rounded-md border mb-2 d-flex align-items-center w-100 varient_selection_div">
+                   {{>tool_product/cart/variation}}
+                </div>
+                <div class="rounded-md border mb-2 d-flex align-items-center w-100 varient_selection_div">
+                   {{>tool_product/cart/programregister}}
+                </div>                
+        </div>
+        {{/reservationview}}
+    </div>
+</div>

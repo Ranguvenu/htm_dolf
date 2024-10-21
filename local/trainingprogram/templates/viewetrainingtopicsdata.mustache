@@ -1,0 +1,36 @@
+{{#response}}
+    {{#records}}
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">{{# str}} name, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} topic_created_by, local_trainingprogram{{/ str}}</th>
+                  <th scope="col">{{# str}} topic_created_date, local_trainingprogram{{/ str}}</th>
+                  <th>{{# str}} actions, local_trainingprogram{{/ str}}</th>
+             
+                </tr>
+            </thead>
+          <tbody>
+          {{# hascourses}}
+              <tr>
+                  <td>{{{name}}}</a></td>
+                  <td>{{usercreated}}</td>
+                  <td>{{timecreated}}</td>                                                 
+                  <td>
+                      <div class="d-flex action_btns">
+                        <a href="#"  data-action="createtrainingtopics" data-id={{id}} data-toggle ="tooltip" title={{#str}}edittp,local_trainingprogram{{/str}}><span class="bg-info text-white"><i class="fa fa-pencil"></i></span></a>
+                        <a href="#" data-action="deletetrainingtopics" data-id={{id}} data-name='{{displayname}}' data-toggle ="tooltip" title={{#str}}delete,local_trainingprogram{{/str}}><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                      </div>
+                  </td> 
+                   
+              </tr>
+           {{/ hascourses}} 
+          </tbody>
+        </table>
+    {{/ records}}
+{{/ response}}
+{{#js}}
+    require(['local_trainingprogram/tpform'], function(s) {
+        s.init();
+    });
+{{/js}}

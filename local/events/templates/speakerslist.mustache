@@ -1,0 +1,54 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{# response}}
+            <table class="table generaltable">
+                <thead>
+                    <tr>
+                        <th>{{#str}}pluginname,local_events{{/str}}</th>
+                        <th>{{#str}}speakername,local_events{{/str}}</th>
+                        <th>{{#str}}specialist, local_events{{/str}}</th>
+                        <th>{{#str}}linkedpro, local_events{{/str}}</th>
+                        <th>{{#str}}action, local_events{{/str}}</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                {{#records}}
+                    <tr>
+                        <td>{{eventname}}</a></td>
+                        <td>{{speakername}}</td>
+                        <td>{{specialist}}</td>
+                        <td>{{linked_profile}}</td>
+                        <td>
+                            <div class="d-flex action_btns">
+                            {{#action}}
+                                 <a alt="{{#str}}view{{/str}}" title="{{#str}}view{{/str}}" data-action="viewspeaker" data-id = "{{id}}" data-name = "{{speakername}}" data-eventid = "{{eventid}}" ><span class="bg-primary text-white"><i class="fa fa-search-plus" aria-hidden="true"></i></span></a>
+                                 <a alt="{{#str}}edit{{/str}}" title="{{#str}}edit{{/str}}"  data-action="createspeaker" data-id = "{{id}}" data-name = "{{speakername}}"><span class="bg-success text-white"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+                                 <a alt="{{#str}}delete{{/str}}" title="{{#str}}delete{{/str}}"  data-action="deletspeaker" data-id = "{{id}}" data-name="{{speakername}}" data-eventid = "{{eventid}}"><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+                            {{/action}}
+                            </div>
+                        </td>
+                    </tr>
+                    {{/records}}
+                </tbody>
+            </table>
+{{/ response}}
+{{#js}}
+    require(['local_events/eventsform'], function(s) {
+        s.init();
+    });
+{{/js}}

@@ -1,0 +1,31 @@
+<div class="payments_container">
+{{# response}}
+{{# records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodatatext}}</div>
+    {{/nodata}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive mt-3">
+                <table class="table mypayments_table">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}walletamount,tool_product{{/str}}</th>
+                            <th>{{#str}}addedon, tool_product{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#haswalletdata}}
+                        <tr> 
+                            <td>{{addedwallet}}</td>
+                            <td>{{timecreated}}</td>
+                        </tr>
+                        {{/ haswalletdata}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  {{/ records}}  
+{{/ response}}
+</div>

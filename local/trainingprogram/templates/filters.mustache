@@ -1,0 +1,15 @@
+<div class="filters_container">
+  <div class="header_content">
+    <div class="d-flex align-items-center justify-content-between">
+          <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{#str}}filter, local_exams{{/str}} </h6>
+          <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+            {{#str}}close, local_trainingprogram{{/str}} 
+          </button>
+      </div>
+       
+      <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+         {{#str}}filter_body, local_trainingprogram{{/str}} 
+      </div>
+  </div>
+  <div class="filters_contents">{{{ filters }}}</div>
+</div>

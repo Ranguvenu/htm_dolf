@@ -1,0 +1,47 @@
+{{#response}}
+{{#records}}
+<div id="viewresponsibilitycontainer">
+    <div class="row offerwrapper">
+        <div class="col-md-12">
+           
+            <div class="viewresponsibilitycontainer table-responsive my-3">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}jobfamily , local_sector{{/str}}</th>
+                            <th>{{#str}}jobrole , local_sector{{/str}}</th>
+                            <th>{{#str}}responsibility , local_sector{{/str}}</th>
+                            <th class="text-center">{{#str}}action , local_sector{{/str}}</th>
+                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	 {{# hascourses}}
+                        <tr>
+                            <td>{{jobfamilyname}}</td>
+                            <td>{{jobrolename}}</td>
+                            <td>{{{responsibility}}}</td>
+                            <td>
+                            	 <div class="d-flex action_btns justify-content-center"> 
+                            	 <a   data-action="deleteresponsibility" data-id={{id}}  data-toggle="tooltip"title="{{#str}} delete, local_sector {{/str}}" ><span class="bg-danger text-white"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                            	 </a>
+                            	</div>
+
+                            </td>
+                        </tr>
+                         {{/ hascourses}}
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+</div>
+{{#js}}
+    require(['local_sector/jobrole_level'], function(s) {
+        s.init();
+    });
+
+{{/js}}
+{{/ records}}
+{{/ response}}

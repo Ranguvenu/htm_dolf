@@ -1,0 +1,45 @@
+ <div class="row">
+    <div class="col-md-12">
+        <div id="userapprovals_section">
+            <div class="row my-3">
+                <div class="col-md-4">
+                    {{{globalinput}}}
+                </div>
+                <div class="col-md-8">
+                
+                   {{> local_userapproval/registeruserbuttonview}}
+                </div>
+            </div>
+
+            <div id="userapprovals_container">
+                 {{{userdetails}}}
+            </div>
+              <div id="userapprovals_container">
+                {{{fastuserenrol}}}
+            </div>
+        </div> 
+    </div>
+     <div class="filters_container">
+         <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}} filter, local_userapproval{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}} close_filter, local_userapproval{{/ str}}
+                </button>
+            </div>
+             
+            <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                {{# str}} filter_discription, local_userapproval{{/ str}}
+            </div>
+        </div>
+        <div class="filters_contents">
+             {{{filterform}}}
+        </div> 
+    </div>
+</div>
+
+{{#js}}
+    require(['local_userapproval/userenrol'], function(s) {
+        s.init();
+    });
+{{/js}}

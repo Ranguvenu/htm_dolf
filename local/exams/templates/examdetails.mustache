@@ -1,0 +1,55 @@
+<div id="exams_container">
+    <div class="row">
+        <div class="col-12">
+            <div class="allexams_container">
+                <div class="tab-content" id="exam_tabsContent">
+                    <div class="tab-pane fade show active" id="scheduled" role="tabpanel" aria-labelledby="scheduled-tab">
+                        <div class="exams_wrapper examdetails">
+                            <!-- Exam content -->
+                            <div class="exam_content">
+                                <h5 class="text-themecolor">{{#str}}description, local_exams{{/str}}</h5>
+                                <div class="mt-3">
+                                    <p>{{{description}}}</p>
+                                </div>
+    
+                                {{# instructions}}
+                                <h5 class="text-themecolor">{{#str}}instructions, local_exams{{/str}}</h5>
+                                <div class="mt-3">
+                                    <p>{{{instructions}}}</p>
+                                </div>
+                                {{/ instructions}}
+
+                                {{# nondisclosure}}                                
+                                <h5 class="text-themecolor">{{#str}}nondisclosure, local_exams{{/str}}</h5>
+                                <div class="mt-3">
+                                    <p>{{{nondisclosure}}}</p>
+                                </div>
+                                {{/ nondisclosure}}
+                                <div class="my-4">
+                                {{# orgoff}}
+                                    <button class="btn btn-primary px-3" data-id={{id}} data-action="createexam">{{#str}}edit, local_exams{{/str}}</button>
+                                    <button class="btn btn-primary px-3" data-id={{id}} data-action="deleteexam" {{# enrolled}} title="{{#str}}restrictdelete, local_exams{{/str}}" disabled {{/ enrolled}} >{{#str}}delete, local_exams{{/str}}</button>
+                                {{/ orgoff}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{^ orgoff}}
+{{#attachedmessage_display}}
+    <div class="fixed-bottom bg-red w-100 p-3 text-center shadow pr-6 and pl-6"> <h4>{{{attachedmessage}}}</h4></div>
+{{/attachedmessage_display}}
+{{/ orgoff}}
+
+{{#js}}
+    require(['local_exams/exams'], function(s) {
+        s.init();
+    });
+    require(['local_hall/hallreserve'], function(s) {
+        s.load();
+    });    
+{{/js}}

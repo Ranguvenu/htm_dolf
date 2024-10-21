@@ -1,0 +1,42 @@
+ <div class="row">
+    <div class="col-md-12">
+        <div id="certicifates_section">
+            <div class="row my-3">
+                
+                <div class="col-md-8">
+                    {{{globalinput}}}
+                </div>
+                <div class="col-md-2 issue_certificate">
+                    <a href="#" role="button" class="btn btn-primary float-right mb-3 iconlarge nomargin" data-element="addbutton" data-tid="0">
+                        <i class="icon fa fa-plus fa-fw " aria-hidden="true"></i>{{#str}}issuecertificates, tool_certificate{{/str}}
+                    </a>
+                </div>
+                <div class="col-md-2">
+                   {{> tool_certificate/certificateactions}}
+                </div>
+            </div>
+
+            <div id="certicifates_container">
+                 {{{certicifates}}}
+            </div>
+        </div> 
+    </div>
+     <div class="filters_container">
+        <div class="header_content">
+            <div class="d-flex align-items-center justify-content-between">
+                <h6> <span class="piximg filter_icon">{{#pix}} pageicons/filter,theme_academy {{/pix}}</span> {{# str}} filter, local_userapproval{{/ str}}</h6>
+                <button class="btn btn-close filter_toggle_btn" id="filter_close_btn">
+                    {{# str}} close_filter, tool_certificate{{/ str}}
+                </button>
+            </div>
+             
+            <!-- <div class="text-center border border-right-0 border-left-0 py-2 my-3">
+                {{# str}} filter_discription, tool_certificate{{/ str}}
+            </div> -->
+        </div>
+        <div class="filters_contents">
+             {{{filterform}}}
+        </div>
+    </div>
+</div>
+

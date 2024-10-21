@@ -1,0 +1,119 @@
+{{#response}}
+<!-- <div class="pb-4"><h5><a href="{{{url}}}/local/trainingprogram/index.php">{{#str}} pluginname, local_trainingprogram {{/str}}</a> > <b> {{programname}}</h5></b> </div>
+ -->{{#records}}
+{{# hascourses}}
+<h5 class="m-0 theme_text_color">{{#str}} offerings, local_trainingprogram {{/str}} - {{coid}} ( {{offeringmethod}} )
+    <small style="display: block;font-size: 12px;margin-top: 5px;">{{code}}</small>
+</h5>
+<hr>
+<div id="tpschedulecontainer">
+    <div class="d-flex flex-wrap">
+        <div id="infocontent" class="flex-grow-1">
+            <table class="table">
+                <thead>
+                    <tr>
+          
+                        {{#action}}
+
+                            <th>{{#str}}orderseats, local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}approvalseats, local_trainingprogram{{/str}}</th>
+
+                            <th>{{#str}}available_seats, local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}enrolledseats, local_trainingprogram{{/str}}</th>
+                              <th>{{#str}}olanguage, local_trainingprogram{{/str}}</th>
+
+                        {{/action}}
+                        {{^action}}
+                            <th>{{#str}}seats, local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}available_seats, local_trainingprogram{{/str}}</th>
+                             <th>{{#str}}olanguage, local_trainingprogram{{/str}}</th>
+
+                        {{/action}}
+                        
+                        {{# datedisplay}}
+                        <th>{{#str}}start_date, local_trainingprogram{{/str}}</th>
+                        <th>{{#str}}end_date, local_trainingprogram{{/str}}</th>
+                        {{/ datedisplay}}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {{#action}}
+
+                            <td>{{orderseats}}</td>
+                            <td>{{approvalseats}}</td>
+
+                            <td>{{enavailableseats}}</td>
+                            <td>{{enrolledseats}}</td>
+
+                        {{/action}}
+                         {{^action}}
+                            <td>{{totalseats}}</td>
+                            <td>{{availableseats}}</td>
+                            <td>{{courselanguage}}</td>
+                        {{/action}}
+                        
+                        {{# datedisplay}}
+                        <td>{{startdate}} {{starttime}}</td>
+                        <td>{{enddate}} {{endtime}}</td>
+                        {{/ datedisplay}}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="price_container" class="px-4 text-center flex-auto">
+            <h4 id="price">{{#str}}price, local_trainingprogram{{/str}} : <strong>{{sellingprice}} {{#str}}sa_currency,local_trainingprogram{{/str}}</strong></h4>
+            <!--<a href="{{config.wwwroot}}./programenrollment.php?programid={{programid}}&roleid=30&offeringid={{offeringid}}" class="btn btn-primary mt-2">{{#str}}enrol, local_exams{{/str}}</a>-->
+              {{{bookseats}}}
+        </div>
+    </div>
+    {{# halldisplayaction}}
+    <div id="hall_info" class="mt-2">
+        <h5>{{#str}}hall_info, local_trainingprogram{{/str}}</h5>
+        <hr>
+        <div class="row hall_info_container mt-4">
+            <div class="hall_info_content mb-2 col-md-2 col-sm-4">
+                <h6>{{#str}}hall_name, local_trainingprogram{{/str}}</h6>
+                <p>{{hallname}}</p>
+            </div>
+            <div class="hall_info_content mb-2 col-md-2 col-sm-4">
+                <h6>{{#str}}building_name, local_trainingprogram{{/str}}</h6>
+                <p>{{buildingname}}</p>
+            </div>
+            <div class="hall_info_content mb-2 col-md-2 col-sm-4">
+                <h6>{{#str}}city, local_trainingprogram{{/str}}</h6>
+                <p>{{city}}</p>
+            </div>
+            <div class="hall_info_content mb-2 col-md-2 col-sm-4">
+                <h6>{{#str}}seating_capacity, local_trainingprogram{{/str}}</h6>
+                <p>{{seatingcapacity}}</p>
+            </div>
+            <div class="hall_info_content mb-2 col-md-2 col-sm-4">
+                <h6>{{#str}}seats_available, local_trainingprogram{{/str}}</h6>
+                <p>{{availableseats}}</p>
+            </div>
+            <div class="hall_info_content mb-2 col-md-2 col-sm-4">
+                <h6>{{#str}}service_for, local_trainingprogram{{/str}}</h6>
+                <p>{{programname}}</p>
+            </div>
+        </div>
+    </div>
+    {{/ halldisplayaction}}
+</div>
+{{/ hascourses}}
+{{/records}}
+{{/response}}
+{{#js}}
+    require(['local_trainingprogram/tpform','tool_product/product'], function(s,product) {
+        s.init();
+
+        $(document).on('click','.product_orderseats',function(e){
+
+             e.stopImmediatePropagation();
+             
+            var action = $(this).data('action');
+            product.add_order_seats('[data-action='+action+']');
+        });
+    });
+
+{{/js}}

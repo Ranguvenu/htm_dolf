@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-end align-items-center">
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createorganization"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}createorganization, local_organization{{/str}}</a>
+    <a href="{{config.wwroot}}./uploadorganization.php">
+        <button class="btn btn-primary mr-2"><i class="fa fa-upload" aria-hidden="true" ></i>
+             {{#str}}uploadorg , local_organization {{/str}}
+        </button>
+    </a>
+    <a href="{{config.wwroot}}./partnertypes.php">
+        <button class="btn btn-primary mr-2"><i class="fa fa-cog" aria-hidden="true" ></i>
+             {{#str}}settings , local_trainingprogram {{/str}}
+        </button>
+    </a>    
+<!-- {{#invoicesummary}}
+        <a href="{{config.wwroot}}./invoicesummary.php">
+        <button class="btn btn-primary mr-2">
+           {{#str}}invoice_summary, local_organization {{/str}}
+        </button>
+    </a>  
+    {{/invoicesummary}} -->
+    <button class="btn filter_toggle_btn" id="filter_open_btn">
+        <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+       {{# str}} filter, local_userapproval{{/ str}}
+     </button>
+</div>
+
+{{#js}}
+    require(['local_organization/organization'], function(s) {
+        s.init();
+    });
+{{/js}}

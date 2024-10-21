@@ -1,0 +1,158 @@
+
+<div id="learningtrack_details">
+    <div class="row">
+        <div class="col-md-2 d-flex">
+            <div class="programimg w-200 h-200" style="background-image: url('{{ trackimg }}');"></div>
+        </div>
+        <div class="col-md-10">
+                <div class="mb-2 d-flex align-items-center justify-content-between">
+                    <h5 class="mb-3 flex-grow-1">{{trackname}}:</h5>
+                       <!--  <div class="course_action_container">
+                           {{#action}}
+                                <a title="Edit" class="mr-2" data-action = "edittracker" data-id = "{{trackid}}" data-name ="{{trackname}}" ><i class="icon fa fa-pencil fa-fw" aria-hidden="true" aria-label="" title = "{{# str}} edit {{/str}}"></i>
+                                </a>  
+                                <a title="Delete" class="mr-2" data-action="deletetrack" data-id = "{{trackid}}" data-name="{{trackname}}" data-usercount="{{usercount}}"><i class="icon fa fa-trash fa-fw" aria-hidden="true" aria-label="" title="{{#str}}delete{{/str}}"></i>
+                                </a> 
+                            {{/action}}
+                        </div>     -->
+                </div>
+             {{# isdescription}}
+                <p class="mb-4 description" >{{{ description }}}</p>
+             {{/ isdescription}}
+             {{^ isdescription }}
+                <p class="alert alert-info text-center">{{#str}}nodesc, local_learningtracks{{/str}}</p>
+            {{/ isdescription }}
+            <div>
+            </div>
+        </div>
+        <div class="col-md-12">
+
+            <h4 class="my-3">{{#str}}learning_track_details, local_learningtracks{{/str}}</h4>
+            {{# tabs}}
+            <div class="row my-3">
+                    <div class="col-md-12">
+                            <!-- tabs -->
+                            <ul class="nav nav-tabs" id="learning_tabs" role="tablist">
+                                    {{#course_tab}}
+                                        <li class="nav-item">
+                                            <a class="nav-link active trackmodules" id="coures-tab" data-module = "courses" data-status = "1" data-toggle="tab" href="javascript:void(0);" role="tab"
+                                            aria-controls="coures" aria-selected="true">{{# str }}courses, local_learningtracks {{/ str }}</a>
+                                        </li>
+                                    {{/course_tab}}
+                                    {{#user_tab}}
+                                        <li class="nav-item ">
+                                            <a class="nav-link trackmodules" data-module = "users" data-status = "2" id="users-tab" data-toggle="tab" href="javascript:void(0);" role="tab"
+                                            aria-controls="users" aria-selected="false">{{#str}}users, local_learningtracks{{/str}}</a>
+                                        </li>
+                                    {{/user_tab}}
+                            </ul>
+                    </div>
+                </div>
+         {{/ tabs}}
+         {{^tabs}}
+          <h3 class="my-3">{{#str}}learning_track_details, local_learningtracks{{/str}}</h3>
+         {{/tabs}}
+            <!-- learning track programs -->
+                  <div class="tab-content" id="learning_tab_contents">
+                <div class="tab-pane fade show active" id="courses"  role="tabpanel" aria-labelledby="coures-tab">
+                     {{#action}}
+                        <div class="text-right tabactions">
+                            <button class="btn btn-primary" data-action = "addlearningitems" data-trackid = "{{trackid}}" >{{#str}}assignitems, local_learningtracks{{/str}}</button> 
+                        </div>
+                      {{/action}}
+                        <div id="viewlearningcourses_container" class="my-4">
+                            <div id="courses_tabdata" data-region="courses_tabdata-preview-container">
+                                <div data-region="courses_tabdata-count-container"></div>
+                                <div data-region="courses_tabdata-list-container" id ="coursesid"></div> 
+                            </div>  
+                        </div>
+                </div>
+                <div class="tab-pane fade show" id="users" role="tabpanel" aria-labelledby="users-tab">
+
+                        <div id="viewlearningcourses_container" class="my-4">
+                            <div id="users_tabdata" data-region="users_tabdata-preview-container">
+                                <div data-region="users_tabdata-count-container"></div>
+                                <div data-region="users_tabdata-list-container" id ="usersid"></div> 
+                            </div>     
+                        </div>
+                </div>
+                <div class="tab-pane fade" id="audience" role="tabpanel" aria-labelledby="targetedaudience-tab">
+                        <div class="text-right tabactions"> <button class="btn btn-primary">{{#str}}audience, local_learningtracks{{/str}}</button> </div>
+                        <div id="viewlearningcourses_container" class="my-4">
+                            <div id="audiences_tabdata" data-region="audiences_tabdata-preview-container">
+                                <div data-region="audiences_tabdata-count-container"></div>
+                                <div data-region="audiences_tabdata-list-container" id ="usersid"></div> 
+                            </div>     
+                        </div>
+                </div>
+                <div class="tab-pane fade" id="requestedusers" role="tabpanel" aria-labelledby="requestedusers-tab">
+                        <div class="text-right tabactions"> <button class="btn btn-primary">{{#str}}requestedusers, local_learningtracks{{/str}}</button> </div>
+                        <div id="viewlearningcourses_container" class="my-4">
+                            <div id="requestedusers_tabdata" data-region="requestedusers_tabdata-preview-container">
+                                <div data-region="requestedusers_tabdata-count-container"></div>
+                                <div data-region="requestedusers_tabdata-list-container" id ="usersid"></div> 
+                            </div>     
+                        </div>
+                </div>
+        </div>
+        </div>
+        
+    </div>
+</div>
+
+{{#js}}
+    require(['local_learningtracks/learningtracks'], function(s) {
+        s.coursesData({{trackid}});
+    });
+    require(['local_learningtracks/learningtracksform'], function(s) {
+        s.init();
+    });
+    $('.trackmodules').click(function(){
+        var trackmodule = $(this).data('module');
+
+        if ($(this).hasClass('active')){
+            return true;
+        }
+        $('.trackmodules').removeClass('active');
+        $(this).addClass('active');
+        $(".tab-pane").removeClass('active');
+        $("#"+trackmodule).addClass('active');
+
+        var status = $(this).data('status');
+        var targetid = trackmodule+'_tabdata';
+       
+        var options = {targetID: targetid,
+                    templateName: 'local_learningtracks/trackview'+trackmodule,
+                    methodName: 'local_learningtracks_trackview_'+trackmodule,
+                    perPage: 5,
+                    cardClass: 'col-md-6 col-12',
+                    viewType: 'card'};
+        var dataoptions = {tabname: trackmodule, trackid:{{trackid}}, contextid: 1 };
+        console.log(status);
+        var filterdata = {};
+        for(i = 1; i<=5; i++){
+            if(status != i){
+                switch(i){
+                    case 1:
+                        $("#courses_tabdataid").empty();
+                    break;
+                    case 2:
+                        $("#usersid").empty();
+                    break;
+
+                    case 3:
+                        $("#audiencesid").empty();
+                    break;
+
+                    case 4:
+                        $("#requestedusersid").empty();
+                    break;
+                }
+                
+            }
+        }
+        require(['theme_academy/cardPaginate'], function(cardPaginate) {
+          cardPaginate.reload(options, dataoptions,filterdata);
+      });
+    });
+{{/js}}

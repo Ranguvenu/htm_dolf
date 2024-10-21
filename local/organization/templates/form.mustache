@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-end align-items-center">
+    <a tabindex="0" role="button" class="btn btn-primary mr-2" data-action="createpartnertypes"><i class="fa fa-plus" aria-hidden="true" ></i> {{#str}}newpartnertype, local_organization{{/str}}</a>
+</div>
+
+{{#js}}
+    require(['local_organization/organization'], function(s) {
+        s.init();
+    });
+{{/js}}

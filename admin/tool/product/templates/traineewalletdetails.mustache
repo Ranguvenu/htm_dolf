@@ -1,0 +1,31 @@
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    <div class="border rounded p-3 bg-theme_light">
+        {{#records}}
+            <div class="row mx-0 rounded py-3 my-3 bg-theme_dark">
+                <div class="col-md-4">
+                    <span class="d-block"><small>{{#str}} username ,tool_product{{/str}}</small></span>
+                    <h6>{{{user}}}</h6>
+                </div>
+                <div class="col-md-4">
+                    <span class="d-block"><small>{{#str}} walletamount ,tool_product{{/str}} ({{#str}}sa_currency,local_trainingprogram{{/str}})</small></span>
+                    <h6>{{walletamount}}</h6>
+                </div>
+                <div class="col-md-4">
+                    <!-- <span class="d-block"><small>{{#str}} action ,tool_product{{/str}}</small></span> -->
+                    <h6><button class="btn btn-danger btn-sm mt-3" data-action="deduct-traineeamount" data-walletid={{id}}  data-walletamount={{walletamount}}>{{#str}}deduct, tool_product {{/str}}</button></h6>
+                </div>                
+            </div>
+        {{/records}}
+    </div>
+{{/response}}
+
+{{#js}}
+    require(['tool_product/paymentdeduction'], function(s) {
+        s.init();
+    });
+{{/js}}

@@ -1,0 +1,62 @@
+<div id="registration_container">
+    <div class="container-fluid">
+    <div class="row">
+      
+    
+        <div class="col-md-12 col-lg-12">
+            
+            <div class="border-top my-4"></div>
+            <div class="org_nav_tabs m-auto">
+                <h6>{{#str}}stepshort,auth_registration {{/str}}</h6>
+                    <div class="row justify-content-between mt-3">
+                        <div class="col-md-3">                           
+                            <div class="steps_data  {{#step1active}} active  {{/step1active}} ">                              
+                                <a class="data_content" aria-current="page" href="#">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="data_icon"></div>
+                                        <div class="direction_icon"><i class="fa fa-angle-double-right"></i></div>
+                                    </div>
+                                  {{#str}} filldetails, auth_registration  {{/str}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">                   
+                            <div class="steps_data {{#step2active}} active{{/step2active}}">                                   
+                                <a class="print_content" href="#">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="print_icon"></div>
+                                        <div class="direction_icon"><i class="fa fa-angle-double-right"></i></div>
+                                    </div>
+                                    {{#str}} printdetails,auth_registration{{/str}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">                                       
+                                <div class="steps_data {{#step3active}} active{{/step3active}}">                     
+                                <a class="stamp_content" href="#">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="stamp_icon"></div>
+                                        <div class="direction_icon"><i class="fa fa-angle-double-right"></i></div>
+                                    </div>
+                                   {{#str}} stampdetails,auth_registration {{/str}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">                    
+                                <div class="steps_data{{#step4active}} active{{/step4active}} ">                                 
+                                <a class="email_content" href="#" tabindex="-1" aria-disabled="true">
+                                    <div class="d-flex">
+                                        <div class="right_icon"></div>
+                                    </div>
+                                   {{#str}} requestaccepted,auth_registration{{/str}}
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+    
+        </div>
+    </div>
+    </div>
+    </div>
+    

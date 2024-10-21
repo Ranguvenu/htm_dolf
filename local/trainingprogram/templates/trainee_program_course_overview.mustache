@@ -1,0 +1,118 @@
+{{# offerings}}
+<div id="mytrainingdetailscontainer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="heading_container">
+                <h4 class="theme_text_color mb-3">{{programname}} - {{offeringtype}}</h4>
+            </div>
+        </div>
+        <div class="col-md-12 bg-theme py-2 text-white mb-4">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-2">
+                          <span class="d-block mb-1"><small>{{#str}}trainers, local_trainingprogram{{/str}}</small></span>
+                          <h6 class="m-0">{{trainers}}</h6> 
+                        </div>
+                       
+                         <div class="col-md-1">
+                          <span class="d-block mb-1"><small>{{#str}}olanguage, local_trainingprogram{{/str}}</small></span>
+                          <h6 class="m-0">{{courselanguage}}</h6> 
+                        </div>
+                        {{# cityview}}
+                         <div class="col-md-2">
+                          <span class="d-block mb-1"><small>{{#str}}city, local_trainingprogram{{/str}}</small></span>
+                          <h6 class="m-0">{{cityname}}</h6> 
+                        </div>
+
+                        <!--    <div class="col-md-1">
+                          <span class="d-block mb-1"><small>{{#str}}hall, local_trainingprogram{{/str}}</small></span>
+                          <h6 class="m-0">{{hall}}</h6> 
+                        </div> -->
+
+                        {{/ cityview}}
+
+                        {{# datedisplay}}
+
+                        <div class="col-md-2">
+                            <span class="d-block mb-1"> <small>{{#str}}start_date, local_trainingprogram{{/str}}</small></span>
+                            <h6 class="m-0">{{startdate}}</h6> 
+                        </div>
+
+                        <div class="col-md-2">
+                            <span class="d-block mb-1"> <small>{{#str}}end_date, local_trainingprogram{{/str}}</small></span>
+                            <h6 class="m-0"> {{enddate}}</h6> 
+                        </div>
+                         {{/ datedisplay}}
+                        <div class="col-md-2">
+                            <span class="d-block mb-1"> <small>{{#str}}status, local_trainingprogram{{/str}}</small></span>
+                            <h6 class="m-0">{{offeringstatus}}</h6> 
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <span class="d-block"> <small> {{#str}}course_content, local_trainingprogram{{/str}} </small></span>
+                    <a href="{{{launchurl}}}"><button class="btn btn-light btn-sm px-3">{{#str}}launch, local_trainingprogram{{/str}}</button></a>
+                </div>
+            </div>
+        </div>
+        {{# todoactivitiesdisplay}}
+        <div class="col-md-12 mb-4">
+            <h5 class="text-decoration-underline mb-2">{{#str}}todo, local_trainingprogram{{/str}}</h5>
+            <ul class="p-0 list-unstyled">
+                {{#todoactivities}}
+                <li><a href="{{link}}" >{{name}} </a> </li>
+                 {{/todoactivities}}
+            </ul>
+        </div>
+        {{/ todoactivitiesdisplay}}
+        {{# sessiondatadisplay}}
+        <div class="col-md-12 mt-2 mb-3">
+            <h5 class="mb-3">{{#str}}offering_sessions, local_trainingprogram{{/str}}</h5>
+            <div class="table-responsive">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}session_name, local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}attendance, local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}datetime, local_trainingprogram{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{# sessiondata}}
+                        <tr>
+                            <td> <Strong>{{#str}} session, local_trainingprogram {{/str}} {{cid}}</Strong> </td>
+                            <td> {{status}}</td>
+                            <td>{{sessiondate}}</td>
+                        </tr>
+                         {{/ sessiondata}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{/ sessiondatadisplay}}
+        <div class="col-md-12 mt-2 mb-3">
+            <h5 class="mb-3">{{#str}}competency_achievement, local_trainingprogram{{/str}} : <span class="theme_text_color">{{programname}}</span></h5>
+            <div class="table-responsive">
+                <table class="table generaltable">
+                    <thead>
+                        <tr>
+                            <th>{{#str}}competency_name, local_trainingprogram{{/str}}</th>
+                            <th>{{#str}}level, local_trainingprogram{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{# competencieslists}}
+                        <tr>
+                            <td> <Strong>{{competencyname}}</Strong> </td>
+                            <td> {{level}}</td>
+                        </tr>
+                         {{/ competencieslists}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ offerings}}

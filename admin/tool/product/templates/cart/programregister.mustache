@@ -1,0 +1,38 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template tool_product/cart/programregister
+
+    TODO describe template programregister
+
+    Example context (json):
+    {
+    }
+}}
+{{#checkout}}
+    <a class="btn btn-success btn-block border py-2 text-light regbtn" href="{{globals.config.wwwroot}}/admin/tool/product/cart.php">{{#str}}register, tool_product{{/str}}</a>  
+{{/checkout}}
+{{^checkout}}
+    <div>
+        <button class="select_btn btn btn-success btn-block border py-2 text-light regbtn"  data-language="Arabic" data-tptandc="{{product_variations.tptandc}}" data-variation="{{product_variations.variation}}" data-product="{{product_variations.variation}}" data-action="register-btn-{{product_variations.variation}}" data-programid="{{product_variations.product}}" data-parent="add-to-cart-{{product_variations.product}}" {{#product_variations.hallscheduleid}} data-hallscheduleid="{{product_variations.hallscheduleid}}" {{/product_variations.hallscheduleid}} {{^product_variations.hallscheduleid}} data-hallscheduleid=0 {{/product_variations.hallscheduleid}} data-checkout="true" data-isloggedin="{{product_variations.isloggedin}}" data-hasvariations="1">{{#str}}register, tool_product{{/str}}</button>
+    </div>
+{{/checkout}}
+{{#js}}
+    require(['tool_product/product'], function(product) {
+        product.addprogramregister('[data-action="register-btn-{{product_variations.variation}}"]');
+    });
+{{/js}}

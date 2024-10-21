@@ -1,0 +1,293 @@
+body#page-local-userapproval-index #filters_form.collapsibleregion{
+    box-sizing: inherit;
+}
+#page-local-userapproval-index #filters_form #filters_form_inner .form-submit {
+    max-width: 80px;
+}
+#filters_form {
+    background-color: transparent;
+}
+@media (min-width: 1218px) and (max-width: 1300px){
+    body#page-local-userapproval-index #filters_form #mform1 .autocomplete .form-autocomplete-downarrow {
+        position: absolute;
+        left: 85%;
+        top: 10px;
+    }
+}
+@media (max-width: 543px){
+    body#page-local-userapproval-indexx #category_tbl tbody td {width: 100% !important;float: left;}
+    body#page-local-userapproval-index .catcourses_list .cat_btm{text-align: center;}
+    body#page-local-userapproval-index #filters_form .mform .form-inline input[type=text].form-control {
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+    body#page-local-userapproval-index #filters_form #mform1 .autocomplete .form-autocomplete-downarrow {
+        left: 90%;
+    }
+}
+#page-local-userapproval-index .form-control, #page-local-userapproval-index .custom-select{
+
+    border: 1px solid #d4dbe0;
+
+    border-radius: 5px;
+
+    width: 100%;
+
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 8%);
+
+   /* padding: 0.45rem 0.85rem;*/
+
+    font-size: 0.8rem;
+
+   
+}
+#page-local-userapproval-index .form-group.femptylabel .col-form-label{
+
+    display: none !important;
+
+}
+
+#page-local-userapproval-index .heading_label {
+
+    font-size: 16px;
+
+}
+
+#page-local-userapproval-userprofile .update_org_class a{
+    float: right;
+    margin-top: 5px;
+}
+
+#page-local-userapproval-userprofile .loginasuser_class a{
+    float: right;
+    margin-top: 5px;
+}
+
+#page-local-userapproval-index .dynamic_form_id_enter_ur_org_details_personal_details{
+
+    margin-top: 0px;
+
+}
+
+#page-local-userapproval-index .dynamic_form_id_iam_login{
+
+    margin-top: 2.5rem;
+
+}
+
+#page-local-userapproval-index .form-group.femptylabel .col-form-label{
+
+    display: none !important;
+
+}
+
+#page-local-userapproval-index .mform>.form-group {
+
+    margin: 15px 0;
+
+}
+
+#page-local-userapproval-index .form-group.femptylabel .felement{
+
+    padding:0;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    flex: 0 0 100%;
+
+}
+
+#page-local-userapproval-index .mform label {
+
+    font-weight: normal;
+
+}
+
+#page-local-userapproval-index .form-group {
+
+    flex:1;
+
+}
+
+#page-local-userapproval-index .form-group span[data-fieldtype]{
+
+    display: block;
+
+    width: 100%;
+
+}
+
+#page-local-userapproval-index #fgroup_id_login_statusclass fieldset .d-flex {
+
+    justify-content: space-between;
+
+    max-width: 550px;
+
+}
+
+#page-local-userapproval-index #fgroup_id_login_statusclass label{
+
+    color: #475c6e;
+
+   
+
+}
+
+#page-local-userapproval-index .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+color: #868686;
+
+opacity: 1; /* Firefox */
+
+}
+
+ 
+
+#page-local-userapproval-index .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+
+color: #868686;
+
+}
+
+ 
+
+#page-local-userapproval-index .form-control::-ms-input-placeholder { /* Microsoft Edge */
+
+color: #868686;
+
+}
+.action_btns span{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 9px;
+    font-size: 12px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25px;
+}
+#profile_container #profilecard{
+    background-color: #F4FAFF;
+    border: 1px solid #DEE5EA;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+#profile_container #profilecard #coverimage{
+    height: 160px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#profile_container #profilecard #profileimage{
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 15px solid #f4faff;
+    margin: -40px 10px 0 4%;
+    display: inline-block;
+}
+#profile_container #profilecard #profileimage img{
+    width: 100%;
+}
+#profile_container #profilename{
+    color:#064D97;
+    margin: 0;
+}
+#profile_container #profiledetailswrapper .detail_label{
+    font-weight: normal;
+}
+#profile_container #profilecontentcontainer{
+    background-color: #F4FAFF;
+    border: 1px solid #DEE5EA;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+#profile_container #profiletabs .nav-link{
+    background-color: transparent;
+    border: none;
+    padding: 5px 0px;
+    margin-right: 25px;
+}
+#profile_container #profiletabs .nav-link:not(.active){
+    color: #98A9B4;
+}
+#profile_container #profiletabs .nav-link.active{
+    font-weight: bold;
+    border-bottom: 0.2rem solid;
+}
+#profile_container .profile_details_table tr th, #profile_container .profile_details_table tr td{
+    border: none;
+}
+
+#userapprovals_section{
+    border: 1px solid #eee;
+    min-height: 500px;
+    border-radius: 15px;
+    padding: 1rem;
+}
+#userapprovalsheading{
+    border-bottom: 1px solid #eee;
+}
+
+#page-local-userapproval-index #viewregistrations #fgroup_id_buttonar .form-group {
+       
+   flex: 0;
+} 
+
+#page-local-userapproval-index #viewregistrations #fgroup_id_buttonar fieldset .d-flex {
+       
+   justify-content: center;
+}
+#page-local-userapproval-userprofile .dynamic_form_id_wallet .form-control {
+  width: 120px;
+} 
+
+body#page-local-userapproval-index input[name ="username"] {
+    text-transform: lowercase;
+}
+
+#page-local-userapproval-index .form-autocomplete-suggestions li[aria-selected=true]:not(:hover) {
+    background-color: #fff !important;
+    color: #1d2125 !important;
+    outline: 0;
+    box-shadow:none !important; 
+}
+#page-local-userapproval-index .form-autocomplete-suggestions li[data-value=""] {
+    display: none !important;
+}
+
+#page-local-userapproval-uploadusers .local_userapproval_sync_error {
+
+    color: #cd2626;
+}
+#page-local-userapproval-iamregistration .iamregistreationsubmit {
+
+    width: 100%;
+    margin: auto
+}
+
+body#page-local-userapproval-index .dynamic_form_id_dateofbirth .felement fieldset{
+   width: 100%;
+}
+
+
+#fitem_orgselect .form-autocomplete-suggestions {
+    width: 100% !important;
+}
+
+#fitem_orgselect .d-md-inline-block.mr-md-2.position-relative {
+    width: 100% !important;
+}
+#page-local-userapproval-index .country_phonetest .fitem {
+    width: 100%;
+    margin: 0px !important;
+}

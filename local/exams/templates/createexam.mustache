@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-end align-items-center">
+    {{# examdetailsactions}}
+        {{# examattempts}}
+        
+            <button class="addattempt btn btn-primary mr-2" data-examid={{examid}} data-action="editattempt"><i class="fa fa-plus" aria-hidden="true"></i>  {{#str}}addattempt, local_exams{{/str}}</button>
+        {{/ examattempts}}
+
+        {{^ examattempts}}
+        
+            <button class="addprofile btn btn-primary mr-2" data-examid={{examid}} data-action="addprofile"><i class="fa fa-plus" aria-hidden="true"></i>  {{#str}}addprofile, local_exams{{/str}}</button>
+        <a href="{{config.wwwroot}}/local/exams/examusers.php?id={{examid}}" tabindex="0" role="button" class="btn btn-primary mr-2">
+                        {{#str}}enrollments, local_exams{{/str}}
+        </a>
+        <a href="{{config.wwwroot}}/local/exams/examreservations.php?id={{examid}}" tabindex="0" role="button" class="btn btn-primary mr-2">
+                        {{#str}}reservations, local_exams{{/str}}
+        </a>
+        
+        {{/ examattempts}}
+
+{{/ examdetailsactions}}
+
+{{^ examdetailsactions}}
+        <div class="d-flex justify-content-end align-items-center">
+            <button class="btn btn-primary mr-2" data-action="createexam"><i class="fa fa-plus" aria-hidden="true"></i>  {{#str}}addnew, local_exams{{/str}}</button>
+        <a href="{{config.wwwroot}}/local/exams/bulkupload.php" tabindex="0" role="button" class="btn btn-primary mr-2">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                        {{#str}}uploadexams, local_exams{{/str}}
+        </a>
+
+        <a href="{{config.wwwroot}}/local/exams/profileupload.php" tabindex="0" role="button" class="btn btn-primary mr-2">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                        {{#str}}profileupload, local_exams{{/str}}
+        </a>
+
+        <a href="{{config.wwwroot}}/local/exams/fast_examenrol.php" tabindex="0" role="button" class="btn btn-primary mr-2">
+                <i aria-hidden="true"></i>
+                        {{#str}}fastapilogs, local_exams{{/str}}
+        </a>
+        {{#canissuecertificate}}
+            <a href="{{config.wwwroot}}/local/exams/certificates.php" tabindex="0" role="button" class="btn btn-primary" id="">
+                <!-- <i class="icon fa fa-plus fa-fw " aria-hidden="true"></i> -->
+                {{#str}}issuecertificates,local_exams{{/str}}
+            </a>
+        {{/canissuecertificate}}
+        </div>
+
+        <button class="btn filter_toggle_btn" id="filter_open_btn">
+            <span class="piximg">{{#pix}}pageicons/filter,theme_academy{{/pix}}</span>
+            {{#str}}filter,local_trainingprogram{{/str}}
+        </button>
+{{/ examdetailsactions}}
+</div>
